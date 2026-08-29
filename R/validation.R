@@ -23,3 +23,9 @@ write_artifact_manifest <- function(paths, output_path) {
   readr::write_csv(manifest, output_path)
   output_path
 }
+
+write_csv_artifact <- function(object, path) {
+  dir.create(dirname(path), recursive = TRUE, showWarnings = FALSE)
+  readr::write_csv(object, path, na = "")
+  path
+}
