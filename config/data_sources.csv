@@ -1,0 +1,9 @@
+source_id,region,provider,frequency,geography,count_definition,local_snapshot,license_or_terms
+eurostat_weekly,europe,Eurostat,weekly,country,deaths,EU_analysis/demo_r_mwk_20_linear.csv,Eurostat reuse policy
+cdc_wonder_sex,us,CDC WONDER,monthly,state,deaths,USA_analysis/monthly_data,CDC public data
+cdc_wonder_non_sex,us,CDC WONDER,monthly,state,deaths,USA_analysis/non_sex_stratified/monthly_data,CDC public data
+statcan_weekly,canada,Statistics Canada,weekly,province_or_territory,place_of_occurrence_deaths,Canada_analysis/non_sex_stratified/13100768.csv,Statistics Canada open licence
+ons_occurrence_1981_2020,england_wales,Office for National Statistics,weekly,England and Wales,occurrence_deaths_among_usual_residents,UK_analysis/dailydeaths19812020.xlsx,Open Government Licence
+ons_registration_2021_2023,england_wales,Office for National Statistics,weekly,England and Wales,registered_deaths_including_non_residents,UK_analysis/publicationfileweek352023.xlsx,Open Government Licence
+cso_quarterly,ireland,Central Statistics Office,quarterly,Ireland,deaths,ireland_analysis/ireland_quater.csv,CSO data terms
+owid_vaccination,international,Our World in Data,daily,country_or_state,people_vaccinated_per_hundred,USA_analysis/us_state_vaccinations_select.rda,CC BY
