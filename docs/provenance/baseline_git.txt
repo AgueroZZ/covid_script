@@ -1,0 +1,7 @@
+Repository: https://github.com/AgueroZZ/covid_script.git
+Baseline branch: main
+Baseline commit: 4fb4eeb4c59eb8d80aa55f3334cada7f9f753ee2
+Working branch: codex/reproducible-pipeline
+Baseline scientific correction carried into branch: USA_analysis/function.R omicron1 -> omicron
+Read-only archive: /Users/ziangzhang/Desktop/covid_mortality/covid_excess
+Read-only supplementary archive: /Users/ziangzhang/Desktop/covid_mortality/past_result
