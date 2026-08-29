@@ -172,6 +172,67 @@ list(
     format = "file"
   ),
   tar_target(
+    us_sex_wave_summary,
+    us_wave_summary_from_run(us_sex_model_run, analysis_config),
+    pattern = map(us_sex_model_run),
+    iteration = "list"
+  ),
+  tar_target(
+    us_non_sex_wave_summary,
+    us_wave_summary_from_run(us_non_sex_model_run, analysis_config),
+    pattern = map(us_non_sex_model_run),
+    iteration = "list"
+  ),
+  tar_target(
+    us_wave_summary_file,
+    write_csv_artifact(
+      dplyr::bind_rows(us_sex_wave_summary, us_non_sex_wave_summary),
+      artifact_path(analysis_config, "results", "us", "wave_summary.csv")
+    ),
+    format = "file"
+  ),
+  tar_target(
+    us_sex_pointwise_summary,
+    us_pointwise_summary_from_run(us_sex_model_run, analysis_config),
+    pattern = map(us_sex_model_run),
+    iteration = "list"
+  ),
+  tar_target(
+    us_non_sex_pointwise_summary,
+    us_pointwise_summary_from_run(us_non_sex_model_run, analysis_config),
+    pattern = map(us_non_sex_model_run),
+    iteration = "list"
+  ),
+  tar_target(
+    us_pointwise_summary_file,
+    write_csv_artifact(
+      dplyr::bind_rows(
+        us_sex_pointwise_summary,
+        us_non_sex_pointwise_summary
+      ),
+      artifact_path(analysis_config, "results", "us", "pointwise_summary.csv")
+    ),
+    format = "file"
+  ),
+  tar_target(
+    us_sex_contrasts,
+    build_us_sex_contrasts(us_sex_model_run),
+    iteration = "list"
+  ),
+  tar_target(
+    us_sex_contrast_summary_file,
+    write_csv_artifact(
+      bind_us_sex_contrast_summaries(us_sex_contrasts),
+      artifact_path(
+        analysis_config,
+        "results",
+        "us",
+        "sex_contrast_summary.csv"
+      )
+    ),
+    format = "file"
+  ),
+  tar_target(
     us_model_status_file,
     write_csv_artifact(
       dplyr::bind_rows(

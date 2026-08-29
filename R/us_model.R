@@ -231,6 +231,9 @@ predict_us_mortality <- function(fitted, config) {
   list(
     analysis_id = analysis_id,
     analysis_path = fitted$analysis_path,
+    geography = unique(fitted$full_data$geography),
+    age_group = unique(fitted$full_data$age_group),
+    sex = unique(fitted$full_data$sex),
     dates = fitted$full_data$date,
     observed_deaths = fitted$full_data$observed_deaths,
     samples = predictive_samples,
