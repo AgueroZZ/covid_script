@@ -1,0 +1,62 @@
+project:
+  artifact_root: artifacts
+  processed_data_root: data/processed
+  primary_runtime: darjeeling_linux
+
+training:
+  final_date: 2019-12-31
+
+waves:
+  initial:
+    start: 2020-03-01
+    end_exclusive: 2020-11-01
+  alpha:
+    start: 2020-11-01
+    end_exclusive: 2021-07-01
+  delta:
+    start: 2021-07-01
+    end_exclusive: 2022-01-01
+  omicron:
+    start: 2022-01-01
+    end_exclusive: 2024-04-01
+
+vaccination:
+  metric: people_vaccinated_per_hundred
+  interpretation: at_least_one_dose_per_100_people
+  reference_date: 2021-07-01
+  europe_date_rule: latest_on_or_before_reference_date
+  low_quantile: 0.15
+  high_quantile: 0.85
+
+model:
+  family: poisson
+  link: log
+  trend: IWP2
+  seasonal_period_months: [12, 6, 4, 3]
+  population_offset: false
+  us_calendar_day_offset: true
+  posterior_interval: [0.025, 0.975]
+  base_seed: 20260829
+
+regions:
+  europe:
+    frequency: weekly
+    age_groups: [20-39, 40-59, 60-79, GE80]
+  us_non_sex:
+    frequency: monthly
+    age_groups: [20-39, 40-59, 60-79, GE80]
+    analysis_end: 2023-08-31
+  us_sex:
+    frequency: monthly
+    age_groups: [0-44, 45-64, 65-84, GE85]
+    analysis_end: 2023-08-31
+  canada_sex:
+    frequency: weekly
+    age_groups: [0-44, 45-64, 65-84, GE85]
+  england_wales:
+    frequency: weekly
+    age_groups: [UNDER65, 65-84, GE85]
+    geography_label: England and Wales
+  ireland:
+    frequency: quarterly
+    age_groups: [25-44, 45-64, 65-84, GE85]

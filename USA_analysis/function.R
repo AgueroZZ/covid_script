@@ -153,7 +153,7 @@ excess_mortality_aggregate <- function(State, Age, model_pred, monthly_death){
     else if(wave == "delta"){
       year_range <- c(as.Date("2021-07-01"), as.Date("2022-01-01"))
     }
-    else if(wave == "omicron1"){
+    else if(wave == "omicron"){
       year_range <- c(as.Date("2022-01-01"), as.Date("2024-04-01"))
     }
     if(all(full_data$date < year_range[1] | full_data$date > year_range[2])){
