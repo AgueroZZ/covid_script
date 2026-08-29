@@ -11,5 +11,6 @@ artifacts/results/
 artifacts/figures/
 artifacts/tables/
 artifacts/manifests/
+artifacts/data/
 *.o
 *.so

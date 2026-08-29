@@ -7,3 +7,4 @@ ons_occurrence_1981_2020,england_wales,Office for National Statistics,weekly,Eng
 ons_registration_2021_2023,england_wales,Office for National Statistics,weekly,England and Wales,registered_deaths_including_non_residents,UK_analysis/publicationfileweek352023.xlsx,Open Government Licence
 cso_quarterly,ireland,Central Statistics Office,quarterly,Ireland,deaths,ireland_analysis/ireland_quater.csv,CSO data terms
 owid_vaccination,international,Our World in Data,daily,country_or_state,people_vaccinated_per_hundred,USA_analysis/us_state_vaccinations_select.rda,CC BY
+us_census_boundary,us,United States Census Bureau,static,state,state_boundary,USA_analysis/cb_2018_us_state_500k.zip,United States government public data
