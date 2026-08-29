@@ -19,6 +19,12 @@ Rscript -e 'renv::restore()'
 Rscript tests/testthat.R
 ```
 
+Run the real US model smoke before launching the full graph:
+
+```bash
+Rscript scripts/run_pipeline.R us_model_smoke
+```
+
 Save R and platform provenance:
 
 ```bash
@@ -31,6 +37,7 @@ Run the complete graph and generate the output manifest:
 
 ```bash
 Rscript scripts/run_pipeline.R
+Rscript scripts/verify_us_completion.R
 Rscript scripts/verify_artifacts.R
 ```
 

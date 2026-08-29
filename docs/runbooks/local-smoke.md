@@ -20,6 +20,14 @@ COVID_PIPELINE_IN_PROCESS=true Rscript scripts/run_pipeline.R foundation_manifes
 
 The smoke script uses a unique temporary target store, a fixed analysis configuration, and no persistent model artifact.
 
+The real one-stratum US model smoke is intentionally excluded from the local foundation test. On a machine configured for BayesGP fitting, run:
+
+```bash
+Rscript scripts/run_pipeline.R us_model_smoke
+```
+
+The preselected branch is Alabama, age 60-79, total sex, with the deterministic seed derived from its analysis identifier. A failed fit causes the target to fail rather than returning a successful smoke status.
+
 ## Codex macOS sandbox
 
 The managed Codex sandbox can deny a `processx` system call specifically when an R file is passed directly to `Rscript`. Use these equivalent in-process commands only in that sandbox:

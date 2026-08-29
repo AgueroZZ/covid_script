@@ -136,6 +136,17 @@ list(
     iteration = "list"
   ),
   tar_target(
+    us_model_smoke_branch,
+    select_us_model_branch(
+      us_non_sex_branches,
+      "us__us-non-sex__alabama__60-79__total"
+    )
+  ),
+  tar_target(
+    us_model_smoke,
+    run_us_model_smoke(us_model_smoke_branch, analysis_config)
+  ),
+  tar_target(
     us_sex_model_run,
     run_us_model_branch(us_sex_branches, analysis_config),
     pattern = map(us_sex_branches),

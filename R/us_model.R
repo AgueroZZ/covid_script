@@ -57,6 +57,15 @@ split_us_model_branches <- function(data, analysis_path) {
   })
 }
 
+select_us_model_branch <- function(branches, analysis_id) {
+  identifiers <- vapply(branches, us_branch_analysis_id, character(1))
+  selected <- which(identifiers == analysis_id)
+  if (length(selected) != 1L) {
+    stop("Expected exactly one US model smoke branch: ", analysis_id)
+  }
+  branches[[selected]]
+}
+
 us_branch_analysis_id <- function(branch) {
   analysis_id <- attr(branch, "analysis_id", exact = TRUE)
   if (is.null(analysis_id) || length(analysis_id) != 1L) {
@@ -279,6 +288,14 @@ run_us_model_branch <- function(branch, config) {
       )
     }
   )
+}
+
+run_us_model_smoke <- function(branch, config) {
+  run <- run_us_model_branch(branch, config)
+  if (!identical(run$status, "success")) {
+    stop("US model smoke failed: ", run$error_message)
+  }
+  run
 }
 
 us_model_run_status <- function(run) {
