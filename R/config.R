@@ -40,12 +40,20 @@ validate_analysis_config <- function(config) {
     stop("Vaccination coverage must use people_vaccinated_per_hundred.")
   }
 
-  quantiles <- c(
-    as.numeric(config$vaccination$low_quantile),
-    as.numeric(config$vaccination$high_quantile)
+  us_thresholds <- c(
+    as.numeric(config$vaccination$classification_rules$us$low_below),
+    as.numeric(config$vaccination$classification_rules$us$high_above)
   )
-  if (!isTRUE(all.equal(quantiles, c(0.15, 0.85)))) {
-    stop("Vaccination groups must use the 15th and 85th percentiles.")
+  if (!isTRUE(all.equal(us_thresholds, c(42, 62)))) {
+    stop("US vaccination groups must use fixed thresholds below 42 and above 62.")
+  }
+
+  europe_thresholds <- c(
+    as.numeric(config$vaccination$classification_rules$europe$low_below),
+    as.numeric(config$vaccination$classification_rules$europe$high_above)
+  )
+  if (!isTRUE(all.equal(europe_thresholds, c(41, 53)))) {
+    stop("European vaccination groups must use fixed thresholds below 41 and above 53.")
   }
 
   invisible(config)

@@ -25,8 +25,16 @@ vaccination:
   interpretation: at_least_one_dose_per_100_people
   reference_date: 2021-07-01
   europe_date_rule: latest_on_or_before_reference_date
-  low_quantile: 0.15
-  high_quantile: 0.85
+  classification_rules:
+    us:
+      low_below: 42
+      high_above: 62
+    europe:
+      low_below: 41
+      high_above: 53
+  diagnostic_quantiles:
+    us: [0.15, 0.85]
+    europe: [0.30, 0.70]
 
 model:
   family: poisson

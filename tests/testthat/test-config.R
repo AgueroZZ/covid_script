@@ -14,4 +14,12 @@ test_that("canonical configuration validates", {
     config$regions$england_wales$geography_label,
     "England and Wales"
   )
+  expect_equal(
+    unlist(config$vaccination$classification_rules$us, use.names = FALSE),
+    c(42, 62)
+  )
+  expect_equal(
+    unlist(config$vaccination$classification_rules$europe, use.names = FALSE),
+    c(41, 53)
+  )
 })
