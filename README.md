@@ -2,7 +2,7 @@
 
 This repository is being converted from a historical script collection into an end-to-end reproducible pipeline for the associated manuscript. The intended workflow covers immutable source snapshots, standardized regional observations, stratum-specific model fitting, posterior-derived analyses, and final figures and tables.
 
-The current branch contains the validated pipeline foundation. Regional processing and model targets are being migrated in explicit follow-on stages; see [Pipeline architecture](docs/pipeline.md) for the current boundary and migration order.
+The current branch contains the validated foundation and the complete US data, cohort, model, posterior-summary, vaccination, and historical-validation graph. Canada and Europe are the next regional migrations. The manuscript-facing reporting inventory is now fixed by `figures.docx`: five figures and one table, each with a dedicated R entry point. See [Pipeline architecture](docs/pipeline.md) for the current boundary and migration order.
 
 ## Reference environment
 
@@ -32,6 +32,24 @@ Run the tests:
 Rscript tests/testthat.R
 ```
 
+After the required upstream artifacts exist, render one manuscript output directly:
+
+```bash
+Rscript scripts/reporting/figure_01_model_illustration.R
+Rscript scripts/reporting/figure_02_europe_maps.R
+Rscript scripts/reporting/figure_03_north_america_maps.R
+Rscript scripts/reporting/figure_04_vaccination_pscore.R
+Rscript scripts/reporting/table_01_wave_pscores.R
+```
+
+Inspect or run the complete reporting registry:
+
+```bash
+Rscript scripts/reporting/run_all.R
+```
+
+Figure 5 is intentionally blocked until the European combined-age sex-contrast estimand is corrected. Figure 4 can be rendered individually, but its historical “All Ages” panels are ages 40-79 and require a manuscript caption decision. Full provenance and recalculation triggers are documented in [Submission figures and tables](docs/submission-outputs.md).
+
 The Codex macOS sandbox may prohibit `processx` system calls when an R file is passed directly to `Rscript`. That sandbox-only case can use the equivalent command documented in [Local smoke testing](docs/runbooks/local-smoke.md). It is not required on Darjeeling.
 
 ## Inputs and provenance
@@ -40,6 +58,7 @@ The Codex macOS sandbox may prohibit `processx` system calls when an R file is p
 - `data/raw/manifest.csv` is the canonical schema for immutable raw-file hashes and snapshot dates. Regional migration stages will populate it as source files are normalized under `data/raw/`.
 - `docs/provenance/` records the baseline repository and historical archive audit.
 - `config/analysis.yml` is the canonical analysis contract for wave dates, vaccination thresholds, regional frequencies, age groups, and primary model settings.
+- `config/reporting_outputs.csv` and `config/reporting_panels.csv` define the authoritative submission-output and panel contracts.
 
 The historical `covid_excess` directory is a read-only provenance source. It is not part of the repository and must not be modified by pipeline code.
 
@@ -48,6 +67,7 @@ The historical `covid_excess` directory is a read-only provenance source. It is 
 - [Pipeline architecture](docs/pipeline.md)
 - [Canonical data dictionary](docs/data-dictionary.md)
 - [Primary model contract](docs/model-specification.md)
+- [Submission figures and tables](docs/submission-outputs.md)
 - [Local smoke testing](docs/runbooks/local-smoke.md)
 - [Darjeeling full run](docs/runbooks/darjeeling-full-run.md)
 

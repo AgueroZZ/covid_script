@@ -37,6 +37,15 @@ test_that("all canonical waves are retained when observations are absent", {
   )
 })
 
+test_that("pointwise summaries retain variance for reporting aggregation", {
+  config <- read_analysis_config(here::here("config", "analysis.yml"))
+  result <- summarize_pointwise_pscore(synthetic_prediction(), config)
+
+  expect_true("p_variance" %in% names(result))
+  expect_true(all(is.finite(result$p_variance)))
+  expect_true(all(result$p_variance >= 0))
+})
+
 test_that("sex contrast is female minus male", {
   female <- synthetic_prediction("female", observed = c(30, 30))
   male <- synthetic_prediction("male", observed = c(20, 20))

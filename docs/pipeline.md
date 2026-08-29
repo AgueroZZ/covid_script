@@ -17,7 +17,9 @@ source snapshots
 
 ## Current migration boundary
 
-The foundation graph currently validates `config/analysis.yml`, materializes the canonical wave table, and writes a smoke manifest. Historical regional scripts remain available as provenance, but they are not yet treated as independently reproducible target stages.
+The graph validates the global configuration and implements the complete United States path through standardized observations, named cohort eligibility, vaccination membership, sex-stratified and non-sex model branches, posterior predictions, pointwise P-scores, sex contrasts, wave summaries, completion checks, and historical comparisons. Full US model production remains a Darjeeling run; the local test suite validates the transformation and contract layers.
+
+The reporting layer is also structurally complete. `config/reporting_outputs.csv` records the five adopted figures and one adopted table from `figures.docx`, while `config/reporting_panels.csv` makes every panel estimand explicit. Dedicated scripts under `scripts/reporting/` render standardized artifact inputs without accessing the historical archive.
 
 Migration proceeds region by region in this order:
 
@@ -25,9 +27,34 @@ Migration proceeds region by region in this order:
 2. Canada.
 3. Europe.
 4. England and Wales, then Ireland.
-5. Cross-region reporting, manuscript tables, figures, and claim validation.
+5. Connect the already-defined cross-region reporting inputs, then run manuscript output and claim validation.
 
 Each migration must identify immutable raw inputs, replace positional selection with named cohort rules, preserve posterior draws, compare regenerated summaries to historical artifacts, and add regression tests before its targets become part of the default graph.
+
+## Reporting entry points
+
+The reporting scripts use deterministic default paths:
+
+```text
+scripts/reporting/figure_01_model_illustration.R
+scripts/reporting/figure_02_europe_maps.R
+scripts/reporting/figure_03_north_america_maps.R
+scripts/reporting/figure_04_vaccination_pscore.R
+scripts/reporting/figure_05_sex_difference.R
+scripts/reporting/table_01_wave_pscores.R
+scripts/reporting/run_all.R
+```
+
+Each figure script writes a vector PDF and 300-dpi PNG. The table script writes CSV and HTML. Named `--input=value` and `--output=value` arguments may override the defaults for validation, but the production target graph uses paths registered in `config/reporting_outputs.csv`.
+
+The reporting runner does not treat a missing artifact as permission to search old directories. It reports the exact missing upstream files. It also refuses to render outputs marked `blocked_estimand_definition`.
+
+Two historical labels require manuscript review:
+
+- Figure 4 “All Ages” represents ages 40-79 in both Europe and the US.
+- Figure 5 European “All Age” historically combined observed ages 20-79 with expected ages 40-79 and is therefore blocked until a coherent age range is chosen.
+
+These are downstream calculation and labeling issues. If compatible posterior prediction artifacts are available, correcting them does not require fitting the underlying mortality models again.
 
 ## Artifact policy
 

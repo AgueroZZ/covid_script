@@ -31,6 +31,16 @@ list(
     read_analysis_config(analysis_config_file)
   ),
   tar_target(
+    reporting_output_registry_file,
+    "config/reporting_outputs.csv",
+    format = "file"
+  ),
+  tar_target(
+    reporting_panel_registry_file,
+    "config/reporting_panels.csv",
+    format = "file"
+  ),
+  tar_target(
     wave_definitions,
     wave_table(analysis_config)
   ),

@@ -39,6 +39,7 @@ summarize_pointwise_pscore <- function(prediction, config) {
     sex = prediction$sex,
     date = prediction$dates,
     p_mean = rowMeans(samples, na.rm = TRUE),
+    p_variance = apply(samples, 1, stats::var, na.rm = TRUE),
     p_lower = quantiles[, 1],
     p_median = quantiles[, 2],
     p_upper = quantiles[, 3],

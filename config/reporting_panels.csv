@@ -1,0 +1,24 @@
+output_id,panel_id,position,region,display_label,analysis_path,sex,data_age_group,estimand_age_groups,waves,scientific_status,notes
+figure_01,a,1,Netherlands,Overall,europe_total,total,GE80,GE80,pointwise,confirmed,Observed and expected weekly deaths
+figure_01,b,2,Netherlands,Trend,europe_total,total,GE80,GE80,pointwise,confirmed,Seasonally adjusted expected deaths
+figure_01,c,3,Netherlands,Seasonal,europe_total,total,GE80,GE80,pointwise,confirmed,Log relative seasonal rate
+figure_02,a,1,Europe,"Ages 40-59, Initial Wave",europe_total,total,40-59,40-59,initial,confirmed,UK and Ireland require explicit harmonized display-age metadata
+figure_02,b,2,Europe,"Ages 40-59, Delta Wave",europe_total,total,40-59,40-59,delta,confirmed,UK and Ireland require explicit harmonized display-age metadata
+figure_02,c,3,Europe,"Ages 60-79, Initial Wave",europe_total,total,60-79,60-79,initial,confirmed,UK and Ireland require explicit harmonized display-age metadata
+figure_02,d,4,Europe,"Ages 60-79, Delta Wave",europe_total,total,60-79,60-79,delta,confirmed,UK and Ireland require explicit harmonized display-age metadata
+figure_03,a,1,North America,"Ages 40-59, Initial Wave",north_america_non_sex,total,40-59,40-59,initial,confirmed,US states and selected Canadian provinces
+figure_03,b,2,North America,"Ages 40-59, Delta Wave",north_america_non_sex,total,40-59,40-59,delta,confirmed,US states and selected Canadian provinces
+figure_03,c,3,North America,"Ages 60-79, Initial Wave",north_america_non_sex,total,60-79,60-79,initial,confirmed,US states and selected Canadian provinces
+figure_03,d,4,North America,"Ages 60-79, Delta Wave",north_america_non_sex,total,60-79,60-79,delta,confirmed,US states and selected Canadian provinces
+figure_04,a,1,Europe,"All Ages, EU",europe_total,total,40-79,40-59+60-79,pointwise,caption_review_required,Historical All Ages label represents ages 40-79
+figure_04,b,2,United States,"All Ages, US",us_non_sex,total,40-79,40-59+60-79,pointwise,caption_review_required,Historical All Ages label represents ages 40-79
+figure_04,c,3,Europe,"40-59, EU",europe_total,total,40-59,40-59,pointwise,confirmed,
+figure_04,d,4,United States,"40-59, US",us_non_sex,total,40-59,40-59,pointwise,confirmed,
+figure_04,e,5,Europe,"60-79, EU",europe_total,total,60-79,60-79,pointwise,confirmed,
+figure_04,f,6,United States,"60-79, US",us_non_sex,total,60-79,60-79,pointwise,confirmed,
+figure_05,a,1,Europe,"All Age, EU",europe_sex,female_minus_male,UNRESOLVED,UNRESOLVED,pointwise,blocked_estimand_definition,Historical observed ages are 20-79 while expected ages are 40-79
+figure_05,b,2,United States,"All Age, US",us_sex,female_minus_male,0-84,0-44+45-64+65-84,pointwise,confirmed,Canonical combined age is 0-84
+figure_05,c,3,Europe,"40-59, EU",europe_sex,female_minus_male,40-59,40-59,pointwise,confirmed,Historical output is smoothed
+figure_05,d,4,United States,"0-44, US",us_sex,female_minus_male,0-44,0-44,pointwise,confirmed,
+figure_05,e,5,Europe,"60-79, EU",europe_sex,female_minus_male,60-79,60-79,pointwise,confirmed,Historical output is smoothed
+figure_05,f,6,United States,"45-64, US",us_sex,female_minus_male,45-64,45-64,pointwise,confirmed,
