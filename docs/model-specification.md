@@ -25,3 +25,9 @@ Wave intervals are start-inclusive and end-exclusive and are read from `config/a
 - Fitted models, posterior draws, figures, and tables are generated artifacts and are not committed to Git.
 - Every final artifact must be associated with the Git commit, input hashes, package lockfile, and a SHA-256 output manifest.
 - Any departure from this contract requires an explicit configuration change, regression test, and manuscript-to-code audit update.
+
+## United States implementation
+
+The US monthly models use the historical prior specification: an exponential prior calibrated at a five-year horizon for the IWP2 component, an exponential prior calibrated at a one-year horizon for the aggregated seasonal component, and an exponential prior for IID overdispersion, each based on `u = 0.1` and `alpha = 0.01`. Series spanning at least ten calendar years use 100 IWP and 40 seasonal knots; shorter series use 50 and 20. BayesGP's fit retains its configured posterior draw count, which is recorded with each model artifact.
+
+Each model and posterior-predictive stage receives a deterministic seed derived from the configured base seed, analysis identifier, and stage name. The posterior predictive target includes both latent overdispersion simulation and Poisson observation simulation. Branch failures are stored as explicit status records rather than being silently discarded.

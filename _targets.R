@@ -1,7 +1,16 @@
 library(targets)
 
 tar_option_set(
-  packages = c("digest", "dplyr", "here", "readr", "tibble", "yaml"),
+  packages = c(
+    "BayesGP",
+    "digest",
+    "dplyr",
+    "here",
+    "lubridate",
+    "readr",
+    "tibble",
+    "yaml"
+  ),
   format = "rds",
   error = "stop"
 )
@@ -113,6 +122,63 @@ list(
         "us",
         "vaccination_membership.csv"
       )
+    ),
+    format = "file"
+  ),
+  tar_target(
+    us_sex_branches,
+    split_us_model_branches(us_sex_model_input, "us_sex"),
+    iteration = "list"
+  ),
+  tar_target(
+    us_non_sex_branches,
+    split_us_model_branches(us_non_sex_model_input, "us_non_sex"),
+    iteration = "list"
+  ),
+  tar_target(
+    us_sex_model_run,
+    run_us_model_branch(us_sex_branches, analysis_config),
+    pattern = map(us_sex_branches),
+    iteration = "list"
+  ),
+  tar_target(
+    us_non_sex_model_run,
+    run_us_model_branch(us_non_sex_branches, analysis_config),
+    pattern = map(us_non_sex_branches),
+    iteration = "list"
+  ),
+  tar_target(
+    us_sex_model_file,
+    write_us_fit_artifact(us_sex_model_run, analysis_config),
+    pattern = map(us_sex_model_run),
+    format = "file"
+  ),
+  tar_target(
+    us_non_sex_model_file,
+    write_us_fit_artifact(us_non_sex_model_run, analysis_config),
+    pattern = map(us_non_sex_model_run),
+    format = "file"
+  ),
+  tar_target(
+    us_sex_prediction_file,
+    write_us_prediction_artifact(us_sex_model_run, analysis_config),
+    pattern = map(us_sex_model_run),
+    format = "file"
+  ),
+  tar_target(
+    us_non_sex_prediction_file,
+    write_us_prediction_artifact(us_non_sex_model_run, analysis_config),
+    pattern = map(us_non_sex_model_run),
+    format = "file"
+  ),
+  tar_target(
+    us_model_status_file,
+    write_csv_artifact(
+      dplyr::bind_rows(
+        lapply(us_sex_model_run, us_model_run_status),
+        lapply(us_non_sex_model_run, us_model_run_status)
+      ),
+      artifact_path(analysis_config, "manifests", "us_model_status.csv")
     ),
     format = "file"
   ),
