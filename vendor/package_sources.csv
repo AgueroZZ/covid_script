@@ -1,0 +1,4 @@
+package,version,source,revision,sha256
+BayesGP,0.1.3,vendor/BayesGP_0.1.3.tar.gz,,f27ea44ada0ae513aeca9637393ddccb7c3dfcef427a9b533a14b8ca839848fc
+OSplines,0.1.1,https://github.com/Smoothing-IWP/OSplines.git,6803031df86cbb2b2845b0761915b2a5ecca5612,
+sGPfit,1.0.1,https://github.com/AgueroZZ/sGPfit.git,7d935d2572b2713d042e03b089060e5ec73472c8,

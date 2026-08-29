@@ -1,0 +1,35 @@
+Package: covidmortalitypipeline
+Type: Project
+Title: Reproducible Excess Mortality Analysis Pipeline
+Version: 0.1.0
+Authors@R: person("Ziang", "Zhang", role = "aut")
+Description: End-to-end data processing, Bayesian model fitting, derived
+    analysis, and reporting for the COVID-19 excess mortality manuscript.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: R (>= 4.5.0)
+Imports:
+    aghq,
+    BayesGP,
+    digest,
+    dplyr,
+    here,
+    ISOweek,
+    lubridate,
+    mapmisc,
+    OSplines,
+    purrr,
+    readr,
+    readxl,
+    renv,
+    rlang,
+    sf,
+    sGPfit,
+    targets,
+    tarchetypes,
+    terra,
+    testthat,
+    tibble,
+    tidyr,
+    TMB,
+    yaml

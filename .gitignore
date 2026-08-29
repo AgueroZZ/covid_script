@@ -1,0 +1,14 @@
+.DS_Store
+.Rhistory
+.RData
+.Rproj.user/
+renv/library/
+renv/staging/
+_targets/
+data/processed/
+artifacts/models/
+artifacts/results/
+artifacts/figures/
+artifacts/tables/
+*.o
+*.so
