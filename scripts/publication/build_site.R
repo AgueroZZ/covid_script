@@ -40,33 +40,6 @@ workflowr::wflow_build(
 )
 copy_publication_assets(docs_assets)
 
-site_files <- list.files(
-  file.path(project_root, "docs"),
-  recursive = TRUE,
-  full.names = TRUE
-)
-text_site_files <- site_files[
-  tolower(tools::file_ext(site_files)) %in% c("css", "csv", "html", "js", "svg", "txt")
-]
-if (length(text_site_files) == 0L) {
-  stop("No generated text assets were found for normalization.")
-}
-for (path in text_site_files) {
-  lines <- sub("[ \\t]+$", "", readLines(path, warn = FALSE))
-  while (length(lines) > 0L && !nzchar(lines[[length(lines)]])) {
-    lines <- lines[-length(lines)]
-  }
-  writeLines(lines, path, useBytes = TRUE)
-}
-remaining_trailing_whitespace <- vapply(
-  text_site_files,
-  function(path) any(grepl("[ \\t]+$", readLines(path, warn = FALSE))),
-  logical(1L)
-)
-if (any(remaining_trailing_whitespace)) {
-  stop("Trailing whitespace remains in generated text assets.")
-}
-
 expected_html <- file.path(
   project_root,
   "docs",
