@@ -1,0 +1,72 @@
+body {
+  color: #222;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  color: #1f2933;
+  font-weight: 600;
+}
+
+.navbar-default {
+  background-color: #f8fafc;
+  border-color: #d9e2ec;
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a {
+  color: #243b53;
+}
+
+.figcaption,
+.table-caption {
+  margin: 1rem 0 1.5rem;
+  color: #334e68;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.publication-figure {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 1rem;
+}
+
+.publication-links {
+  margin: 0.5rem 0 1.5rem;
+}
+
+pre {
+  border-color: #d9e2ec;
+}
+
+table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+th,
+td {
+  vertical-align: top;
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 15px;
+  }
+
+  .main-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  table {
+    white-space: nowrap;
+  }
+}
