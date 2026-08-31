@@ -53,6 +53,14 @@ for (path in text_site_files) {
   }
   writeLines(lines, path, useBytes = TRUE)
 }
+remaining_trailing_whitespace <- vapply(
+  text_site_files,
+  function(path) any(grepl("[ \\t]+$", readLines(path, warn = FALSE))),
+  logical(1L)
+)
+if (any(remaining_trailing_whitespace)) {
+  stop("Trailing whitespace remains in generated text assets.")
+}
 
 expected_html <- file.path(
   project_root,
