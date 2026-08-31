@@ -1,5 +1,9 @@
 # Reproducing the analysis
 
+The rendered workflowr documentation is available at the
+[publication website](https://aguerozz.github.io/covid_script/). Website
+generation reads tracked publication artifacts and does not refit models.
+
 ## 1. Restore the environment and verify inputs
 
 ```bash

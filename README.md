@@ -5,6 +5,8 @@ and publication artifacts for the associated COVID-19 excess mortality study.
 The analysis covers Europe, England and Wales, Ireland, Canada, and the United
 States.
 
+Publication website: [https://aguerozz.github.io/covid_script/](https://aguerozz.github.io/covid_script/)
+
 ## Reproduction model
 
 Exact reproduction uses the versioned source snapshots under `data/raw/`.
@@ -87,7 +89,8 @@ Rscript scripts/publication/sync_submission_artifacts.R \
   output/submission_freeze/local_20260831
 ```
 
-The selected figures and tables are also available through the workflowr site.
+The selected figures and tables are also available through the
+[workflowr publication website](https://aguerozz.github.io/covid_script/).
 Canonical fitted results are prepared for a separate Zenodo dataset with:
 
 ```bash
