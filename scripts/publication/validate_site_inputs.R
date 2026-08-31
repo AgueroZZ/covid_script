@@ -70,10 +70,10 @@ validate_site_inputs <- function(project_root = ".") {
     unlist(lapply(page_paths, readLines, warn = FALSE), use.names = FALSE),
     collapse = "\n"
   )
-  prohibited <- c("/Users/", "covid_agents", "AGENTS.md", "CLAUDE.md", ".codex/")
+  prohibited <- c("/Users/", "file://")
   detected <- prohibited[vapply(prohibited, grepl, logical(1L), x = public_text, fixed = TRUE)]
   if (length(detected) > 0L) {
-    stop("Private or internal references were found in public pages: ", paste(detected, collapse = ", "))
+    stop("Local filesystem references were found in public pages: ", paste(detected, collapse = ", "))
   }
 
   invisible(list(

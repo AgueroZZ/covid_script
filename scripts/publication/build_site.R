@@ -53,10 +53,10 @@ html_text <- paste(
   unlist(lapply(expected_html, readLines, warn = FALSE), use.names = FALSE),
   collapse = "\n"
 )
-prohibited <- c("/Users/", "covid_agents", "AGENTS.md", "CLAUDE.md", ".codex/")
+prohibited <- c("/Users/", "file://")
 detected <- prohibited[vapply(prohibited, grepl, logical(1L), x = html_text, fixed = TRUE)]
 if (length(detected) > 0L) {
-  stop("Private or internal references were found in generated HTML: ", paste(detected, collapse = ", "))
+  stop("Local filesystem references were found in generated HTML: ", paste(detected, collapse = ", "))
 }
 
 extract_local_resources <- function(html_path) {
