@@ -585,15 +585,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttreee5925a4292f612a558d3598b96e62f59f17b8a87targetblanke5925a4a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree9b2893cae2ce0bdfb5d02d5b526eecc49ebf8ed2targetblank9b2893ca">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/AgueroZZ/covid_script/tree/e5925a4292f612a558d3598b96e62f59f17b8a87" target="_blank">e5925a4</a>
+<a href="https://github.com/AgueroZZ/covid_script/tree/9b2893cae2ce0bdfb5d02d5b526eecc49ebf8ed2" target="_blank">9b2893c</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttreee5925a4292f612a558d3598b96e62f59f17b8a87targetblanke5925a4a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree9b2893cae2ce0bdfb5d02d5b526eecc49ebf8ed2targetblank9b2893ca"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -603,7 +603,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/AgueroZZ/covid_script/tree/e5925a4292f612a558d3598b96e62f59f17b8a87" target="_blank">e5925a4</a>.
+<a href="https://github.com/AgueroZZ/covid_script/tree/9b2893cae2ce0bdfb5d02d5b526eecc49ebf8ed2" target="_blank">9b2893c</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -669,6 +669,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/AgueroZZ/covid_script/blob/9b2893cae2ce0bdfb5d02d5b526eecc49ebf8ed2/analysis/reproduction.Rmd" target="_blank">9b2893c</a>
+</td>
+<td>
+Ziang Zhang
+</td>
+<td>
+2026-08-31
+</td>
+<td>
+feat: prepare Zenodo results deposit
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/AgueroZZ/covid_script/b47130b1f20c5a600a7d82f06350a9ac8c25d0cb/docs/reproduction.html" target="_blank">b47130b</a>
+</td>
+<td>
+Ziang Zhang
+</td>
+<td>
+2026-08-31
+</td>
+<td>
+build: refresh published site provenance
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -788,8 +822,25 @@ write fitted objects and posterior draws below the ignored
 <code>output/</code> directory and are not part of website
 generation.</p>
 </div>
+<div id="use-or-prepare-precomputed-fitted-results"
+class="section level2">
+<h2>5. Use or prepare precomputed fitted results</h2>
+<p>Canonical fitted objects are distributed separately from Git because
+model fitting is computationally intensive. A checksum-verified Zenodo
+package can be prepared from the completed local analysis without
+rerunning any model:</p>
+<pre class="r"><code>system2(
+  &quot;Rscript&quot;,
+  &quot;scripts/submission/prepare_zenodo_deposit.R&quot;
+)</code></pre>
+<p>The package retains final production fits, compact diagnostics,
+reporting inputs, configuration, and provenance. Validation duplicates,
+compiler products, failed runs, stale freezes, and private manuscript
+files are excluded. The DOI is added after creator metadata, license,
+and the article relationship are confirmed.</p>
+</div>
 <div id="construct-publication-outputs" class="section level2">
-<h2>5. Construct publication outputs</h2>
+<h2>6. Construct publication outputs</h2>
 <p>After the required standardized summaries are present locally:</p>
 <pre class="r"><code>system2(
   &quot;Rscript&quot;,
@@ -804,7 +855,7 @@ written as CSV and HTML. A completed, validated release freeze can then
 be synchronized to the tracked publication directories.</p>
 </div>
 <div id="build-the-website" class="section level2">
-<h2>6. Build the website</h2>
+<h2>7. Build the website</h2>
 <pre class="r"><code>system2(
   &quot;Rscript&quot;,
   &quot;scripts/publication/build_site.R&quot;
