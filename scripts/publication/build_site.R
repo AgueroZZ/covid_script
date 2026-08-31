@@ -40,6 +40,20 @@ workflowr::wflow_build(
 )
 copy_publication_assets(docs_assets)
 
+text_site_files <- list.files(
+  file.path(project_root, "docs"),
+  pattern = "[.](?:css|csv|html|js|svg|txt)$",
+  recursive = TRUE,
+  full.names = TRUE
+)
+for (path in text_site_files) {
+  lines <- sub("[ \\t]+$", "", readLines(path, warn = FALSE))
+  while (length(lines) > 0L && !nzchar(lines[[length(lines)]])) {
+    lines <- lines[-length(lines)]
+  }
+  writeLines(lines, path, useBytes = TRUE)
+}
+
 expected_html <- file.path(
   project_root,
   "docs",
