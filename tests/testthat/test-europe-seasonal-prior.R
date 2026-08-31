@@ -1,5 +1,7 @@
 test_that("the four-harmonic Europe seasonal prior is converted from one-year PSD", {
-  source(testthat::test_path("..", "..", "EU_analysis", "function.R"), local = TRUE)
+  source(testthat::test_path(
+    "..", "..", "code", "regions", "europe", "model_functions.R"
+  ), local = TRUE)
 
   raw_prior <- list(u = 0.1, a = 0.01)
   converted_prior <- prior_conversion_sGP_m(
@@ -15,7 +17,9 @@ test_that("the four-harmonic Europe seasonal prior is converted from one-year PS
 })
 
 test_that("the custom Europe fitter consumes an already converted SD prior", {
-  source(testthat::test_path("..", "..", "EU_analysis", "function.R"), local = TRUE)
+  source(testthat::test_path(
+    "..", "..", "code", "regions", "europe", "model_functions.R"
+  ), local = TRUE)
 
   fitter_body <- paste(deparse(body(fit_mod_IWP_sGP)), collapse = "\n")
 

@@ -1,0 +1,64 @@
+# Reproducing the analysis
+
+## 1. Restore the environment and verify inputs
+
+```bash
+Rscript --vanilla -e 'renv::restore()'
+Rscript --vanilla scripts/data_access/verify_snapshots.R
+Rscript --vanilla tests/testthat.R
+```
+
+Exact reproduction uses the tracked snapshots. Optional provider-access scripts
+write current downloads to `provider_downloads/`; providers may revise those
+data after the repository snapshots were created.
+
+## 2. Inspect the model inventories
+
+The following commands validate inputs and write manifests without fitting any
+model:
+
+```bash
+Rscript --vanilla scripts/model_fitting/europe/refit_eurostat.R \
+  --manifest-only=true
+Rscript --vanilla scripts/model_fitting/england_wales/refit.R \
+  --manifest-only=true
+Rscript --vanilla scripts/model_fitting/ireland/refit.R \
+  --manifest-only=true
+Rscript --vanilla scripts/model_fitting/canada/refit.R \
+  --manifest-only=true
+```
+
+The United States model inventory is defined by `_targets.R`. A lightweight
+pipeline check is available through:
+
+```bash
+Rscript --vanilla scripts/pipeline/run_smoke_test.R
+```
+
+## 3. Fit models when required
+
+Omit `--manifest-only=true` to run a regional batch. Each runner defaults to one
+worker, writes only below `output/`, records input and code hashes, and creates a
+completion flag only after all selected models finish. The United States target
+graph is run with:
+
+```bash
+Rscript --vanilla scripts/pipeline/run_pipeline.R
+```
+
+These computations can require substantial memory and wall time. They are not
+performed during website generation.
+
+## 4. Render manuscript outputs
+
+After the required standardized summaries are present under `output/`, render
+all registered outputs with:
+
+```bash
+Rscript --vanilla scripts/reporting/run_all.R \
+  --include_caption_review=true --strict=true
+```
+
+The figure scripts write PDF and PNG files. Table 1 is written as CSV and HTML.
+The resulting artifacts can be synchronized to the tracked publication folders
+only from a completed local submission freeze.

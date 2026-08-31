@@ -69,6 +69,7 @@ test_that("the production scripts freeze BayesGP and the total thread cap", {
     "..",
     "..",
     "scripts",
+    "model_fitting",
     "europe",
     "refit_eurostat.R"
   )
@@ -76,6 +77,7 @@ test_that("the production scripts freeze BayesGP and the total thread cap", {
     "..",
     "..",
     "scripts",
+    "model_fitting",
     "europe",
     "verify_eurostat_refit.R"
   )
@@ -114,6 +116,7 @@ test_that("the production CLI accepts documented hyphenated arguments", {
     "..",
     "..",
     "scripts",
+    "model_fitting",
     "europe",
     "refit_eurostat.R"
   )

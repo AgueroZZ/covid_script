@@ -133,13 +133,13 @@ compare_reporting_summary <- function(reference, candidate) {
 }
 
 arguments <- parse_arguments(list(
-  historical_result = file.path(
-    dirname(here::here()), "covid_excess", "North_America", "sex-stratified",
-    "USA", "USA_monthly_result.rda"
+  historical_result = here::here(
+    "output", "validation", "us_omicron_all_outputs_20260830",
+    "sources", "USA_monthly_result_historical.rda"
   ),
-  corrected_result = file.path(
-    dirname(here::here()), "covid_agents", "validation", "results",
-    "issue_01_us_omicron", "USA_monthly_result_omicron_corrected.rda"
+  corrected_result = here::here(
+    "output", "validation", "us_omicron_all_outputs_20260830",
+    "sources", "USA_monthly_result_corrected.rda"
   ),
   output_root = here::here(
     "output", "validation", "us_omicron_all_outputs_20260830"

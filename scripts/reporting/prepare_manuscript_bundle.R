@@ -24,7 +24,10 @@ sf::sf_use_s2(FALSE)
 
 parse_arguments <- function(arguments) {
   defaults <- list(
-    archive_root = "/Users/ziangzhang/Desktop/covid_mortality/covid_excess",
+    archive_root = Sys.getenv(
+      "COVID_HISTORICAL_ARCHIVE",
+      unset = here::here("output", "legacy", "historical_archive")
+    ),
     bundle_root = here::here("output", "results", "zenodo_bundle"),
     stage = "true"
   )
@@ -845,7 +848,7 @@ write_bundle_readme <- function(bundle_root, source_manifest, output_status) {
     "",
     "## Scope",
     "",
-    "- Source artifacts are copied from the historical `covid_excess` archive without modification.",
+    "- Source artifacts are copied from the configured historical archive without modification.",
     "- Only jurisdictions and age/sex strata used by adopted manuscript outputs are included.",
     "- The reporting-ready files are also installed into the repository's standard `output/` paths.",
     "- The bundle is intentionally ignored by Git and is suitable for a separate Zenodo deposit.",

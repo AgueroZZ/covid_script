@@ -93,7 +93,7 @@ test_that("England and Wales use the corrected Europe prior contract", {
 test_that("the England-and-Wales CLI writes the complete manifest", {
   source(model_path, local = TRUE)
   runner <- testthat::test_path(
-    "..", "..", "scripts", "england_wales", "refit.R"
+    "..", "..", "scripts", "model_fitting", "england_wales", "refit.R"
   )
   output_root <- tempfile("england-wales-manifest-")
   on.exit(unlink(output_root, recursive = TRUE), add = TRUE)

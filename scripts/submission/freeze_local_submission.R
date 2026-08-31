@@ -104,7 +104,7 @@ commands <- list(
   ),
   list(
     id = "03_rebuild_uk_ie_reporting",
-    script = "scripts/europe/rebuild_uk_ie_reporting.R",
+    script = "scripts/model_fitting/europe/rebuild_uk_ie_reporting.R",
     arguments = character()
   ),
   list(

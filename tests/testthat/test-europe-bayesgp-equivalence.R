@@ -2,6 +2,7 @@ test_that("the Europe BayesGP validation freezes the corrected prior contract", 
   script_path <- testthat::test_path(
     "..",
     "..",
+    "scripts",
     "validation",
     "compare_figure_01_europe_bayesgp.R"
   )
@@ -22,6 +23,7 @@ test_that("the Europe BayesGP validation preserves the historical model geometry
   script_path <- testthat::test_path(
     "..",
     "..",
+    "scripts",
     "validation",
     "compare_figure_01_europe_bayesgp.R"
   )
@@ -49,6 +51,7 @@ test_that("the equivalence decision uses the frozen pre-fit thresholds", {
   script_path <- testthat::test_path(
     "..",
     "..",
+    "scripts",
     "validation",
     "compare_figure_01_europe_bayesgp.R"
   )

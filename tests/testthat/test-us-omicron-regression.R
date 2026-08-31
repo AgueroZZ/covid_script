@@ -1,5 +1,8 @@
 suppressPackageStartupMessages(library(dplyr))
-source(here::here("USA_analysis", "function.R"))
+source(here::here(
+  "code", "regions", "united_states", "sex_stratified",
+  "model_functions.R"
+))
 
 test_that("US sex-stratified Omicron aggregation uses post-2022 data", {
   dates <- seq.Date(

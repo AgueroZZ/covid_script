@@ -72,7 +72,7 @@ test_that("the Ireland manifest contains all four fitted source bands", {
 test_that("Ireland uses a converted one-harmonic seasonal prior", {
   source(model_path, local = TRUE)
   source(testthat::test_path(
-    "..", "..", "ireland_analysis", "function.R"
+    "..", "..", "code", "regions", "ireland", "model_functions.R"
   ), local = TRUE)
 
   prior <- ireland_converted_prior_specification()
@@ -88,7 +88,9 @@ test_that("Ireland uses a converted one-harmonic seasonal prior", {
 
 test_that("the Ireland CLI writes the complete four-model manifest", {
   source(model_path, local = TRUE)
-  runner <- testthat::test_path("..", "..", "scripts", "ireland", "refit.R")
+  runner <- testthat::test_path(
+    "..", "..", "scripts", "model_fitting", "ireland", "refit.R"
+  )
   output_root <- tempfile("ireland-manifest-")
   on.exit(unlink(output_root, recursive = TRUE), add = TRUE)
   status <- system2(
