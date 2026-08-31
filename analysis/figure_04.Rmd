@@ -8,7 +8,7 @@ output: workflowr::wflow_html
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-![Figure 4](assets/figures/figure_04_vaccination_pscore.png)
+<img class="publication-figure" src="assets/figures/figure_04_vaccination_pscore.png" alt="Figure 4">
 
 <div class="figcaption"><strong>Figure 4.</strong> P-scores over time, pooled for selected high-vaccination and low-vaccination European countries and US states. Shown are posterior medians (solid lines) and 95% credible intervals (shaded areas).</div>
 

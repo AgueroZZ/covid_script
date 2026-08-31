@@ -8,7 +8,7 @@ output: workflowr::wflow_html
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-![Figure 2](assets/figures/figure_02_europe_maps.png)
+<img class="publication-figure" src="assets/figures/figure_02_europe_maps.png" alt="Figure 2">
 
 <div class="figcaption"><strong>Figure 2.</strong> Posterior median P-scores for the initial and Delta waves across 33 Eurostat geographies, England and Wales (labelled UK in the map), and Ireland (IE), stratified by displayed age group.</div>
 

@@ -8,7 +8,7 @@ output: workflowr::wflow_html
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-![Figure 1](assets/figures/figure_01_model_illustration.png)
+<img class="publication-figure" src="assets/figures/figure_01_model_illustration.png" alt="Figure 1">
 
 <div class="figcaption"><strong>Figure 1.</strong> Illustration of the Seasonally Adaptive Mortality Model (SAMM) fitted to the elderly population (aged 80+) in the Netherlands. Shown are the overall mortality counts and modelled expected counts (A), inferred long-term trend (B), and the adaptive seasonal component (C). Data up to January 2020 (vertical dashed line) were used to train the model, and forecasts from the model beyond 2020 show increasingly broad credible regions.</div>
 

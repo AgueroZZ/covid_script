@@ -8,7 +8,7 @@ output: workflowr::wflow_html
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-![Figure 5](assets/figures/figure_05_sex_difference.png)
+<img class="publication-figure" src="assets/figures/figure_05_sex_difference.png" alt="Figure 5">
 
 <div class="figcaption"><strong>Figure 5.</strong> Difference in P-scores over time between females and males, pooled for selected high-vaccination and low-vaccination European countries and US states.</div>
 

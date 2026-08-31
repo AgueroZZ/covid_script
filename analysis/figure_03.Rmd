@@ -8,7 +8,7 @@ output: workflowr::wflow_html
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-![Figure 3](assets/figures/figure_03_north_america_maps.png)
+<img class="publication-figure" src="assets/figures/figure_03_north_america_maps.png" alt="Figure 3">
 
 <div class="figcaption"><strong>Figure 3.</strong> P-scores for the initial and Delta waves for the US states and selected Canadian provinces, stratified by age.</div>
 

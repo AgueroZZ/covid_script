@@ -25,8 +25,15 @@ h3 {
 .table-caption {
   margin: 1rem 0 1.5rem;
   color: #334e68;
-  font-size: 0.96rem;
+  font-size: 15px;
   line-height: 1.5;
+}
+
+.publication-figure {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 1rem;
 }
 
 .publication-links {
@@ -38,7 +45,7 @@ pre {
 }
 
 table {
-  font-size: 0.94rem;
+  font-size: 14px;
 }
 
 @media (max-width: 767px) {
