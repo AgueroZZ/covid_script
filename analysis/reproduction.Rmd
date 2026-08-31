@@ -81,7 +81,26 @@ These computations may require substantial memory and wall time. They write
 fitted objects and posterior draws below the ignored `output/` directory and are
 not part of website generation.
 
-## 5. Construct publication outputs
+## 5. Use or prepare precomputed fitted results
+
+Canonical fitted objects are distributed separately from Git because model
+fitting is computationally intensive. A checksum-verified Zenodo package can be
+prepared from the completed local analysis without rerunning any model:
+
+```{r zenodo-deposit, eval=FALSE}
+system2(
+  "Rscript",
+  "scripts/submission/prepare_zenodo_deposit.R"
+)
+```
+
+The package retains final production fits, compact diagnostics, reporting
+inputs, configuration, and provenance. Validation duplicates, compiler
+products, failed runs, stale freezes, and private manuscript files are
+excluded. The DOI is added after creator metadata, license, and the article
+relationship are confirmed.
+
+## 6. Construct publication outputs
 
 After the required standardized summaries are present locally:
 
@@ -100,7 +119,7 @@ Figures are written as editable PDF and 300-dpi PNG files. Table 1 is written as
 CSV and HTML. A completed, validated release freeze can then be synchronized to
 the tracked publication directories.
 
-## 6. Build the website
+## 7. Build the website
 
 ```{r build-site, eval=FALSE}
 system2(

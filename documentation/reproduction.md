@@ -62,3 +62,18 @@ Rscript scripts/reporting/run_all.R \
 The figure scripts write PDF and PNG files. Table 1 is written as CSV and HTML.
 The resulting artifacts can be synchronized to the tracked publication folders
 only from a completed local submission freeze.
+
+## 5. Use or prepare the fitted-results deposit
+
+The computationally intensive fitted objects are distributed separately from
+Git. To prepare the checksum-verified Zenodo package from a completed local
+analysis:
+
+```bash
+Rscript scripts/submission/prepare_zenodo_deposit.R
+```
+
+The package includes canonical production fits and the final reporting inputs;
+it excludes validation duplicates, compiler products, failed runs, stale
+freezes, and private manuscript files. See
+[Zenodo fitted-results deposit](zenodo-deposit.md) for the complete boundary.

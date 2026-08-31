@@ -1,0 +1,31 @@
+record:
+  status: draft
+  resource_type: dataset
+  title: Fitted mortality models and reporting inputs for a multi-country COVID-19 excess mortality analysis
+  description: >-
+    Canonical fitted mortality objects, compact diagnostics, standardized
+    reporting inputs, and map geometry used to reproduce the adopted figures
+    and table for a multi-country analysis of excess mortality during the
+    COVID-19 pandemic. Exact raw-data snapshots and analysis code are versioned
+    in the linked GitHub repository.
+  creators: []
+  publication_date: null
+  license: null
+  access_right: open
+  version: 1.0.0
+  keywords:
+    - COVID-19
+    - excess mortality
+    - mortality modelling
+    - P-score
+    - Bayesian modelling
+    - reproducible research
+  related_identifiers:
+    - identifier: https://github.com/AgueroZZ/covid_script
+      relation: isSupplementTo
+      resource_type: software
+confirmation_required:
+  creators: Confirm the complete manuscript author order, ORCIDs, and affiliations.
+  publication_date: Set the date on which the deposit is first made public.
+  license: Confirm the data license before upload; the repository license file does not yet specify license terms.
+  article_relation: Add the accepted article DOI and title when available.

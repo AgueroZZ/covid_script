@@ -88,4 +88,13 @@ Rscript scripts/publication/sync_submission_artifacts.R \
 ```
 
 The selected figures and tables are also available through the workflowr site.
-Zenodo packaging is deferred until manuscript submission.
+Canonical fitted results are prepared for a separate Zenodo dataset with:
+
+```bash
+Rscript scripts/submission/prepare_zenodo_deposit.R
+```
+
+The deposit boundary and metadata requirements are documented in
+[Zenodo fitted-results deposit](documentation/zenodo-deposit.md). A DOI will be
+added when the final creator metadata, license, and article relationship have
+been confirmed.
