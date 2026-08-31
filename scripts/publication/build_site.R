@@ -59,4 +59,81 @@ if (length(detected) > 0L) {
   stop("Private or internal references were found in generated HTML: ", paste(detected, collapse = ", "))
 }
 
+extract_local_resources <- function(html_path) {
+  content <- paste(readLines(html_path, warn = FALSE), collapse = "\n")
+  matches <- regmatches(
+    content,
+    gregexpr("(?:href|src)=\"[^\"]+\"", content, perl = TRUE)
+  )[[1L]]
+  if (identical(matches, "")) {
+    return(character())
+  }
+  resources <- sub("^(?:href|src)=\"", "", matches, perl = TRUE)
+  resources <- sub("\"$", "", resources)
+  resources <- resources[!grepl(
+    "^(?:https?:|mailto:|tel:|javascript:|data:|#|//)",
+    resources,
+    perl = TRUE
+  )]
+  resources <- sub("[?#].*$", "", resources)
+  unique(resources[nzchar(resources)])
+}
+
+missing_resources <- character()
+for (html_path in expected_html) {
+  resources <- extract_local_resources(html_path)
+  resolved <- file.path(dirname(html_path), resources)
+  missing <- resources[!file.exists(resolved)]
+  if (length(missing) > 0L) {
+    missing_resources <- c(
+      missing_resources,
+      paste0(basename(html_path), ": ", missing)
+    )
+  }
+}
+if (length(missing_resources) > 0L) {
+  stop("Generated HTML contains missing local resources: ", paste(missing_resources, collapse = ", "))
+}
+
+page_text <- vapply(
+  expected_html,
+  function(path) paste(readLines(path, warn = FALSE), collapse = "\n"),
+  character(1L)
+)
+workflowr_checks <- vapply(
+  page_text,
+  function(content) grepl(
+    paste0(
+      "Checks:</strong>[\\s\\S]{0,500}text-success[\\s\\S]{0,100}7",
+      "[\\s\\S]{0,500}text-danger[\\s\\S]{0,100}0"
+    ),
+    content,
+    perl = TRUE
+  ),
+  logical(1L)
+)
+workflowr_sources <- grepl(
+  "R Markdown file:</strong> up-to-date",
+  page_text,
+  fixed = TRUE
+) & grepl("Environment:</strong> empty", page_text, fixed = TRUE)
+if (any(!workflowr_checks | !workflowr_sources)) {
+  stop(
+    "One or more pages failed the workflowr reproducibility checks: ",
+    paste(basename(expected_html[!workflowr_checks | !workflowr_sources]), collapse = ", ")
+  )
+}
+
+code_pages <- c(
+  sprintf("figure_%02d.html", 1:5),
+  "table_01.html",
+  "supplementary.html",
+  "data_sources.html",
+  "reproduction.html"
+)
+code_html <- page_text[match(code_pages, basename(expected_html))]
+if (any(!grepl("code-folding-btn", code_html, fixed = TRUE))) {
+  stop("A page with displayed code is missing its code-folding control.")
+}
+
 message("Built and validated ", length(expected_html), " workflowr pages in docs/.")
