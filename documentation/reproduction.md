@@ -3,9 +3,9 @@
 ## 1. Restore the environment and verify inputs
 
 ```bash
-Rscript --vanilla -e 'renv::restore()'
-Rscript --vanilla scripts/data_access/verify_snapshots.R
-Rscript --vanilla tests/testthat.R
+Rscript -e 'renv::restore()'
+Rscript scripts/data_access/verify_snapshots.R
+Rscript tests/testthat.R
 ```
 
 Exact reproduction uses the tracked snapshots. Optional provider-access scripts
@@ -18,13 +18,13 @@ The following commands validate inputs and write manifests without fitting any
 model:
 
 ```bash
-Rscript --vanilla scripts/model_fitting/europe/refit_eurostat.R \
+Rscript scripts/model_fitting/europe/refit_eurostat.R \
   --manifest-only=true
-Rscript --vanilla scripts/model_fitting/england_wales/refit.R \
+Rscript scripts/model_fitting/england_wales/refit.R \
   --manifest-only=true
-Rscript --vanilla scripts/model_fitting/ireland/refit.R \
+Rscript scripts/model_fitting/ireland/refit.R \
   --manifest-only=true
-Rscript --vanilla scripts/model_fitting/canada/refit.R \
+Rscript scripts/model_fitting/canada/refit.R \
   --manifest-only=true
 ```
 
@@ -32,7 +32,7 @@ The United States model inventory is defined by `_targets.R`. A lightweight
 pipeline check is available through:
 
 ```bash
-Rscript --vanilla scripts/pipeline/run_smoke_test.R
+Rscript scripts/pipeline/run_smoke_test.R
 ```
 
 ## 3. Fit models when required
@@ -43,7 +43,7 @@ completion flag only after all selected models finish. The United States target
 graph is run with:
 
 ```bash
-Rscript --vanilla scripts/pipeline/run_pipeline.R
+Rscript scripts/pipeline/run_pipeline.R
 ```
 
 These computations can require substantial memory and wall time. They are not
@@ -55,7 +55,7 @@ After the required standardized summaries are present under `output/`, render
 all registered outputs with:
 
 ```bash
-Rscript --vanilla scripts/reporting/run_all.R \
+Rscript scripts/reporting/run_all.R \
   --include_caption_review=true --strict=true
 ```
 

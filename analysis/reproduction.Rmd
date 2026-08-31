@@ -21,9 +21,9 @@ renv::restore()
 ```{r verify-repository, eval=FALSE}
 system2(
   "Rscript",
-  c("--vanilla", "scripts/data_access/verify_snapshots.R")
+  "scripts/data_access/verify_snapshots.R"
 )
-system2("Rscript", c("--vanilla", "tests/testthat.R"))
+system2("Rscript", "tests/testthat.R")
 ```
 
 The first command verifies file sizes and SHA-256 hashes for the exact source
@@ -38,7 +38,6 @@ manifests without fitting models:
 system2(
   "Rscript",
   c(
-    "--vanilla",
     "scripts/model_fitting/europe/refit_eurostat.R",
     "--manifest-only=true"
   )
@@ -46,7 +45,6 @@ system2(
 system2(
   "Rscript",
   c(
-    "--vanilla",
     "scripts/model_fitting/england_wales/refit.R",
     "--manifest-only=true"
   )
@@ -54,7 +52,6 @@ system2(
 system2(
   "Rscript",
   c(
-    "--vanilla",
     "scripts/model_fitting/ireland/refit.R",
     "--manifest-only=true"
   )
@@ -62,7 +59,6 @@ system2(
 system2(
   "Rscript",
   c(
-    "--vanilla",
     "scripts/model_fitting/canada/refit.R",
     "--manifest-only=true"
   )
@@ -77,7 +73,7 @@ States target graph is started with:
 ```{r fit-models, eval=FALSE}
 system2(
   "Rscript",
-  c("--vanilla", "scripts/pipeline/run_pipeline.R")
+  "scripts/pipeline/run_pipeline.R"
 )
 ```
 
@@ -93,7 +89,6 @@ After the required standardized summaries are present locally:
 system2(
   "Rscript",
   c(
-    "--vanilla",
     "scripts/reporting/run_all.R",
     "--include_caption_review=true",
     "--strict=true"
@@ -110,7 +105,7 @@ the tracked publication directories.
 ```{r build-site, eval=FALSE}
 system2(
   "Rscript",
-  c("--vanilla", "scripts/publication/build_site.R")
+  "scripts/publication/build_site.R"
 )
 ```
 

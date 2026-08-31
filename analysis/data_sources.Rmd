@@ -46,7 +46,7 @@ knitr::kable(display_sources)
 ```{r snapshot-verification, eval=FALSE}
 system2(
   "Rscript",
-  c("--vanilla", "scripts/data_access/verify_snapshots.R")
+  "scripts/data_access/verify_snapshots.R"
 )
 ```
 

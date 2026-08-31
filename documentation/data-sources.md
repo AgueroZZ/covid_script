@@ -16,7 +16,7 @@ they must not silently replace the canonical snapshots.
 Run the following command before analysis:
 
 ```bash
-Rscript --vanilla scripts/data_access/verify_snapshots.R
+Rscript scripts/data_access/verify_snapshots.R
 ```
 
 ## Registered providers

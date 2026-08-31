@@ -47,20 +47,20 @@ the boundary between tracked and locally generated files.
 Restore the pinned R environment from the repository root:
 
 ```bash
-Rscript --vanilla -e 'renv::restore()'
+Rscript -e 'renv::restore()'
 ```
 
 Verify the versioned source snapshots and run the tests:
 
 ```bash
-Rscript --vanilla scripts/data_access/verify_snapshots.R
-Rscript --vanilla tests/testthat.R
+Rscript scripts/data_access/verify_snapshots.R
+Rscript tests/testthat.R
 ```
 
 Run the lightweight target smoke test without model fitting:
 
 ```bash
-Rscript --vanilla scripts/pipeline/run_smoke_test.R
+Rscript scripts/pipeline/run_smoke_test.R
 ```
 
 The regional fitting commands are documented in
@@ -75,7 +75,7 @@ The five manuscript figures and Table 1 have dedicated entry points under
 registry can be checked with:
 
 ```bash
-Rscript --vanilla scripts/reporting/run_all.R \
+Rscript scripts/reporting/run_all.R \
   --include_caption_review=true --strict=true
 ```
 
@@ -83,7 +83,7 @@ To refresh the tracked publication copies from a completed local submission
 freeze:
 
 ```bash
-Rscript --vanilla scripts/publication/sync_submission_artifacts.R \
+Rscript scripts/publication/sync_submission_artifacts.R \
   output/submission_freeze/local_20260831
 ```
 

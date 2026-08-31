@@ -21,7 +21,7 @@ Verify every versioned source file before analysis:
 ```{r verify-snapshots, eval=FALSE}
 system2(
   "Rscript",
-  c("--vanilla", "scripts/data_access/verify_snapshots.R")
+  "scripts/data_access/verify_snapshots.R"
 )
 ```
 
@@ -35,7 +35,7 @@ commands <- c(
   "scripts/model_fitting/canada/refit.R"
 )
 lapply(commands, function(script) {
-  system2("Rscript", c("--vanilla", script, "--manifest-only=true"))
+  system2("Rscript", c(script, "--manifest-only=true"))
 })
 ```
 
@@ -46,7 +46,6 @@ registered manuscript outputs:
 system2(
   "Rscript",
   c(
-    "--vanilla",
     "scripts/reporting/run_all.R",
     "--include_caption_review=true",
     "--strict=true"

@@ -45,7 +45,7 @@ as disclosed missingness rather than treated as a production exclusion.
 Run:
 
 ```bash
-Rscript --vanilla scripts/validation/validate_analysis_contract.R
+Rscript scripts/validation/validate_analysis_contract.R
 ```
 
 Successful validation writes a flattened contract snapshot, source-registry

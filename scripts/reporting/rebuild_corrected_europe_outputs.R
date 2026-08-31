@@ -350,7 +350,7 @@ render_affected_outputs <- function() {
   for (script in scripts) {
     status <- system2(
       file.path(R.home("bin"), "Rscript"),
-      c("--vanilla", script),
+      script,
       stdout = "",
       stderr = ""
     )
