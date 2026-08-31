@@ -1,0 +1,49 @@
+name: "covid-excess-mortality"
+output_dir: "../docs"
+exclude: ["assets"]
+navbar:
+  title: "COVID-19 Excess Mortality"
+  left:
+    - text: "Overview"
+      href: index.html
+    - text: "Analyses"
+      menu:
+        - text: "Regional analyses"
+          href: regional_analyses.html
+        - text: "Statistical methods"
+          href: methods.html
+    - text: "Manuscript"
+      menu:
+        - text: "Figure 1"
+          href: figure_01.html
+        - text: "Figure 2"
+          href: figure_02.html
+        - text: "Figure 3"
+          href: figure_03.html
+        - text: "Figure 4"
+          href: figure_04.html
+        - text: "Figure 5"
+          href: figure_05.html
+        - text: "Table 1"
+          href: table_01.html
+    - text: "Supplementary"
+      href: supplementary.html
+    - text: "Reproducibility"
+      menu:
+        - text: "Data sources"
+          href: data_sources.html
+        - text: "Reproduce the analysis"
+          href: reproduction.html
+  right:
+    - icon: fa-github
+      href: https://github.com/AgueroZZ/covid_script
+output:
+  workflowr::wflow_html:
+    theme: readable
+    highlight: textmate
+    toc: true
+    toc_float: true
+    code_folding: hide
+    self_contained: false
+    css: custom.css
+    df_print: paged

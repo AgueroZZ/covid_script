@@ -15,6 +15,7 @@ Imports:
     dplyr,
     here,
     ISOweek,
+    knitr,
     lubridate,
     mapmisc,
     OSplines,
@@ -23,6 +24,7 @@ Imports:
     readxl,
     renv,
     rlang,
+    rmarkdown,
     sf,
     sGPfit,
     targets,
@@ -32,4 +34,5 @@ Imports:
     tibble,
     tidyr,
     TMB,
+    workflowr,
     yaml

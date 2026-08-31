@@ -1,0 +1,20 @@
+---
+title: "Figure 3: North American Wave P-scores"
+site: workflowr::wflow_site
+output: workflowr::wflow_html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+![Figure 3](assets/figures/figure_03_north_america_maps.png)
+
+<div class="figcaption"><strong>Figure 3.</strong> P-scores for the initial and Delta waves for the US states and selected Canadian provinces, stratified by age.</div>
+
+<div class="publication-links">[Download editable PDF](assets/figures/figure_03_north_america_maps.pdf)</div>
+
+## Reproducible code
+
+```{r figure-03-source, code=readLines(here::here("scripts", "reporting", "figure_03_north_america_maps.R")), eval=FALSE}
+```

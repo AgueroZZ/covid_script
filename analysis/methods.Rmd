@@ -1,0 +1,64 @@
+---
+title: "Statistical Methods"
+site: workflowr::wflow_site
+output: workflowr::wflow_html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+## Baseline mortality model
+
+Observed deaths are modelled using a log-Poisson model with a second-order
+integrated Wiener process for the long-term trend, an aggregated seasonal
+Gaussian process, and an independent observation-level component. Each
+jurisdiction-age-sex series is fitted independently; the primary analysis does
+not pool jurisdictions and does not include a population offset. The United
+States monthly model includes a calendar-days offset.
+
+The baseline training period contains observations strictly before 1 January
+2020. Frequency-specific seasonal construction is retained for weekly, monthly,
+and quarterly sources. Posterior predictive draws preserve uncertainty in the
+counterfactual baseline and observation process.
+
+## P-scores
+
+For time point (t), the P-score for posterior baseline draw (b) is
+
+\[
+P_t^{(b)} = \frac{Y_t - \widetilde{Y}_t^{(b)}}
+                  {\widetilde{Y}_t^{(b)}},
+\]
+
+where (Y_t) is the observed death count and
+\(\widetilde{Y}_t^{(b)}\) is a posterior-predicted baseline count. Posterior
+medians and 95% credible intervals are obtained from the draw-wise summaries.
+
+Wave-level P-scores use the ratio of summed counts,
+
+\[
+P_W^{(b)} = \frac{\sum_{t \in W} Y_t}
+                  {\sum_{t \in W} \widetilde{Y}_t^{(b)}} - 1,
+\]
+
+and are not averages of pointwise P-scores. Wave boundaries are start-inclusive
+and end-exclusive. Their exact dates are defined in `config/analysis.yml`.
+
+Sex differences are computed as the female P-score minus the male P-score for
+the corresponding geography, age group, and time point.
+
+## Vaccination groups
+
+Vaccination coverage is defined as people receiving at least one dose per 100
+people, evaluated at 1 July 2021. European values use the latest observation on
+or before that date. The thresholds and region membership used by the
+publication outputs are stored in the tracked analysis configuration rather
+than inferred during plotting.
+
+## Reproducibility contract
+
+Model seeds are derived deterministically from the configured base seed and
+analysis identifiers. Publication artifacts are linked to input hashes, source
+code, and package versions. The complete model contract is available in
+[`documentation/model-specification.md`](https://github.com/AgueroZZ/covid_script/blob/main/documentation/model-specification.md).

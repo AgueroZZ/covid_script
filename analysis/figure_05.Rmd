@@ -1,0 +1,23 @@
+---
+title: "Figure 5: Sex Differences in P-scores"
+site: workflowr::wflow_site
+output: workflowr::wflow_html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+![Figure 5](assets/figures/figure_05_sex_difference.png)
+
+<div class="figcaption"><strong>Figure 5.</strong> Difference in P-scores over time between females and males, pooled for selected high-vaccination and low-vaccination European countries and US states.</div>
+
+Positive values indicate higher P-scores among females. European trajectories
+use a three-week moving average; dotted lines show 95% credible intervals.
+
+<div class="publication-links">[Download editable PDF](assets/figures/figure_05_sex_difference.pdf)</div>
+
+## Reproducible code
+
+```{r figure-05-source, code=readLines(here::here("scripts", "reporting", "figure_05_sex_difference.R")), eval=FALSE}
+```

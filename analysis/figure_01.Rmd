@@ -1,0 +1,23 @@
+---
+title: "Figure 1: Seasonally Adaptive Mortality Model"
+site: workflowr::wflow_site
+output: workflowr::wflow_html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+![Figure 1](assets/figures/figure_01_model_illustration.png)
+
+<div class="figcaption"><strong>Figure 1.</strong> Illustration of the Seasonally Adaptive Mortality Model (SAMM) fitted to the elderly population (aged 80+) in the Netherlands. Shown are the overall mortality counts and modelled expected counts (A), inferred long-term trend (B), and the adaptive seasonal component (C). Data up to January 2020 (vertical dashed line) were used to train the model, and forecasts from the model beyond 2020 show increasingly broad credible regions.</div>
+
+<div class="publication-links">[Download editable PDF](assets/figures/figure_01_model_illustration.pdf)</div>
+
+## Reproducible code
+
+The reporting script reads the completed model summary and writes both PDF and
+PNG output. It is displayed here but is not executed during website generation.
+
+```{r figure-01-source, code=readLines(here::here("scripts", "reporting", "figure_01_model_illustration.R")), eval=FALSE}
+```

@@ -1,0 +1,25 @@
+---
+title: "Figure 2: European Wave P-scores"
+site: workflowr::wflow_site
+output: workflowr::wflow_html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+![Figure 2](assets/figures/figure_02_europe_maps.png)
+
+<div class="figcaption"><strong>Figure 2.</strong> Posterior median P-scores for the initial and Delta waves across 33 Eurostat geographies, England and Wales (labelled UK in the map), and Ireland (IE), stratified by displayed age group.</div>
+
+England-and-Wales groups `UNDER65` and `65-84` are displayed in the `40-59` and
+`60-79` panels, respectively; Ireland groups `45-64` and `65-84` are displayed
+in those panels. These are closest-available source groups and are not fully
+harmonized age intervals.
+
+<div class="publication-links">[Download editable PDF](assets/figures/figure_02_europe_maps.pdf)</div>
+
+## Reproducible code
+
+```{r figure-02-source, code=readLines(here::here("scripts", "reporting", "figure_02_europe_maps.R")), eval=FALSE}
+```

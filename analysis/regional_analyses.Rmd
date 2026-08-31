@@ -1,0 +1,60 @@
+---
+title: "Regional Analyses"
+site: workflowr::wflow_site
+output: workflowr::wflow_html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+The regional pipelines retain source-specific time scales and age definitions
+while applying the common training-period, model, and P-score contracts.
+
+## Europe
+
+The European analysis uses weekly Eurostat deaths by geography, age, and sex.
+The canonical snapshot covers 2000-W01 through 2024-W19. Source-specific model
+code is in [`code/regions/europe`](https://github.com/AgueroZZ/covid_script/tree/main/code/regions/europe),
+and the production entry point is
+[`scripts/model_fitting/europe/refit_eurostat.R`](https://github.com/AgueroZZ/covid_script/blob/main/scripts/model_fitting/europe/refit_eurostat.R).
+
+## England and Wales
+
+The England-and-Wales analysis combines daily deaths by occurrence through 2020
+with weekly registered deaths for 2021--2023. These two source definitions are
+recorded explicitly in the data contract. The fitted analysis uses weekly age
+groups `UNDER65`, `65-84`, and `GE85`.
+
+The production entry point is
+[`scripts/model_fitting/england_wales/refit.R`](https://github.com/AgueroZZ/covid_script/blob/main/scripts/model_fitting/england_wales/refit.R).
+
+## Ireland
+
+The Ireland analysis uses quarterly registered deaths from CSO PxStat table
+`VSQ20`, with age groups `25-44`, `45-64`, `65-84`, and `GE85`. The production
+entry point is
+[`scripts/model_fitting/ireland/refit.R`](https://github.com/AgueroZZ/covid_script/blob/main/scripts/model_fitting/ireland/refit.R).
+
+## Canada
+
+The Canadian analysis uses weekly provisional deaths from Statistics Canada
+Table `13-10-0768-01`, stratified by province or territory, age, and sex. The
+production entry point is
+[`scripts/model_fitting/canada/refit.R`](https://github.com/AgueroZZ/covid_script/blob/main/scripts/model_fitting/canada/refit.R).
+
+## United States
+
+The United States analysis uses monthly CDC WONDER exports grouped by residence
+state and age, with a separate sex-stratified export. Calendar days per month
+enter the fitted model as an offset. The target graph is defined in
+[`_targets.R`](https://github.com/AgueroZZ/covid_script/blob/main/_targets.R),
+and the production runner is
+[`scripts/pipeline/run_pipeline.R`](https://github.com/AgueroZZ/covid_script/blob/main/scripts/pipeline/run_pipeline.R).
+
+## Common outputs
+
+Each pipeline writes standardized summaries below the ignored `output/`
+directory. The reporting scripts then construct the manuscript figures and
+tables from those summaries. No regional model is fitted when this website is
+built.

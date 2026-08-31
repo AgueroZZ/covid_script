@@ -1,0 +1,26 @@
+---
+title: "Table 1: Wave-specific P-scores"
+site: workflowr::wflow_site
+output: workflowr::wflow_html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+<div class="table-caption"><strong>Table 1.</strong> P-scores by wave for selected regions. P-scores by wave for selected European countries (age: 60-79) and U.S. states (age: 65-84) with high and low vaccination rates. Regions are ordered by decreasing vaccination coverage as of mid-2021.</div>
+
+```{r table-01-display, echo=FALSE}
+table_01 <- utils::read.csv(
+  here::here("tables", "manuscript", "table_01_wave_pscores.csv"),
+  check.names = FALSE
+)
+knitr::kable(table_01, format = "html", escape = TRUE)
+```
+
+<div class="publication-links">[Download CSV](assets/tables/table_01_wave_pscores.csv) · [Open standalone HTML table](assets/tables/table_01_wave_pscores.html)</div>
+
+## Reproducible code
+
+```{r table-01-source, code=readLines(here::here("scripts", "reporting", "table_01_wave_pscores.R")), eval=FALSE}
+```

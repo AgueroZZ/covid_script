@@ -1,0 +1,88 @@
+---
+title: "Supplementary Analyses"
+site: workflowr::wflow_site
+output: workflowr::wflow_html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+The supplementary workflow contains many region-, age-, sex-, wave-, and
+diagnostic-specific outputs. To keep this website concise, the complete set is
+not embedded here. The commands below reproduce the analysis inventories and
+reporting outputs, and the lightweight examples demonstrate the tracked input
+and result contracts.
+
+## Reproduction commands
+
+Verify every versioned source file before analysis:
+
+```{r verify-snapshots, eval=FALSE}
+system2(
+  "Rscript",
+  c("--vanilla", "scripts/data_access/verify_snapshots.R")
+)
+```
+
+Inspect regional model inventories without fitting models:
+
+```{r model-inventories, eval=FALSE}
+commands <- c(
+  "scripts/model_fitting/europe/refit_eurostat.R",
+  "scripts/model_fitting/england_wales/refit.R",
+  "scripts/model_fitting/ireland/refit.R",
+  "scripts/model_fitting/canada/refit.R"
+)
+lapply(commands, function(script) {
+  system2("Rscript", c("--vanilla", script, "--manifest-only=true"))
+})
+```
+
+After completed model summaries have been written locally, reconstruct all
+registered manuscript outputs:
+
+```{r reporting-outputs, eval=FALSE}
+system2(
+  "Rscript",
+  c(
+    "--vanilla",
+    "scripts/reporting/run_all.R",
+    "--include_caption_review=true",
+    "--strict=true"
+  )
+)
+```
+
+## Example 1: versioned source inventory
+
+```{r source-inventory, echo=TRUE}
+raw_manifest <- utils::read.csv(
+  here::here("data", "raw", "manifest.csv"),
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+)
+source_inventory <- aggregate(
+  cbind(files = rep(1L, nrow(raw_manifest)), bytes = raw_manifest$bytes),
+  by = list(provider = raw_manifest$provider),
+  FUN = sum
+)
+source_inventory$size_mb <- round(source_inventory$bytes / 1024^2, 1)
+knitr::kable(
+  source_inventory[c("provider", "files", "size_mb")],
+  col.names = c("Provider", "Files", "Size (MB)")
+)
+```
+
+## Example 2: publication-table preview
+
+```{r table-preview, echo=TRUE}
+table_01 <- utils::read.csv(
+  here::here("tables", "manuscript", "table_01_wave_pscores.csv"),
+  check.names = FALSE
+)
+knitr::kable(utils::head(table_01, 6L))
+```
+
+Complete output remains available through the same scripts and local `output/`
+tree; the website does not use those local files as build inputs.

@@ -1,0 +1,59 @@
+body {
+  color: #222;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  color: #1f2933;
+  font-weight: 600;
+}
+
+.navbar-default {
+  background-color: #f8fafc;
+  border-color: #d9e2ec;
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a {
+  color: #243b53;
+}
+
+.figcaption,
+.table-caption {
+  margin: 1rem 0 1.5rem;
+  color: #334e68;
+  font-size: 0.96rem;
+  line-height: 1.5;
+}
+
+.publication-links {
+  margin: 0.5rem 0 1.5rem;
+}
+
+pre {
+  border-color: #d9e2ec;
+}
+
+table {
+  font-size: 0.94rem;
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 15px;
+  }
+
+  .main-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}

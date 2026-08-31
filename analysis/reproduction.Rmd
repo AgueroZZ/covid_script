@@ -1,0 +1,119 @@
+---
+title: "Reproduce the Analysis"
+site: workflowr::wflow_site
+output: workflowr::wflow_html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+## 1. Restore the software environment
+
+Run all commands from the repository root.
+
+```{r restore-environment, eval=FALSE}
+renv::restore()
+```
+
+## 2. Verify inputs and tests
+
+```{r verify-repository, eval=FALSE}
+system2(
+  "Rscript",
+  c("--vanilla", "scripts/data_access/verify_snapshots.R")
+)
+system2("Rscript", c("--vanilla", "tests/testthat.R"))
+```
+
+The first command verifies file sizes and SHA-256 hashes for the exact source
+snapshots used by the analysis.
+
+## 3. Inspect analysis inventories
+
+The following commands validate source-specific preprocessing and construct
+manifests without fitting models:
+
+```{r inspect-inventories, eval=FALSE}
+system2(
+  "Rscript",
+  c(
+    "--vanilla",
+    "scripts/model_fitting/europe/refit_eurostat.R",
+    "--manifest-only=true"
+  )
+)
+system2(
+  "Rscript",
+  c(
+    "--vanilla",
+    "scripts/model_fitting/england_wales/refit.R",
+    "--manifest-only=true"
+  )
+)
+system2(
+  "Rscript",
+  c(
+    "--vanilla",
+    "scripts/model_fitting/ireland/refit.R",
+    "--manifest-only=true"
+  )
+)
+system2(
+  "Rscript",
+  c(
+    "--vanilla",
+    "scripts/model_fitting/canada/refit.R",
+    "--manifest-only=true"
+  )
+)
+```
+
+## 4. Fit models only when required
+
+Regional runners fit models when `--manifest-only=true` is omitted. The United
+States target graph is started with:
+
+```{r fit-models, eval=FALSE}
+system2(
+  "Rscript",
+  c("--vanilla", "scripts/pipeline/run_pipeline.R")
+)
+```
+
+These computations may require substantial memory and wall time. They write
+fitted objects and posterior draws below the ignored `output/` directory and are
+not part of website generation.
+
+## 5. Construct publication outputs
+
+After the required standardized summaries are present locally:
+
+```{r construct-publication-outputs, eval=FALSE}
+system2(
+  "Rscript",
+  c(
+    "--vanilla",
+    "scripts/reporting/run_all.R",
+    "--include_caption_review=true",
+    "--strict=true"
+  )
+)
+```
+
+Figures are written as editable PDF and 300-dpi PNG files. Table 1 is written as
+CSV and HTML. A completed, validated release freeze can then be synchronized to
+the tracked publication directories.
+
+## 6. Build the website
+
+```{r build-site, eval=FALSE}
+system2(
+  "Rscript",
+  c("--vanilla", "scripts/publication/build_site.R")
+)
+```
+
+This final command verifies the tracked artifact hashes and builds the website
+directly from those files. It does not read fitted model objects or posterior
+draws.

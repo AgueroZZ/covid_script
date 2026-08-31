@@ -1,0 +1,57 @@
+---
+title: "COVID-19 Excess Mortality: Reproducible Analyses"
+site: workflowr::wflow_site
+output: workflowr::wflow_html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.align = "center"
+)
+```
+
+This website documents the data, statistical analyses, and publication outputs
+for a multi-country study of excess mortality during the COVID-19 pandemic.
+The repository contains the exact source snapshots used for the analysis and
+separates computationally intensive model fitting from lightweight reporting.
+
+## Manuscript figures and table
+
+Each page provides the manuscript caption, the code used to construct the
+publication artifact from precomputed analysis results, and downloadable output.
+
+| Publication item | Description |
+|:--|:--|
+| [Figure 1](figure_01.html) | Seasonally Adaptive Mortality Model illustration |
+| [Figure 2](figure_02.html) | Initial- and Delta-wave P-scores in Europe |
+| [Figure 3](figure_03.html) | Initial- and Delta-wave P-scores in North America |
+| [Figure 4](figure_04.html) | P-scores by vaccination group over time |
+| [Figure 5](figure_05.html) | Female-minus-male P-score differences over time |
+| [Table 1](table_01.html) | Wave-specific P-scores for selected regions |
+
+## Regional analyses
+
+The [regional analyses](regional_analyses.html) page maps the common estimands to
+the source-specific pipelines for Europe, England and Wales, Ireland, Canada,
+and the United States. The [statistical methods](methods.html) page records the
+shared model and summary definitions.
+
+## Supplementary analyses
+
+The [supplementary page](supplementary.html) provides reproducible commands,
+source links, and representative lightweight examples. The complete collection
+of derived outputs is generated locally rather than embedded in the website.
+
+## Reproducibility
+
+Exact reproduction uses the versioned files under `data/raw/`. Provider-hosted
+data may subsequently be revised; the optional access scripts retrieve current
+versions without replacing the repository snapshots. See [data sources](data_sources.html)
+and [reproduction instructions](reproduction.html) for details.
+
+Model fits and posterior draws are intentionally excluded from Git because they
+are large and computationally expensive to recreate. Website generation reads
+the tracked publication figures and table and does not refit any model.

@@ -17,8 +17,9 @@ _targets/
 _site/
 analysis/*_cache/
 analysis/*_files/
+/analysis/assets/
+/analysis/.workflowr/
 data/processed/
-/output/
 /output/
 /provider_downloads/
 /docs/log/

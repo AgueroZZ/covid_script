@@ -1,0 +1,78 @@
+---
+title: "Data Sources and Versioned Snapshots"
+site: workflowr::wflow_site
+output: workflowr::wflow_html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+Exact reproduction uses the files committed under `data/raw/`, verified against
+their SHA-256 manifest. Data providers may revise provisional counts, historical
+records, schemas, or download URLs after the repository snapshot date. The
+provider-access scripts therefore download current versions to a separate,
+ignored directory and never silently replace the canonical inputs.
+
+## Registered sources
+
+```{r registered-sources, echo=FALSE}
+sources <- utils::read.csv(
+  here::here("config", "data_sources.csv"),
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+)
+display_sources <- sources[c(
+  "provider",
+  "region",
+  "frequency",
+  "geography",
+  "provider_identifier",
+  "local_snapshot"
+)]
+names(display_sources) <- c(
+  "Provider",
+  "Region",
+  "Frequency",
+  "Geography",
+  "Provider identifier",
+  "Repository snapshot"
+)
+knitr::kable(display_sources)
+```
+
+## Snapshot verification
+
+```{r snapshot-verification, eval=FALSE}
+system2(
+  "Rscript",
+  c("--vanilla", "scripts/data_access/verify_snapshots.R")
+)
+```
+
+```{r snapshot-summary, echo=FALSE}
+manifest <- utils::read.csv(
+  here::here("data", "raw", "manifest.csv"),
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+)
+snapshot_summary <- aggregate(
+  cbind(files = rep(1L, nrow(manifest)), bytes = manifest$bytes),
+  by = list(provider = manifest$provider),
+  FUN = sum
+)
+snapshot_summary$size_mb <- round(snapshot_summary$bytes / 1024^2, 1)
+knitr::kable(
+  snapshot_summary[c("provider", "files", "size_mb")],
+  col.names = c("Provider", "Versioned files", "Size (MB)")
+)
+```
+
+## Optional current-provider access
+
+The scripts in
+[`scripts/data_access`](https://github.com/AgueroZZ/covid_script/tree/main/scripts/data_access)
+document how to retrieve current provider versions where automated access is
+available. CDC WONDER exports require acceptance of the provider's data-use terms
+and are retained as saved query exports. Source-specific details are recorded in
+[`documentation/data-sources.md`](https://github.com/AgueroZZ/covid_script/blob/main/documentation/data-sources.md).
