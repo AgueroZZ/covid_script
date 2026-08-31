@@ -42,7 +42,7 @@ copy_publication_assets(docs_assets)
 
 text_site_files <- list.files(
   file.path(project_root, "docs"),
-  pattern = "[.](?:css|csv|html|js|svg|txt)$",
+  pattern = "[.](css|csv|html|js|svg|txt)$",
   recursive = TRUE,
   full.names = TRUE
 )
