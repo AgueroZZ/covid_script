@@ -75,6 +75,7 @@ extract_local_resources <- function(html_path) {
     resources,
     perl = TRUE
   )]
+  resources <- resources[!grepl("['+]", resources)]
   resources <- sub("[?#].*$", "", resources)
   unique(resources[nzchar(resources)])
 }
