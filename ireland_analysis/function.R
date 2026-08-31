@@ -309,15 +309,25 @@ pred_mortality_obs <- function(model_list, refined_pred = NULL, M1 = 3000, M2 = 
     samps_over_noise_matrix <- matrix(samps_over_noise, nrow = nrow(B1_new), ncol = M1, byrow = F)
     samples_I <- cbind(samples_I, (samples + samps_over_noise_matrix))
   }
-  samps_rate <- as.numeric(exp(samples_I))
-  pois_samps <- matrix(rpois(n = length(samps_rate), lambda = samps_rate), nrow = nrow(samples_I), byrow = F)
+  rate_samps <- exp(samples_I)
   if(aggregate_quarterly){
-    pois_samps <- model_list$R_full %*% pois_samps
+    quarterly_rate <- model_list$R_full %*% rate_samps
+    pois_samps <- matrix(
+      rpois(n = length(quarterly_rate), lambda = as.numeric(quarterly_rate)),
+      nrow = nrow(quarterly_rate),
+      ncol = ncol(quarterly_rate)
+    )
     time <- as.Date(model_list$full_data$date)
     
   }else{
+    pois_samps <- matrix(
+      rpois(n = length(rate_samps), lambda = as.numeric(rate_samps)),
+      nrow = nrow(rate_samps),
+      ncol = ncol(rate_samps)
+    )
     time <- (refined_pred*365) + min((model_list$full_data$date))
   }
+  storage.mode(pois_samps) <- "integer"
   
   mean <- apply(as.matrix(pois_samps), MARGIN = 1, mean)
   upper <- apply(as.matrix(pois_samps), MARGIN = 1, quantile, p = 0.975)
@@ -403,5 +413,4 @@ plot_pred_series <- function(model_pred, full_data, component = "all"){
   }
   par(cex.axis=1, cex.lab=1)
 }
-
 

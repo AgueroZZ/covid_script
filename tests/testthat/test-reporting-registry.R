@@ -24,8 +24,7 @@ test_that("submission output registry covers the authoritative document", {
   expect_true(all(file.exists(here::here(outputs$script_path))))
   expect_true(all(outputs$scientific_status %in% c(
     "confirmed",
-    "caption_review_required",
-    "blocked_estimand_definition"
+    "caption_review_required"
   )))
 
   expect_setequal(unique(panels$output_id), outputs$output_id[1:5])
@@ -34,9 +33,38 @@ test_that("submission output registry covers the authoritative document", {
   expect_equal(nrow(panels[panels$output_id %in% c("figure_02", "figure_03"), ]), 8L)
   expect_equal(nrow(panels[panels$output_id %in% c("figure_04", "figure_05"), ]), 12L)
   expect_equal(
+    panels$display_label[
+      panels$output_id == "figure_04" & panels$panel_id %in% c("a", "b")
+    ],
+    c("Ages 40-79, EU", "Ages 40-79, US")
+  )
+  expect_true(all(
+    panels$scientific_status[
+      panels$output_id == "figure_04" & panels$panel_id %in% c("a", "b")
+    ] == "confirmed"
+  ))
+  expect_equal(
     panels$scientific_status[
       panels$output_id == "figure_05" & panels$panel_id == "a"
     ],
-    "blocked_estimand_definition"
+    "confirmed"
+  )
+  expect_equal(
+    panels$data_age_group[
+      panels$output_id == "figure_05" & panels$panel_id == "a"
+    ],
+    "40-79"
+  )
+  expect_equal(
+    panels$data_age_group[
+      panels$output_id == "figure_05" & panels$panel_id == "f"
+    ],
+    "65-84"
+  )
+  expect_equal(
+    panels$display_label[
+      panels$output_id == "figure_05" & panels$panel_id == "f"
+    ],
+    "65-84, US"
   )
 })

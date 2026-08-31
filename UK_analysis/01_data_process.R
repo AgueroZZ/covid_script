@@ -2,6 +2,7 @@ library(readxl)
 library(dplyr)
 library(tidyverse)
 library(lubridate)
+source(file = "../R/england_wales_model.R")
 
 dailydeaths19812020 <- read_excel("dailydeaths19812020.xlsx", sheet = "Table 2", skip = 3)
 head(dailydeaths19812020)
@@ -22,7 +23,10 @@ weekly_data <- long_data %>%
   summarise(Total_Deaths = sum(Deaths), Total_counts = n()) %>%
   na.omit()
 
-weekly_data$date <- make_date(year = weekly_data$ISOYear) + weeks(weekly_data$ISOWeek)
+weekly_data$date <- england_wales_iso_monday(
+  weekly_data$ISOYear,
+  weekly_data$ISOWeek
+)
 
 # Aggregate data to get total deaths across all regions
 aggregated_data <- weekly_data %>%
@@ -30,12 +34,11 @@ aggregated_data <- weekly_data %>%
   summarise(Total_Deaths = sum(Total_Deaths), Total_counts = mean(Total_counts)) %>%
   mutate(`Region code` = "All",
          `Region name` = "All",
-         date = make_date(ISOYear) + weeks(ISOWeek))
+         date = england_wales_iso_monday(ISOYear, ISOWeek))
 
 # Combine the original data with the aggregated data
 final_data <- bind_rows(weekly_data, aggregated_data) %>% filter(Total_counts == 7)
 save(final_data, file = "final_data.rda")
-
 
 
 

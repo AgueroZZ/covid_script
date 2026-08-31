@@ -1,0 +1,36 @@
+geography,corrected_model_available,figure_02,figure_04,figure_05,table_01,source_system,scientific_status,notes
+AM,true,true,true,true,true,eurostat,corrected,Verified Eurostat compact predictions
+AT,true,true,true,true,true,eurostat,corrected,Verified Eurostat compact predictions
+BE,true,true,true,true,true,eurostat,corrected,Verified Eurostat compact predictions
+BG,true,true,true,true,true,eurostat,corrected,Verified Eurostat compact predictions
+CH,true,true,false,false,false,eurostat,corrected,Neither fixed vaccination group
+CY,true,true,false,false,false,eurostat,corrected,Excluded from historical vaccination cohort
+CZ,true,true,false,false,false,eurostat,corrected,Neither fixed vaccination group
+DE,true,true,false,false,false,eurostat,corrected,Excluded from historical vaccination cohort
+DK,true,true,true,true,true,eurostat,corrected,Verified Eurostat compact predictions
+EE,true,true,false,false,false,eurostat,corrected,Excluded from historical vaccination cohort
+EL,true,true,false,false,false,eurostat,corrected,Displayed and joined as GR
+ES,true,true,true,true,true,eurostat,corrected,Verified Eurostat compact predictions
+FI,true,true,true,true,true,eurostat,corrected,Verified Eurostat compact predictions
+FR,true,true,false,false,false,eurostat,corrected,Neither fixed vaccination group
+HR,true,true,true,true,true,eurostat,corrected,Verified Eurostat compact predictions
+HU,true,true,true,true,true,eurostat,corrected,Verified Eurostat compact predictions
+IS,true,true,false,false,false,eurostat,corrected,Excluded from historical vaccination cohort
+IT,true,true,true,true,true,eurostat,corrected,Verified Eurostat compact predictions
+LI,true,true,false,false,false,eurostat,corrected,Excluded from historical vaccination cohort
+LT,true,true,false,false,false,eurostat,corrected,Neither fixed vaccination group
+LU,true,true,false,false,false,eurostat,corrected,Excluded from historical vaccination cohort
+LV,true,true,true,true,true,eurostat,corrected,Verified Eurostat compact predictions
+ME,true,true,false,false,false,eurostat,corrected,Excluded from historical vaccination cohort
+MT,true,true,false,false,false,eurostat,corrected,Excluded from historical vaccination cohort
+NL,true,true,false,false,false,eurostat,corrected,Neither fixed vaccination group
+NO,true,true,false,false,false,eurostat,corrected,Neither fixed vaccination group
+PL,true,true,false,false,false,eurostat,corrected,Neither fixed vaccination group under the fixed threshold
+PT,true,true,true,true,true,eurostat,corrected,Verified Eurostat compact predictions
+RO,true,true,true,true,true,eurostat,corrected,Verified Eurostat compact predictions
+RS,true,true,true,true,true,eurostat,corrected,Verified Eurostat compact predictions
+SE,true,true,false,false,false,eurostat,corrected,Neither fixed vaccination group
+SI,true,true,false,false,false,eurostat,corrected,Excluded from historical vaccination cohort
+SK,true,true,true,true,true,eurostat,corrected,Verified Eurostat compact predictions
+IE,false,false,false,false,false,ireland_quarterly,pending_separate_refit,Nonmatching age bands and separate quarterly model
+UK,false,false,false,false,false,england_wales,pending_separate_refit,England and Wales source with nonmatching age bands

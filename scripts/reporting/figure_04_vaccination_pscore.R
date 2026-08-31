@@ -38,6 +38,10 @@ rendered <- render_six_panel_trajectory(
   panels,
   y_limits = c(-0.3, 1),
   y_label = "P-score",
-  interval = "ribbon"
+  interval = "ribbon",
+  x_limits = list(
+    Europe = as.Date(c("2020-01-01", "2023-04-01")),
+    `United States` = as.Date(c("2020-01-01", "2023-04-01"))
+  )
 )
 message("Rendered Figure 4: ", paste(rendered, collapse = ", "))

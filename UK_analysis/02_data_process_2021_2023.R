@@ -2,6 +2,7 @@ library(readxl)
 library(dplyr)
 library(tidyverse)
 library(lubridate)
+source(file = "../R/england_wales_model.R")
 
 publishedweek522021 <- read_excel("publishedweek522021.xlsx", 
                                   sheet = "Weekly figures 2021", skip = 16, n_max = 20)
@@ -10,19 +11,21 @@ colnames(publishedweek522021)[1] <- "age"
 
 UK_2021 <- publishedweek522021 %>% pivot_longer(cols = 2:53, names_to = "week", values_to = "deaths")
 UK_2021$Year <- 2021
-UK_2021$date <- make_date(UK_2021$Year) + weeks(UK_2021$week)
+UK_2021$date <- england_wales_iso_monday(UK_2021$Year, UK_2021$week)
 
 publicationfile2022 <- read_excel("publicationfileweek522022.xlsx", sheet = "2", skip = 6, n_max = 52)
 UK_2022 <- publicationfile2022 %>% pivot_longer(cols = 4:23, names_to = "age", values_to = "deaths") %>% select(`Week number`, `Week ending`, age, deaths)
 colnames(UK_2022) <- c("week", "date", "age", "deaths")
 UK_2022$date <- as.Date(UK_2022$date)
 UK_2022$Year <- 2022
+UK_2022$date <- england_wales_iso_monday(UK_2022$Year, UK_2022$week)
 
 publicationfile2023 <- read_excel("publicationfileweek352023.xlsx", sheet = "2", skip = 6, n_max = 35)
 UK_2023 <- publicationfile2023 %>% pivot_longer(cols = 4:23, names_to = "age", values_to = "deaths") %>% select(`Week number`, `Week ending`, age, deaths)
 colnames(UK_2023) <- c("week", "date", "age", "deaths")
 UK_2023$date <- as.Date(UK_2023$date)
 UK_2023$Year <- 2023
+UK_2023$date <- england_wales_iso_monday(UK_2023$Year, UK_2023$week)
 
 UK_recent <- rbind(UK_2021, UK_2022, UK_2023)
 

@@ -48,7 +48,27 @@ Inspect or run the complete reporting registry:
 Rscript scripts/reporting/run_all.R
 ```
 
-Figure 5 is intentionally blocked until the European combined-age sex-contrast estimand is corrected. Figure 4 can be rendered individually, but its historical “All Ages” panels are ages 40-79 and require a manuscript caption decision. Full provenance and recalculation triggers are documented in [Submission figures and tables](docs/submission-outputs.md).
+Figure 5 now uses the corrected European ages 40-79 sex-contrast estimand and US ages 65-84 in panel (f). Figure 4 uses ages 40-79 in both regions. Full provenance and recalculation triggers are documented in [Submission figures and tables](docs/submission-outputs.md).
+
+After corrected fitted results and reporting inputs are available, rebuild every
+downstream reporting consumer, run the complete test suite, and create the local
+submission freeze with:
+
+```bash
+Rscript --vanilla scripts/submission/freeze_local_submission.R \
+  --output-root=artifacts/submission_freeze/local_20260831
+```
+
+The freeze contains reporting inputs, Figures 1-5, Table 1, selected validation
+figures, hashes, command logs, and runtime provenance. It does not refit models,
+copy manuscript authoring files, or build a Zenodo upload bundle. After visually
+reviewing the rendered PDFs, finalize it with:
+
+```bash
+Rscript --vanilla scripts/submission/finalize_local_submission_freeze.R \
+  --output-root=artifacts/submission_freeze/local_20260831 \
+  --visual-qa=pass
+```
 
 The Codex macOS sandbox may prohibit `processx` system calls when an R file is passed directly to `Rscript`. That sandbox-only case can use the equivalent command documented in [Local smoke testing](docs/runbooks/local-smoke.md). It is not required on Darjeeling.
 

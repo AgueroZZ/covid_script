@@ -1,0 +1,52 @@
+geography,vaccination_group,figure_03,figure_04,figure_05,table_01
+Alabama,low,true,true,true,true
+Alaska,neither,true,false,false,false
+Arizona,neither,true,false,false,false
+Arkansas,neither,true,false,false,false
+California,neither,true,false,false,false
+Colorado,neither,true,false,false,false
+Connecticut,high,true,true,true,true
+Delaware,neither,true,false,false,false
+District of Columbia,neither,true,false,false,false
+Florida,neither,true,false,false,false
+Georgia,neither,true,false,false,false
+Hawaii,high,true,false,false,false
+Idaho,low,true,true,true,true
+Illinois,neither,true,false,false,false
+Indiana,neither,true,false,false,false
+Iowa,neither,true,false,false,false
+Kansas,neither,true,false,false,false
+Kentucky,neither,true,false,false,false
+Louisiana,low,true,true,true,true
+Maine,high,true,true,false,false
+Maryland,high,true,true,true,true
+Massachusetts,high,true,true,true,true
+Michigan,neither,true,false,false,false
+Minnesota,neither,true,false,false,false
+Mississippi,low,true,true,true,true
+Missouri,neither,true,false,false,false
+Montana,neither,true,false,false,false
+Nebraska,neither,true,false,false,false
+Nevada,neither,true,false,false,false
+New Hampshire,high,true,true,false,false
+New Jersey,high,true,true,true,true
+New Mexico,high,true,true,true,true
+New York,neither,true,false,false,false
+North Carolina,neither,true,false,false,false
+North Dakota,neither,true,false,false,false
+Ohio,neither,true,false,false,false
+Oklahoma,neither,true,false,false,false
+Oregon,neither,true,false,false,false
+Pennsylvania,high,true,true,true,true
+Rhode Island,high,true,false,false,false
+South Carolina,neither,true,false,false,false
+South Dakota,neither,true,false,false,false
+Tennessee,low,true,true,true,true
+Texas,neither,true,false,false,false
+Utah,neither,true,false,false,false
+Vermont,high,true,false,false,false
+Virginia,neither,true,false,false,false
+Washington,neither,true,false,false,false
+West Virginia,neither,true,false,false,false
+Wisconsin,neither,true,false,false,false
+Wyoming,low,true,false,false,false

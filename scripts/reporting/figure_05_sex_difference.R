@@ -39,6 +39,11 @@ rendered <- render_six_panel_trajectory(
   panels,
   y_limits = c(-0.2, 0.5),
   y_label = "P-score difference (F-M)",
-  interval = "dashed"
+  interval = "dashed",
+  title_position = "top",
+  x_limits = list(
+    Europe = as.Date(c("2020-01-01", "2024-05-01")),
+    `United States` = as.Date(c("2020-01-01", "2023-09-01"))
+  )
 )
 message("Rendered Figure 5: ", paste(rendered, collapse = ", "))

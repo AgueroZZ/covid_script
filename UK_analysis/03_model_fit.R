@@ -38,7 +38,7 @@ final_data$OBS_VALUE <- final_data$Total_Deaths
 
 
 ## For age group 1:
-# model_list <- fit_mod_IWP_sGP(world_death = final_data[final_data$Age == "Under 65", ], prior_IWP = prior_SD1, prior_sGP = prior_PSD2, prior_overdis = prior_overdis, k_IWP = k_IWP, k_sGP = k_sGP, country = "UK", m = m, accuracy = 0.001)
+# model_list <- fit_mod_IWP_sGP(world_death = final_data[final_data$Age == "Under 65", ], prior_IWP = prior_SD1, prior_sGP = prior_SD2, prior_overdis = prior_overdis, k_IWP = k_IWP, k_sGP = k_sGP, country = "UK", m = m, accuracy = 0.001)
 # model_pred <- pred_mortality_obs(model_list = model_list, refined_pred = model_list$x_full, M1 = 3000, M2 = 1)
 # model_pred$summary <- arrange(model_pred$summary, time)
 # save(model_pred, file = "fitted_mod/model_pred_less_65.rda")
@@ -48,7 +48,7 @@ model_result$country = "UK"
 save(model_result, file = "UK_result_under_65.rda")
 
 ### For age group 2:
-model_list <- fit_mod_IWP_sGP(world_death = final_data[final_data$Age == "65-85", ], prior_IWP = prior_SD1, prior_sGP = prior_PSD2, prior_overdis = prior_overdis, k_IWP = k_IWP, k_sGP = k_sGP, country = "UK", m = m, accuracy = 0.001)
+model_list <- fit_mod_IWP_sGP(world_death = final_data[final_data$Age == "65-85", ], prior_IWP = prior_SD1, prior_sGP = prior_SD2, prior_overdis = prior_overdis, k_IWP = k_IWP, k_sGP = k_sGP, country = "UK", m = m, accuracy = 0.001)
 model_pred <- pred_mortality_obs(model_list = model_list, refined_pred = model_list$x_full, M1 = 3000, M2 = 1)
 model_pred$summary <- arrange(model_pred$summary, time)
 save(model_pred, file = "fitted_mod/model_pred_65_85.rda")
@@ -59,7 +59,7 @@ save(model_result, file = "UK_result_65_85.rda")
 
 
 ### For age group 3:
-model_list <- fit_mod_IWP_sGP(world_death = final_data[final_data$Age == "over 85", ], prior_IWP = prior_SD1, prior_sGP = prior_PSD2, prior_overdis = prior_overdis, k_IWP = k_IWP, k_sGP = k_sGP, country = "UK", m = m, accuracy = 0.001)
+model_list <- fit_mod_IWP_sGP(world_death = final_data[final_data$Age == "over 85", ], prior_IWP = prior_SD1, prior_sGP = prior_SD2, prior_overdis = prior_overdis, k_IWP = k_IWP, k_sGP = k_sGP, country = "UK", m = m, accuracy = 0.001)
 model_pred <- pred_mortality_obs(model_list = model_list, refined_pred = model_list$x_full, M1 = 3000, M2 = 1)
 model_pred$summary <- arrange(model_pred$summary, time)
 save(model_pred, file = "fitted_mod/model_pred_85.rda")
@@ -67,4 +67,3 @@ load(file = "fitted_mod/model_pred_85.rda")
 model_result <- excess_mortality_aggregate(model_pred = model_pred, full_data = final_data[final_data$Age == "over 85", ])
 model_result$country = "UK"
 save(model_result, file = "UK_result_85.rda")
-

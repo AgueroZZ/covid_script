@@ -1,0 +1,9 @@
+panel_id,age_group,sex,state_codes
+age_0_44_female,0-44,F,TX;CA;FL;NY;PA;WA;GA;OH;MI;NC
+age_0_44_male,0-44,M,TX;CA;FL;NY;PA;WA;GA;OH;MI;NC
+age_45_64_female,45-64,F,TX;CA;FL;NY;PA;WA;GA;OH;MI;NC
+age_45_64_male,45-64,M,TX;CA;FL;NY;PA;WA;GA;OH;MI;NC
+age_65_84_female,65-84,F,TX;CA;FL;NY;PA;WA;GA;OH;MI;NC
+age_65_84_male,65-84,M,TX;CA;FL;NY;PA;WA;GA;OH;MI;NC
+age_ge85_female,Over 85,F,TX;CA;FL;NY;PA;WA;GA;OH;MI;NC
+age_ge85_male,Over 85,M,TX;CA;FL;NY;PA;WA;GA;OH;MI;NC

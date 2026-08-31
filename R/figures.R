@@ -269,9 +269,12 @@ draw_trajectory_panel <- function(
   y_limits,
   y_label,
   interval = c("ribbon", "dashed"),
-  include_legend = FALSE
+  include_legend = FALSE,
+  x_limits = NULL,
+  title_position = c("bottom", "top")
 ) {
   interval <- match.arg(interval)
+  title_position <- match.arg(title_position)
   selected <- data[data$region == region & data$age_group == age_group, ]
   groups <- c("high", "low")
   if (!all(groups %in% selected$vaccination_group)) {
@@ -287,6 +290,7 @@ draw_trajectory_panel <- function(
     xlab = "",
     ylab = y_label,
     ylim = y_limits,
+    xlim = x_limits,
     bty = "l"
   )
   for (group in groups) {
@@ -303,7 +307,11 @@ draw_trajectory_panel <- function(
   }
   graphics::abline(h = 0, lty = 2, col = "grey35")
   draw_wave_annotations(config, y_limits[[2]] - diff(y_limits) * 0.09)
-  graphics::mtext(title, side = 1, line = 2.4, cex = 0.9)
+  if (title_position == "bottom") {
+    graphics::mtext(title, side = 1, line = 2.4, cex = 0.9)
+  } else {
+    graphics::title(main = title, line = 0.2, cex.main = 0.9, font.main = 1)
+  }
   if (include_legend) {
     graphics::legend(
       "topright",
@@ -345,8 +353,11 @@ render_six_panel_trajectory <- function(
   panel_specification,
   y_limits,
   y_label,
-  interval
+  interval,
+  x_limits = NULL,
+  title_position = c("bottom", "top")
 ) {
+  title_position <- match.arg(title_position)
   validate_trajectory_input(data, "trajectory reporting input")
   if (any(panel_specification$scientific_status == "blocked_estimand_definition")) {
     blocked <- panel_specification$panel_id[
@@ -361,9 +372,24 @@ render_six_panel_trajectory <- function(
   draw <- function() {
     old <- graphics::par(no.readonly = TRUE)
     on.exit(graphics::par(old), add = TRUE)
-    graphics::par(mfrow = c(3, 2), mar = c(4, 4, 1.2, 0.8), las = 1)
+    panel_margins <- if (title_position == "bottom") {
+      c(5.0, 4.2, 1.2, 2.8)
+    } else {
+      c(3.8, 4.2, 2.8, 1.4)
+    }
+    graphics::par(
+      mfrow = c(3, 2),
+      mar = panel_margins,
+      oma = c(0.2, 0.2, 0.2, 0.2),
+      las = 1
+    )
     for (index in seq_len(nrow(panel_specification))) {
       panel <- panel_specification[index, ]
+      panel_x_limits <- if (is.list(x_limits)) {
+        x_limits[[panel$region]]
+      } else {
+        x_limits
+      }
       draw_trajectory_panel(
         data,
         panel$region,
@@ -373,9 +399,11 @@ render_six_panel_trajectory <- function(
         y_limits,
         y_label,
         interval = interval,
-        include_legend = index == 1L
+        include_legend = index == 1L,
+        x_limits = panel_x_limits,
+        title_position = title_position
       )
     }
   }
-  render_submission_figure(draw, primary_pdf, width = 10.2, height = 11.5)
+  render_submission_figure(draw, primary_pdf, width = 12.0, height = 12.0)
 }

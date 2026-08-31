@@ -1,0 +1,9 @@
+geography,manuscript_label,source_age_group,display_age_group,mapping_type,disclosure
+England and Wales,UK,Under 65,Y20-39,approximate,"England-and-Wales data are available as Under 65; the same estimate is shown in the 20-39 comparison panel."
+England and Wales,UK,Under 65,Y40-59,approximate,"England-and-Wales data are available as Under 65; the same estimate is shown in the 40-59 comparison panel."
+England and Wales,UK,65-84,Y60-79,approximate,"England-and-Wales ages 65-84 are shown in the 60-79 comparison panel."
+England and Wales,UK,85+,Y_GE80,approximate,"England-and-Wales ages 85+ are shown in the 80+ comparison panel."
+Republic of Ireland,Ireland,25-44,Y20-39,approximate,"Ireland ages 25-44 are shown in the 20-39 comparison panel."
+Republic of Ireland,Ireland,45-64,Y40-59,approximate,"Ireland ages 45-64 are shown in the 40-59 comparison panel."
+Republic of Ireland,Ireland,65-84,Y60-79,approximate,"Ireland ages 65-84 are shown in the 60-79 comparison panel."
+Republic of Ireland,Ireland,85+,Y_GE80,approximate,"Ireland ages 85+ are shown in the 80+ comparison panel."

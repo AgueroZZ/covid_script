@@ -85,7 +85,7 @@ test_that("four-panel map renderer uses explicit age-wave keys", {
   expect_true(all(file.info(rendered)$size > 0L))
 })
 
-test_that("six-panel trajectories render only resolved estimands", {
+test_that("six-panel trajectories render recorded estimand statuses", {
   config <- read_analysis_config(here::here("config", "analysis.yml"))
   registry <- read_reporting_registry()
   panels <- registry$panels[registry$panels$output_id == "figure_04", ]
@@ -114,19 +114,37 @@ test_that("six-panel trajectories render only resolved estimands", {
   expect_true(all(file.exists(rendered)))
   expect_true(all(file.info(rendered)$size > 0L))
 
-  blocked <- registry$panels[registry$panels$output_id == "figure_05", ]
-  expect_error(
-    render_six_panel_trajectory(
-      input,
-      tempfile(fileext = ".pdf"),
-      config,
-      blocked,
-      y_limits = c(-0.2, 0.5),
-      y_label = "P-score difference (F-M)",
-      interval = "dashed"
+  figure_05_panels <- registry$panels[
+    registry$panels$output_id == "figure_05",
+  ]
+  figure_05_input <- dplyr::bind_rows(
+    tidyr::crossing(
+      region = "Europe",
+      age_group = c("40-79", "40-59", "60-79"),
+      vaccination_group = c("high", "low"),
+      date = dates
     ),
-    "unresolved estimand"
+    tidyr::crossing(
+      region = "United States",
+      age_group = c("0-84", "0-44", "65-84"),
+      vaccination_group = c("high", "low"),
+      date = dates
+    )
   )
+  figure_05_input$mean <- 0.05
+  figure_05_input$lower <- 0.01
+  figure_05_input$upper <- 0.09
+  figure_05_output <- tempfile(fileext = ".pdf")
+  figure_05_rendered <- render_six_panel_trajectory(
+    figure_05_input,
+    figure_05_output,
+    config,
+    figure_05_panels,
+    y_limits = c(-0.2, 0.5),
+    y_label = "P-score difference (F-M)",
+    interval = "dashed"
+  )
+  expect_true(all(file.exists(figure_05_rendered)))
 })
 
 test_that("European trajectory smoothing preserves explicit groups", {

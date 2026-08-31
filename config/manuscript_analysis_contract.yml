@@ -1,0 +1,143 @@
+contract_version: 1.0.0
+frozen_on: "2026-08-31"
+status: frozen_for_submission
+
+scientific_contract:
+  training:
+    final_date: "2019-12-31"
+
+  endpoints:
+    us_non_sex: "2023-08-31"
+    us_sex: "2023-08-31"
+
+  waves:
+    initial:
+      start: "2020-03-01"
+      end_exclusive: "2020-11-01"
+    alpha:
+      start: "2020-11-01"
+      end_exclusive: "2021-07-01"
+    delta:
+      start: "2021-07-01"
+      end_exclusive: "2022-01-01"
+    omicron:
+      start: "2022-01-01"
+      end_exclusive: "2024-04-01"
+
+  vaccination:
+    metric: people_vaccinated_per_hundred
+    interpretation: at_least_one_dose_per_100_people
+    reference_date: "2021-07-01"
+    europe_date_rule: latest_on_or_before_reference_date
+    groups:
+      low: strictly_below_low_threshold
+      high: strictly_above_high_threshold
+      neither: between_thresholds_inclusive
+    thresholds:
+      us:
+        low_below: 42
+        high_above: 62
+      europe:
+        low_below: 41
+        high_above: 53
+
+  age_bands:
+    source_regions:
+      europe: [20-39, 40-59, 60-79, GE80]
+      us_non_sex: [20-39, 40-59, 60-79, GE80]
+      us_sex: [0-44, 45-64, 65-84, GE85]
+      canada_sex: [0-44, 45-64, 65-84, GE85]
+      england_wales: [UNDER65, 65-84, GE85]
+      ireland: [25-44, 45-64, 65-84, GE85]
+    approximate_reporting_mappings:
+      registry: config/uk_ie_reporting_cohort.csv
+      disclosure_required: true
+
+  reporting_estimands:
+    figure_04:
+      europe_all_ages:
+        display_age_group: 40-79
+        components: [40-59, 60-79]
+      us_all_ages:
+        display_age_group: 40-79
+        components: [40-59, 60-79]
+    figure_05:
+      europe_all_ages:
+        display_age_group: 40-79
+        components: [40-59, 60-79]
+      us_all_ages:
+        display_age_group: 0-84
+        components: [0-44, 45-64, 65-84]
+      us_older_adult_panel:
+        display_age_group: 65-84
+        components: [65-84]
+
+  cohorts:
+    detailed_inventory: config/cohorts.csv
+    europe_reporting: config/europe_reporting_cohort.csv
+    us_reporting: config/us_reporting_cohort.csv
+    us_table_01: config/us_table_01_cohort.csv
+    vaccination_reporting_groups: config/reporting_vaccination_groups.csv
+    output_panels: config/reporting_panels.csv
+    exclusion_rules:
+      vaccination_neither:
+        action: exclude_from_high_low_comparisons
+        reason: does_not_meet_fixed_high_or_low_threshold
+      europe_non_eurostat_sources:
+        action: use_declared_approximate_mapping_for_figure_02_only
+        reason: source_age_bands_do_not_match_eurostat_age_bands
+      us_figure_05_historical_scope:
+        action: retain_explicit_11_state_cohort
+        reason: preserve_the_adopted_historical_reporting_estimand
+    us_figure_05_missingness:
+      rule: common_available_months_within_vaccination_group
+      production_exclusions: []
+      accepted_incomplete_geographies: [Idaho, New Mexico]
+      rationale: suppression_sensitivity_is_trivial_during_the_manuscript_period
+      validation_artifact: artifacts/validation/figure_05_us_cohort_comparison_20260831
+
+registries:
+  - id: analysis_config
+    path: config/analysis.yml
+    format: yaml
+    sha256: 7bdad8b297affda2066b6c52e1405766e35455fed9d87b5782fdefc6ed9b0d53
+  - id: cohort_inventory
+    path: config/cohorts.csv
+    format: csv
+    expected_rows: 612
+    sha256: 1bbf0b7b6a43dec46d90e8a3317a3f72086be9021b00e074f74e338aec8ecfef
+  - id: europe_reporting_cohort
+    path: config/europe_reporting_cohort.csv
+    format: csv
+    expected_rows: 35
+    sha256: b43fca71535f60eb3b6dd57f90a90a2f79a31f784b1452a9cd2b0e20abd3913c
+  - id: uk_ie_reporting_mappings
+    path: config/uk_ie_reporting_cohort.csv
+    format: csv
+    expected_rows: 8
+    sha256: 3877ec2e2a445542a3905e05041656817b6593e91138491a7c687cbd18143db7
+  - id: us_reporting_cohort
+    path: config/us_reporting_cohort.csv
+    format: csv
+    expected_rows: 51
+    sha256: d6b1e28f456c97ef60e56cecf307896ca1a3448b328bfe56760d039434c6795c
+  - id: us_table_01_cohort
+    path: config/us_table_01_cohort.csv
+    format: csv
+    expected_rows: 11
+    sha256: 913d6bacb03d588d3057b4bc7b5521837140ca4557fdcf105d53f16d3e7157cf
+  - id: reporting_vaccination_groups
+    path: config/reporting_vaccination_groups.csv
+    format: csv
+    expected_rows: 28
+    sha256: 51fb4fa0f20a71f1bbf9dbb4f1fa19bdf28b2e216398443215ccdd011975853a
+  - id: reporting_panels
+    path: config/reporting_panels.csv
+    format: csv
+    expected_rows: 23
+    sha256: 80ca3e421a617a99b68e64b76240b47560e0d90529663a863f63e8cb99e79a78
+  - id: reporting_outputs
+    path: config/reporting_outputs.csv
+    format: csv
+    expected_rows: 6
+    sha256: f132f11894ac301c1d38d89b14384a114deacd1e3cb50fb4b6cb1cb6278047ed

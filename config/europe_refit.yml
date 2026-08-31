@@ -1,0 +1,36 @@
+input:
+  age_groups: [Y20-39, Y40-59, Y60-79, Y_GE80]
+  training_end_exclusive: 2020-01-01
+  required_prediction_end_after: 2022-01-01
+  minimum_year_span: 10
+  spain_excluded_date: 2020-12-28
+
+model:
+  family: Poisson
+  trend: IWP
+  trend_order: 2
+  trend_prediction_h_years: 5
+  seasonal_frequency: 6.283185307179586
+  seasonal_harmonics: 4
+  seasonal_prediction_h_years: 1
+  seasonal_accuracy: 0.001
+  long_series_iwp_knots: 100
+  long_series_sgp_basis: 40
+  short_series_iwp_knots: 50
+  short_series_sgp_basis: 20
+  boundary_precision: 0.001
+  prior_u: 0.1
+  prior_alpha: 0.01
+  aghq_nodes: 5
+  posterior_draws: 3000
+  base_seed: 20260829
+
+runtime:
+  maximum_workers: 12
+  numerical_threads_per_worker: 1
+  reserved_memory_gib: 30
+  required_bayesgp_version: 0.1.3
+  required_osplines_version: 0.1.1
+  required_sgpfit_version: 1.0.1
+  required_osplines_revision: 6803031df86cbb2b2845b0761915b2a5ecca5612
+  required_sgpfit_revision: 7d935d2572b2713d042e03b089060e5ec73472c8

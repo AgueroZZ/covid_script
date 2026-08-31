@@ -1,0 +1,29 @@
+region,geography,measurement_date,people_vaccinated_per_hundred,vaccination_group,reporting_outputs
+europe,AM,2021-06-27,2.10,low,figure_04;figure_05;table_01
+europe,AT,2021-06-25,53.48,high,figure_04;figure_05;table_01
+europe,BE,2021-07-01,63.15,high,figure_04;figure_05;table_01
+europe,BG,2021-07-01,14.18,low,figure_04;figure_05;table_01
+europe,DK,2021-06-25,53.29,high,figure_04;figure_05;table_01
+europe,ES,2021-07-01,54.56,high,figure_04;figure_05;table_01
+europe,FI,2021-06-27,58.28,high,figure_04;figure_05;table_01
+europe,HR,2021-06-29,36.94,low,figure_04;figure_05;table_01
+europe,HU,2021-06-29,55.05,high,figure_04;figure_05;table_01
+europe,IT,2021-07-01,58.79,high,figure_04;figure_05;table_01
+europe,LV,2021-07-01,33.98,low,figure_04;figure_05;table_01
+europe,PT,2021-06-25,53.12,high,figure_04;figure_05;table_01
+europe,RO,2021-07-01,24.05,low,figure_04;figure_05;table_01
+europe,RS,2021-06-20,39.21,low,figure_04;figure_05;table_01
+europe,SK,2021-06-27,36.55,low,figure_04;figure_05;table_01
+us,Alabama,2021-07-01,40.03,low,figure_04;figure_05;table_01
+us,Connecticut,2021-07-01,67.10,high,figure_04;figure_05;table_01
+us,Idaho,2021-07-01,39.60,low,figure_04;figure_05;table_01
+us,Louisiana,2021-07-01,38.50,low,figure_04;figure_05;table_01
+us,Maine,2021-07-01,66.49,high,figure_04
+us,Maryland,2021-07-01,62.03,high,figure_04;figure_05;table_01
+us,Massachusetts,2021-07-01,70.52,high,figure_04;figure_05;table_01
+us,Mississippi,2021-07-01,36.27,low,figure_04;figure_05;table_01
+us,New Hampshire,2021-07-01,62.51,high,figure_04
+us,New Jersey,2021-07-01,62.95,high,figure_04;figure_05;table_01
+us,New Mexico,2021-07-01,63.02,high,figure_04;figure_05;table_01
+us,Pennsylvania,2021-07-01,62.87,high,figure_04;figure_05;table_01
+us,Tennessee,2021-07-01,41.75,low,figure_04;figure_05;table_01
