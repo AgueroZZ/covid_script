@@ -45,7 +45,15 @@ pre {
 }
 
 table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
   font-size: 14px;
+}
+
+th,
+td {
+  vertical-align: top;
 }
 
 @media (max-width: 767px) {
@@ -59,8 +67,6 @@ table {
   }
 
   table {
-    display: block;
-    overflow-x: auto;
     white-space: nowrap;
   }
 }
