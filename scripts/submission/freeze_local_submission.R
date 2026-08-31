@@ -12,7 +12,7 @@ source(here::here("R", "submission_freeze.R"))
 parse_arguments <- function(arguments) {
   defaults <- list(
     output_root = here::here(
-      "artifacts", "submission_freeze", "local_20260831"
+      "output", "submission_freeze", "local_20260831"
     )
   )
   for (argument in arguments) {
@@ -78,7 +78,7 @@ submission_freeze_assert_files(
 )
 
 us_validation_root <- here::here(
-  "artifacts", "validation", "us_omicron_all_outputs_20260830"
+  "output", "validation", "us_omicron_all_outputs_20260830"
 )
 historical_us_result <- file.path(
   us_validation_root, "sources", "USA_monthly_result_historical.rda"
@@ -211,16 +211,16 @@ copied[["completion"]] <- copy_submission_freeze_files(
 
 validation_roots <- c(
   here::here(
-    "artifacts", "reporting", "validation",
+    "output", "reporting", "validation",
     "europe_corrected_psd_prior_20260830"
   ),
-  here::here("artifacts", "validation", "uk_ie_corrected_20260830"),
-  here::here("artifacts", "validation", "us_omicron_all_outputs_20260830"),
-  here::here("artifacts", "validation", "us_suppression_20260830"),
+  here::here("output", "validation", "uk_ie_corrected_20260830"),
+  here::here("output", "validation", "us_omicron_all_outputs_20260830"),
+  here::here("output", "validation", "us_suppression_20260830"),
   here::here(
-    "artifacts", "validation", "figure_05_us_cohort_comparison_20260831"
+    "output", "validation", "figure_05_us_cohort_comparison_20260831"
   ),
-  here::here("artifacts", "validation", "figure_05_us_panel_f_comparison")
+  here::here("output", "validation", "figure_05_us_panel_f_comparison")
 )
 submission_freeze_assert_files(validation_roots, "Downstream validation root")
 validation_files <- unlist(lapply(validation_roots, submission_recursive_files))

@@ -94,13 +94,13 @@ scientific_contract:
       production_exclusions: []
       accepted_incomplete_geographies: [Idaho, New Mexico]
       rationale: suppression_sensitivity_is_trivial_during_the_manuscript_period
-      validation_artifact: artifacts/validation/figure_05_us_cohort_comparison_20260831
+      validation_artifact: output/validation/figure_05_us_cohort_comparison_20260831
 
 registries:
   - id: analysis_config
     path: config/analysis.yml
     format: yaml
-    sha256: 7bdad8b297affda2066b6c52e1405766e35455fed9d87b5782fdefc6ed9b0d53
+    sha256: 6b4055e9855b68bc8ffc40b8aaa312e60e74ab67b13a8e32c9c7d4ba4bb8956c
   - id: cohort_inventory
     path: config/cohorts.csv
     format: csv
@@ -140,4 +140,4 @@ registries:
     path: config/reporting_outputs.csv
     format: csv
     expected_rows: 6
-    sha256: f132f11894ac301c1d38d89b14384a114deacd1e3cb50fb4b6cb1cb6278047ed
+    sha256: 322dd4decd2b529cba4fe0c6c42ade9a1018598ba9c2f28ca1cfbb6497bad7fc

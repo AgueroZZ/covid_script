@@ -11,21 +11,21 @@ source(here::here("R", "reporting.R"))
 source(here::here("R", "tables.R"))
 
 arguments <- reporting_arguments(list(
-  europe_wave = here::here("artifacts", "results", "europe", "wave_summary.csv"),
-  us_wave = here::here("artifacts", "results", "us", "wave_summary.csv"),
+  europe_wave = here::here("output", "results", "europe", "wave_summary.csv"),
+  us_wave = here::here("output", "results", "us", "wave_summary.csv"),
   europe_vaccination = here::here(
-    "artifacts",
+    "output",
     "data",
     "europe",
     "vaccination_membership.csv"
   ),
   us_vaccination = here::here(
-    "artifacts",
+    "output",
     "data",
     "us",
     "vaccination_membership.csv"
   ),
-  output = here::here("artifacts", "tables", "table_01_wave_pscores.csv")
+  output = here::here("output", "tables", "table_01_wave_pscores.csv")
 ))
 
 inputs <- unlist(arguments[c(

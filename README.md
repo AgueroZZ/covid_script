@@ -6,7 +6,7 @@ The current branch contains the validated foundation and the complete US data, c
 
 ## Reference environment
 
-Darjeeling Linux is the reference platform for full model fitting. The R package environment is pinned by `renv.lock`, including the archived BayesGP source package in `vendor/`. Large fitted models and generated outputs are written below `artifacts/` and are intentionally ignored by Git.
+Darjeeling Linux is the reference platform for full model fitting. The R package environment is pinned by `renv.lock`, including the archived BayesGP source package in `vendor/`. Large fitted models and generated outputs are written below `output/` and are intentionally ignored by Git.
 
 Restore the environment from the repository root:
 
@@ -56,7 +56,7 @@ submission freeze with:
 
 ```bash
 Rscript --vanilla scripts/submission/freeze_local_submission.R \
-  --output-root=artifacts/submission_freeze/local_20260831
+  --output-root=output/submission_freeze/local_20260831
 ```
 
 The freeze contains reporting inputs, Figures 1-5, Table 1, selected validation
@@ -66,7 +66,7 @@ reviewing the rendered PDFs, finalize it with:
 
 ```bash
 Rscript --vanilla scripts/submission/finalize_local_submission_freeze.R \
-  --output-root=artifacts/submission_freeze/local_20260831 \
+  --output-root=output/submission_freeze/local_20260831 \
   --visual-qa=pass
 ```
 

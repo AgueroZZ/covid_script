@@ -422,7 +422,7 @@ def main() -> None:
             )
         )
 
-    log_path = project_root / "artifacts/validation/manuscript_docx_update_20260831/replacement_log.json"
+    log_path = project_root / "output/validation/manuscript_docx_update_20260831/replacement_log.json"
     log_path.parent.mkdir(parents=True, exist_ok=True)
     log_path.write_text(json.dumps(summaries, indent=2, ensure_ascii=False) + "\n")
     counts = Counter(

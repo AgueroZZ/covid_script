@@ -12,12 +12,12 @@ source(here::here("R", "figures.R"))
 
 arguments <- reporting_arguments(list(
   input = here::here(
-    "artifacts",
+    "output",
     "reporting",
     "inputs",
     "figure_02_europe_maps.rds"
   ),
-  output = here::here("artifacts", "figures", "figure_02_europe_maps.pdf")
+  output = here::here("output", "figures", "figure_02_europe_maps.pdf")
 ))
 
 reporting_require_files(arguments$input, "Figure 2 input")

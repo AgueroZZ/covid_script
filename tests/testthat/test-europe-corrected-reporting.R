@@ -90,7 +90,7 @@ test_that("wave summaries use half-open canonical intervals", {
 
 test_that("corrected integration contract matches local verified artifacts", {
   refit_root <- here::here(
-    "artifacts",
+    "output",
     "results",
     "europe_corrected_psd_prior_20260830"
   )

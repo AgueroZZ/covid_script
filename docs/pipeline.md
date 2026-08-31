@@ -58,10 +58,10 @@ These are downstream calculation and labeling issues. If compatible posterior pr
 
 ## Artifact policy
 
-Pipeline outputs are written below `artifacts/`:
+Pipeline outputs are written below `output/`:
 
 ```text
-artifacts/
+output/
   data/
   models/
   results/
@@ -70,4 +70,4 @@ artifacts/
   manifests/
 ```
 
-These outputs are reproducible build products and are ignored by Git. `scripts/verify_artifacts.R` hashes all generated artifacts except existing manifests and writes `artifacts/manifests/artifacts.csv`.
+These outputs are reproducible build products and are ignored by Git. `scripts/verify_artifacts.R` hashes all generated artifacts except existing manifests and writes `output/manifests/artifacts.csv`.

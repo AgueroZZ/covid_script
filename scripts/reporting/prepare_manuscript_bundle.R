@@ -25,7 +25,7 @@ sf::sf_use_s2(FALSE)
 parse_arguments <- function(arguments) {
   defaults <- list(
     archive_root = "/Users/ziangzhang/Desktop/covid_mortality/covid_excess",
-    bundle_root = here::here("artifacts", "results", "zenodo_bundle"),
+    bundle_root = here::here("output", "results", "zenodo_bundle"),
     stage = "true"
   )
   if (length(arguments) == 0L) {
@@ -847,7 +847,7 @@ write_bundle_readme <- function(bundle_root, source_manifest, output_status) {
     "",
     "- Source artifacts are copied from the historical `covid_excess` archive without modification.",
     "- Only jurisdictions and age/sex strata used by adopted manuscript outputs are included.",
-    "- The reporting-ready files are also installed into the repository's standard `artifacts/` paths.",
+    "- The reporting-ready files are also installed into the repository's standard `output/` paths.",
     "- The bundle is intentionally ignored by Git and is suitable for a separate Zenodo deposit.",
     "",
     "## Reproduction",
@@ -1063,37 +1063,37 @@ readr::write_csv(
 
 runtime_paths <- c(
   figure_01_model_illustration.rds = here::here(
-    "artifacts", "reporting", "inputs", "figure_01_model_illustration.rds"
+    "output", "reporting", "inputs", "figure_01_model_illustration.rds"
   ),
   figure_02_europe_maps.rds = here::here(
-    "artifacts", "reporting", "inputs", "figure_02_europe_maps.rds"
+    "output", "reporting", "inputs", "figure_02_europe_maps.rds"
   ),
   figure_03_north_america_maps.rds = here::here(
-    "artifacts", "reporting", "inputs", "figure_03_north_america_maps.rds"
+    "output", "reporting", "inputs", "figure_03_north_america_maps.rds"
   ),
   figure_04_vaccination_pscore.csv = here::here(
-    "artifacts", "reporting", "inputs", "figure_04_vaccination_pscore.csv"
+    "output", "reporting", "inputs", "figure_04_vaccination_pscore.csv"
   ),
   figure_05_sex_difference.csv = here::here(
-    "artifacts", "reporting", "inputs", "figure_05_sex_difference.csv"
+    "output", "reporting", "inputs", "figure_05_sex_difference.csv"
   ),
   figure_05_europe_historical_incoherent.csv = here::here(
-    "artifacts",
+    "output",
     "reporting",
     "validation",
     "figure_05_europe_historical_incoherent.csv"
   ),
   europe_wave_summary.csv = here::here(
-    "artifacts", "results", "europe", "wave_summary.csv"
+    "output", "results", "europe", "wave_summary.csv"
   ),
   us_wave_summary.csv = here::here(
-    "artifacts", "results", "us", "wave_summary.csv"
+    "output", "results", "us", "wave_summary.csv"
   ),
   europe_vaccination_membership.csv = here::here(
-    "artifacts", "data", "europe", "vaccination_membership.csv"
+    "output", "data", "europe", "vaccination_membership.csv"
   ),
   us_vaccination_membership.csv = here::here(
-    "artifacts", "data", "us", "vaccination_membership.csv"
+    "output", "data", "us", "vaccination_membership.csv"
   )
 )
 for (source_name in names(runtime_paths)) {

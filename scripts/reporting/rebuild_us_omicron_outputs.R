@@ -142,7 +142,7 @@ arguments <- parse_arguments(list(
     "issue_01_us_omicron", "USA_monthly_result_omicron_corrected.rda"
   ),
   output_root = here::here(
-    "artifacts", "validation", "us_omicron_all_outputs_20260830"
+    "output", "validation", "us_omicron_all_outputs_20260830"
   ),
   install_canonical = "true",
   rerender_manuscript = "true"
@@ -160,19 +160,19 @@ state_codes_path <- here::here("config", "us_state_codes.csv")
 bar_panels_path <- here::here("config", "us_omicron_bar_panels.csv")
 table_cohort_path <- here::here("config", "us_table_01_cohort.csv")
 geometry_path <- here::here("USA_analysis", "cb_2018_us_state_500k.zip")
-canonical_us_path <- here::here("artifacts", "results", "us", "wave_summary.csv")
+canonical_us_path <- here::here("output", "results", "us", "wave_summary.csv")
 baseline_canonical_path <- file.path(
   output_root,
   "baseline",
   "canonical",
   "us_wave_summary.csv"
 )
-europe_wave_path <- here::here("artifacts", "results", "europe", "wave_summary.csv")
+europe_wave_path <- here::here("output", "results", "europe", "wave_summary.csv")
 us_vaccination_path <- here::here(
-  "artifacts", "data", "us", "vaccination_membership.csv"
+  "output", "data", "us", "vaccination_membership.csv"
 )
 europe_vaccination_path <- here::here(
-  "artifacts", "data", "europe", "vaccination_membership.csv"
+  "output", "data", "europe", "vaccination_membership.csv"
 )
 reporting_require_files(
   c(
@@ -197,11 +197,11 @@ source_copies <- c(
 )
 baseline_files <- c(
   copy_directory_files_once(
-    here::here("artifacts", "figures"),
+    here::here("output", "figures"),
     file.path(output_root, "baseline", "manuscript", "figures")
   ),
   copy_directory_files_once(
-    here::here("artifacts", "tables"),
+    here::here("output", "tables"),
     file.path(output_root, "baseline", "manuscript", "tables")
   ),
   copy_once(
@@ -400,8 +400,8 @@ inventory$sha256 <- vapply(inventory$absolute_path, sha256_file, character(1))
 inventory$absolute_path <- NULL
 
 manuscript_paths <- c(
-  list.files(here::here("artifacts", "figures"), full.names = TRUE),
-  list.files(here::here("artifacts", "tables"), full.names = TRUE)
+  list.files(here::here("output", "figures"), full.names = TRUE),
+  list.files(here::here("output", "tables"), full.names = TRUE)
 )
 manuscript_paths <- manuscript_paths[file.info(manuscript_paths)$isdir %in% FALSE]
 manuscript_manifest <- dplyr::bind_rows(lapply(manuscript_paths, function(path) {

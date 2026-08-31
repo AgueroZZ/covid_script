@@ -42,7 +42,7 @@ The known US Omicron correction affects wave aggregation, not the pointwise traj
 
 ### Completed corrected-Eurostat rebuild
 
-The verified 388-model Eurostat corrected-prior refit now supplies Figures 1, 2, 4, and 5 and the European rows of Table 1. Historical and corrected artifacts, pointwise comparisons, hashes, and provenance are stored under `artifacts/reporting/validation/europe_corrected_psd_prior_20260830/`.
+The verified 388-model Eurostat corrected-prior refit now supplies Figures 1, 2, 4, and 5 and the European rows of Table 1. Historical and corrected artifacts, pointwise comparisons, hashes, and provenance are stored under `output/reporting/validation/europe_corrected_psd_prior_20260830/`.
 
 Figure 2 now contains the 33 verified Eurostat geographies plus separately corrected England-and-Wales and Ireland results. The source age bands remain explicit: England and Wales use Under 65, 65-84, and 85+; Ireland uses 25-44, 45-64, 65-84, and 85+. The figure retains the historical approximate comparison mappings declared in `config/uk_ie_reporting_cohort.csv`. Figure 3 is unaffected and its PDF and PNG are byte-identical. The US trajectory rows in Figures 4 and 5 and the 11 US Table 1 rows were preserved.
 
@@ -52,19 +52,19 @@ Three England-and-Wales weekly models and four Ireland quarterly models were ref
 
 The extended Figure 2 contains 35 geographies. The 132 existing Eurostat map cells agree with the previously installed corrected input to within `1e-12`; only the newly restored UK and Ireland cells were added. For Figure 2, the largest England-and-Wales changes relative to the historical artifacts are Under-65 Initial `0.1463 -> 0.1619` and Delta `0.1878 -> 0.2081`. Ireland Figure 2 changes are all below `0.008` P-score units. Across all 28 UK/Ireland age-wave comparisons, the only sign change is England-and-Wales ages 85+ during Omicron (`-0.0024 -> 0.0170`), a near-zero result outside Figure 2.
 
-The full regional comparisons, mapping provenance, preserved 33-geography baseline, output hashes, and completion flag are under `artifacts/validation/uk_ie_corrected_20260830/`.
+The full regional comparisons, mapping provenance, preserved 33-geography baseline, output hashes, and completion flag are under `output/validation/uk_ie_corrected_20260830/`.
 
 The largest corrected European differences were 0.05033 P-score units in Figure 4, 0.03325 in Figure 5, and 0.02955 in the Table 1 wave medians. Visual inspection and numerical comparisons found no reversal of the main qualitative vaccination-group or sex-contrast patterns. Exact numerical Results statements and all affected manuscript images/table cells must nevertheless be updated from the corrected artifacts.
 
 ### Completed US Omicron rebuild
 
-The complete historical-versus-corrected rebuild is stored locally under `artifacts/validation/us_omicron_all_outputs_20260830/`. It contains standardized source summaries, eight age-sex bar panels and 32 state-wave maps per result version in PDF and PNG, controlled Table 1 versions, row-level comparisons, immutable manuscript baselines, SHA-256 manifests, and a completion flag.
+The complete historical-versus-corrected rebuild is stored locally under `output/validation/us_omicron_all_outputs_20260830/`. It contains standardized source summaries, eight age-sex bar panels and 32 state-wave maps per result version in PDF and PNG, controlled Table 1 versions, row-level comparisons, immutable manuscript baselines, SHA-256 manifests, and a completion flag.
 
 The corrected calculation uses the configured US analysis end of August 31, 2023. The previous manuscript-bundle builder did not enforce this boundary and included fitted-prediction dates through November 2023 in its Omicron aggregate; November is a visibly incomplete source month. `prepare_manuscript_bundle.R` now enforces `config$regions$us_sex$analysis_end` when constructing the US wave summary.
 
 All 1,218 non-Omicron historical rows are reproduced exactly. All 406 shared Omicron P-score medians change, with 400 decreases, 6 increases, and 72 sign changes. The historical-only Wyoming 0-44 female Omicron row is removed because the observed series does not reach Omicron; Vermont 0-44 female remains missing because the fitted model is absent.
 
-The five manuscript figure PNGs are bit-for-bit unchanged after rerendering, confirming that this correction does not flow into their pointwise inputs. Table 1 changes for all 11 adopted US jurisdictions and has been regenerated at `artifacts/tables/table_01_wave_pscores.csv` and `.html`.
+The five manuscript figure PNGs are bit-for-bit unchanged after rerendering, confirming that this correction does not flow into their pointwise inputs. Table 1 changes for all 11 adopted US jurisdictions and has been regenerated at `output/tables/table_01_wave_pscores.csv` and `.html`.
 
 The manuscript states that US CDC WONDER data extend through October 31, 2023, while the analysis code and cohort registry end on August 31, 2023. The Methods text must be reconciled with the frozen analysis interval before submission.
 
@@ -83,7 +83,7 @@ The reporting registry preserves the historical 40-79 definition and marks the c
 
 The canonical European panel now aggregates ages 40-59 and 60-79 for both observed and expected deaths, yielding a coherent ages 40-79 estimand. This choice follows the manuscript's 40-79 sex-difference claim, Appendix Eq. (3), and the intended expected-count construction in the historical script.
 
-The incompatible historical panel remains available at `artifacts/reporting/validation/figure_05_europe_historical_incoherent.csv`. It preserves the original observed ages 20-79 versus expected ages 40-79 calculation for provenance and impact comparison, but it is not used by the Figure 5 renderer.
+The incompatible historical panel remains available at `output/reporting/validation/figure_05_europe_historical_incoherent.csv`. It preserves the original observed ages 20-79 versus expected ages 40-79 calculation for provenance and impact comparison, but it is not used by the Figure 5 renderer.
 
 The US all-age sex-contrast panel is internally consistent and combines 0-44, 45-64, and 65-84, yielding ages 0-84.
 
@@ -91,4 +91,4 @@ Figure 5 panel (f) now uses US ages 65-84, matching the manuscript's older-adult
 
 ## Runtime contract
 
-Every entry-point script reads only standardized files under `artifacts/` and writes generated outputs under `artifacts/figures/` or `artifacts/tables/`. Missing inputs produce an explicit error listing the required upstream files. No reporting script searches the historical archive or depends on the current working directory.
+Every entry-point script reads only standardized files under `output/` and writes generated outputs under `output/figures/` or `output/tables/`. Missing inputs produce an explicit error listing the required upstream files. No reporting script searches the historical archive or depends on the current working directory.

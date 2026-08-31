@@ -3,7 +3,7 @@
 source(here::here("R", "manuscript_claims.R"))
 
 output_dir <- here::here(
-  "artifacts", "validation", "manuscript_claim_ledger_20260831"
+  "output", "validation", "manuscript_claim_ledger_20260831"
 )
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 

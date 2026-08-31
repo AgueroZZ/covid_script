@@ -13,13 +13,13 @@ source(here::here("R", "figures.R"))
 
 arguments <- reporting_arguments(list(
   input = here::here(
-    "artifacts",
+    "output",
     "reporting",
     "inputs",
     "figure_05_sex_difference.csv"
   ),
   output_dir = here::here(
-    "artifacts",
+    "output",
     "validation",
     "figure_05_us_panel_f_comparison"
   )

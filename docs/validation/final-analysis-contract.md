@@ -51,7 +51,7 @@ Rscript --vanilla scripts/validation/validate_analysis_contract.R
 Successful validation writes a flattened contract snapshot, source-registry
 hash table, semantic summary, accepted incomplete-strata table, R session
 information, and `complete.flag` under
-`artifacts/validation/final_analysis_contract_20260831/`.
+`output/validation/final_analysis_contract_20260831/`.
 
 Any deliberate change to a scientific choice or referenced registry must be
 reviewed, tested, and re-frozen by updating the contract version or hash. A hash

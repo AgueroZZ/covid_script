@@ -13,7 +13,7 @@ parse_refit_arguments <- function(arguments) {
     data = file.path(project_root, "EU_analysis", "demo_r_mwk_20_linear.csv"),
     output_root = file.path(
       project_root,
-      "artifacts",
+      "output",
       "results",
       "europe_corrected_psd_prior_20260830"
     ),

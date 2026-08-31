@@ -39,4 +39,4 @@ From the repository root, supply the `North_America` archive directory explicitl
 Rscript scripts/validate_us_historical.R /path/to/covid_excess/North_America
 ```
 
-The command writes ignored comparison files under `artifacts/results/us/validation/` and fails if standardized data or inventory counts differ.
+The command writes ignored comparison files under `output/results/us/validation/` and fails if standardized data or inventory counts differ.

@@ -4,9 +4,9 @@ date_utc: "2026-08-31T06:15:00Z"
 
 documents:
   manuscript:
-    baseline: artifacts/validation/manuscript_docx_update_20260831/baseline/manuscript_accepted_baseline.docx
+    baseline: output/validation/manuscript_docx_update_20260831/baseline/manuscript_accepted_baseline.docx
     baseline_sha256: a9f57d44f9bc7a1b762ced65dd7be9bb30dcb59ad53cbd883d6f3f9755b59794
-    output: artifacts/validation/manuscript_docx_update_20260831/output/manuscript_Aug31_2026_updated_tracked.docx
+    output: output/validation/manuscript_docx_update_20260831/output/manuscript_Aug31_2026_updated_tracked.docx
     replacements:
       - id: abstract_heading
         paragraph_index: 8
@@ -270,9 +270,9 @@ documents:
         remove_highlight: true
 
   appendix:
-    baseline: artifacts/validation/manuscript_docx_update_20260831/baseline/appendix_accepted_baseline.docx
+    baseline: output/validation/manuscript_docx_update_20260831/baseline/appendix_accepted_baseline.docx
     baseline_sha256: 7c69b77d0494d89bb0448ec52b61ffc20a769ef9235ca38eae1fb7d238da6e81
-    output: artifacts/validation/manuscript_docx_update_20260831/output/appendices_Aug31_2026_updated_tracked.docx
+    output: output/validation/manuscript_docx_update_20260831/output/appendices_Aug31_2026_updated_tracked.docx
     replacements:
       - id: appendix_model_scope
         paragraph_index: 2

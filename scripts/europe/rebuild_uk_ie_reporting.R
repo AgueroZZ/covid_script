@@ -13,27 +13,27 @@ source(here::here("R", "uk_ie_reporting.R"))
 
 arguments <- reporting_arguments(list(
   england_wales_root = here::here(
-    "artifacts", "results", "england_wales_corrected_20260830"
+    "output", "results", "england_wales_corrected_20260830"
   ),
   ireland_root = here::here(
-    "artifacts", "results", "ireland_corrected_20260830"
+    "output", "results", "ireland_corrected_20260830"
   ),
   eurostat_wave_summary = here::here(
-    "artifacts", "results", "europe", "wave_summary.csv"
+    "output", "results", "europe", "wave_summary.csv"
   ),
   mapping = here::here("config", "uk_ie_reporting_cohort.csv"),
   geometry = here::here(
-    "artifacts", "results", "zenodo_bundle", "source_artifacts",
+    "output", "results", "zenodo_bundle", "source_artifacts",
     "europe", "geometry", "ne_10m_admin_0_countries_lakes.shp"
   ),
   figure_input = here::here(
-    "artifacts", "reporting", "inputs", "figure_02_europe_maps.rds"
+    "output", "reporting", "inputs", "figure_02_europe_maps.rds"
   ),
   figure_output = here::here(
-    "artifacts", "figures", "figure_02_europe_maps.pdf"
+    "output", "figures", "figure_02_europe_maps.pdf"
   ),
   validation_root = here::here(
-    "artifacts", "validation", "uk_ie_corrected_20260830"
+    "output", "validation", "uk_ie_corrected_20260830"
   )
 ))
 

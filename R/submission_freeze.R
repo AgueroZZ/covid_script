@@ -2,7 +2,7 @@ submission_freeze_contract <- function(root = here::here()) {
   project_path <- function(...) file.path(root, ...)
   list(
     reporting_inputs = project_path(
-      "artifacts", "reporting", "inputs",
+      "output", "reporting", "inputs",
       c(
         "figure_01_model_illustration.rds",
         "figure_02_europe_maps.rds",
@@ -12,15 +12,15 @@ submission_freeze_contract <- function(root = here::here()) {
       )
     ),
     table_inputs = c(
-      project_path("artifacts", "results", "europe", "wave_summary.csv"),
-      project_path("artifacts", "results", "us", "wave_summary.csv"),
-      project_path("artifacts", "data", "europe", "vaccination_membership.csv"),
-      project_path("artifacts", "data", "us", "vaccination_membership.csv")
+      project_path("output", "results", "europe", "wave_summary.csv"),
+      project_path("output", "results", "us", "wave_summary.csv"),
+      project_path("output", "data", "europe", "vaccination_membership.csv"),
+      project_path("output", "data", "us", "vaccination_membership.csv")
     ),
     final_figures = unlist(lapply(
       sprintf("figure_%02d", 1:5),
       function(id) project_path(
-        "artifacts", "figures",
+        "output", "figures",
         paste0(
           id,
           c(
@@ -32,24 +32,24 @@ submission_freeze_contract <- function(root = here::here()) {
       )
     ), use.names = FALSE),
     final_tables = project_path(
-      "artifacts", "tables",
+      "output", "tables",
       c("table_01_wave_pscores.csv", "table_01_wave_pscores.html")
     ),
     upstream_completion_flags = c(
       project_path(
-        "artifacts", "results", "europe_corrected_psd_prior_20260830",
+        "output", "results", "europe_corrected_psd_prior_20260830",
         "verified_complete.flag"
       ),
       project_path(
-        "artifacts", "results", "england_wales_corrected_20260830",
+        "output", "results", "england_wales_corrected_20260830",
         "batch_complete.flag"
       ),
       project_path(
-        "artifacts", "results", "ireland_corrected_20260830",
+        "output", "results", "ireland_corrected_20260830",
         "batch_complete.flag"
       ),
       project_path(
-        "artifacts", "reporting", "validation",
+        "output", "reporting", "validation",
         "europe_corrected_psd_prior_20260830", "complete.flag"
       )
     ),

@@ -47,7 +47,7 @@ def parse_args() -> argparse.Namespace:
         "--output-root",
         type=Path,
         default=Path(
-            "artifacts/validation/manuscript_docx_update_20260831/baseline"
+            "output/validation/manuscript_docx_update_20260831/baseline"
         ),
     )
     return parser.parse_args()

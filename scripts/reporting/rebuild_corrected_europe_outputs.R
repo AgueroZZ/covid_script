@@ -25,12 +25,12 @@ script_path <- normalizePath(sub("^--file=", "", script_argument))
 parse_corrected_europe_arguments <- function(arguments) {
   defaults <- list(
     refit_root = here::here(
-      "artifacts",
+      "output",
       "results",
       "europe_corrected_psd_prior_20260830"
     ),
     comparison_root = here::here(
-      "artifacts",
+      "output",
       "reporting",
       "validation",
       "europe_corrected_psd_prior_20260830"
@@ -120,49 +120,49 @@ archive_installed_artifacts <- function(comparison_root) {
   historical_root <- file.path(comparison_root, "historical")
   artifacts <- c(
     "inputs/figure_01_model_illustration.rds" = here::here(
-      "artifacts", "reporting", "inputs", "figure_01_model_illustration.rds"
+      "output", "reporting", "inputs", "figure_01_model_illustration.rds"
     ),
     "inputs/figure_02_europe_maps.rds" = here::here(
-      "artifacts", "reporting", "inputs", "figure_02_europe_maps.rds"
+      "output", "reporting", "inputs", "figure_02_europe_maps.rds"
     ),
     "inputs/figure_04_vaccination_pscore.csv" = here::here(
-      "artifacts", "reporting", "inputs", "figure_04_vaccination_pscore.csv"
+      "output", "reporting", "inputs", "figure_04_vaccination_pscore.csv"
     ),
     "inputs/figure_05_sex_difference.csv" = here::here(
-      "artifacts", "reporting", "inputs", "figure_05_sex_difference.csv"
+      "output", "reporting", "inputs", "figure_05_sex_difference.csv"
     ),
     "inputs/europe_wave_summary.csv" = here::here(
-      "artifacts", "results", "europe", "wave_summary.csv"
+      "output", "results", "europe", "wave_summary.csv"
     ),
     "outputs/figure_01_model_illustration.pdf" = here::here(
-      "artifacts", "figures", "figure_01_model_illustration.pdf"
+      "output", "figures", "figure_01_model_illustration.pdf"
     ),
     "outputs/figure_01_model_illustration.png" = here::here(
-      "artifacts", "figures", "figure_01_model_illustration.png"
+      "output", "figures", "figure_01_model_illustration.png"
     ),
     "outputs/figure_02_europe_maps.pdf" = here::here(
-      "artifacts", "figures", "figure_02_europe_maps.pdf"
+      "output", "figures", "figure_02_europe_maps.pdf"
     ),
     "outputs/figure_02_europe_maps.png" = here::here(
-      "artifacts", "figures", "figure_02_europe_maps.png"
+      "output", "figures", "figure_02_europe_maps.png"
     ),
     "outputs/figure_04_vaccination_pscore.pdf" = here::here(
-      "artifacts", "figures", "figure_04_vaccination_pscore.pdf"
+      "output", "figures", "figure_04_vaccination_pscore.pdf"
     ),
     "outputs/figure_04_vaccination_pscore.png" = here::here(
-      "artifacts", "figures", "figure_04_vaccination_pscore.png"
+      "output", "figures", "figure_04_vaccination_pscore.png"
     ),
     "outputs/figure_05_sex_difference.pdf" = here::here(
-      "artifacts", "figures", "figure_05_sex_difference.pdf"
+      "output", "figures", "figure_05_sex_difference.pdf"
     ),
     "outputs/figure_05_sex_difference.png" = here::here(
-      "artifacts", "figures", "figure_05_sex_difference.png"
+      "output", "figures", "figure_05_sex_difference.png"
     ),
     "outputs/table_01_wave_pscores.csv" = here::here(
-      "artifacts", "tables", "table_01_wave_pscores.csv"
+      "output", "tables", "table_01_wave_pscores.csv"
     ),
     "outputs/table_01_wave_pscores.html" = here::here(
-      "artifacts", "tables", "table_01_wave_pscores.html"
+      "output", "tables", "table_01_wave_pscores.html"
     )
   )
   for (relative_path in names(artifacts)) {
@@ -375,8 +375,8 @@ contract <- read_corrected_europe_contract(
 )
 historical_manifest <- archive_installed_artifacts(comparison_root)
 figure_03_paths <- c(
-  here::here("artifacts", "figures", "figure_03_north_america_maps.pdf"),
-  here::here("artifacts", "figures", "figure_03_north_america_maps.png")
+  here::here("output", "figures", "figure_03_north_america_maps.pdf"),
+  here::here("output", "figures", "figure_03_north_america_maps.png")
 )
 figure_03_hash_before <- vapply(figure_03_paths, sha256_file, character(1))
 
@@ -408,7 +408,7 @@ config <- read_analysis_config(here::here("config", "analysis.yml"))
 wave_definitions <- wave_table(config)
 observed <- read_corrected_europe_observed(contract$data_path)
 vaccination <- readr::read_csv(
-  here::here("artifacts", "data", "europe", "vaccination_membership.csv"),
+  here::here("output", "data", "europe", "vaccination_membership.csv"),
   show_col_types = FALSE
 )
 
@@ -427,7 +427,7 @@ validate_figure_01_input(corrected_figure_01)
 corrected_figure_02 <- build_corrected_europe_map_input(
   corrected_wave_summary,
   here::here(
-    "artifacts",
+    "output",
     "results",
     "zenodo_bundle",
     "source_artifacts",
@@ -503,19 +503,19 @@ if (!reporting_rows_are_value_identical(
 }
 
 figure_01_input_path <- here::here(
-  "artifacts", "reporting", "inputs", "figure_01_model_illustration.rds"
+  "output", "reporting", "inputs", "figure_01_model_illustration.rds"
 )
 figure_02_input_path <- here::here(
-  "artifacts", "reporting", "inputs", "figure_02_europe_maps.rds"
+  "output", "reporting", "inputs", "figure_02_europe_maps.rds"
 )
 figure_04_input_path <- here::here(
-  "artifacts", "reporting", "inputs", "figure_04_vaccination_pscore.csv"
+  "output", "reporting", "inputs", "figure_04_vaccination_pscore.csv"
 )
 figure_05_input_path <- here::here(
-  "artifacts", "reporting", "inputs", "figure_05_sex_difference.csv"
+  "output", "reporting", "inputs", "figure_05_sex_difference.csv"
 )
 wave_summary_path <- here::here(
-  "artifacts", "results", "europe", "wave_summary.csv"
+  "output", "results", "europe", "wave_summary.csv"
 )
 atomic_save_rds(corrected_figure_01, figure_01_input_path)
 atomic_save_rds(corrected_figure_02, figure_02_input_path)
@@ -569,34 +569,34 @@ if (!identical(figure_03_hash_before, figure_03_hash_after)) {
 
 corrected_output_paths <- c(
   "figure_01_model_illustration.pdf" = here::here(
-    "artifacts", "figures", "figure_01_model_illustration.pdf"
+    "output", "figures", "figure_01_model_illustration.pdf"
   ),
   "figure_01_model_illustration.png" = here::here(
-    "artifacts", "figures", "figure_01_model_illustration.png"
+    "output", "figures", "figure_01_model_illustration.png"
   ),
   "figure_02_europe_maps.pdf" = here::here(
-    "artifacts", "figures", "figure_02_europe_maps.pdf"
+    "output", "figures", "figure_02_europe_maps.pdf"
   ),
   "figure_02_europe_maps.png" = here::here(
-    "artifacts", "figures", "figure_02_europe_maps.png"
+    "output", "figures", "figure_02_europe_maps.png"
   ),
   "figure_04_vaccination_pscore.pdf" = here::here(
-    "artifacts", "figures", "figure_04_vaccination_pscore.pdf"
+    "output", "figures", "figure_04_vaccination_pscore.pdf"
   ),
   "figure_04_vaccination_pscore.png" = here::here(
-    "artifacts", "figures", "figure_04_vaccination_pscore.png"
+    "output", "figures", "figure_04_vaccination_pscore.png"
   ),
   "figure_05_sex_difference.pdf" = here::here(
-    "artifacts", "figures", "figure_05_sex_difference.pdf"
+    "output", "figures", "figure_05_sex_difference.pdf"
   ),
   "figure_05_sex_difference.png" = here::here(
-    "artifacts", "figures", "figure_05_sex_difference.png"
+    "output", "figures", "figure_05_sex_difference.png"
   ),
   "table_01_wave_pscores.csv" = here::here(
-    "artifacts", "tables", "table_01_wave_pscores.csv"
+    "output", "tables", "table_01_wave_pscores.csv"
   ),
   "table_01_wave_pscores.html" = here::here(
-    "artifacts", "tables", "table_01_wave_pscores.html"
+    "output", "tables", "table_01_wave_pscores.html"
   )
 )
 for (name in names(corrected_output_paths)) {
@@ -611,7 +611,7 @@ historical_table <- readr::read_csv(
   show_col_types = FALSE
 )
 corrected_table <- readr::read_csv(
-  here::here("artifacts", "tables", "table_01_wave_pscores.csv"),
+  here::here("output", "tables", "table_01_wave_pscores.csv"),
   show_col_types = FALSE
 )
 table_keys <- c("region_set", "geography")

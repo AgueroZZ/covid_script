@@ -46,7 +46,7 @@ modify either Word source.
 - Verified value/evidence: Europe high 40-79 medians: Alpha 0.080 and Delta 0.080; US high 40-79 Delta median 0.212
 - Status: `requires_manuscript_edit`
 - Action: Replace near-zero with a directionally accurate statement and report region-, age-, and wave-specific values only.
-- Evidence: `artifacts/reporting/inputs/figure_04_vaccination_pscore.csv`
+- Evidence: `output/reporting/inputs/figure_04_vaccination_pscore.csv`
 
 ### ABS-005 - Abstract Findings
 
@@ -54,7 +54,7 @@ modify either Word source.
 - Verified value/evidence: Delta maxima range from 0.613 to 1.160 across displayed US ages and 0.660 to 0.862 across displayed European combined ages/waves
 - Status: `requires_manuscript_edit`
 - Action: Specify the panel, wave, age group, and whether the value is a pointwise maximum or median; do not retain a single approximate 50% summary.
-- Evidence: `artifacts/reporting/inputs/figure_04_vaccination_pscore.csv`
+- Evidence: `output/reporting/inputs/figure_04_vaccination_pscore.csv`
 
 ### ABS-006 - Abstract Findings
 
@@ -62,7 +62,7 @@ modify either Word source.
 - Verified value/evidence: many pooled medians are within about -6 to +10 percentage points and some Delta contrasts reverse sign
 - Status: `requires_manuscript_edit`
 - Action: Replace the universal 5-15 percentage-point range with wave-, age-, and vaccination-group-specific female-minus-male contrasts.
-- Evidence: `artifacts/reporting/inputs/figure_05_sex_difference.csv`
+- Evidence: `output/reporting/inputs/figure_05_sex_difference.csv`
 
 ### ABS-007 - Abstract Findings
 
@@ -70,7 +70,7 @@ modify either Word source.
 - Verified value/evidence: European low-vaccination Delta median female-minus-male is positive; US patterns vary by age and wave
 - Status: `supported_qualitatively`
 - Action: No manuscript change required.
-- Evidence: `artifacts/reporting/inputs/figure_05_sex_difference.csv`
+- Evidence: `output/reporting/inputs/figure_05_sex_difference.csv`
 
 ### MTH-001 - Methods Vaccination groups
 
@@ -94,7 +94,7 @@ modify either Word source.
 - Verified value/evidence: Delta P-scores: BG 0.637/0.616; RS 0.460/0.524; RO 0.333/0.477; SK 0.334/0.331 for ages 40-59/60-79
 - Status: `verified_rounded`
 - Action: No manuscript change required.
-- Evidence: `artifacts/reporting/inputs/figure_02_europe_maps.rds`
+- Evidence: `output/reporting/inputs/figure_02_europe_maps.rds`
 
 ### RES-003 - Results Geographic patterns
 
@@ -102,7 +102,7 @@ modify either Word source.
 - Verified value/evidence: NY is highest among mapped geographies in both 40-59 (0.510) and 60-79 (0.446)
 - Status: `verified_rounded`
 - Action: No manuscript change required.
-- Evidence: `artifacts/reporting/inputs/figure_03_north_america_maps.rds`
+- Evidence: `output/reporting/inputs/figure_03_north_america_maps.rds`
 
 ### RES-004 - Results Geographic patterns
 
@@ -126,7 +126,7 @@ modify either Word source.
 - Verified value/evidence: pointwise maxima exceed 0.50 in displayed low-vaccination Delta trajectories, but pooled medians are lower
 - Status: `supported_qualitatively`
 - Action: No manuscript change required.
-- Evidence: `artifacts/reporting/inputs/figure_04_vaccination_pscore.csv`
+- Evidence: `output/reporting/inputs/figure_04_vaccination_pscore.csv`
 
 ### RES-007 - Results Age patterns
 
@@ -142,7 +142,7 @@ modify either Word source.
 - Verified value/evidence: high-vaccination wave medians are region- and wave-dependent and are not uniformly near zero
 - Status: `requires_manuscript_edit`
 - Action: Replace with exact regional wave summaries or soften to lower than low-vaccination groups where supported.
-- Evidence: `artifacts/reporting/inputs/figure_04_vaccination_pscore.csv`
+- Evidence: `output/reporting/inputs/figure_04_vaccination_pscore.csv`
 
 ### RES-009 - Results Age patterns
 
@@ -158,7 +158,7 @@ modify either Word source.
 - Verified value/evidence: pooled medians vary substantially and reverse sign in some Delta strata
 - Status: `requires_manuscript_edit`
 - Action: Use the female-minus-male sign convention and quote only exact wave/age/group summaries from Figure 5.
-- Evidence: `artifacts/reporting/inputs/figure_05_sex_difference.csv`
+- Evidence: `output/reporting/inputs/figure_05_sex_difference.csv`
 
 ### RES-011 - Results Sex differences
 
@@ -166,7 +166,7 @@ modify either Word source.
 - Verified value/evidence: Table 1 supports female-higher Delta P-scores at ages 60-79; pooled Figure 5 supports the group-level reversal
 - Status: `supported_qualitatively`
 - Action: No manuscript change required.
-- Evidence: `artifacts/tables/table_01_wave_pscores.csv`
+- Evidence: `output/tables/table_01_wave_pscores.csv`
 
 ### RES-012 - Results Sex differences
 
@@ -174,7 +174,7 @@ modify either Word source.
 - Verified value/evidence: Delta median female-minus-male is positive in both groups (high 0.014; low 0.058) and all wave ranges cross or approach zero
 - Status: `requires_manuscript_edit`
 - Action: Delete across all waves and dramatically; describe the mixed wave-specific 0-44 contrasts.
-- Evidence: `artifacts/reporting/inputs/figure_05_sex_difference.csv`
+- Evidence: `output/reporting/inputs/figure_05_sex_difference.csv`
 
 ### RES-013 - Results Sex differences
 
@@ -190,7 +190,7 @@ modify either Word source.
 - Verified value/evidence: US 65-84 low-vaccination Delta median female-minus-male is approximately 0.047
 - Status: `verified_rounded`
 - Action: No manuscript change required.
-- Evidence: `artifacts/reporting/inputs/figure_05_sex_difference.csv`
+- Evidence: `output/reporting/inputs/figure_05_sex_difference.csv`
 
 ### RES-015 - Results Supplementary analysis
 

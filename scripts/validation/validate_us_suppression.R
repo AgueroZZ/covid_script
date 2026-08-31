@@ -15,15 +15,15 @@ source(here::here("R", "config.R"))
 parse_arguments <- function(arguments) {
   defaults <- list(
     output_root = here::here(
-      "artifacts",
+      "output",
       "validation",
       "us_suppression_20260830"
     ),
-    bundle_root = here::here("artifacts", "results", "zenodo_bundle"),
+    bundle_root = here::here("output", "results", "zenodo_bundle"),
     cohort_path = here::here("config", "us_reporting_cohort.csv"),
     inventory_path = here::here("config", "cohorts.csv"),
     installed_input = here::here(
-      "artifacts",
+      "output",
       "reporting",
       "inputs",
       "figure_05_sex_difference.csv"

@@ -10,13 +10,13 @@ source(here::here("R", "figures.R"))
 
 arguments <- reporting_arguments(list(
   input = here::here(
-    "artifacts",
+    "output",
     "reporting",
     "inputs",
     "figure_01_model_illustration.rds"
   ),
   output = here::here(
-    "artifacts",
+    "output",
     "figures",
     "figure_01_model_illustration.pdf"
   )

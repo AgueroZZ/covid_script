@@ -13,13 +13,13 @@ source(here::here("R", "figures.R"))
 
 arguments <- reporting_arguments(list(
   input = here::here(
-    "artifacts",
+    "output",
     "reporting",
     "inputs",
     "figure_05_sex_difference.csv"
   ),
   output = here::here(
-    "artifacts",
+    "output",
     "figures",
     "figure_05_sex_difference.pdf"
   )

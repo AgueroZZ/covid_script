@@ -45,7 +45,7 @@ Record the end time and inspect the manifest:
 
 ```bash
 date --iso-8601=seconds
-wc -l artifacts/manifests/artifacts.csv
+wc -l output/manifests/artifacts.csv
 ```
 
 The run record must include the Git commit, start and end timestamps, `sessionInfo()`, target outcome, artifact-manifest path, and any warnings. A run is incomplete if any regional target fails, an expected final figure or table is absent, or the output manifest is not generated.

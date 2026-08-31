@@ -1,5 +1,5 @@
 project:
-  artifact_root: artifacts
+  artifact_root: output
   processed_data_root: data/processed
   primary_runtime: darjeeling_linux
 

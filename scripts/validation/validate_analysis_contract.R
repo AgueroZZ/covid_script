@@ -13,7 +13,7 @@ parse_arguments <- function(arguments) {
   defaults <- list(
     contract = here::here("config", "manuscript_analysis_contract.yml"),
     output_root = here::here(
-      "artifacts",
+      "output",
       "validation",
       "final_analysis_contract_20260831"
     )

@@ -24,7 +24,7 @@ parse_refit_arguments <- function(arguments) {
     data = file.path(project_root, "ireland_analysis", "ireland_quater.csv"),
     output_root = file.path(
       project_root,
-      "artifacts",
+      "output",
       "results",
       "ireland_corrected_20260830"
     ),

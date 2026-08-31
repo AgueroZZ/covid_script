@@ -1,2 +1,10 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+*.doc binary
+*.docx binary
+*.pdf binary
+*.png binary
+*.rda binary
+*.RData binary
+*.rds binary
+*.tar.gz binary
+*.xlsx binary
+*.zip binary

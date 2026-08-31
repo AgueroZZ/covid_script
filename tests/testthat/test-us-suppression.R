@@ -134,7 +134,7 @@ test_that("suppression decision summaries use the manuscript display period", {
 })
 
 test_that("reconstructed historical US Figure 5 input matches installed input", {
-  bundle_root <- here::here("artifacts", "results", "zenodo_bundle")
+  bundle_root <- here::here("output", "results", "zenodo_bundle")
   testthat::skip_if_not(dir.exists(bundle_root))
   cohort <- read_us_reporting_cohort(
     here::here("config", "us_reporting_cohort.csv")
@@ -151,7 +151,7 @@ test_that("reconstructed historical US Figure 5 input matches installed input", 
     "historical"
   )
   installed <- readr::read_csv(
-    here::here("artifacts", "reporting", "inputs", "figure_05_sex_difference.csv"),
+    here::here("output", "reporting", "inputs", "figure_05_sex_difference.csv"),
     show_col_types = FALSE
   )
   comparison <- compare_us_figure05_baseline(reconstructed, installed)

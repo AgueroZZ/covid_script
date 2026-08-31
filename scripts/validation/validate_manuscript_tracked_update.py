@@ -26,14 +26,14 @@ def parse_args() -> argparse.Namespace:
         "--log",
         type=Path,
         default=Path(
-            "artifacts/validation/manuscript_docx_update_20260831/"
+            "output/validation/manuscript_docx_update_20260831/"
             "replacement_log.json"
         ),
     )
     parser.add_argument(
         "--validation-root",
         type=Path,
-        default=Path("artifacts/validation/manuscript_docx_update_20260831"),
+        default=Path("output/validation/manuscript_docx_update_20260831"),
     )
     return parser.parse_args()
 

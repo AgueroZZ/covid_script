@@ -1,5 +1,5 @@
 manuscript_docx_validation_root <- here::here(
-  "artifacts", "validation", "manuscript_docx_update_20260831"
+  "output", "validation", "manuscript_docx_update_20260831"
 )
 
 read_docx_validation_text <- function(document) {
@@ -55,7 +55,7 @@ test_that("tracked manuscript validation locks the final vaccination cohorts", {
     show_col_types = FALSE
   )
   europe <- readr::read_csv(
-    here::here("artifacts", "data", "europe", "vaccination_membership.csv"),
+    here::here("output", "data", "europe", "vaccination_membership.csv"),
     show_col_types = FALSE
   )
   expect_true(all(us$vaccination_group[us$geography %in% c(

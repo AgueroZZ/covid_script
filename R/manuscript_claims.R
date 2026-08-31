@@ -108,10 +108,10 @@ build_manuscript_computed_evidence <- function() {
   contract <- read_manuscript_analysis_contract(contract_path)
   waves <- manuscript_wave_table(contract)
 
-  figure_02_path <- here::here("artifacts", "reporting", "inputs", "figure_02_europe_maps.rds")
-  figure_03_path <- here::here("artifacts", "reporting", "inputs", "figure_03_north_america_maps.rds")
-  figure_04_path <- here::here("artifacts", "reporting", "inputs", "figure_04_vaccination_pscore.csv")
-  figure_05_path <- here::here("artifacts", "reporting", "inputs", "figure_05_sex_difference.csv")
+  figure_02_path <- here::here("output", "reporting", "inputs", "figure_02_europe_maps.rds")
+  figure_03_path <- here::here("output", "reporting", "inputs", "figure_03_north_america_maps.rds")
+  figure_04_path <- here::here("output", "reporting", "inputs", "figure_04_vaccination_pscore.csv")
+  figure_05_path <- here::here("output", "reporting", "inputs", "figure_05_sex_difference.csv")
 
   map_02 <- readRDS(figure_02_path)$map_data
   map_03 <- readRDS(figure_03_path)$map_data
@@ -122,7 +122,7 @@ build_manuscript_computed_evidence <- function() {
     ~evidence_key, ~evidence_type, ~source_path, ~value,
     "scope.europe_reporting_geographies", "registry_count", "config/europe_reporting_cohort.csv", as.character(nrow(readr::read_csv(here::here("config", "europe_reporting_cohort.csv"), show_col_types = FALSE))),
     "scope.us_reporting_geographies", "registry_count", "config/us_reporting_cohort.csv", as.character(nrow(readr::read_csv(here::here("config", "us_reporting_cohort.csv"), show_col_types = FALSE))),
-    "scope.figure03_mapped_geographies", "frozen_input_count", "artifacts/reporting/inputs/figure_03_north_america_maps.rds", as.character(dplyr::n_distinct(map_03$label)),
+    "scope.figure03_mapped_geographies", "frozen_input_count", "output/reporting/inputs/figure_03_north_america_maps.rds", as.character(dplyr::n_distinct(map_03$label)),
     "contract.training_endpoint", "contract_field", "config/manuscript_analysis_contract.yml", contract$scientific_contract$training$final_date,
     "contract.us_endpoint", "contract_field", "config/manuscript_analysis_contract.yml", contract$scientific_contract$endpoints$us_non_sex,
     "contract.vaccination_reference", "contract_field", "config/manuscript_analysis_contract.yml", contract$scientific_contract$vaccination$reference_date,
@@ -136,7 +136,7 @@ build_manuscript_computed_evidence <- function() {
     dplyr::transmute(
       evidence_key = paste("figure02.delta", .data$geography, .data$age_group, sep = "."),
       evidence_type = "frozen_map_value",
-      source_path = "artifacts/reporting/inputs/figure_02_europe_maps.rds",
+      source_path = "output/reporting/inputs/figure_02_europe_maps.rds",
       geography = .data$geography,
       age_group = .data$age_group,
       wave = .data$wave,
@@ -151,7 +151,7 @@ build_manuscript_computed_evidence <- function() {
     dplyr::transmute(
       evidence_key = paste("figure03", .data$wave, .data$label, .data$age_group, sep = "."),
       evidence_type = "frozen_map_value",
-      source_path = "artifacts/reporting/inputs/figure_03_north_america_maps.rds",
+      source_path = "output/reporting/inputs/figure_03_north_america_maps.rds",
       geography = .data$label,
       age_group = .data$age_group,
       wave = .data$wave,

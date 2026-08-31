@@ -11,7 +11,7 @@ archive_root <- normalizePath(arguments[[1]], mustWork = TRUE)
 output_dir <- if (length(arguments) == 2L) {
   arguments[[2]]
 } else {
-  file.path("artifacts", "results", "us", "validation")
+  file.path("output", "results", "us", "validation")
 }
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 

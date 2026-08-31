@@ -4,11 +4,11 @@ verify_us_completion <- function(root = ".") {
     c(
       "data/raw/manifest.csv",
       "config/cohorts.csv",
-      "artifacts/manifests/us_model_status.csv",
-      "artifacts/results/us/wave_summary.csv",
-      "artifacts/results/us/pointwise_summary.csv",
-      "artifacts/results/us/sex_contrast_summary.csv",
-      "artifacts/data/us/vaccination_membership.csv"
+      "output/manifests/us_model_status.csv",
+      "output/results/us/wave_summary.csv",
+      "output/results/us/pointwise_summary.csv",
+      "output/results/us/sex_contrast_summary.csv",
+      "output/data/us/vaccination_membership.csv"
     )
   )
   require_files(required_paths, "US completion")
@@ -78,12 +78,12 @@ verify_us_completion <- function(root = ".") {
   }
 
   model_files <- list.files(
-    file.path(root, "artifacts", "models", "us"),
+    file.path(root, "output", "models", "us"),
     pattern = "[.]rds$",
     full.names = TRUE
   )
   prediction_files <- list.files(
-    file.path(root, "artifacts", "results", "us", "predictions"),
+    file.path(root, "output", "results", "us", "predictions"),
     pattern = "[.]rds$",
     full.names = TRUE
   )
