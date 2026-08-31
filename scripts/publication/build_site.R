@@ -40,12 +40,17 @@ workflowr::wflow_build(
 )
 copy_publication_assets(docs_assets)
 
-text_site_files <- list.files(
+site_files <- list.files(
   file.path(project_root, "docs"),
-  pattern = "[.](css|csv|html|js|svg|txt)$",
   recursive = TRUE,
   full.names = TRUE
 )
+text_site_files <- site_files[
+  tolower(tools::file_ext(site_files)) %in% c("css", "csv", "html", "js", "svg", "txt")
+]
+if (length(text_site_files) == 0L) {
+  stop("No generated text assets were found for normalization.")
+}
 for (path in text_site_files) {
   lines <- sub("[ \\t]+$", "", readLines(path, warn = FALSE))
   while (length(lines) > 0L && !nzchar(lines[[length(lines)]])) {
