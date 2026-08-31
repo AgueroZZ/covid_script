@@ -1,7 +1,9 @@
 us_sex_source_paths <- function() {
   file.path(
-    "USA_analysis",
-    "monthly_data",
+    "data",
+    "raw",
+    "cdc_wonder",
+    "sex_stratified",
     c(
       "Multiple Cause of Death, 1999-2002.txt",
       "Multiple Cause of Death, 2003-2006.txt",
@@ -16,9 +18,10 @@ us_sex_source_paths <- function() {
 
 us_non_sex_source_paths <- function() {
   file.path(
-    "USA_analysis",
+    "data",
+    "raw",
+    "cdc_wonder",
     "non_sex_stratified",
-    "monthly_data",
     c(
       "USA_monthly_1999_2002.txt",
       "USA_monthly_2003_2006.txt",

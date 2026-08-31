@@ -48,7 +48,7 @@ test_that("the tracked ONS inputs build three complete weekly series", {
   skip_if_not_installed("readxl")
   source(model_path, local = TRUE)
 
-  root <- testthat::test_path("..", "..", "UK_analysis")
+  root <- testthat::test_path("..", "..", "data", "raw", "ons")
   data <- read_england_wales_model_input(root)
   manifest <- build_england_wales_manifest(data, base_seed = 20260830L)
 

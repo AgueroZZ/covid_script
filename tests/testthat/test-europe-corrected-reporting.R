@@ -99,7 +99,9 @@ test_that("corrected integration contract matches local verified artifacts", {
   contract <- read_corrected_europe_contract(
     refit_root = refit_root,
     cohort_path = here::here("config", "europe_reporting_cohort.csv"),
-    data_path = here::here("EU_analysis", "demo_r_mwk_20_linear.csv")
+    data_path = here::here(
+      "data", "raw", "eurostat", "demo_r_mwk_20_linear.csv"
+    )
   )
 
   expect_equal(nrow(contract$manifest), 388L)

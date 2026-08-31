@@ -6,7 +6,9 @@ test_that("the Europe production manifest locks the complete Eurostat grid", {
   data_path <- testthat::test_path(
     "..",
     "..",
-    "EU_analysis",
+    "data",
+    "raw",
+    "eurostat",
     "demo_r_mwk_20_linear.csv"
   )
   data <- read_europe_model_input(data_path)

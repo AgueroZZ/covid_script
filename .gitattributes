@@ -8,3 +8,8 @@
 *.tar.gz binary
 *.xlsx binary
 *.zip binary
+
+# Preserve provider snapshots byte-for-byte and suppress textual diff cleanup.
+data/raw/** -text -diff
+data/raw/README.md text diff
+data/raw/manifest.csv text diff

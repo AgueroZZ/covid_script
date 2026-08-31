@@ -11,7 +11,7 @@ source(file.path(project_root, "R", "england_wales_model.R"))
 
 parse_refit_arguments <- function(arguments) {
   defaults <- list(
-    data_root = file.path(project_root, "UK_analysis"),
+    data_root = file.path(project_root, "data", "raw", "ons"),
     output_root = file.path(
       project_root,
       "output",

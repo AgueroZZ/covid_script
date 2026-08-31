@@ -20,6 +20,7 @@ analysis/*_files/
 data/processed/
 /output/
 /output/
+/provider_downloads/
 /docs/log/
 /docs/superpowers/
 /tmp/

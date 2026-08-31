@@ -5,7 +5,7 @@ source(here::here("R", "vaccination.R"))
 test_that("fixed US thresholds classify disputed states as neither", {
   config <- read_analysis_config(here::here("config", "analysis.yml"))
   vaccination <- prepare_us_vaccination(
-    here::here("USA_analysis", "us_state_vaccinations_select.rda"),
+    here::here("data", "raw", "owid", "us_state_vaccination_snapshot.rda"),
     config
   )
   disputed <- vaccination[
@@ -24,7 +24,7 @@ test_that("fixed US thresholds classify disputed states as neither", {
 test_that("historical positional cohorts are isolated as validation data", {
   config <- read_analysis_config(here::here("config", "analysis.yml"))
   vaccination <- prepare_us_vaccination(
-    here::here("USA_analysis", "us_state_vaccinations_select.rda"),
+    here::here("data", "raw", "owid", "us_state_vaccination_snapshot.rda"),
     config
   )
   historical <- historical_us_reporting_cohorts(vaccination$geography)

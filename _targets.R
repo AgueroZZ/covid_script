@@ -111,7 +111,7 @@ list(
   ),
   tar_target(
     us_vaccination_file,
-    "USA_analysis/us_state_vaccinations_select.rda",
+    "data/raw/owid/us_state_vaccination_snapshot.rda",
     format = "file"
   ),
   tar_target(

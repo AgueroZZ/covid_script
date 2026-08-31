@@ -35,12 +35,22 @@ canonicalize_historical_us <- function(path, stratified_by_sex) {
 }
 
 test_that("sex-stratified CDC sources reproduce the historical analytic data", {
+  historical_path <- here::here(
+    "output",
+    "legacy",
+    "united_states",
+    "sex_stratified_monthly_data.rda"
+  )
+  skip_if_not(
+    file.exists(historical_path),
+    "The optional local legacy comparison object is not available."
+  )
   observed <- standardize_us_wonder(
     here::here(us_sex_source_paths()),
     stratified_by_sex = TRUE
   )
   expected <- canonicalize_historical_us(
-    here::here("USA_analysis", "USA_monthly.rda"),
+    historical_path,
     stratified_by_sex = TRUE
   )
 
@@ -62,16 +72,22 @@ test_that("sex-stratified CDC sources reproduce the historical analytic data", {
 })
 
 test_that("non-sex CDC sources reproduce the historical analytic data", {
+  historical_path <- here::here(
+    "output",
+    "legacy",
+    "united_states",
+    "non_sex_stratified_monthly_data.rda"
+  )
+  skip_if_not(
+    file.exists(historical_path),
+    "The optional local legacy comparison object is not available."
+  )
   observed <- standardize_us_wonder(
     here::here(us_non_sex_source_paths()),
     stratified_by_sex = FALSE
   )
   expected <- canonicalize_historical_us(
-    here::here(
-      "USA_analysis",
-      "non_sex_stratified",
-      "USA_monthly.rda"
-    ),
+    historical_path,
     stratified_by_sex = FALSE
   )
 

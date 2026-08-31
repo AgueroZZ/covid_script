@@ -371,7 +371,7 @@ dir.create(file.path(comparison_root, "corrected"), recursive = TRUE, showWarnin
 contract <- read_corrected_europe_contract(
   refit_root = arguments$refit_root,
   cohort_path = here::here("config", "europe_reporting_cohort.csv"),
-  data_path = here::here("EU_analysis", "demo_r_mwk_20_linear.csv")
+  data_path = here::here("data", "raw", "eurostat", "demo_r_mwk_20_linear.csv")
 )
 historical_manifest <- archive_installed_artifacts(comparison_root)
 figure_03_paths <- c(

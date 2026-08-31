@@ -181,9 +181,9 @@ read_england_wales_later_year <- function(path, year, n_weeks) {
 
 read_england_wales_recent <- function(root) {
   paths <- c(
-    `2021` = file.path(root, "publishedweek522021.xlsx"),
-    `2022` = file.path(root, "publicationfileweek522022.xlsx"),
-    `2023` = file.path(root, "publicationfileweek352023.xlsx")
+    `2021` = file.path(root, "weekly_deaths_2021_week52.xlsx"),
+    `2022` = file.path(root, "weekly_deaths_2022_week52.xlsx"),
+    `2023` = file.path(root, "weekly_deaths_2023_week35.xlsx")
   )
   missing <- paths[!file.exists(paths)]
   if (length(missing) > 0L) {
@@ -250,7 +250,7 @@ validate_england_wales_model_input <- function(data) {
 read_england_wales_model_input <- function(root) {
   historical <- read_england_wales_historical(file.path(
     root,
-    "dailydeaths19812020.xlsx"
+    "daily_deaths_occurrences_1981_2020.xlsx"
   ))
   recent <- read_england_wales_recent(root)
   data <- dplyr::bind_rows(historical, recent)

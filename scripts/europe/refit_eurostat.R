@@ -10,7 +10,7 @@ source(file.path(project_root, "R", "europe_model.R"))
 
 parse_refit_arguments <- function(arguments) {
   defaults <- list(
-    data = file.path(project_root, "EU_analysis", "demo_r_mwk_20_linear.csv"),
+    data = file.path(project_root, "data", "raw", "eurostat", "demo_r_mwk_20_linear.csv"),
     output_root = file.path(
       project_root,
       "output",

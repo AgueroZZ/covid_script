@@ -21,7 +21,7 @@ source(file.path(project_root, "R", "ireland_model.R"))
 
 parse_refit_arguments <- function(arguments) {
   defaults <- list(
-    data = file.path(project_root, "ireland_analysis", "ireland_quater.csv"),
+    data = file.path(project_root, "data", "raw", "cso", "ireland_quarterly_deaths.csv"),
     output_root = file.path(
       project_root,
       "output",

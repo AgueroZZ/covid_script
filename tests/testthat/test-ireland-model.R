@@ -15,7 +15,7 @@ test_that("Ireland retains its source-specific quarterly contract", {
   expect_identical(ireland_harmonics(), 1L)
 
   data <- read_ireland_model_input(testthat::test_path(
-    "..", "..", "ireland_analysis", "ireland_quater.csv"
+    "..", "..", "data", "raw", "cso", "ireland_quarterly_deaths.csv"
   ))
   expect_identical(min(data$date), as.Date("2010-03-31"))
   expect_identical(max(data$date), as.Date("2023-03-31"))
@@ -60,7 +60,7 @@ test_that("the Ireland manifest contains all four fitted source bands", {
   source(model_path, local = TRUE)
 
   data <- read_ireland_model_input(testthat::test_path(
-    "..", "..", "ireland_analysis", "ireland_quater.csv"
+    "..", "..", "data", "raw", "cso", "ireland_quarterly_deaths.csv"
   ))
   manifest <- build_ireland_manifest(data, base_seed = 20260830L)
   expect_equal(nrow(manifest), 4L)

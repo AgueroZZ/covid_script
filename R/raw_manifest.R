@@ -1,53 +1,55 @@
-build_file_manifest <- function(
-  paths,
-  source_ids,
-  snapshot_dates,
-  tracked_in_git = TRUE
-) {
-  if (length(paths) != length(source_ids) ||
-      length(paths) != length(snapshot_dates)) {
-    stop("Manifest vectors must have equal lengths.")
-  }
-
-  require_files(paths, "Raw source")
-
-  tibble::tibble(
-    source_id = source_ids,
-    relative_path = paths,
-    bytes = as.numeric(file.info(paths)$size),
-    sha256 = unname(vapply(
-      paths,
-      digest::digest,
-      character(1),
-      file = TRUE,
-      algo = "sha256"
-    )),
-    snapshot_date = as.Date(snapshot_dates),
-    tracked_in_git = rep_len(tracked_in_git, length(paths))
+raw_manifest_columns <- function() {
+  c(
+    "dataset_id",
+    "provider",
+    "snapshot_path",
+    "snapshot_date",
+    "bytes",
+    "sha256",
+    "source_url",
+    "provider_identifier",
+    "access_method",
+    "geography",
+    "time_coverage",
+    "license_note",
+    "reproduction_role",
+    "tracked_in_git"
   )
 }
 
 validate_file_manifest <- function(manifest, root = ".") {
-  required_columns <- c(
-    "source_id",
-    "relative_path",
-    "bytes",
-    "sha256",
-    "snapshot_date",
-    "tracked_in_git"
-  )
-  if (!identical(names(manifest), required_columns)) {
+  if (!identical(names(manifest), raw_manifest_columns())) {
     stop("Raw manifest columns do not match the canonical schema.")
   }
+  if (nrow(manifest) == 0L || anyDuplicated(manifest$snapshot_path)) {
+    stop("Raw snapshot paths must be present and unique.")
+  }
+  if (any(!nzchar(manifest$dataset_id)) || any(!nzchar(manifest$provider))) {
+    stop("Every raw snapshot must have a dataset ID and provider.")
+  }
+  if (any(is.na(as.Date(manifest$snapshot_date)))) {
+    stop("Raw snapshot dates must use ISO YYYY-MM-DD format.")
+  }
+  if (any(!grepl("^[0-9a-f]{64}$", manifest$sha256))) {
+    stop("Raw snapshot SHA-256 values are malformed.")
+  }
+  if (any(manifest$tracked_in_git != TRUE)) {
+    stop("Every canonical raw snapshot must be tracked in Git.")
+  }
 
-  paths <- file.path(root, manifest$relative_path)
+  paths <- file.path(root, manifest$snapshot_path)
   require_files(paths, "Manifest source")
+  observed_bytes <- as.numeric(file.info(paths)$size)
+  if (!identical(observed_bytes, as.numeric(manifest$bytes))) {
+    stop("One or more raw source byte counts do not match the manifest.")
+  }
   observed_hashes <- unname(vapply(
     paths,
     digest::digest,
-    character(1),
+    character(1L),
     file = TRUE,
-    algo = "sha256"
+    algo = "sha256",
+    serialize = FALSE
   ))
   if (!identical(observed_hashes, manifest$sha256)) {
     stop("One or more raw source hashes do not match the manifest.")

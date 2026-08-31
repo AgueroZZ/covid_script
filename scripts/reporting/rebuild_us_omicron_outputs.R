@@ -159,7 +159,7 @@ dir.create(output_root, recursive = TRUE, showWarnings = FALSE)
 state_codes_path <- here::here("config", "us_state_codes.csv")
 bar_panels_path <- here::here("config", "us_omicron_bar_panels.csv")
 table_cohort_path <- here::here("config", "us_table_01_cohort.csv")
-geometry_path <- here::here("USA_analysis", "cb_2018_us_state_500k.zip")
+geometry_path <- here::here("data", "raw", "us_census", "cb_2018_us_state_500k.zip")
 canonical_us_path <- here::here("output", "results", "us", "wave_summary.csv")
 baseline_canonical_path <- file.path(
   output_root,
