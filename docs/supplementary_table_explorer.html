@@ -11,7 +11,7 @@
 
 
 
-<title>Data Sources and Versioned Snapshots</title>
+<title>Supplementary Table Explorer</title>
 
 <script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,9 +29,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
@@ -241,69 +238,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -311,16 +245,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -446,7 +370,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Data Sources and Versioned Snapshots</h1>
+<h1 class="title toc-ignore">Supplementary Table Explorer</h1>
 
 </div>
 
@@ -675,11 +599,12 @@ have uncommitted changes.
 <div id="versions" class="tab-pane fade">
 <p>
 These are the previous versions of the repository in which changes were
-made to the R Markdown (<code>analysis/data_sources.Rmd</code>) and HTML
-(<code>docs/data_sources.html</code>) files. If you’ve configured a
-remote Git repository (see <code>?wflow_git_remote</code>), click on the
-hyperlinks in the table below to view the files as they were in that
-past version.
+made to the R Markdown
+(<code>analysis/supplementary_table_explorer.Rmd</code>) and HTML
+(<code>docs/supplementary_table_explorer.html</code>) files. If you’ve
+configured a remote Git repository (see <code>?wflow_git_remote</code>),
+click on the hyperlinks in the table below to view the files as they
+were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -705,10 +630,10 @@ Message
 <tbody>
 <tr>
 <td>
-html
+Rmd
 </td>
 <td>
-<a href="https://rawcdn.githack.com/AgueroZZ/covid_script/c55510ff02a9ad7f0ad8147a73b026b95894169c/docs/data_sources.html" target="_blank">c55510f</a>
+<a href="https://github.com/AgueroZZ/covid_script/blob/3f3cefd2d01ab7125a5cbea885f7849bcb81d1e3/analysis/supplementary_table_explorer.Rmd" target="_blank">3f3cefd</a>
 </td>
 <td>
 Ziang Zhang
@@ -717,126 +642,7 @@ Ziang Zhang
 2026-09-01
 </td>
 <td>
-feat: add coverage-aware supplementary grouping
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/AgueroZZ/covid_script/755ef0aea526d6175a4e7b18de0b55333f3b7416/docs/data_sources.html" target="_blank">755ef0a</a>
-</td>
-<td>
-Ziang Zhang
-</td>
-<td>
-2026-08-31
-</td>
-<td>
-feat: expand supplementary interactive explorers
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/AgueroZZ/covid_script/588e46300e2f21fee5afa6450edc704092dd2417/docs/data_sources.html" target="_blank">588e463</a>
-</td>
-<td>
-Ziang Zhang
-</td>
-<td>
-2026-08-31
-</td>
-<td>
-feat: publish interactive supplementary analyses
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/AgueroZZ/covid_script/3e71c913e785f539bb489fcd25d1daba04914bd1/docs/data_sources.html" target="_blank">3e71c91</a>
-</td>
-<td>
-Ziang Zhang
-</td>
-<td>
-2026-08-31
-</td>
-<td>
-build: publish Zenodo reproduction guidance
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/AgueroZZ/covid_script/b47130b1f20c5a600a7d82f06350a9ac8c25d0cb/docs/data_sources.html" target="_blank">b47130b</a>
-</td>
-<td>
-Ziang Zhang
-</td>
-<td>
-2026-08-31
-</td>
-<td>
-build: refresh published site provenance
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/AgueroZZ/covid_script/e5925a4292f612a558d3598b96e62f59f17b8a87/docs/data_sources.html" target="_blank">e5925a4</a>
-</td>
-<td>
-Ziang Zhang
-</td>
-<td>
-2026-08-31
-</td>
-<td>
-build: publish workflowr analysis site
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/AgueroZZ/covid_script/blob/b7bbc08754506d6f0b43a34e42094a14c3abf62b/analysis/data_sources.Rmd" target="_blank">b7bbc08</a>
-</td>
-<td>
-Ziang Zhang
-</td>
-<td>
-2026-08-31
-</td>
-<td>
-fix: activate pinned environment for reproduction
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/AgueroZZ/covid_script/blob/e87ff8030546280b8d8762488135ad517754c420/analysis/data_sources.Rmd" target="_blank">e87ff80</a>
-</td>
-<td>
-Ziang Zhang
-</td>
-<td>
-2026-08-31
-</td>
-<td>
-feat: add publication workflowr website
+feat: add interactive supplementary table explorer
 </td>
 </tr>
 </tbody>
@@ -846,198 +652,58 @@ feat: add publication workflowr website
 </div>
 </div>
 </div>
-<p>Exact reproduction uses the files committed under
-<code>data/raw/</code>, verified against their SHA-256 manifest. Data
-providers may revise provisional counts, historical records, schemas, or
-download URLs after the repository snapshot date. The provider-access
-scripts therefore download current versions to a separate, ignored
-directory and never silently replace the canonical inputs.</p>
-<div id="registered-sources" class="section level2">
-<h2>Registered sources</h2>
-<table>
-<colgroup>
-<col width="17%" />
-<col width="7%" />
-<col width="5%" />
-<col width="11%" />
-<col width="31%" />
-<col width="27%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Provider</th>
-<th align="left">Region</th>
-<th align="left">Frequency</th>
-<th align="left">Geography</th>
-<th align="left">Provider identifier</th>
-<th align="left">Repository snapshot</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Eurostat</td>
-<td align="left">europe</td>
-<td align="left">weekly</td>
-<td align="left">country</td>
-<td align="left">DEMO_R_MWK_20</td>
-<td align="left">data/raw/eurostat/demo_r_mwk_20_linear.csv</td>
-</tr>
-<tr class="even">
-<td align="left">CDC WONDER</td>
-<td align="left">united_states</td>
-<td align="left">monthly</td>
-<td align="left">state</td>
-<td align="left">Multiple Cause of Death 1999-2020 and provisional
-mortality</td>
-<td align="left">data/raw/cdc_wonder/sex_stratified</td>
-</tr>
-<tr class="odd">
-<td align="left">CDC WONDER</td>
-<td align="left">united_states</td>
-<td align="left">monthly</td>
-<td align="left">state</td>
-<td align="left">Multiple Cause of Death 1999-2020 and provisional
-mortality</td>
-<td align="left">data/raw/cdc_wonder/non_sex_stratified</td>
-</tr>
-<tr class="even">
-<td align="left">Statistics Canada</td>
-<td align="left">canada</td>
-<td align="left">weekly</td>
-<td align="left">province_or_territory</td>
-<td align="left">13-10-0768-01</td>
-<td align="left">data/raw/statcan/13100768.csv</td>
-</tr>
-<tr class="odd">
-<td align="left">Office for National Statistics</td>
-<td align="left">england_wales</td>
-<td align="left">daily</td>
-<td align="left">England and Wales</td>
-<td align="left">ONS reference 14173</td>
-<td
-align="left">data/raw/ons/daily_deaths_occurrences_1981_2020.xlsx</td>
-</tr>
-<tr class="even">
-<td align="left">Office for National Statistics</td>
-<td align="left">england_wales</td>
-<td align="left">weekly</td>
-<td align="left">England and Wales</td>
-<td align="left">2021 week 52 edition</td>
-<td align="left">data/raw/ons/weekly_deaths_2021_week52.xlsx</td>
-</tr>
-<tr class="odd">
-<td align="left">Office for National Statistics</td>
-<td align="left">england_wales</td>
-<td align="left">weekly</td>
-<td align="left">England and Wales</td>
-<td align="left">2022 week 52 edition</td>
-<td align="left">data/raw/ons/weekly_deaths_2022_week52.xlsx</td>
-</tr>
-<tr class="even">
-<td align="left">Office for National Statistics</td>
-<td align="left">england_wales</td>
-<td align="left">weekly</td>
-<td align="left">England and Wales</td>
-<td align="left">2023 v37 week 35 edition</td>
-<td align="left">data/raw/ons/weekly_deaths_2023_week35.xlsx</td>
-</tr>
-<tr class="odd">
-<td align="left">Central Statistics Office Ireland</td>
-<td align="left">ireland</td>
-<td align="left">quarterly</td>
-<td align="left">Ireland</td>
-<td align="left">VSQ20</td>
-<td align="left">data/raw/cso/ireland_quarterly_deaths.csv</td>
-</tr>
-<tr class="even">
-<td align="left">Our World in Data</td>
-<td align="left">europe</td>
-<td align="left">daily</td>
-<td align="left">country</td>
-<td align="left">archived COVID-19 vaccination extract</td>
-<td align="left">data/raw/owid/europe_vaccination_snapshot.rda</td>
-</tr>
-<tr class="odd">
-<td align="left">Our World in Data</td>
-<td align="left">united_states</td>
-<td align="left">daily</td>
-<td align="left">state</td>
-<td align="left">us_state_vaccinations.csv</td>
-<td align="left">data/raw/owid/us_state_vaccination_snapshot.rda</td>
-</tr>
-<tr class="even">
-<td align="left">United States Census Bureau</td>
-<td align="left">united_states</td>
-<td align="left">static</td>
-<td align="left">state</td>
-<td align="left">GENZ2018 cb_2018_us_state_500k</td>
-<td align="left">data/raw/us_census/cb_2018_us_state_500k.zip</td>
-</tr>
-</tbody>
-</table>
+<link rel="stylesheet" href="assets/supplementary/supplementary_table_app.css">
+<p>This explorer extends the Table 1 display contract to every
+registered geography and original age group. Each wave reports the
+posterior median P-score for male and female models in the manuscript
+format. Where paired sex models do not exist, the corresponding
+total-population result is displayed instead. Failed or unavailable
+components remain explicit and are never imputed.</p>
+<div id="supplementary-table-explorer" class="tablex-app" data-table-app data-root="assets/supplementary/table_explorer">
+  <div class="tablex-toolbar" aria-label="Supplementary table controls">
+    <label class="tablex-search">Search all columns
+      <input type="search" data-control="global-search" placeholder="Region, geography, age, wave value…" autocomplete="off">
+    </label>
+    <label>Rows per page
+      <select data-control="page-size">
+        <option value="10">10</option>
+        <option value="25" selected>25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </label>
+    <button type="button" class="btn btn-default" data-action="manuscript" aria-pressed="false">Show manuscript Table 1 rows</button>
+    <button type="button" class="btn btn-default" data-action="clear">Clear filters</button>
+    <button type="button" class="btn btn-primary" data-action="download">Download filtered CSV</button>
+  </div>
+
+  <div class="tablex-meta" data-role="metadata" aria-live="polite"></div>
+
+  <div class="tablex-table-shell" role="region" aria-label="Scrollable supplementary P-score table" tabindex="0">
+    <table class="tablex-table">
+      <caption class="sr-only">Wave-specific P-scores by region, geography, original age group, and available sex stratification</caption>
+      <thead data-role="table-head"></thead>
+      <tbody data-role="table-body"></tbody>
+    </table>
+  </div>
+
+  <div class="tablex-footer">
+    <span class="tablex-status" data-role="status" aria-live="polite">Loading frozen table summaries…</span>
+    <nav class="tablex-pagination" data-role="pagination" aria-label="Table pages"></nav>
+  </div>
 </div>
-<div id="snapshot-verification" class="section level2">
-<h2>Snapshot verification</h2>
-<pre class="r"><code>system2(
-  &quot;Rscript&quot;,
-  &quot;scripts/data_access/verify_snapshots.R&quot;
-)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Provider</th>
-<th align="right">Versioned files</th>
-<th align="right">Size (MB)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">CDC WONDER</td>
-<td align="right">14</td>
-<td align="right">58.1</td>
-</tr>
-<tr class="even">
-<td align="left">Central Statistics Office Ireland</td>
-<td align="right">1</td>
-<td align="right">0.1</td>
-</tr>
-<tr class="odd">
-<td align="left">Eurostat</td>
-<td align="right">1</td>
-<td align="right">54.5</td>
-</tr>
-<tr class="even">
-<td align="left">Office for National Statistics</td>
-<td align="right">4</td>
-<td align="right">8.2</td>
-</tr>
-<tr class="odd">
-<td align="left">Our World in Data</td>
-<td align="right">2</td>
-<td align="right">0.0</td>
-</tr>
-<tr class="even">
-<td align="left">Statistics Canada</td>
-<td align="right">1</td>
-<td align="right">28.4</td>
-</tr>
-<tr class="odd">
-<td align="left">United States Census Bureau</td>
-<td align="right">1</td>
-<td align="right">3.2</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="optional-current-provider-access" class="section level2">
-<h2>Optional current-provider access</h2>
-<p>The scripts in <a
-href="https://github.com/AgueroZZ/covid_script/tree/main/scripts/data_access"><code>scripts/data_access</code></a>
-document how to retrieve current provider versions where automated
-access is available. CDC WONDER exports require acceptance of the
-provider’s data-use terms and are retained as saved query exports.
-Source-specific details are recorded in <a
-href="https://github.com/AgueroZZ/covid_script/blob/main/documentation/data-sources.md"><code>documentation/data-sources.md</code></a>.</p>
+
+<noscript>This explorer requires JavaScript. The complete expanded table remains available as a CSV from the <a href="supplementary.html">supplementary landing page</a>.</noscript>
+<p>Vaccination coverage and group membership use the same fixed mid-2021
+inputs as manuscript Table 1. These fields are shown as <code>NA</code>
+for Canada, England and Wales, and Ireland because those analyses do not
+use the comparable Europe or United States vaccination snapshots. The
+manuscript-only control selects the 26 published Table 1 rows; those
+rows are checked cell by cell against the tracked manuscript table
+whenever the frozen browser bundle is rebuilt.</p>
+<p>The table is summary-only. It contains no fitted model objects or
+posterior draw matrices.</p>
+<script src="assets/supplementary/supplementary_table_app.js"></script>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1046,7 +712,6 @@ Session information
 </button>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
-<pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 4.5.1 (2025-06-13)
 Platform: aarch64-apple-darwin20
 Running under: macOS Sequoia 15.6.1
@@ -1072,10 +737,9 @@ loaded via a namespace (and not attached):
 [17] sass_0.4.10     rmarkdown_2.30  evaluate_1.0.5  jquerylib_0.1.4
 [21] tibble_3.3.0    fastmap_1.2.0   yaml_2.3.12     lifecycle_1.0.5
 [25] whisker_0.4.1   stringr_1.6.0   compiler_4.5.1  fs_1.6.6       
-[29] Rcpp_1.1.1-1.1  pkgconfig_2.0.3 here_1.0.2      later_1.4.4    
-[33] digest_0.6.39   R6_2.6.1        pillar_1.11.1   magrittr_2.0.5 
-[37] bslib_0.9.0     tools_4.5.1     cachem_1.1.0   </code></pre>
-</div>
+[29] Rcpp_1.1.1-1.1  pkgconfig_2.0.3 later_1.4.4     digest_0.6.39  
+[33] R6_2.6.1        pillar_1.11.1   magrittr_2.0.5  bslib_0.9.0    
+[37] tools_4.5.1     cachem_1.1.0   </code></pre>
 </div>
 </div>
 </div>
@@ -1099,8 +763,6 @@ footer is added to webpages before the MathJax javascript. -->
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -1138,35 +800,6 @@ $(document).ready(function () {
 });
 </script>
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

@@ -401,6 +401,9 @@ div.tocify {
     <li>
       <a href="supplementary_vaccination_groups.html">Vaccination-group explorer</a>
     </li>
+    <li>
+      <a href="supplementary_table_explorer.html">Table explorer</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -451,7 +454,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -462,8 +465,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -476,9 +479,9 @@ aria-hidden="true"></span> </a>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>covid_script/</code> <span
@@ -501,21 +504,18 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
-changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges"
+<div id="strongRMarkdownfilestronguptodate"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of
-the R Markdown file created these results, you’ll want to first commit
-it to the Git repo. If you’re still working on the analysis, you can
-ignore this warning. When you’re finished, you can run
-<code>wflow_publish</code> to commit the R Markdown file and build the
-HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
@@ -606,15 +606,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree755ef0aea526d6175a4e7b18de0b55333f3b7416targetblank755ef0aa">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree3f3cefd2d01ab7125a5cbea885f7849bcb81d1e3targetblank3f3cefda">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/AgueroZZ/covid_script/tree/755ef0aea526d6175a4e7b18de0b55333f3b7416" target="_blank">755ef0a</a>
+<a href="https://github.com/AgueroZZ/covid_script/tree/3f3cefd2d01ab7125a5cbea885f7849bcb81d1e3" target="_blank">3f3cefd</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree755ef0aea526d6175a4e7b18de0b55333f3b7416targetblank755ef0aa"
+id="strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree3f3cefd2d01ab7125a5cbea885f7849bcb81d1e3targetblank3f3cefda"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -624,7 +624,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/AgueroZZ/covid_script/tree/755ef0aea526d6175a4e7b18de0b55333f3b7416" target="_blank">755ef0a</a>.
+<a href="https://github.com/AgueroZZ/covid_script/tree/3f3cefd2d01ab7125a5cbea885f7849bcb81d1e3" target="_blank">3f3cefd</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -658,18 +658,7 @@ Ignored files:
     Ignored:    scripts/validation 2/
     Ignored:    tables/manuscript 2/
     Ignored:    tests/testthat 2/
-    Ignored:    tests/testthat/_snaps/
     Ignored:    tmp/
-
-Unstaged changes:
-    Modified:   R/supplementary_vaccination_groups.R
-    Modified:   analysis/supplementary.Rmd
-    Modified:   analysis/supplementary_vaccination_app.css
-    Modified:   analysis/supplementary_vaccination_app.js
-    Modified:   analysis/supplementary_vaccination_groups.Rmd
-    Modified:   scripts/supplementary/build_vaccination_groups.R
-    Modified:   tests/testthat/test-supplementary-site.R
-    Modified:   tests/testthat/test-supplementary-vaccination-groups.R
 
 </code></pre>
 <p>
@@ -714,6 +703,57 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/AgueroZZ/covid_script/blob/3f3cefd2d01ab7125a5cbea885f7849bcb81d1e3/analysis/supplementary.Rmd" target="_blank">3f3cefd</a>
+</td>
+<td>
+Ziang Zhang
+</td>
+<td>
+2026-09-01
+</td>
+<td>
+feat: add interactive supplementary table explorer
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/AgueroZZ/covid_script/blob/c55510ff02a9ad7f0ad8147a73b026b95894169c/analysis/supplementary.Rmd" target="_blank">c55510f</a>
+</td>
+<td>
+Ziang Zhang
+</td>
+<td>
+2026-09-01
+</td>
+<td>
+feat: add coverage-aware supplementary grouping
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/AgueroZZ/covid_script/c55510ff02a9ad7f0ad8147a73b026b95894169c/docs/supplementary.html" target="_blank">c55510f</a>
+</td>
+<td>
+Ziang Zhang
+</td>
+<td>
+2026-09-01
+</td>
+<td>
+feat: add coverage-aware supplementary grouping
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -922,13 +962,23 @@ manual location membership</td>
 panel-specific coverage screening, manuscript presets, uncertainty
 intervals, and downloadable current membership</td>
 </tr>
+<tr class="even">
+<td align="left"><a href="supplementary_table_explorer.html">Expanded
+Table 1 explorer</a></td>
+<td align="left">Global search, every-column filters, sorting, page
+size, pagination, and manuscript-only rows</td>
+<td align="left">Wave-specific P-score summaries for all registered
+geographies and original age groups, with vaccination metadata where
+comparable</td>
+</tr>
 </tbody>
 </table>
-<p>The pages load only the shard required by the current selection. They
-therefore remain static GitHub Pages files rather than a server process,
-while still exposing the full registered stratification set. The
-vaccination explorer adds approximately 25 MB of summary-only browser
-assets; fitted objects remain local.</p>
+<p>The chart pages load only the shard required by the current
+selection, and the table page loads a compact sub-megabyte summary
+index. They therefore remain static GitHub Pages files rather than a
+server process, while still exposing the full registered stratification
+set. The vaccination explorer adds approximately 25 MB of summary-only
+browser assets; fitted objects remain local.</p>
 </div>
 <div id="frozen-scope" class="section level2">
 <h2>Frozen scope</h2>
@@ -1044,6 +1094,15 @@ explorer availability records</a></li>
 <li><a
 href="assets/supplementary/vaccination_groups/downloads/bundle_metadata.yml">Vaccination
 explorer metadata</a></li>
+<li><a
+href="assets/supplementary/table_explorer/downloads/expanded_table_01.csv">Expanded
+Table 1 summary</a></li>
+<li><a
+href="assets/supplementary/table_explorer/downloads/manuscript_equivalence.csv">Manuscript
+Table 1 equivalence audit</a></li>
+<li><a
+href="assets/supplementary/table_explorer/downloads/bundle_metadata.yml">Table
+explorer metadata</a></li>
 </ul>
 <p>The public files contain summary statistics only. Posterior draw
 matrices and fitted model objects are not included.</p>
@@ -1060,6 +1119,10 @@ model.</p>
 system2(
   &quot;Rscript&quot;,
   &quot;scripts/supplementary/build_vaccination_groups.R&quot;
+)
+system2(
+  &quot;Rscript&quot;,
+  &quot;scripts/supplementary/build_table_explorer.R&quot;
 )</code></pre>
 <br>
 <p>
