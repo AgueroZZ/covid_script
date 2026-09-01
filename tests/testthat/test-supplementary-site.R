@@ -26,6 +26,12 @@ test_that("workflowr registers all supplementary explorers", {
   )))
   expect_match(builder_text, "supplementary_roots", fixed = TRUE)
   expect_match(builder_text, "copy_supplementary_assets", fixed = TRUE)
+  expect_match(builder_text, "table_explorer_destination", fixed = TRUE)
+  expect_match(
+    builder_text,
+    "Failed to clear obsolete supplementary table explorer assets.",
+    fixed = TRUE
+  )
 })
 
 test_that("supplementary pages use local interactive assets", {

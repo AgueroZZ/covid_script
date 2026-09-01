@@ -77,6 +77,13 @@ copy_directory_contents <- function(source, destination) {
 copy_supplementary_assets <- function(destination_root) {
   destination <- file.path(destination_root, "supplementary")
   dir.create(destination, recursive = TRUE, showWarnings = FALSE)
+  table_explorer_destination <- file.path(destination, "table_explorer")
+  if (dir.exists(table_explorer_destination)) {
+    unlink(table_explorer_destination, recursive = TRUE, force = TRUE)
+  }
+  if (dir.exists(table_explorer_destination)) {
+    stop("Failed to clear obsolete supplementary table explorer assets.")
+  }
   copied <- unlist(lapply(inputs$supplementary_roots, function(root) {
     copy_directory_contents(file.path(root, "browser"), destination)
   }), use.names = FALSE)
