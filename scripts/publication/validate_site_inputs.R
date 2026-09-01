@@ -58,6 +58,8 @@ validate_site_inputs <- function(project_root = ".") {
     sprintf("figure_%02d.Rmd", 1:5),
     "table_01.Rmd",
     "supplementary.Rmd",
+    "supplementary_timeseries.Rmd",
+    "supplementary_wave_maps.Rmd",
     "data_sources.Rmd",
     "reproduction.Rmd"
   )
@@ -76,10 +78,34 @@ validate_site_inputs <- function(project_root = ".") {
     stop("Local filesystem references were found in public pages: ", paste(detected, collapse = ", "))
   }
 
+  supplementary_sources <- file.path(
+    project_root,
+    "analysis",
+    c("supplementary_app.js", "supplementary_app.css")
+  )
+  if (any(!file.exists(supplementary_sources))) {
+    stop("Supplementary interactive source assets are missing.")
+  }
+  supplementary_root <- file.path(
+    project_root,
+    "output",
+    "supplementary",
+    "frozen_20260831"
+  )
+  supplementary_required <- file.path(
+    supplementary_root,
+    c("complete.flag", "manifest.csv", "browser/index.json")
+  )
+  if (any(!file.exists(supplementary_required))) {
+    stop("The completed frozen supplementary bundle is unavailable.")
+  }
+
   invisible(list(
     pages = pages,
     records = records,
-    artifact_paths = artifact_paths
+    artifact_paths = artifact_paths,
+    supplementary_root = supplementary_root,
+    supplementary_sources = supplementary_sources
   ))
 }
 

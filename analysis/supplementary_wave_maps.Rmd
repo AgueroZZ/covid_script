@@ -1,0 +1,77 @@
+---
+title: "Supplementary Wave-Map Explorer"
+site: workflowr::wflow_site
+output: workflowr::wflow_html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{=html}
+<link rel="stylesheet" href="assets/supplementary/supplementary_app.css">
+```
+
+Explore geographic summaries for every canonical pandemic wave. P-score maps
+use a fixed color scale from -50% to +50% so colors remain comparable across
+waves; exact values outside that range are retained in tooltips and the result
+table. Excess-death maps use a selection-specific symmetric scale and state that
+choice in the legend.
+
+```{=html}
+<div id="supplementary-wave-map" class="supp-app" data-supplementary-app="map" data-root="assets/supplementary">
+  <div class="supp-controls" aria-label="Wave-map filters">
+    <label>Map collection
+      <select data-control="family"></select>
+    </label>
+    <label>Age group
+      <select data-control="age"></select>
+    </label>
+    <label>Sex
+      <select data-control="sex"></select>
+    </label>
+    <label>Wave
+      <select data-control="wave"></select>
+    </label>
+    <label>Statistic
+      <select data-control="statistic">
+        <option value="p_median">Posterior median P-score</option>
+        <option value="p_lower">P-score 2.5th percentile</option>
+        <option value="p_upper">P-score 97.5th percentile</option>
+        <option value="delta_median">Posterior median excess deaths</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="supp-meta" data-role="metadata"></div>
+  <div class="supp-map-layout">
+    <div>
+      <div class="supp-chart-shell supp-map-shell">
+        <svg data-role="map" viewBox="0 0 920 560" role="img" aria-label="Selected wave-specific geographic summary"></svg>
+        <div class="supp-tooltip" data-role="tooltip" hidden></div>
+      </div>
+      <div class="supp-map-legend" data-role="legend" aria-label="Map color legend"></div>
+      <p class="supp-note" data-role="geometry-note"></p>
+    </div>
+    <div class="supp-map-table" data-role="table"></div>
+  </div>
+
+  <div class="supp-actions">
+    <button type="button" class="btn btn-default" data-action="download">Download filtered wave results</button>
+    <span class="supp-status" data-role="status" aria-live="polite">Loading frozen supplementary index…</span>
+  </div>
+</div>
+
+<noscript>This explorer requires JavaScript. The complete wave table remains available from the <a href="supplementary.html">supplementary landing page</a>.</noscript>
+```
+
+The map geometry follows the manuscript plotting scope. United States results
+for Alaska and Hawaii remain available in the table and in the time-series
+explorer but are not drawn in the contiguous North America geometry. England
+and Wales and the Republic of Ireland use distinct source age bands and remain
+available in the time-series explorer rather than being silently mapped onto
+Eurostat age bands.
+
+```{=html}
+<script src="assets/supplementary/supplementary_app.js"></script>
+```

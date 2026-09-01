@@ -1,0 +1,22 @@
+"observed_source_id","source_path","sha256","bytes"
+"eurostat_weekly","data/raw/eurostat/demo_r_mwk_20_linear.csv","ebbe8800c3e43e3c725731472ad0dd7775c80782c514f316946b29d02c225c61",57186545
+"cdc_wonder_sex","data/raw/cdc_wonder/sex_stratified/Multiple Cause of Death, 1999-2002.txt","48d268ee670fc5f267fb2fbb46b2344284e4bb91a0992e84bbe560f13ef93c8a",4838186
+"cdc_wonder_sex","data/raw/cdc_wonder/sex_stratified/Multiple Cause of Death, 2003-2006.txt","27cc5a5bbd5f790e301008c516f2858c838a6c3e34e2e95fd7ee1896926d2933",4831583
+"cdc_wonder_sex","data/raw/cdc_wonder/sex_stratified/Multiple Cause of Death, 2007-2010.txt","623d970de15d0bd72d6fb2ec653d34109c335378595e66c7930c2dbfa4010962",4783991
+"cdc_wonder_sex","data/raw/cdc_wonder/sex_stratified/Multiple Cause of Death, 2011-2014.txt","da60c5c5f227ad18bcf364063d91a44f1d96f6c6bf8f601c31af34d3b4925034",4748448
+"cdc_wonder_sex","data/raw/cdc_wonder/sex_stratified/Multiple Cause of Death, 2015-2018.txt","da71764edcd1e9f60544fabd1a03b9c9c710c5b533cfc9637fda8d4f36e97f50",4799599
+"cdc_wonder_sex","data/raw/cdc_wonder/sex_stratified/Multiple Cause of Death, 2019-2020.txt","d441448f25c8a0a41e685db5dd678d7f701cbcabe72e481922de46b74224fd70",2430258
+"cdc_wonder_sex","data/raw/cdc_wonder/sex_stratified/Multiple Cause of Death, 2021-2023.txt","3e9d3dd8da8c1295284b25ce025cd8e1b91b2e9bcdd10655bc1f8226cf95ccac",4159058
+"cdc_wonder_non_sex","data/raw/cdc_wonder/non_sex_stratified/USA_monthly_1999_2002.txt","897c281f6e22cf467bf52ae14cfa1e0c99ad190486819e993e919876475de02f",4795344
+"cdc_wonder_non_sex","data/raw/cdc_wonder/non_sex_stratified/USA_monthly_2003_2006.txt","79b92d55b302d15670ba5acd881324f0509de6fdfa493300570674a015372e9d",4774834
+"cdc_wonder_non_sex","data/raw/cdc_wonder/non_sex_stratified/USA_monthly_2007_2010.txt","d8d2677599bd3540b18d47a3aef7be33694bd1134af224b1d324bb94b1bb039f",4744035
+"cdc_wonder_non_sex","data/raw/cdc_wonder/non_sex_stratified/USA_monthly_2011_2014.txt","a1605784a29b502f6a5e9e25ffe83f71f39d47a0cf2346d120f2bc927ad40133",4717097
+"cdc_wonder_non_sex","data/raw/cdc_wonder/non_sex_stratified/USA_monthly_2015_2017.txt","1eee2e6d2ded994fcd973b998dc509d4881d99f236219f0955ab267c1e24596e",3585093
+"cdc_wonder_non_sex","data/raw/cdc_wonder/non_sex_stratified/USA_monthly_2018_2020.txt","5d8f730cd43897f7cdc8ab57c273f3e056457380cd8099bdb95ca413248bd534",3601705
+"cdc_wonder_non_sex","data/raw/cdc_wonder/non_sex_stratified/USA_monthly_2021_2023.txt","25d71e64d8407fd09dec8f5db351602c47e0b98b4a23a082161794d991e53ee6",4073319
+"statcan_weekly","data/raw/statcan/13100768.csv","dc46e74c61945e316953e53748ba4655e7b2ff11cd7ce632c726fb5985982307",29765588
+"ons_england_wales","data/raw/ons/daily_deaths_occurrences_1981_2020.xlsx","542df949a75905e49b51259cb3e4934f09d1c116119e1f755fa4e9a227358327",7488018
+"ons_england_wales","data/raw/ons/weekly_deaths_2021_week52.xlsx","c693e217858a14a5721b2252f2359659437e78b6eb22af9da79a94e76a6ba8b2",556831
+"ons_england_wales","data/raw/ons/weekly_deaths_2022_week52.xlsx","465e33525f958af3bdef80d831297b0a7dbc71b25e38e6704902a22a03062b42",311040
+"ons_england_wales","data/raw/ons/weekly_deaths_2023_week35.xlsx","99069f09ee2ead637602f01eb7b4247c1136e6e6d5130dbda335c691fc97dde3",256269
+"cso_ireland_quarterly","data/raw/cso/ireland_quarterly_deaths.csv","132445a49df325f114081c831a8c93c586336096bddd0908414dc228eec37d6b",54429

@@ -27,7 +27,13 @@ navbar:
         - text: "Table 1"
           href: table_01.html
     - text: "Supplementary"
-      href: supplementary.html
+      menu:
+        - text: "Overview and downloads"
+          href: supplementary.html
+        - text: "Time-series explorer"
+          href: supplementary_timeseries.html
+        - text: "Wave-map explorer"
+          href: supplementary_wave_maps.html
     - text: "Reproducibility"
       menu:
         - text: "Data sources"

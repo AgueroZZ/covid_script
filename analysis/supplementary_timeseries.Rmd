@@ -1,0 +1,66 @@
+---
+title: "Supplementary Time-Series Explorer"
+site: workflowr::wflow_site
+output: workflowr::wflow_html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{=html}
+<link rel="stylesheet" href="assets/supplementary/supplementary_app.css">
+```
+
+Select any registered analysis family, geography, age group, and sex. The
+mortality view shows observed deaths and the posterior median expected deaths
+with a central 95% posterior predictive interval. The P-score view summarizes
+\((Y_t-E_t)/E_t\) draw by draw at each observed date.
+
+```{=html}
+<div id="supplementary-timeseries" class="supp-app" data-supplementary-app="timeseries" data-root="assets/supplementary">
+  <div class="supp-controls" aria-label="Time-series filters">
+    <label>Analysis family
+      <select data-control="family"></select>
+    </label>
+    <label>Geography
+      <select data-control="geography"></select>
+    </label>
+    <label>Age group
+      <select data-control="age"></select>
+    </label>
+    <label>Sex
+      <select data-control="sex"></select>
+    </label>
+    <label>Display
+      <select data-control="metric">
+        <option value="mortality">Observed and expected mortality</option>
+        <option value="pscore">Pointwise P-score</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="supp-meta" data-role="metadata"></div>
+
+  <div class="supp-chart-shell">
+    <svg data-role="chart" viewBox="0 0 920 480" role="img" aria-label="Selected mortality analysis time series"></svg>
+    <div class="supp-tooltip" data-role="tooltip" hidden></div>
+  </div>
+
+  <div class="supp-actions">
+    <button type="button" class="btn btn-default" data-action="download">Download selected series</button>
+    <span class="supp-status" data-role="status" aria-live="polite">Loading frozen supplementary index…</span>
+  </div>
+</div>
+
+<noscript>This explorer requires JavaScript. The complete summary tables remain available from the <a href="supplementary.html">supplementary landing page</a>.</noscript>
+```
+
+The center line in the mortality view is the posterior median. The downloadable
+pointwise table also retains the posterior mean. Values are displayed on their
+native source frequency: weekly, monthly, or quarterly. Missing and failed
+cohorts are shown explicitly rather than replaced or silently removed.
+
+```{=html}
+<script src="assets/supplementary/supplementary_app.js"></script>
+```

@@ -8,80 +8,85 @@ output: workflowr::wflow_html
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-The supplementary workflow contains many region-, age-, sex-, wave-, and
-diagnostic-specific outputs. To keep this website concise, the complete set is
-not embedded here. The commands below reproduce the analysis inventories and
-reporting outputs, and the lightweight examples demonstrate the tracked input
-and result contracts.
+The frozen supplementary bundle presents every cohort in the current analysis
+contract without loading fitted models in the browser. It contains 1,119
+registered geography-by-age-by-sex analyses: 1,118 successful compact
+posterior-predictive results and one explicitly retained historical model
+failure.
 
-## Reproduction commands
+## Interactive exploration
 
-Verify every versioned source file before analysis:
+| Explorer | Available selections | Output |
+|:--|:--|:--|
+| [Time series and pointwise P-scores](supplementary_timeseries.html) | Analysis family, geography, age group, sex, and display metric | Observed mortality, expected mortality with a 95% posterior predictive interval, or the pointwise P-score curve |
+| [Wave-specific maps](supplementary_wave_maps.html) | Region, age group, sex, Initial/Alpha/Delta/Omicron wave, and posterior summary | Interactive geographic P-score or excess-death maps with exact values in an accessible table |
 
-```{r verify-snapshots, eval=FALSE}
+The pages load one geography shard at a time. They therefore remain static
+GitHub Pages files rather than a server process, while still exposing the full
+registered stratification set.
+
+## Frozen scope
+
+| Analysis family | Registered cohorts | Time scale |
+|:--|--:|:--|
+| Eurostat Europe | 388 | Weekly |
+| United States, non-sex-stratified | 204 | Monthly |
+| United States, sex-stratified | 408 | Monthly |
+| Canada, non-sex-stratified | 40 | Weekly |
+| Canada, sex-stratified | 72 | Weekly |
+| England and Wales | 3 | Weekly |
+| Republic of Ireland | 4 | Quarterly |
+
+The United States branch `Vermont / 0-44 / female` is retained in the registry
+with status `model_failed`; no value is imputed. Superseded Europe,
+England-and-Wales, and Ireland model batches, and unregistered United States
+`age_all` files, are not mixed into this frozen analysis contract.
+
+## Summary definitions
+
+For each successful cohort, the bundle records observed deaths, the expected
+posterior mean and median, the central 95% posterior predictive interval, and
+the pointwise P-score distribution. Interactive mortality charts use the
+posterior median as their center line. This matters for a small number of sparse
+cohorts where extreme posterior draws can pull the mean outside the central
+interval; the downloadable table retains both summaries without truncation.
+
+Wave summaries use the four half-open intervals fixed in `config/analysis.yml`:
+
+- Initial: March 1, 2020 to November 1, 2020;
+- Alpha: November 1, 2020 to July 1, 2021;
+- Delta: July 1, 2021 to January 1, 2022;
+- Omicron: January 1, 2022 to April 1, 2024.
+
+For a wave with observed periods, the wave P-score is computed draw by draw as
+
+\[
+P = \frac{\sum_t Y_t - \sum_t E_t}{\sum_t E_t},
+\]
+
+before posterior quantiles are taken. It is not an average of pointwise
+P-scores.
+
+## Downloads
+
+- [Registered cohort inventory](assets/supplementary/downloads/registry.csv)
+- [Complete pointwise summaries (compressed CSV)](assets/supplementary/downloads/pointwise.csv.gz)
+- [Four-wave summaries](assets/supplementary/downloads/wave_summary.csv)
+- [Compact prediction source hashes](assets/supplementary/downloads/source_inventory.csv)
+- [Canonical observed-data source hashes](assets/supplementary/downloads/observed_source_inventory.csv)
+- [Bundle metadata and input hashes](assets/supplementary/downloads/bundle_metadata.yml)
+
+The public files contain summary statistics only. Posterior draw matrices and
+fitted model objects are not included.
+
+## Rebuild command
+
+The bundle is derived from the registered observed-data snapshots and existing
+compact posterior-predictive objects. It does not refit a model.
+
+```{r rebuild-supplementary, eval=FALSE}
 system2(
   "Rscript",
-  "scripts/data_access/verify_snapshots.R"
+  "scripts/supplementary/build_bundle.R"
 )
 ```
-
-Inspect regional model inventories without fitting models:
-
-```{r model-inventories, eval=FALSE}
-commands <- c(
-  "scripts/model_fitting/europe/refit_eurostat.R",
-  "scripts/model_fitting/england_wales/refit.R",
-  "scripts/model_fitting/ireland/refit.R",
-  "scripts/model_fitting/canada/refit.R"
-)
-lapply(commands, function(script) {
-  system2("Rscript", c(script, "--manifest-only=true"))
-})
-```
-
-After completed model summaries have been written locally, reconstruct all
-registered manuscript outputs:
-
-```{r reporting-outputs, eval=FALSE}
-system2(
-  "Rscript",
-  c(
-    "scripts/reporting/run_all.R",
-    "--include_caption_review=true",
-    "--strict=true"
-  )
-)
-```
-
-## Example 1: versioned source inventory
-
-```{r source-inventory, echo=TRUE}
-raw_manifest <- utils::read.csv(
-  here::here("data", "raw", "manifest.csv"),
-  stringsAsFactors = FALSE,
-  check.names = FALSE
-)
-source_inventory <- aggregate(
-  cbind(files = rep(1L, nrow(raw_manifest)), bytes = raw_manifest$bytes),
-  by = list(provider = raw_manifest$provider),
-  FUN = sum
-)
-source_inventory$size_mb <- round(source_inventory$bytes / 1024^2, 1)
-knitr::kable(
-  source_inventory[c("provider", "files", "size_mb")],
-  col.names = c("Provider", "Files", "Size (MB)")
-)
-```
-
-## Example 2: publication-table preview
-
-```{r table-preview, echo=TRUE}
-table_01 <- utils::read.csv(
-  here::here("tables", "manuscript", "table_01_wave_pscores.csv"),
-  check.names = FALSE
-)
-knitr::kable(utils::head(table_01, 6L))
-```
-
-Complete output remains available through the same scripts and local `output/`
-tree; the website does not use those local files as build inputs.

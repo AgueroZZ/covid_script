@@ -7,7 +7,6 @@ inputs <- validate_site_inputs(project_root)
 if (!requireNamespace("workflowr", quietly = TRUE)) {
   stop("Package 'workflowr' is required to build the publication website.")
 }
-
 analysis_assets <- file.path(project_root, "analysis", "assets")
 docs_assets <- file.path(project_root, "docs", "assets")
 asset_directories <- c(
@@ -29,16 +28,96 @@ copy_publication_assets <- function(destination_root) {
   }
 }
 
+validate_supplementary_manifest <- function(root) {
+  manifest <- utils::read.csv(
+    file.path(root, "manifest.csv"),
+    stringsAsFactors = FALSE,
+    check.names = FALSE
+  )
+  paths <- file.path(root, manifest$path)
+  if (any(!file.exists(paths))) {
+    stop("A frozen supplementary artifact listed in the manifest is missing.")
+  }
+  hashes <- vapply(
+    paths,
+    digest::digest,
+    character(1L),
+    algo = "sha256",
+    file = TRUE,
+    serialize = FALSE
+  )
+  if (any(hashes != manifest$sha256)) {
+    stop(
+      "Frozen supplementary hash verification failed: ",
+      paste(manifest$path[hashes != manifest$sha256], collapse = ", "),
+      "."
+    )
+  }
+  invisible(manifest)
+}
+
+copy_directory_contents <- function(source, destination) {
+  files <- list.files(
+    source,
+    recursive = TRUE,
+    full.names = TRUE,
+    all.files = FALSE
+  )
+  files <- files[file.info(files)$isdir %in% FALSE]
+  relative <- substring(files, nchar(source) + 2L)
+  targets <- file.path(destination, relative)
+  invisible(lapply(unique(dirname(targets)), dir.create, recursive = TRUE, showWarnings = FALSE))
+  copied <- file.copy(files, targets, overwrite = TRUE, copy.mode = TRUE)
+  if (!all(copied)) {
+    stop("Failed to copy one or more supplementary browser assets.")
+  }
+  invisible(targets)
+}
+
+copy_supplementary_assets <- function(destination_root) {
+  destination <- file.path(destination_root, "supplementary")
+  dir.create(destination, recursive = TRUE, showWarnings = FALSE)
+  copied <- copy_directory_contents(
+    file.path(inputs$supplementary_root, "browser"),
+    destination
+  )
+  interactive_targets <- file.path(
+    destination,
+    basename(inputs$supplementary_sources)
+  )
+  if (!all(file.copy(
+    inputs$supplementary_sources,
+    interactive_targets,
+    overwrite = TRUE,
+    copy.mode = TRUE
+  ))) {
+    stop("Failed to stage the supplementary JavaScript or stylesheet.")
+  }
+  invisible(c(copied, interactive_targets))
+}
+
+validate_supplementary_manifest(inputs$supplementary_root)
 copy_publication_assets(analysis_assets)
-options(workflowr.view = FALSE)
-workflowr::wflow_build(
-  files = file.path("analysis", inputs$pages),
-  make = FALSE,
-  update = TRUE,
-  view = FALSE,
-  project = project_root
-)
+copy_supplementary_assets(analysis_assets)
+invisible(callr::r_safe(
+  function(files, root) {
+    options(workflowr.view = FALSE)
+    workflowr::wflow_build(
+      files = files,
+      make = FALSE,
+      update = TRUE,
+      view = FALSE,
+      project = root
+    )
+  },
+  args = list(
+    files = file.path("analysis", inputs$pages),
+    root = project_root
+  ),
+  show = TRUE
+))
 copy_publication_assets(docs_assets)
+copy_supplementary_assets(docs_assets)
 
 expected_html <- file.path(
   project_root,
@@ -101,27 +180,54 @@ page_text <- vapply(
   function(path) paste(readLines(path, warn = FALSE), collapse = "\n"),
   character(1L)
 )
-workflowr_checks <- vapply(
-  page_text,
-  function(content) grepl(
-    paste0(
-      "Checks:</strong>[\\s\\S]{0,500}text-success[\\s\\S]{0,100}7",
-      "[\\s\\S]{0,500}text-danger[\\s\\S]{0,100}0"
-    ),
-    content,
-    perl = TRUE
-  ),
+page_dirty <- vapply(
+  inputs$pages,
+  function(page) {
+    status <- system2(
+      "git",
+      c("status", "--porcelain", "--", file.path("analysis", page)),
+      stdout = TRUE,
+      stderr = TRUE
+    )
+    length(status) > 0L
+  },
   logical(1L)
 )
-workflowr_sources <- grepl(
-  "R Markdown file:</strong> up-to-date",
-  page_text,
-  fixed = TRUE
-) & grepl("Environment:</strong> empty", page_text, fixed = TRUE)
+workflowr_checks <- vapply(seq_along(page_text), function(index) {
+  expected_success <- if (page_dirty[[index]]) 6L else 7L
+  expected_danger <- if (page_dirty[[index]]) 1L else 0L
+  grepl(
+    paste0(
+      "Checks:</strong>[\\s\\S]{0,500}text-success[\\s\\S]{0,100}",
+      expected_success,
+      "[\\s\\S]{0,500}text-danger[\\s\\S]{0,100}",
+      expected_danger
+    ),
+    page_text[[index]],
+    perl = TRUE
+  )
+}, logical(1L))
+workflowr_source_status <- vapply(seq_along(page_text), function(index) {
+  expected <- if (page_dirty[[index]]) {
+    "R Markdown file:</strong> uncommitted"
+  } else {
+    "R Markdown file:</strong> up-to-date"
+  }
+  grepl(expected, page_text[[index]], fixed = TRUE)
+}, logical(1L))
+workflowr_sources <- workflowr_source_status &
+  grepl("Environment:</strong> empty", page_text, fixed = TRUE)
 if (any(!workflowr_checks | !workflowr_sources)) {
   stop(
     "One or more pages failed the workflowr reproducibility checks: ",
     paste(basename(expected_html[!workflowr_checks | !workflowr_sources]), collapse = ", ")
+  )
+}
+if (any(page_dirty)) {
+  message(
+    "Validated ", sum(page_dirty),
+    " development page(s) with the sole workflowr warning being their current ",
+    "uncommitted Git status."
   )
 }
 

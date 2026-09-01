@@ -41,9 +41,11 @@ shared model and summary definitions.
 
 ## Supplementary analyses
 
-The [supplementary page](supplementary.html) provides reproducible commands,
-source links, and representative lightweight examples. The complete collection
-of derived outputs is generated locally rather than embedded in the website.
+The [supplementary overview](supplementary.html) provides a frozen inventory,
+summary definitions, and complete downloads. Interactive pages expose
+[geography-specific mortality and P-score time series](supplementary_timeseries.html)
+and [all four wave-specific map summaries](supplementary_wave_maps.html) without
+loading posterior draws or fitted model objects in the browser.
 
 ## Reproducibility
 

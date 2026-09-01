@@ -382,8 +382,23 @@ div.tocify {
     </li>
   </ul>
 </li>
-<li>
-  <a href="supplementary.html">Supplementary</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Supplementary
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="supplementary.html">Overview and downloads</a>
+    </li>
+    <li>
+      <a href="supplementary_timeseries.html">Time-series explorer</a>
+    </li>
+    <li>
+      <a href="supplementary_wave_maps.html">Wave-map explorer</a>
+    </li>
+  </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -433,7 +448,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -444,8 +459,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -458,9 +473,9 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>covid_script/</code> <span
@@ -483,18 +498,21 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate"
+<div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
@@ -585,15 +603,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree9b2893cae2ce0bdfb5d02d5b526eecc49ebf8ed2targetblank9b2893ca">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree5370cb23bab06937df83d969962d65045598f993targetblank5370cb2a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/AgueroZZ/covid_script/tree/9b2893cae2ce0bdfb5d02d5b526eecc49ebf8ed2" target="_blank">9b2893c</a>
+<a href="https://github.com/AgueroZZ/covid_script/tree/5370cb23bab06937df83d969962d65045598f993" target="_blank">5370cb2</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree9b2893cae2ce0bdfb5d02d5b526eecc49ebf8ed2targetblank9b2893ca"
+id="strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree5370cb23bab06937df83d969962d65045598f993targetblank5370cb2a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -603,7 +621,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/AgueroZZ/covid_script/tree/9b2893cae2ce0bdfb5d02d5b526eecc49ebf8ed2" target="_blank">9b2893c</a>.
+<a href="https://github.com/AgueroZZ/covid_script/tree/5370cb23bab06937df83d969962d65045598f993" target="_blank">5370cb2</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -624,7 +642,25 @@ Ignored files:
     Ignored:    renv/library/
     Ignored:    renv/staging/
     Ignored:    scratch/
+    Ignored:    tests/testthat/_snaps/
     Ignored:    tmp/
+
+Untracked files:
+    Untracked:  R/supplementary_bundle.R
+    Untracked:  analysis/supplementary_app.css
+    Untracked:  analysis/supplementary_app.js
+    Untracked:  analysis/supplementary_timeseries.Rmd
+    Untracked:  analysis/supplementary_wave_maps.Rmd
+    Untracked:  scripts/supplementary/
+    Untracked:  tests/testthat/test-supplementary-bundle.R
+    Untracked:  tests/testthat/test-supplementary-site.R
+
+Unstaged changes:
+    Modified:   analysis/_site.yml
+    Modified:   analysis/index.Rmd
+    Modified:   analysis/supplementary.Rmd
+    Modified:   scripts/publication/build_site.R
+    Modified:   scripts/publication/validate_site_inputs.R
 
 </code></pre>
 <p>
@@ -669,6 +705,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/AgueroZZ/covid_script/3e71c913e785f539bb489fcd25d1daba04914bd1/docs/supplementary.html" target="_blank">3e71c91</a>
+</td>
+<td>
+Ziang Zhang
+</td>
+<td>
+2026-08-31
+</td>
+<td>
+build: publish Zenodo reproduction guidance
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -744,207 +797,158 @@ feat: add publication workflowr website
 </div>
 </div>
 </div>
-<p>The supplementary workflow contains many region-, age-, sex-, wave-,
-and diagnostic-specific outputs. To keep this website concise, the
-complete set is not embedded here. The commands below reproduce the
-analysis inventories and reporting outputs, and the lightweight examples
-demonstrate the tracked input and result contracts.</p>
-<div id="reproduction-commands" class="section level2">
-<h2>Reproduction commands</h2>
-<p>Verify every versioned source file before analysis:</p>
-<pre class="r"><code>system2(
-  &quot;Rscript&quot;,
-  &quot;scripts/data_access/verify_snapshots.R&quot;
-)</code></pre>
-<p>Inspect regional model inventories without fitting models:</p>
-<pre class="r"><code>commands &lt;- c(
-  &quot;scripts/model_fitting/europe/refit_eurostat.R&quot;,
-  &quot;scripts/model_fitting/england_wales/refit.R&quot;,
-  &quot;scripts/model_fitting/ireland/refit.R&quot;,
-  &quot;scripts/model_fitting/canada/refit.R&quot;
-)
-lapply(commands, function(script) {
-  system2(&quot;Rscript&quot;, c(script, &quot;--manifest-only=true&quot;))
-})</code></pre>
-<p>After completed model summaries have been written locally,
-reconstruct all registered manuscript outputs:</p>
-<pre class="r"><code>system2(
-  &quot;Rscript&quot;,
-  c(
-    &quot;scripts/reporting/run_all.R&quot;,
-    &quot;--include_caption_review=true&quot;,
-    &quot;--strict=true&quot;
-  )
-)</code></pre>
-</div>
-<div id="example-1-versioned-source-inventory" class="section level2">
-<h2>Example 1: versioned source inventory</h2>
-<pre class="r"><code>raw_manifest &lt;- utils::read.csv(
-  here::here(&quot;data&quot;, &quot;raw&quot;, &quot;manifest.csv&quot;),
-  stringsAsFactors = FALSE,
-  check.names = FALSE
-)
-source_inventory &lt;- aggregate(
-  cbind(files = rep(1L, nrow(raw_manifest)), bytes = raw_manifest$bytes),
-  by = list(provider = raw_manifest$provider),
-  FUN = sum
-)
-source_inventory$size_mb &lt;- round(source_inventory$bytes / 1024^2, 1)
-knitr::kable(
-  source_inventory[c(&quot;provider&quot;, &quot;files&quot;, &quot;size_mb&quot;)],
-  col.names = c(&quot;Provider&quot;, &quot;Files&quot;, &quot;Size (MB)&quot;)
-)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Provider</th>
-<th align="right">Files</th>
-<th align="right">Size (MB)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">CDC WONDER</td>
-<td align="right">14</td>
-<td align="right">58.1</td>
-</tr>
-<tr class="even">
-<td align="left">Central Statistics Office Ireland</td>
-<td align="right">1</td>
-<td align="right">0.1</td>
-</tr>
-<tr class="odd">
-<td align="left">Eurostat</td>
-<td align="right">1</td>
-<td align="right">54.5</td>
-</tr>
-<tr class="even">
-<td align="left">Office for National Statistics</td>
-<td align="right">4</td>
-<td align="right">8.2</td>
-</tr>
-<tr class="odd">
-<td align="left">Our World in Data</td>
-<td align="right">2</td>
-<td align="right">0.0</td>
-</tr>
-<tr class="even">
-<td align="left">Statistics Canada</td>
-<td align="right">1</td>
-<td align="right">28.4</td>
-</tr>
-<tr class="odd">
-<td align="left">United States Census Bureau</td>
-<td align="right">1</td>
-<td align="right">3.2</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="example-2-publication-table-preview" class="section level2">
-<h2>Example 2: publication-table preview</h2>
-<pre class="r"><code>table_01 &lt;- utils::read.csv(
-  here::here(&quot;tables&quot;, &quot;manuscript&quot;, &quot;table_01_wave_pscores.csv&quot;),
-  check.names = FALSE
-)
-knitr::kable(utils::head(table_01, 6L))</code></pre>
+<p>The frozen supplementary bundle presents every cohort in the current
+analysis contract without loading fitted models in the browser. It
+contains 1,119 registered geography-by-age-by-sex analyses: 1,118
+successful compact posterior-predictive results and one explicitly
+retained historical model failure.</p>
+<div id="interactive-exploration" class="section level2">
+<h2>Interactive exploration</h2>
 <table>
 <colgroup>
-<col width="6%" />
-<col width="5%" />
-<col width="17%" />
-<col width="10%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="12%" />
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">region_set</th>
-<th align="left">geography</th>
-<th align="right">people_vaccinated_per_hundred</th>
-<th align="left">vaccination_group</th>
-<th align="left">estimand_age_group</th>
-<th align="left">initial</th>
-<th align="left">alpha</th>
-<th align="left">delta</th>
-<th align="left">omicron</th>
+<th align="left">Explorer</th>
+<th align="left">Available selections</th>
+<th align="left">Output</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Europe</td>
-<td align="left">BE</td>
-<td align="right">63.15</td>
-<td align="left">high</td>
-<td align="left">60-79</td>
-<td align="left">M: 0.132; F: 0.105</td>
-<td align="left">M: 0.137; F: 0.098</td>
-<td align="left">M: 0.167; F: 0.110</td>
-<td align="left">M: 0.085; F: 0.091</td>
+<td align="left"><a href="supplementary_timeseries.html">Time series and
+pointwise P-scores</a></td>
+<td align="left">Analysis family, geography, age group, sex, and display
+metric</td>
+<td align="left">Observed mortality, expected mortality with a 95%
+posterior predictive interval, or the pointwise P-score curve</td>
 </tr>
 <tr class="even">
-<td align="left">Europe</td>
-<td align="left">IT</td>
-<td align="right">58.79</td>
-<td align="left">high</td>
-<td align="left">60-79</td>
-<td align="left">M: 0.172; F: 0.107</td>
-<td align="left">M: 0.286; F: 0.188</td>
-<td align="left">M: 0.087; F: 0.104</td>
-<td align="left">M: 0.055; F: 0.063</td>
-</tr>
-<tr class="odd">
-<td align="left">Europe</td>
-<td align="left">FI</td>
-<td align="right">58.28</td>
-<td align="left">high</td>
-<td align="left">60-79</td>
-<td align="left">M: 0.014; F: 0.043</td>
-<td align="left">M: 0.035; F: 0.001</td>
-<td align="left">M: 0.106; F: 0.079</td>
-<td align="left">M: 0.111; F: 0.134</td>
-</tr>
-<tr class="even">
-<td align="left">Europe</td>
-<td align="left">HU</td>
-<td align="right">55.05</td>
-<td align="left">high</td>
-<td align="left">60-79</td>
-<td align="left">M: -0.000; F: 0.037</td>
-<td align="left">M: 0.317; F: 0.305</td>
-<td align="left">M: 0.203; F: 0.221</td>
-<td align="left">M: -0.017; F: -0.001</td>
-</tr>
-<tr class="odd">
-<td align="left">Europe</td>
-<td align="left">ES</td>
-<td align="right">54.56</td>
-<td align="left">high</td>
-<td align="left">60-79</td>
-<td align="left">M: 0.242; F: 0.237</td>
-<td align="left">M: 0.158; F: 0.180</td>
-<td align="left">M: 0.122; F: 0.126</td>
-<td align="left">M: 0.095; F: 0.158</td>
-</tr>
-<tr class="even">
-<td align="left">Europe</td>
-<td align="left">AT</td>
-<td align="right">53.48</td>
-<td align="left">high</td>
-<td align="left">60-79</td>
-<td align="left">M: 0.012; F: 0.003</td>
-<td align="left">M: 0.109; F: 0.072</td>
-<td align="left">M: 0.120; F: 0.108</td>
-<td align="left">M: 0.026; F: 0.007</td>
+<td align="left"><a href="supplementary_wave_maps.html">Wave-specific
+maps</a></td>
+<td align="left">Region, age group, sex, Initial/Alpha/Delta/Omicron
+wave, and posterior summary</td>
+<td align="left">Interactive geographic P-score or excess-death maps
+with exact values in an accessible table</td>
 </tr>
 </tbody>
 </table>
-<p>Complete output remains available through the same scripts and local
-<code>output/</code> tree; the website does not use those local files as
-build inputs.</p>
+<p>The pages load one geography shard at a time. They therefore remain
+static GitHub Pages files rather than a server process, while still
+exposing the full registered stratification set.</p>
+</div>
+<div id="frozen-scope" class="section level2">
+<h2>Frozen scope</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Analysis family</th>
+<th align="right">Registered cohorts</th>
+<th align="left">Time scale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Eurostat Europe</td>
+<td align="right">388</td>
+<td align="left">Weekly</td>
+</tr>
+<tr class="even">
+<td align="left">United States, non-sex-stratified</td>
+<td align="right">204</td>
+<td align="left">Monthly</td>
+</tr>
+<tr class="odd">
+<td align="left">United States, sex-stratified</td>
+<td align="right">408</td>
+<td align="left">Monthly</td>
+</tr>
+<tr class="even">
+<td align="left">Canada, non-sex-stratified</td>
+<td align="right">40</td>
+<td align="left">Weekly</td>
+</tr>
+<tr class="odd">
+<td align="left">Canada, sex-stratified</td>
+<td align="right">72</td>
+<td align="left">Weekly</td>
+</tr>
+<tr class="even">
+<td align="left">England and Wales</td>
+<td align="right">3</td>
+<td align="left">Weekly</td>
+</tr>
+<tr class="odd">
+<td align="left">Republic of Ireland</td>
+<td align="right">4</td>
+<td align="left">Quarterly</td>
+</tr>
+</tbody>
+</table>
+<p>The United States branch <code>Vermont / 0-44 / female</code> is
+retained in the registry with status <code>model_failed</code>; no value
+is imputed. Superseded Europe, England-and-Wales, and Ireland model
+batches, and unregistered United States <code>age_all</code> files, are
+not mixed into this frozen analysis contract.</p>
+</div>
+<div id="summary-definitions" class="section level2">
+<h2>Summary definitions</h2>
+<p>For each successful cohort, the bundle records observed deaths, the
+expected posterior mean and median, the central 95% posterior predictive
+interval, and the pointwise P-score distribution. Interactive mortality
+charts use the posterior median as their center line. This matters for a
+small number of sparse cohorts where extreme posterior draws can pull
+the mean outside the central interval; the downloadable table retains
+both summaries without truncation.</p>
+<p>Wave summaries use the four half-open intervals fixed in
+<code>config/analysis.yml</code>:</p>
+<ul>
+<li>Initial: March 1, 2020 to November 1, 2020;</li>
+<li>Alpha: November 1, 2020 to July 1, 2021;</li>
+<li>Delta: July 1, 2021 to January 1, 2022;</li>
+<li>Omicron: January 1, 2022 to April 1, 2024.</li>
+</ul>
+<p>For a wave with observed periods, the wave P-score is computed draw
+by draw as</p>
+<p><span class="math display">\[
+P = \frac{\sum_t Y_t - \sum_t E_t}{\sum_t E_t},
+\]</span></p>
+<p>before posterior quantiles are taken. It is not an average of
+pointwise P-scores.</p>
+</div>
+<div id="downloads" class="section level2">
+<h2>Downloads</h2>
+<ul>
+<li><a href="assets/supplementary/downloads/registry.csv">Registered
+cohort inventory</a></li>
+<li><a href="assets/supplementary/downloads/pointwise.csv.gz">Complete
+pointwise summaries (compressed CSV)</a></li>
+<li><a href="assets/supplementary/downloads/wave_summary.csv">Four-wave
+summaries</a></li>
+<li><a
+href="assets/supplementary/downloads/source_inventory.csv">Compact
+prediction source hashes</a></li>
+<li><a
+href="assets/supplementary/downloads/observed_source_inventory.csv">Canonical
+observed-data source hashes</a></li>
+<li><a href="assets/supplementary/downloads/bundle_metadata.yml">Bundle
+metadata and input hashes</a></li>
+</ul>
+<p>The public files contain summary statistics only. Posterior draw
+matrices and fitted model objects are not included.</p>
+</div>
+<div id="rebuild-command" class="section level2">
+<h2>Rebuild command</h2>
+<p>The bundle is derived from the registered observed-data snapshots and
+existing compact posterior-predictive objects. It does not refit a
+model.</p>
+<pre class="r"><code>system2(
+  &quot;Rscript&quot;,
+  &quot;scripts/supplementary/build_bundle.R&quot;
+)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -979,9 +983,9 @@ loaded via a namespace (and not attached):
 [17] sass_0.4.10     rmarkdown_2.30  evaluate_1.0.5  jquerylib_0.1.4
 [21] tibble_3.3.0    fastmap_1.2.0   yaml_2.3.12     lifecycle_1.0.5
 [25] whisker_0.4.1   stringr_1.6.0   compiler_4.5.1  fs_1.6.6       
-[29] Rcpp_1.1.1-1.1  pkgconfig_2.0.3 here_1.0.2      later_1.4.4    
-[33] digest_0.6.39   R6_2.6.1        pillar_1.11.1   magrittr_2.0.5 
-[37] bslib_0.9.0     tools_4.5.1     cachem_1.1.0   </code></pre>
+[29] Rcpp_1.1.1-1.1  pkgconfig_2.0.3 later_1.4.4     digest_0.6.39  
+[33] R6_2.6.1        pillar_1.11.1   magrittr_2.0.5  bslib_0.9.0    
+[37] tools_4.5.1     cachem_1.1.0   </code></pre>
 </div>
 </div>
 </div>
