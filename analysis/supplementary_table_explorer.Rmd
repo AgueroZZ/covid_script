@@ -14,15 +14,18 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 <link rel="stylesheet" href="assets/supplementary/supplementary_table_app.css">
 ```
 
-This explorer extends the Table 1 display contract to every registered
-geography and original age group. Each wave reports the posterior median
-P-score for male and female models in the manuscript format. Where paired sex
-models do not exist, the corresponding total-population result is displayed
-instead. Failed or unavailable components remain explicit and are never
-imputed.
+This explorer extends the wave-specific P-score summaries to every registered
+geography and original age group. Use the first control to switch between
+paired male/female results and total-population results. The two tables keep
+independent searches, column filters, sorting, page sizes, and page positions.
+Failed or unavailable components remain explicit and are never imputed.
 
 ```{=html}
 <div id="supplementary-table-explorer" class="tablex-app" data-table-app data-root="assets/supplementary/table_explorer">
+  <div class="tablex-view-switch" role="group" aria-label="Population table">
+    <button type="button" data-view="sex" aria-pressed="true">Sex-stratified (M/F)</button>
+    <button type="button" data-view="total" aria-pressed="false">Total population</button>
+  </div>
   <div class="tablex-toolbar" aria-label="Supplementary table controls">
     <label class="tablex-search">Search all columns
       <input type="search" data-control="global-search" placeholder="Region, geography, age, wave value…" autocomplete="off">
@@ -35,7 +38,6 @@ imputed.
         <option value="100">100</option>
       </select>
     </label>
-    <button type="button" class="btn btn-default" data-action="manuscript" aria-pressed="false">Show manuscript Table 1 rows</button>
     <button type="button" class="btn btn-default" data-action="clear">Clear filters</button>
     <button type="button" class="btn btn-primary" data-action="download">Download filtered CSV</button>
   </div>
@@ -44,7 +46,7 @@ imputed.
 
   <div class="tablex-table-shell" role="region" aria-label="Scrollable supplementary P-score table" tabindex="0">
     <table class="tablex-table">
-      <caption class="sr-only">Wave-specific P-scores by region, geography, original age group, and available sex stratification</caption>
+      <caption class="sr-only">Wave-specific P-scores by population view, region, geography, and original age group</caption>
       <thead data-role="table-head"></thead>
       <tbody data-role="table-body"></tbody>
     </table>
@@ -60,14 +62,15 @@ imputed.
 ```
 
 Vaccination coverage and group membership use the same fixed mid-2021 inputs
-as manuscript Table 1. These fields are shown as `NA` for Canada, England and
-Wales, and Ireland because those analyses do not use the comparable Europe or
-United States vaccination snapshots. The manuscript-only control selects the
-26 published Table 1 rows; those rows are checked cell by cell against the
-tracked manuscript table whenever the frozen browser bundle is rebuilt.
+as the manuscript analysis. These fields are shown as `NA` for Canada, England
+and Wales, and Ireland because those analyses do not use the comparable Europe
+or United States vaccination snapshots. Total-population analyses include the
+registered total models for locations such as Germany, Prince Edward Island,
+England and Wales, and Ireland.
 
-The table is summary-only. It contains no fitted model objects or posterior
-draw matrices.
+The reader-facing table is summary-only. It contains no fitted model objects,
+posterior draw matrices, or internal manuscript-equivalence fields. The latter
+remain part of the local frozen-bundle validation performed before publication.
 
 ```{=html}
 <script src="assets/supplementary/supplementary_table_app.js"></script>

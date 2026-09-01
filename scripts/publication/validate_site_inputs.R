@@ -112,7 +112,7 @@ validate_site_inputs <- function(project_root = ".") {
       project_root,
       "output",
       "supplementary",
-      "table_explorer_20260901"
+      "table_explorer_20260901_v2"
     )
   )
   supplementary_required <- c(

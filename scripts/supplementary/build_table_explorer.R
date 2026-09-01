@@ -23,7 +23,7 @@ parse_arguments <- function(arguments) {
       project_root,
       "output",
       "supplementary",
-      "table_explorer_20260901"
+      "table_explorer_20260901_v2"
     ),
     core_root = file.path(
       project_root,
@@ -119,41 +119,75 @@ column_contract <- function() {
   data.frame(
     key = c(
       "region_set",
+      "geography_display",
+      "people_vaccinated_per_hundred",
+      "vaccination_group",
+      "vaccination_measurement_date",
+      "estimand_age_group",
+      "frequency",
+      supplementary_table_wave_levels()
+    ),
+    label = c(
+      "Region",
+      "Geography",
+      "Vaccinated per hundred",
+      "Vaccination group",
+      "Vaccination date",
+      "Age group",
+      "Frequency",
+      "Initial",
+      "Alpha",
+      "Delta",
+      "Omicron"
+    ),
+    type = c(
+      rep("text", 2L),
+      "number",
+      rep("text", 8L)
+    ),
+    stringsAsFactors = FALSE
+  )
+}
+
+download_column_contract <- function() {
+  data.frame(
+    key = c(
+      "region_set",
       "analysis_family",
+      "population_view",
       "geography",
       "geography_label",
+      "geography_display",
       "people_vaccinated_per_hundred",
       "vaccination_group",
       "vaccination_measurement_date",
       "estimand_age_group",
       "estimand_sex_group",
       "frequency",
-      supplementary_table_wave_levels(),
-      "result_status",
-      "in_manuscript_table_1"
+      supplementary_table_wave_levels()
     ),
     label = c(
       "Region",
       "Analysis family",
-      "Geography",
+      "Population view",
+      "Geography key",
       "Geography label",
+      "Geography",
       "Vaccinated per hundred",
       "Vaccination group",
       "Vaccination date",
-      "Estimand age group",
+      "Age group",
       "Estimand sex group",
       "Frequency",
       "Initial",
       "Alpha",
       "Delta",
-      "Omicron",
-      "Result status",
-      "In manuscript Table 1"
+      "Omicron"
     ),
     type = c(
-      rep("text", 4L),
+      rep("text", 6L),
       "number",
-      rep("text", 11L)
+      rep("text", 9L)
     ),
     stringsAsFactors = FALSE
   )
@@ -278,20 +312,18 @@ write_csv_atomic(equivalence, equivalence_path)
 browser_root <- file.path(staging_root, "browser", "table_explorer")
 downloads_root <- file.path(browser_root, "downloads")
 dir.create(downloads_root, recursive = TRUE, showWarnings = FALSE)
-download_paths <- c(
-  expanded_table = file.path(downloads_root, "expanded_table_01.csv"),
-  manuscript_equivalence = file.path(
-    downloads_root,
-    "manuscript_equivalence.csv"
-  )
-)
-if (!all(file.copy(
-  c(expanded_path, equivalence_path),
-  download_paths,
-  overwrite = TRUE
-))) {
-  stop("Failed to stage supplementary table downloads.")
+visible_columns <- column_contract()
+download_columns <- download_column_contract()
+if (anyDuplicated(visible_columns$key) || anyDuplicated(download_columns$key)) {
+  stop("The supplementary table column contracts contain duplicated keys.")
 }
+if (!all(visible_columns$key %in% download_columns$key) ||
+    !all(download_columns$key %in% names(expanded))) {
+  stop("The supplementary table column contracts do not match the frozen data.")
+}
+public_rows <- expanded[download_columns$key]
+public_expanded_path <- file.path(downloads_root, "expanded_table_01.csv")
+write_csv_atomic(public_rows, public_expanded_path)
 
 region_counts <- as.data.frame(
   table(factor(
@@ -301,14 +333,14 @@ region_counts <- as.data.frame(
   stringsAsFactors = FALSE
 )
 names(region_counts) <- c("region_set", "rows")
-status_counts <- as.data.frame(
+view_counts <- as.data.frame(
   table(factor(
-    expanded$result_status,
-    levels = c("available", "partial", "unavailable")
+    expanded$population_view,
+    levels = c("Sex-stratified (M/F)", "Total population")
   )),
   stringsAsFactors = FALSE
 )
-names(status_counts) <- c("result_status", "rows")
+names(view_counts) <- c("population_view", "rows")
 
 created_at_utc <- format(Sys.time(), tz = "UTC", usetz = TRUE)
 input_hashes <- as.list(vapply(
@@ -320,7 +352,7 @@ input_hashes <- as.list(vapply(
   serialize = FALSE
 ))
 metadata <- list(
-  schema_version = "1.0.0",
+  schema_version = "1.1.0",
   frozen_on = "2026-09-01",
   created_at_utc = created_at_utc,
   model_refitting_performed = FALSE,
@@ -336,28 +368,36 @@ metadata <- list(
 )
 metadata_path <- file.path(staging_root, "bundle_metadata.yml")
 yaml::write_yaml(metadata, metadata_path)
-if (!file.copy(
-  metadata_path,
-  file.path(downloads_root, "bundle_metadata.yml"),
-  overwrite = TRUE
-)) {
-  stop("Failed to stage supplementary table metadata.")
-}
 
-index <- list(
-  schema_version = "1.0.0",
+public_metadata <- list(
+  schema_version = "1.1.0",
   frozen_on = "2026-09-01",
   created_at_utc = created_at_utc,
-  row_count = nrow(expanded),
-  manuscript_row_count = nrow(manuscript),
-  manuscript_rows_exact = sum(equivalence$exact_match),
+  model_refitting_performed = FALSE,
+  public_bundle_contains_posterior_draws = FALSE,
+  public_bundle_contains_fitted_models = FALSE,
+  expanded_rows = nrow(public_rows),
+  population_views = view_counts,
+  partial_rows = sum(expanded$result_status == "partial"),
+  regions = region_counts
+)
+yaml::write_yaml(
+  public_metadata,
+  file.path(downloads_root, "bundle_metadata.yml")
+)
+
+index <- list(
+  schema_version = "1.1.0",
+  frozen_on = "2026-09-01",
+  created_at_utc = created_at_utc,
+  row_count = nrow(public_rows),
+  population_views = view_counts,
   regions = region_counts,
-  statuses = status_counts,
-  columns = column_contract(),
-  rows = expanded,
+  columns = visible_columns,
+  download_columns = download_columns,
+  rows = public_rows,
   downloads = list(
     expanded_table = "downloads/expanded_table_01.csv",
-    manuscript_equivalence = "downloads/manuscript_equivalence.csv",
     metadata = "downloads/bundle_metadata.yml"
   )
 )

@@ -28,6 +28,68 @@ supplementary_table_region_contract <- function() {
   )
 }
 
+supplementary_table_us_codes <- function() {
+  stats::setNames(
+    c(state.abb, "DC"),
+    c(state.name, "District of Columbia")
+  )
+}
+
+supplementary_table_canada_labels <- function() {
+  c(
+    AB = "Alberta",
+    BC = "British Columbia",
+    MB = "Manitoba",
+    NB = "New Brunswick",
+    NL = "Newfoundland and Labrador",
+    NS = "Nova Scotia",
+    ON = "Ontario",
+    PE = "Prince Edward Island",
+    QC = "Quebec",
+    SK = "Saskatchewan"
+  )
+}
+
+supplementary_table_geography_display <- function(
+  region_set,
+  geography,
+  geography_label
+) {
+  region_set <- as.character(region_set)
+  geography <- as.character(geography)
+  geography_label <- as.character(geography_label)
+  if (length(region_set) != length(geography) ||
+      length(geography) != length(geography_label)) {
+    stop("Geography display inputs must have equal lengths.")
+  }
+
+  label <- geography_label
+  missing_label <- is.na(label) | !nzchar(label)
+  label[missing_label] <- geography[missing_label]
+
+  canada <- region_set == "Canada"
+  canada_label <- unname(supplementary_table_canada_labels()[geography])
+  replace_canada <- canada & !is.na(canada_label) & nzchar(canada_label)
+  label[replace_canada] <- canada_label[replace_canada]
+
+  code <- geography
+  united_states <- region_set == "United States"
+  us_code <- unname(supplementary_table_us_codes()[geography])
+  replace_us_code <- united_states & !is.na(us_code) & nzchar(us_code)
+  code[replace_us_code] <- us_code[replace_us_code]
+
+  show_code <- region_set %in% c("Europe", "United States", "Canada") &
+    !is.na(code) & nzchar(code) & label != code
+  output <- label
+  output[show_code] <- paste0(
+    label[show_code],
+    " (",
+    code[show_code],
+    ")"
+  )
+  output
+}
+
 supplementary_table_age_rank <- function(age_group) {
   ranks <- c(
     "Under 65" = 1L,
@@ -200,6 +262,8 @@ validate_supplementary_table_explorer <- function(data) {
     "analysis_family",
     "geography",
     "geography_label",
+    "geography_display",
+    "population_view",
     "people_vaccinated_per_hundred",
     "vaccination_group",
     "vaccination_measurement_date",
@@ -221,6 +285,21 @@ validate_supplementary_table_explorer <- function(data) {
   }
   if (!all(data$in_manuscript_table_1 %in% c("Yes", "No"))) {
     stop("Expanded supplementary table has invalid manuscript indicators.")
+  }
+  if (anyNA(data$geography_display) || any(!nzchar(data$geography_display))) {
+    stop("Expanded supplementary table has empty geography displays.")
+  }
+  supported_sex_groups <- c("Male and female", "Total")
+  if (!all(data$estimand_sex_group %in% supported_sex_groups)) {
+    stop("Expanded supplementary table has unsupported estimand sex groups.")
+  }
+  expected_view <- ifelse(
+    data$estimand_sex_group == "Male and female",
+    "Sex-stratified (M/F)",
+    "Total population"
+  )
+  if (!identical(data$population_view, expected_view)) {
+    stop("Population views do not match the displayed estimand sex groups.")
   }
   wave_values <- unlist(data[supplementary_table_wave_levels()], use.names = FALSE)
   if (anyNA(wave_values) || any(!nzchar(wave_values))) {
@@ -325,12 +404,24 @@ build_supplementary_table_explorer <- function(
     } else {
       as.character(group$geography[[1L]])
     }
+    geography <- as.character(group$geography[[1L]])
+    region_set <- group$region_set[[1L]]
 
     data.frame(
-      region_set = group$region_set[[1L]],
+      region_set = region_set,
       analysis_family = result_rows$analysis_family[[1L]],
-      geography = as.character(group$geography[[1L]]),
+      geography = geography,
       geography_label = geography_label,
+      geography_display = supplementary_table_geography_display(
+        region_set,
+        geography,
+        geography_label
+      ),
+      population_view = if (paired) {
+        "Sex-stratified (M/F)"
+      } else {
+        "Total population"
+      },
       estimand_age_group = as.character(group$age_group[[1L]]),
       estimand_sex_group = if (paired) "Male and female" else "Total",
       frequency = as.character(result_rows$frequency[[1L]]),
@@ -385,6 +476,8 @@ build_supplementary_table_explorer <- function(
     "analysis_family",
     "geography",
     "geography_label",
+    "geography_display",
+    "population_view",
     "people_vaccinated_per_hundred",
     "vaccination_group",
     "vaccination_measurement_date",

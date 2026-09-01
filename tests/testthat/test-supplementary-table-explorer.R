@@ -87,19 +87,26 @@ test_that("expanded table prefers paired sex results and retains total fallbacks
   alpha <- result[result$geography == "AA", ]
   expect_identical(alpha$initial, "M: 0.100; F: 0.200")
   expect_identical(alpha$estimand_sex_group, "Male and female")
+  expect_identical(alpha$population_view, "Sex-stratified (M/F)")
+  expect_identical(alpha$geography_display, "Alpha (AA)")
   expect_identical(alpha$result_status, "available")
 
   germany <- result[result$geography == "DE", ]
   expect_identical(germany$initial, "Total: 0.250")
   expect_identical(germany$estimand_sex_group, "Total")
+  expect_identical(germany$population_view, "Total population")
+  expect_identical(germany$geography_display, "Germany (DE)")
 
   canada <- result[result$geography == "PE", ]
+  expect_identical(canada$geography_display, "Prince Edward Island (PE)")
   expect_true(is.na(canada$people_vaccinated_per_hundred))
   expect_true(is.na(canada$vaccination_group))
   expect_true(is.na(canada$vaccination_measurement_date))
 
   partial <- result[result$geography == "Vermont", ]
   expect_identical(partial$initial, "M: 0.400; F: unavailable")
+  expect_identical(partial$population_view, "Sex-stratified (M/F)")
+  expect_identical(partial$geography_display, "Vermont (VT)")
   expect_identical(partial$result_status, "partial")
   expect_equal(anyDuplicated(result[c(
     "region_set", "geography", "estimand_age_group"
@@ -146,9 +153,65 @@ test_that("expanded frozen table exactly contains manuscript Table 1", {
   expect_equal(sum(is.na(expanded$people_vaccinated_per_hundred)), 47L)
   expect_equal(sum(expanded$estimand_sex_group == "Male and female"), 368L)
   expect_equal(sum(expanded$estimand_sex_group == "Total"), 219L)
+  expect_equal(
+    sum(expanded$population_view == "Sex-stratified (M/F)"),
+    368L
+  )
+  expect_equal(
+    sum(expanded$population_view == "Total population"),
+    219L
+  )
   expect_equal(sum(expanded$result_status == "partial"), 3L)
+  expect_identical(
+    unique(expanded$geography_display[
+      expanded$geography == "Massachusetts"
+    ]),
+    "Massachusetts (MA)"
+  )
+  expect_identical(
+    unique(expanded$geography_display[expanded$geography == "ON"]),
+    "Ontario (ON)"
+  )
+  expect_identical(
+    unique(expanded$geography_display[expanded$geography == "BE"]),
+    "Belgium (BE)"
+  )
   expect_silent(validate_supplementary_table_against_manuscript(
     expanded,
     manuscript
   ))
+})
+
+test_that("public table bundle separates reader fields from local QA", {
+  root <- here::here(
+    "output",
+    "supplementary",
+    "table_explorer_20260901_v2",
+    "browser",
+    "table_explorer"
+  )
+  index_path <- file.path(root, "index.json")
+  csv_path <- file.path(root, "downloads", "expanded_table_01.csv")
+  skip_if_not(file.exists(index_path) && file.exists(csv_path))
+
+  index <- jsonlite::read_json(index_path, simplifyVector = TRUE)
+  csv <- utils::read.csv(
+    csv_path,
+    stringsAsFactors = FALSE,
+    check.names = FALSE
+  )
+  qa_only <- c("result_status", "in_manuscript_table_1")
+
+  expect_identical(index$schema_version, "1.1.0")
+  expect_equal(index$row_count, 587L)
+  expect_equal(nrow(index$columns), 11L)
+  expect_equal(nrow(index$download_columns), 16L)
+  expect_identical(
+    as.integer(index$population_views$rows),
+    c(368L, 219L)
+  )
+  expect_false(any(qa_only %in% names(index$rows)))
+  expect_false(any(qa_only %in% names(csv)))
+  expect_identical(names(csv), index$download_columns$key)
+  expect_equal(nrow(csv), 587L)
 })

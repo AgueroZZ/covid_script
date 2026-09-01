@@ -19,7 +19,11 @@ test_that("workflowr registers all supplementary explorers", {
   expect_true(any(grepl("supplementary_vaccination_groups.Rmd", validator, fixed = TRUE)))
   expect_true(any(grepl("supplementary_table_explorer.Rmd", validator, fixed = TRUE)))
   expect_true(any(grepl("vaccination_groups_20260901", validator, fixed = TRUE)))
-  expect_true(any(grepl("table_explorer_20260901", validator, fixed = TRUE)))
+  expect_true(any(grepl(
+    "table_explorer_20260901_v2",
+    validator,
+    fixed = TRUE
+  )))
   expect_match(builder_text, "supplementary_roots", fixed = TRUE)
   expect_match(builder_text, "copy_supplementary_assets", fixed = TRUE)
 })
@@ -129,16 +133,29 @@ test_that("table explorer exposes column filters, sorting, and pagination", {
 
   expect_match(rmd, 'data-control="global-search"', fixed = TRUE)
   expect_match(rmd, 'data-control="page-size"', fixed = TRUE)
-  expect_match(rmd, 'data-action="manuscript"', fixed = TRUE)
+  expect_match(rmd, 'data-view="sex"', fixed = TRUE)
+  expect_match(rmd, 'data-view="total"', fixed = TRUE)
+  expect_false(grepl('data-action="manuscript"', rmd, fixed = TRUE))
   expect_match(rmd, 'data-action="clear"', fixed = TRUE)
   expect_match(rmd, 'data-action="download"', fixed = TRUE)
   expect_match(rmd, 'data-role="pagination"', fixed = TRUE)
   expect_match(javascript, "tablex-column-filter", fixed = TRUE)
   expect_match(javascript, "compareRows", fixed = TRUE)
   expect_match(javascript, "paginationItems", fixed = TRUE)
+  expect_match(javascript, "downloadColumns", fixed = TRUE)
+  expect_match(javascript, "viewStates", fixed = TRUE)
+  expect_false(grepl("Manuscript match", javascript, fixed = TRUE))
   expect_match(javascript, "supplementary_table_explorer_filtered.csv", fixed = TRUE)
   expect_match(builder, "manuscript_rows_exact", fixed = TRUE)
+  expect_match(builder, "download_column_contract", fixed = TRUE)
+  expect_match(builder, "geography_display", fixed = TRUE)
+  expect_false(grepl(
+    'manuscript_equivalence = "downloads/manuscript_equivalence.csv"',
+    builder,
+    fixed = TRUE
+  ))
   expect_match(builder, "public_bundle_contains_posterior_draws", fixed = TRUE)
   expect_match(landing, "expanded_table_01.csv", fixed = TRUE)
+  expect_false(grepl("manuscript_equivalence.csv", landing, fixed = TRUE))
   expect_false(grepl("https://cdn", paste(rmd, javascript), fixed = TRUE))
 })
