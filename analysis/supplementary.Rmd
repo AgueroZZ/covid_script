@@ -20,10 +20,12 @@ failure.
 |:--|:--|:--|
 | [Time series and pointwise P-scores](supplementary_timeseries.html) | Analysis family, geography, age group, sex, and display metric | Observed mortality, expected mortality with a 95% posterior predictive interval, or the pointwise P-score curve |
 | [Wave-specific maps](supplementary_wave_maps.html) | Region, age group, sex, Initial/Alpha/Delta/Omicron wave, and posterior summary | Interactive geographic P-score or excess-death maps with exact values in an accessible table |
+| [Vaccination-group trajectories](supplementary_vaccination_groups.html) | Figure 4 or 5, Europe or United States, original age group, two vaccination thresholds, and manual location membership | Recomputed low- and high-vaccination trajectories with manuscript presets, uncertainty intervals, and downloadable current membership |
 
-The pages load one geography shard at a time. They therefore remain static
-GitHub Pages files rather than a server process, while still exposing the full
-registered stratification set.
+The pages load only the shard required by the current selection. They therefore
+remain static GitHub Pages files rather than a server process, while still
+exposing the full registered stratification set. The vaccination explorer adds
+approximately 25 MB of summary-only browser assets; fitted objects remain local.
 
 ## Frozen scope
 
@@ -75,6 +77,11 @@ P-scores.
 - [Compact prediction source hashes](assets/supplementary/downloads/source_inventory.csv)
 - [Canonical observed-data source hashes](assets/supplementary/downloads/observed_source_inventory.csv)
 - [Bundle metadata and input hashes](assets/supplementary/downloads/bundle_metadata.yml)
+- [Vaccination coverage for analysis geographies](assets/supplementary/vaccination_groups/downloads/vaccination_membership.csv)
+- [Figure 4 and Figure 5 manuscript membership presets](assets/supplementary/vaccination_groups/downloads/manuscript_membership.csv)
+- [Vaccination explorer geography summaries (compressed CSV)](assets/supplementary/vaccination_groups/downloads/geography_summaries.csv.gz)
+- [Vaccination explorer availability records](assets/supplementary/vaccination_groups/downloads/availability.csv)
+- [Vaccination explorer metadata](assets/supplementary/vaccination_groups/downloads/bundle_metadata.yml)
 
 The public files contain summary statistics only. Posterior draw matrices and
 fitted model objects are not included.
@@ -88,5 +95,9 @@ compact posterior-predictive objects. It does not refit a model.
 system2(
   "Rscript",
   "scripts/supplementary/build_bundle.R"
+)
+system2(
+  "Rscript",
+  "scripts/supplementary/build_vaccination_groups.R"
 )
 ```

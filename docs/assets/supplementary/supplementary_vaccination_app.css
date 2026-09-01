@@ -1,0 +1,325 @@
+.vax-app {
+  --vax-blue: #4c5fff;
+  --vax-red: #ff4d4d;
+  --vax-ink: #243b53;
+  --vax-muted: #627d98;
+  --vax-border: #d9e2ec;
+  --vax-panel: #f8fafc;
+  margin: 1.5rem 0 2rem;
+  color: var(--vax-ink);
+}
+
+.vax-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.85rem;
+  padding: 1rem;
+  border: 1px solid var(--vax-border);
+  border-radius: 8px;
+  background: var(--vax-panel);
+}
+
+.vax-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0;
+  color: #334e68;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.vax-controls select,
+.vax-controls input,
+.vax-membership select {
+  width: 100%;
+  min-height: 38px;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid #bcccdc;
+  border-radius: 5px;
+  background: #fff;
+  color: #102a43;
+  font-weight: 400;
+}
+
+.vax-controls input[aria-invalid="true"] {
+  border-color: #c62828;
+  box-shadow: 0 0 0 2px rgba(198, 40, 40, 0.12);
+}
+
+.vax-controls select:focus,
+.vax-controls input:focus,
+.vax-command-bar button:focus,
+.vax-actions button:focus,
+.vax-membership select:focus {
+  outline: 3px solid rgba(33, 102, 172, 0.3);
+  outline-offset: 2px;
+}
+
+.vax-command-bar,
+.vax-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0.9rem 0;
+}
+
+.vax-status {
+  color: var(--vax-muted);
+  font-size: 0.9rem;
+}
+
+.vax-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 0.7rem;
+  margin: 1rem 0;
+}
+
+.vax-meta-card {
+  min-height: 72px;
+  padding: 0.75rem 0.85rem;
+  border-left: 4px solid #486581;
+  border-radius: 4px;
+  background: #f0f4f8;
+}
+
+.vax-meta-card[data-group="high"] {
+  border-left-color: var(--vax-blue);
+}
+
+.vax-meta-card[data-group="low"] {
+  border-left-color: var(--vax-red);
+}
+
+.vax-meta-label {
+  display: block;
+  color: var(--vax-muted);
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.vax-meta-value {
+  display: block;
+  margin-top: 0.2rem;
+  color: #102a43;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.vax-chart-shell {
+  position: relative;
+  width: 100%;
+  min-height: 380px;
+  overflow: hidden;
+  border: 1px solid var(--vax-border);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.vax-chart-shell svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 380px;
+}
+
+.vax-grid-line {
+  stroke: #e6edf3;
+  stroke-width: 1;
+}
+
+.vax-axis {
+  stroke: #9fb3c8;
+  stroke-width: 1;
+}
+
+.vax-axis-label,
+.vax-grid-label,
+.vax-wave-label {
+  fill: #486581;
+  font-size: 12px;
+}
+
+.vax-axis-label {
+  fill: #334e68;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.vax-group-line {
+  fill: none;
+  stroke-width: 2.5;
+}
+
+.vax-bound-line {
+  fill: none;
+  stroke-width: 1.35;
+  stroke-dasharray: 6 4;
+  opacity: 0.85;
+}
+
+.vax-interval {
+  stroke: none;
+  fill-opacity: 0.16;
+}
+
+.vax-reference-line,
+.vax-focus-line {
+  stroke: #52667a;
+  stroke-width: 1.1;
+  stroke-dasharray: 4 4;
+}
+
+.vax-focus-line {
+  pointer-events: none;
+}
+
+.vax-wave-boundary {
+  stroke-width: 1.1;
+  stroke-dasharray: 4 4;
+}
+
+.vax-wave-label {
+  fill: #334e68;
+  font-weight: 600;
+}
+
+.vax-no-data {
+  fill: #627d98;
+  font-size: 16px;
+  text-anchor: middle;
+}
+
+.vax-tooltip {
+  position: absolute;
+  z-index: 5;
+  max-width: 285px;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid #829ab1;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 3px 12px rgba(16, 42, 67, 0.16);
+  color: #102a43;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  pointer-events: none;
+}
+
+.vax-tooltip strong,
+.vax-tooltip span {
+  display: block;
+}
+
+.vax-membership {
+  margin-top: 1.5rem;
+}
+
+.vax-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.vax-section-heading h2 {
+  margin-bottom: 0.2rem;
+}
+
+.vax-section-heading p {
+  margin: 0 0 0.7rem;
+  color: var(--vax-muted);
+  font-size: 0.88rem;
+}
+
+.vax-table-shell {
+  max-height: 590px;
+  overflow: auto;
+  border: 1px solid var(--vax-border);
+  border-radius: 7px;
+  background: #fff;
+}
+
+.vax-table-shell table {
+  display: table;
+  width: 100%;
+  margin: 0;
+  font-size: 0.82rem;
+  white-space: normal;
+}
+
+.vax-table-shell thead th {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  padding: 0.6rem;
+  border-bottom: 1px solid #bcccdc;
+  background: #f0f4f8;
+  color: #334e68;
+}
+
+.vax-table-shell td {
+  padding: 0.5rem 0.6rem;
+  border-top: 1px solid #edf2f7;
+  vertical-align: middle;
+}
+
+.vax-table-shell tbody tr:first-child td {
+  border-top: 0;
+}
+
+.vax-membership select {
+  min-width: 105px;
+}
+
+.vax-membership select:disabled {
+  cursor: not-allowed;
+  background: #edf2f7;
+  color: #829ab1;
+}
+
+.vax-model-unavailable {
+  color: #9b2c2c;
+  font-weight: 600;
+}
+
+.vax-model-available {
+  color: #276749;
+}
+
+@media (max-width: 640px) {
+  .vax-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .vax-command-bar,
+  .vax-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .vax-command-bar button,
+  .vax-actions button {
+    width: 100%;
+  }
+
+  .vax-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .vax-chart-shell,
+  .vax-chart-shell svg {
+    min-height: 330px;
+  }
+
+  .vax-wave-label,
+  .vax-grid-label {
+    font-size: 10px;
+  }
+
+  .vax-table-shell table {
+    min-width: 680px;
+  }
+}

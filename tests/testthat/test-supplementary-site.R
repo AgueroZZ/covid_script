@@ -1,4 +1,4 @@
-test_that("workflowr registers both supplementary explorers", {
+test_that("workflowr registers all supplementary explorers", {
   site <- readLines(here::here("analysis", "_site.yml"), warn = FALSE)
   validator <- readLines(
     here::here("scripts", "publication", "validate_site_inputs.R"),
@@ -12,8 +12,12 @@ test_that("workflowr registers both supplementary explorers", {
 
   expect_true(any(grepl("supplementary_timeseries.html", site, fixed = TRUE)))
   expect_true(any(grepl("supplementary_wave_maps.html", site, fixed = TRUE)))
+  expect_true(any(grepl("supplementary_vaccination_groups.html", site, fixed = TRUE)))
   expect_true(any(grepl("supplementary_timeseries.Rmd", validator, fixed = TRUE)))
   expect_true(any(grepl("supplementary_wave_maps.Rmd", validator, fixed = TRUE)))
+  expect_true(any(grepl("supplementary_vaccination_groups.Rmd", validator, fixed = TRUE)))
+  expect_true(any(grepl("vaccination_groups_20260901", validator, fixed = TRUE)))
+  expect_match(builder_text, "supplementary_roots", fixed = TRUE)
   expect_match(builder_text, "copy_supplementary_assets", fixed = TRUE)
 })
 
@@ -22,8 +26,11 @@ test_that("supplementary pages use local interactive assets", {
     "supplementary.Rmd",
     "supplementary_timeseries.Rmd",
     "supplementary_wave_maps.Rmd",
+    "supplementary_vaccination_groups.Rmd",
     "supplementary_app.js",
-    "supplementary_app.css"
+    "supplementary_app.css",
+    "supplementary_vaccination_app.js",
+    "supplementary_vaccination_app.css"
   )
   paths <- here::here("analysis", required)
   expect_true(all(file.exists(paths)))
@@ -35,4 +42,44 @@ test_that("supplementary pages use local interactive assets", {
   expect_match(text, "supplementary_app.css", fixed = TRUE)
   expect_false(grepl("https://cdn", text, fixed = TRUE))
   expect_false(grepl("/Users/", text, fixed = TRUE))
+})
+
+test_that("time-series explorer exposes display windows and canonical waves", {
+  rmd <- paste(readLines(
+    here::here("analysis", "supplementary_timeseries.Rmd"),
+    warn = FALSE
+  ), collapse = "\n")
+  javascript <- paste(readLines(
+    here::here("analysis", "supplementary_app.js"),
+    warn = FALSE
+  ), collapse = "\n")
+
+  expect_match(rmd, 'data-control="window"', fixed = TRUE)
+  expect_match(rmd, 'value="2019"', fixed = TRUE)
+  expect_match(rmd, 'value="full"', fixed = TRUE)
+  expect_match(javascript, "WAVE_COLORS", fixed = TRUE)
+  expect_match(javascript, "filterDisplayedSeries", fixed = TRUE)
+  expect_match(javascript, "renderWaveBands", fixed = TRUE)
+})
+
+test_that("vaccination explorer exposes thresholds and manual membership", {
+  rmd <- paste(readLines(
+    here::here("analysis", "supplementary_vaccination_groups.Rmd"),
+    warn = FALSE
+  ), collapse = "\n")
+  javascript <- paste(readLines(
+    here::here("analysis", "supplementary_vaccination_app.js"),
+    warn = FALSE
+  ), collapse = "\n")
+
+  expect_match(rmd, 'data-control="low-threshold"', fixed = TRUE)
+  expect_match(rmd, 'data-control="high-threshold"', fixed = TRUE)
+  expect_match(rmd, 'data-action="apply-thresholds"', fixed = TRUE)
+  expect_match(rmd, 'data-action="manuscript-preset"', fixed = TRUE)
+  expect_match(rmd, 'data-role="membership-body"', fixed = TRUE)
+  expect_match(javascript, "thresholdGroup", fixed = TRUE)
+  expect_match(javascript, "aggregateFixedEffect", fixed = TRUE)
+  expect_match(javascript, "contributing_jurisdictions", fixed = TRUE)
+  expect_match(javascript, "renderMembershipTable", fixed = TRUE)
+  expect_false(grepl("https://cdn", paste(rmd, javascript), fixed = TRUE))
 })

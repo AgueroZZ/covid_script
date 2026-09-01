@@ -1,0 +1,1263 @@
+{
+  "schema_version": "1.0.0",
+  "frozen_on": "2026-09-01",
+  "summary_only": true,
+  "vaccination": {
+    "metric": "people_vaccinated_per_hundred",
+    "interpretation": "at_least_one_dose_per_100_people",
+    "reference_date": "2021-07-01",
+    "europe_date_rule": "latest_on_or_before_reference_date"
+  },
+  "thresholds": {
+    "us": {
+      "low_below": 42,
+      "high_above": 62
+    },
+    "europe": {
+      "low_below": 41,
+      "high_above": 53
+    }
+  },
+  "waves": [
+    {
+      "wave": "initial",
+      "start": "2020-03-01",
+      "end_exclusive": "2020-11-01"
+    },
+    {
+      "wave": "alpha",
+      "start": "2020-11-01",
+      "end_exclusive": "2021-07-01"
+    },
+    {
+      "wave": "delta",
+      "start": "2021-07-01",
+      "end_exclusive": "2022-01-01"
+    },
+    {
+      "wave": "omicron",
+      "start": "2022-01-01",
+      "end_exclusive": "2024-04-01"
+    }
+  ],
+  "smoothing": {
+    "figure_05_europe": {
+      "method": "centered_box_kernel",
+      "bandwidth_days": 14
+    }
+  },
+  "figures": {
+    "figure_04": {
+      "label": "P-score by vaccination group",
+      "estimand": "Pointwise P-score",
+      "interval_display": "ribbon"
+    },
+    "figure_05": {
+      "label": "Female-minus-male P-score difference",
+      "estimand": "Pointwise female-minus-male P-score difference",
+      "interval_display": "dashed"
+    }
+  },
+  "panels": [
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "age_group": "20-39",
+      "frequency": "weekly",
+      "shard": "shards/figure_04/europe/20-39.json",
+      "available_geographies": 33,
+      "unavailable_geographies": 0
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "age_group": "40-59",
+      "frequency": "weekly",
+      "shard": "shards/figure_04/europe/40-59.json",
+      "available_geographies": 33,
+      "unavailable_geographies": 0
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "age_group": "60-79",
+      "frequency": "weekly",
+      "shard": "shards/figure_04/europe/60-79.json",
+      "available_geographies": 33,
+      "unavailable_geographies": 0
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "age_group": "GE80",
+      "frequency": "weekly",
+      "shard": "shards/figure_04/europe/ge80.json",
+      "available_geographies": 33,
+      "unavailable_geographies": 0
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "age_group": "20-39",
+      "frequency": "monthly",
+      "shard": "shards/figure_04/us/20-39.json",
+      "available_geographies": 51,
+      "unavailable_geographies": 0
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "age_group": "40-59",
+      "frequency": "monthly",
+      "shard": "shards/figure_04/us/40-59.json",
+      "available_geographies": 51,
+      "unavailable_geographies": 0
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "age_group": "60-79",
+      "frequency": "monthly",
+      "shard": "shards/figure_04/us/60-79.json",
+      "available_geographies": 51,
+      "unavailable_geographies": 0
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "age_group": "GE80",
+      "frequency": "monthly",
+      "shard": "shards/figure_04/us/ge80.json",
+      "available_geographies": 51,
+      "unavailable_geographies": 0
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "age_group": "20-39",
+      "frequency": "weekly",
+      "shard": "shards/figure_05/europe/20-39.json",
+      "available_geographies": 32,
+      "unavailable_geographies": 1
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "age_group": "40-59",
+      "frequency": "weekly",
+      "shard": "shards/figure_05/europe/40-59.json",
+      "available_geographies": 32,
+      "unavailable_geographies": 1
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "age_group": "60-79",
+      "frequency": "weekly",
+      "shard": "shards/figure_05/europe/60-79.json",
+      "available_geographies": 32,
+      "unavailable_geographies": 1
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "age_group": "GE80",
+      "frequency": "weekly",
+      "shard": "shards/figure_05/europe/ge80.json",
+      "available_geographies": 32,
+      "unavailable_geographies": 1
+    },
+    {
+      "figure": "figure_05",
+      "region": "us",
+      "age_group": "0-44",
+      "frequency": "monthly",
+      "shard": "shards/figure_05/us/0-44.json",
+      "available_geographies": 50,
+      "unavailable_geographies": 1
+    },
+    {
+      "figure": "figure_05",
+      "region": "us",
+      "age_group": "45-64",
+      "frequency": "monthly",
+      "shard": "shards/figure_05/us/45-64.json",
+      "available_geographies": 51,
+      "unavailable_geographies": 0
+    },
+    {
+      "figure": "figure_05",
+      "region": "us",
+      "age_group": "65-84",
+      "frequency": "monthly",
+      "shard": "shards/figure_05/us/65-84.json",
+      "available_geographies": 51,
+      "unavailable_geographies": 0
+    },
+    {
+      "figure": "figure_05",
+      "region": "us",
+      "age_group": "GE85",
+      "frequency": "monthly",
+      "shard": "shards/figure_05/us/ge85.json",
+      "available_geographies": 51,
+      "unavailable_geographies": 0
+    }
+  ],
+  "membership": [
+    {
+      "region": "europe",
+      "geography": "AM",
+      "geography_label": "Armenia",
+      "measurement_date": "2021-06-27",
+      "people_vaccinated_per_hundred": 2.1,
+      "default_group": "low"
+    },
+    {
+      "region": "europe",
+      "geography": "AT",
+      "geography_label": "Austria",
+      "measurement_date": "2021-06-25",
+      "people_vaccinated_per_hundred": 53.48,
+      "default_group": "high"
+    },
+    {
+      "region": "europe",
+      "geography": "BE",
+      "geography_label": "Belgium",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 63.15,
+      "default_group": "high"
+    },
+    {
+      "region": "europe",
+      "geography": "BG",
+      "geography_label": "Bulgaria",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 14.18,
+      "default_group": "low"
+    },
+    {
+      "region": "europe",
+      "geography": "HR",
+      "geography_label": "Croatia",
+      "measurement_date": "2021-06-29",
+      "people_vaccinated_per_hundred": 36.94,
+      "default_group": "low"
+    },
+    {
+      "region": "europe",
+      "geography": "CY",
+      "geography_label": "Cyprus",
+      "measurement_date": "2021-06-30",
+      "people_vaccinated_per_hundred": 51.62,
+      "default_group": "excluded"
+    },
+    {
+      "region": "europe",
+      "geography": "CZ",
+      "geography_label": "Czechia",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 48.82,
+      "default_group": "excluded"
+    },
+    {
+      "region": "europe",
+      "geography": "DK",
+      "geography_label": "Denmark",
+      "measurement_date": "2021-06-25",
+      "people_vaccinated_per_hundred": 53.29,
+      "default_group": "high"
+    },
+    {
+      "region": "europe",
+      "geography": "EE",
+      "geography_label": "Estonia",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 42.34,
+      "default_group": "excluded"
+    },
+    {
+      "region": "europe",
+      "geography": "FI",
+      "geography_label": "Finland",
+      "measurement_date": "2021-06-27",
+      "people_vaccinated_per_hundred": 58.28,
+      "default_group": "high"
+    },
+    {
+      "region": "europe",
+      "geography": "FR",
+      "geography_label": "France",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 51.37,
+      "default_group": "excluded"
+    },
+    {
+      "region": "europe",
+      "geography": "DE",
+      "geography_label": "Germany",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 57.06,
+      "default_group": "high"
+    },
+    {
+      "region": "europe",
+      "geography": "EL",
+      "geography_label": "Greece",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 47.03,
+      "default_group": "excluded"
+    },
+    {
+      "region": "europe",
+      "geography": "HU",
+      "geography_label": "Hungary",
+      "measurement_date": "2021-06-29",
+      "people_vaccinated_per_hundred": 55.05,
+      "default_group": "high"
+    },
+    {
+      "region": "europe",
+      "geography": "IS",
+      "geography_label": "Iceland",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 69.69,
+      "default_group": "high"
+    },
+    {
+      "region": "europe",
+      "geography": "IT",
+      "geography_label": "Italy",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 58.79,
+      "default_group": "high"
+    },
+    {
+      "region": "europe",
+      "geography": "LV",
+      "geography_label": "Latvia",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 33.98,
+      "default_group": "low"
+    },
+    {
+      "region": "europe",
+      "geography": "LI",
+      "geography_label": "Liechtenstein",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 50.29,
+      "default_group": "excluded"
+    },
+    {
+      "region": "europe",
+      "geography": "LT",
+      "geography_label": "Lithuania",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 45.36,
+      "default_group": "excluded"
+    },
+    {
+      "region": "europe",
+      "geography": "LU",
+      "geography_label": "Luxembourg",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 53.08,
+      "default_group": "high"
+    },
+    {
+      "region": "europe",
+      "geography": "MT",
+      "geography_label": "Malta",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 67.57,
+      "default_group": "high"
+    },
+    {
+      "region": "europe",
+      "geography": "ME",
+      "geography_label": "Montenegro",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 24.09,
+      "default_group": "low"
+    },
+    {
+      "region": "europe",
+      "geography": "NL",
+      "geography_label": "Netherlands",
+      "measurement_date": "2021-06-25",
+      "people_vaccinated_per_hundred": 52.02,
+      "default_group": "excluded"
+    },
+    {
+      "region": "europe",
+      "geography": "NO",
+      "geography_label": "Norway",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 51.21,
+      "default_group": "excluded"
+    },
+    {
+      "region": "europe",
+      "geography": "PL",
+      "geography_label": "Poland",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 42.58,
+      "default_group": "excluded"
+    },
+    {
+      "region": "europe",
+      "geography": "PT",
+      "geography_label": "Portugal",
+      "measurement_date": "2021-06-25",
+      "people_vaccinated_per_hundred": 53.12,
+      "default_group": "high"
+    },
+    {
+      "region": "europe",
+      "geography": "RO",
+      "geography_label": "Romania",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 24.05,
+      "default_group": "low"
+    },
+    {
+      "region": "europe",
+      "geography": "RS",
+      "geography_label": "Serbia",
+      "measurement_date": "2021-06-20",
+      "people_vaccinated_per_hundred": 39.21,
+      "default_group": "low"
+    },
+    {
+      "region": "europe",
+      "geography": "SK",
+      "geography_label": "Slovakia",
+      "measurement_date": "2021-06-27",
+      "people_vaccinated_per_hundred": 36.55,
+      "default_group": "low"
+    },
+    {
+      "region": "europe",
+      "geography": "SI",
+      "geography_label": "Slovenia",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 39.74,
+      "default_group": "low"
+    },
+    {
+      "region": "europe",
+      "geography": "ES",
+      "geography_label": "Spain",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 54.56,
+      "default_group": "high"
+    },
+    {
+      "region": "europe",
+      "geography": "SE",
+      "geography_label": "Sweden",
+      "measurement_date": "2021-06-27",
+      "people_vaccinated_per_hundred": 45.34,
+      "default_group": "excluded"
+    },
+    {
+      "region": "europe",
+      "geography": "CH",
+      "geography_label": "Switzerland",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 50.29,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Alabama",
+      "geography_label": "Alabama",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 40.03,
+      "default_group": "low"
+    },
+    {
+      "region": "us",
+      "geography": "Alaska",
+      "geography_label": "Alaska",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 49.07,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Arizona",
+      "geography_label": "Arizona",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 50.52,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Arkansas",
+      "geography_label": "Arkansas",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 42.05,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "California",
+      "geography_label": "California",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 61.51,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Colorado",
+      "geography_label": "Colorado",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 58.03,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Connecticut",
+      "geography_label": "Connecticut",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 67.1,
+      "default_group": "high"
+    },
+    {
+      "region": "us",
+      "geography": "Delaware",
+      "geography_label": "Delaware",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 58.23,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "District of Columbia",
+      "geography_label": "District of Columbia",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 61.35,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Florida",
+      "geography_label": "Florida",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 53.76,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Georgia",
+      "geography_label": "Georgia",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 43.45,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Hawaii",
+      "geography_label": "Hawaii",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 69.88,
+      "default_group": "high"
+    },
+    {
+      "region": "us",
+      "geography": "Idaho",
+      "geography_label": "Idaho",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 39.6,
+      "default_group": "low"
+    },
+    {
+      "region": "us",
+      "geography": "Illinois",
+      "geography_label": "Illinois",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 59.53,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Indiana",
+      "geography_label": "Indiana",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 44.64,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Iowa",
+      "geography_label": "Iowa",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 51.45,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Kansas",
+      "geography_label": "Kansas",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 49.25,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Kentucky",
+      "geography_label": "Kentucky",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 49.56,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Louisiana",
+      "geography_label": "Louisiana",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 38.5,
+      "default_group": "low"
+    },
+    {
+      "region": "us",
+      "geography": "Maine",
+      "geography_label": "Maine",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 66.49,
+      "default_group": "high"
+    },
+    {
+      "region": "us",
+      "geography": "Maryland",
+      "geography_label": "Maryland",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 62.03,
+      "default_group": "high"
+    },
+    {
+      "region": "us",
+      "geography": "Massachusetts",
+      "geography_label": "Massachusetts",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 70.52,
+      "default_group": "high"
+    },
+    {
+      "region": "us",
+      "geography": "Michigan",
+      "geography_label": "Michigan",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 51.5,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Minnesota",
+      "geography_label": "Minnesota",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 57.07,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Mississippi",
+      "geography_label": "Mississippi",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 36.27,
+      "default_group": "low"
+    },
+    {
+      "region": "us",
+      "geography": "Missouri",
+      "geography_label": "Missouri",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 44.99,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Montana",
+      "geography_label": "Montana",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 47.8,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Nebraska",
+      "geography_label": "Nebraska",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 51.82,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Nevada",
+      "geography_label": "Nevada",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 49.8,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "New Hampshire",
+      "geography_label": "New Hampshire",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 62.51,
+      "default_group": "high"
+    },
+    {
+      "region": "us",
+      "geography": "New Jersey",
+      "geography_label": "New Jersey",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 62.95,
+      "default_group": "high"
+    },
+    {
+      "region": "us",
+      "geography": "New Mexico",
+      "geography_label": "New Mexico",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 63.02,
+      "default_group": "high"
+    },
+    {
+      "region": "us",
+      "geography": "New York",
+      "geography_label": "New York",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 60.14,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "North Carolina",
+      "geography_label": "North Carolina",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 48.72,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "North Dakota",
+      "geography_label": "North Dakota",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 43.93,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Ohio",
+      "geography_label": "Ohio",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 48.27,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Oklahoma",
+      "geography_label": "Oklahoma",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 44.91,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Oregon",
+      "geography_label": "Oregon",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 58.83,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Pennsylvania",
+      "geography_label": "Pennsylvania",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 62.87,
+      "default_group": "high"
+    },
+    {
+      "region": "us",
+      "geography": "Rhode Island",
+      "geography_label": "Rhode Island",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 64.71,
+      "default_group": "high"
+    },
+    {
+      "region": "us",
+      "geography": "South Carolina",
+      "geography_label": "South Carolina",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 44.37,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "South Dakota",
+      "geography_label": "South Dakota",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 50.6,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Tennessee",
+      "geography_label": "Tennessee",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 41.75,
+      "default_group": "low"
+    },
+    {
+      "region": "us",
+      "geography": "Texas",
+      "geography_label": "Texas",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 48.25,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Utah",
+      "geography_label": "Utah",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 48.86,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Vermont",
+      "geography_label": "Vermont",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 73.99,
+      "default_group": "high"
+    },
+    {
+      "region": "us",
+      "geography": "Virginia",
+      "geography_label": "Virginia",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 59.14,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Washington",
+      "geography_label": "Washington",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 61.39,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "West Virginia",
+      "geography_label": "West Virginia",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 43.72,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Wisconsin",
+      "geography_label": "Wisconsin",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 53.72,
+      "default_group": "excluded"
+    },
+    {
+      "region": "us",
+      "geography": "Wyoming",
+      "geography_label": "Wyoming",
+      "measurement_date": "2021-07-01",
+      "people_vaccinated_per_hundred": 39.35,
+      "default_group": "low"
+    }
+  ],
+  "manuscript_presets": [
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "geography": "AM",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "geography": "AT",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "geography": "BE",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "geography": "BG",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "geography": "DK",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "geography": "ES",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "geography": "FI",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "geography": "HR",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "geography": "HU",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "geography": "IT",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "geography": "LV",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "geography": "PT",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "geography": "RO",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "geography": "RS",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_04",
+      "region": "europe",
+      "geography": "SK",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "geography": "Alabama",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "geography": "Connecticut",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "geography": "Idaho",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "geography": "Louisiana",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "geography": "Maine",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "geography": "Maryland",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "geography": "Massachusetts",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "geography": "Mississippi",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "geography": "New Hampshire",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "geography": "New Jersey",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "geography": "New Mexico",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "geography": "Pennsylvania",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_04",
+      "region": "us",
+      "geography": "Tennessee",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "AM",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "AT",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "BE",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "BG",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "DK",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "ES",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "FI",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "HR",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "HU",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "IT",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "LV",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "PT",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "RO",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "RS",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "SK",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_05",
+      "region": "us",
+      "geography": "Alabama",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_05",
+      "region": "us",
+      "geography": "Connecticut",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_05",
+      "region": "us",
+      "geography": "Idaho",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_05",
+      "region": "us",
+      "geography": "Louisiana",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_05",
+      "region": "us",
+      "geography": "Maryland",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_05",
+      "region": "us",
+      "geography": "Massachusetts",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_05",
+      "region": "us",
+      "geography": "Mississippi",
+      "vaccination_group": "low"
+    },
+    {
+      "figure": "figure_05",
+      "region": "us",
+      "geography": "New Jersey",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_05",
+      "region": "us",
+      "geography": "New Mexico",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_05",
+      "region": "us",
+      "geography": "Pennsylvania",
+      "vaccination_group": "high"
+    },
+    {
+      "figure": "figure_05",
+      "region": "us",
+      "geography": "Tennessee",
+      "vaccination_group": "low"
+    }
+  ],
+  "unavailable": [
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "DE",
+      "age_group": "20-39",
+      "status": "unavailable",
+      "reason": "paired_registry_rows_missing",
+      "geography_label": "Germany"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "DE",
+      "age_group": "40-59",
+      "status": "unavailable",
+      "reason": "paired_registry_rows_missing",
+      "geography_label": "Germany"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "DE",
+      "age_group": "60-79",
+      "status": "unavailable",
+      "reason": "paired_registry_rows_missing",
+      "geography_label": "Germany"
+    },
+    {
+      "figure": "figure_05",
+      "region": "europe",
+      "geography": "DE",
+      "age_group": "GE80",
+      "status": "unavailable",
+      "reason": "paired_registry_rows_missing",
+      "geography_label": "Germany"
+    },
+    {
+      "figure": "figure_05",
+      "region": "us",
+      "geography": "Vermont",
+      "age_group": "0-44",
+      "status": "unavailable",
+      "reason": "Registered historical model failure",
+      "geography_label": "Vermont"
+    }
+  ],
+  "downloads": {
+    "vaccination_membership": "downloads/vaccination_membership.csv",
+    "manuscript_membership": "downloads/manuscript_membership.csv",
+    "availability": "downloads/availability.csv",
+    "geography_summaries": "downloads/geography_summaries.csv.gz",
+    "source_inventory": "downloads/source_inventory.csv",
+    "manuscript_equivalence": "downloads/manuscript_equivalence.csv",
+    "metadata": "downloads/bundle_metadata.yml"
+  }
+}

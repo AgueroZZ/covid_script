@@ -1,0 +1,10 @@
+"figure","region","age_group","compared_rows","max_abs_numeric_difference","tolerance","pass"
+"figure_04","europe","40-59",1156,2.22044604925031e-15,1e-10,TRUE
+"figure_04","europe","60-79",1156,1.33226762955019e-15,1e-10,TRUE
+"figure_04","us","40-59",592,1.99840144432528e-15,1e-10,TRUE
+"figure_04","us","60-79",592,3.33066907387547e-16,1e-10,TRUE
+"figure_05","europe","40-59",1155,2.22044604925031e-16,1e-10,TRUE
+"figure_05","europe","60-79",1156,2.22044604925031e-16,1e-10,TRUE
+"figure_05","us","0-44",497,1.11022302462516e-16,1e-10,TRUE
+"figure_05","us","45-64",592,5.55111512312578e-17,1e-10,TRUE
+"figure_05","us","65-84",592,5.55111512312578e-17,1e-10,TRUE

@@ -17,6 +17,38 @@ classify_vaccination_coverage <- function(rate, low_below, high_above) {
   )
 }
 
+prepare_europe_vaccination <- function(path, config) {
+  vaccination <- load_named_rda_object(path, "vac_data_eu")
+  required <- c("date", "iso2", config$vaccination$metric)
+  missing <- setdiff(required, names(vaccination))
+  if (length(missing) > 0L) {
+    stop(
+      "European vaccination data are missing: ",
+      paste(missing, collapse = ", ")
+    )
+  }
+
+  rules <- config$vaccination$classification_rules$europe
+  prepared <- vaccination |>
+    dplyr::transmute(
+      date = as.Date(date),
+      geography = dplyr::if_else(iso2 == "GR", "EL", iso2),
+      people_vaccinated_per_hundred = .data[[config$vaccination$metric]],
+      vaccination_group = classify_vaccination_coverage(
+        people_vaccinated_per_hundred,
+        low_below = rules$low_below,
+        high_above = rules$high_above
+      )
+    ) |>
+    dplyr::arrange(geography)
+
+  reference_date <- as.Date(config$vaccination$reference_date)
+  if (any(prepared$date > reference_date) || anyDuplicated(prepared$geography)) {
+    stop("European vaccination membership violates its frozen date or key rule.")
+  }
+  prepared
+}
+
 prepare_us_vaccination <- function(path, config) {
   vaccination <- load_named_rda_object(
     path,

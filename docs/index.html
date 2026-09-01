@@ -398,6 +398,9 @@ div.tocify {
     <li>
       <a href="supplementary_wave_maps.html">Wave-map explorer</a>
     </li>
+    <li>
+      <a href="supplementary_vaccination_groups.html">Vaccination-group explorer</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -449,7 +452,7 @@ Analyses</h1>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -460,8 +463,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -474,9 +477,9 @@ aria-hidden="true"></span> </a>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>covid_script/</code> <span
@@ -499,21 +502,18 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
-changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges"
+<div id="strongRMarkdownfilestronguptodate"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of
-the R Markdown file created these results, you’ll want to first commit
-it to the Git repo. If you’re still working on the analysis, you can
-ignore this warning. When you’re finished, you can run
-<code>wflow_publish</code> to commit the R Markdown file and build the
-HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
@@ -604,15 +604,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree5370cb23bab06937df83d969962d65045598f993targetblank5370cb2a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree588e46300e2f21fee5afa6450edc704092dd2417targetblank588e463a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/AgueroZZ/covid_script/tree/5370cb23bab06937df83d969962d65045598f993" target="_blank">5370cb2</a>
+<a href="https://github.com/AgueroZZ/covid_script/tree/588e46300e2f21fee5afa6450edc704092dd2417" target="_blank">588e463</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree5370cb23bab06937df83d969962d65045598f993targetblank5370cb2a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree588e46300e2f21fee5afa6450edc704092dd2417targetblank588e463a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -622,7 +622,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/AgueroZZ/covid_script/tree/5370cb23bab06937df83d969962d65045598f993" target="_blank">5370cb2</a>.
+<a href="https://github.com/AgueroZZ/covid_script/tree/588e46300e2f21fee5afa6450edc704092dd2417" target="_blank">588e463</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -639,29 +639,45 @@ were generated:
 Ignored files:
     Ignored:    .DS_Store
     Ignored:    analysis/assets/
+    Ignored:    analysis/site_libs/
+    Ignored:    code/regions 2/
+    Ignored:    data/raw 2/
+    Ignored:    documentation/validation 2/
+    Ignored:    figures/manuscript 2/
     Ignored:    output/
     Ignored:    renv/library/
     Ignored:    renv/staging/
     Ignored:    scratch/
+    Ignored:    scripts/data_access 2/
+    Ignored:    scripts/model_fitting 2/
+    Ignored:    scripts/publication 2/
+    Ignored:    scripts/reporting 2/
+    Ignored:    scripts/submission 2/
+    Ignored:    scripts/supplementary 2/
+    Ignored:    scripts/validation 2/
+    Ignored:    tables/manuscript 2/
+    Ignored:    tests/testthat 2/
     Ignored:    tests/testthat/_snaps/
     Ignored:    tmp/
 
 Untracked files:
-    Untracked:  R/supplementary_bundle.R
-    Untracked:  analysis/supplementary_app.css
-    Untracked:  analysis/supplementary_app.js
-    Untracked:  analysis/supplementary_timeseries.Rmd
-    Untracked:  analysis/supplementary_wave_maps.Rmd
-    Untracked:  scripts/supplementary/
-    Untracked:  tests/testthat/test-supplementary-bundle.R
-    Untracked:  tests/testthat/test-supplementary-site.R
+    Untracked:  R/supplementary_vaccination_groups.R
+    Untracked:  analysis/supplementary_vaccination_app.css
+    Untracked:  analysis/supplementary_vaccination_app.js
+    Untracked:  analysis/supplementary_vaccination_groups.Rmd
+    Untracked:  scripts/supplementary/build_vaccination_groups.R
+    Untracked:  tests/testthat/test-supplementary-vaccination-groups.R
 
 Unstaged changes:
+    Modified:   R/vaccination.R
     Modified:   analysis/_site.yml
-    Modified:   analysis/index.Rmd
     Modified:   analysis/supplementary.Rmd
+    Modified:   analysis/supplementary_app.css
+    Modified:   analysis/supplementary_app.js
+    Modified:   analysis/supplementary_timeseries.Rmd
     Modified:   scripts/publication/build_site.R
     Modified:   scripts/publication/validate_site_inputs.R
+    Modified:   tests/testthat/test-supplementary-site.R
 
 </code></pre>
 <p>
@@ -705,6 +721,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/AgueroZZ/covid_script/blob/588e46300e2f21fee5afa6450edc704092dd2417/analysis/index.Rmd" target="_blank">588e463</a>
+</td>
+<td>
+Ziang Zhang
+</td>
+<td>
+2026-08-31
+</td>
+<td>
+feat: publish interactive supplementary analyses
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/AgueroZZ/covid_script/588e46300e2f21fee5afa6450edc704092dd2417/docs/index.html" target="_blank">588e463</a>
+</td>
+<td>
+Ziang Zhang
+</td>
+<td>
+2026-08-31
+</td>
+<td>
+feat: publish interactive supplementary analyses
+</td>
+</tr>
 <tr>
 <td>
 html

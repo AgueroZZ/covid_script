@@ -77,10 +77,9 @@ copy_directory_contents <- function(source, destination) {
 copy_supplementary_assets <- function(destination_root) {
   destination <- file.path(destination_root, "supplementary")
   dir.create(destination, recursive = TRUE, showWarnings = FALSE)
-  copied <- copy_directory_contents(
-    file.path(inputs$supplementary_root, "browser"),
-    destination
-  )
+  copied <- unlist(lapply(inputs$supplementary_roots, function(root) {
+    copy_directory_contents(file.path(root, "browser"), destination)
+  }), use.names = FALSE)
   interactive_targets <- file.path(
     destination,
     basename(inputs$supplementary_sources)
@@ -96,7 +95,7 @@ copy_supplementary_assets <- function(destination_root) {
   invisible(c(copied, interactive_targets))
 }
 
-validate_supplementary_manifest(inputs$supplementary_root)
+invisible(lapply(inputs$supplementary_roots, validate_supplementary_manifest))
 copy_publication_assets(analysis_assets)
 copy_supplementary_assets(analysis_assets)
 invisible(callr::r_safe(

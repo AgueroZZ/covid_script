@@ -38,6 +38,12 @@ with a central 95% posterior predictive interval. The P-score view summarizes
         <option value="pscore">Pointwise P-score</option>
       </select>
     </label>
+    <label>Display window
+      <select data-control="window">
+        <option value="2019" selected>2019 onward</option>
+        <option value="full">Full available history</option>
+      </select>
+    </label>
   </div>
 
   <div class="supp-meta" data-role="metadata"></div>
@@ -59,7 +65,10 @@ with a central 95% posterior predictive interval. The P-score view summarizes
 The center line in the mortality view is the posterior median. The downloadable
 pointwise table also retains the posterior mean. Values are displayed on their
 native source frequency: weekly, monthly, or quarterly. Missing and failed
-cohorts are shown explicitly rather than replaced or silently removed.
+cohorts are shown explicitly rather than replaced or silently removed. The
+default chart window begins in 2019; changing the window never changes the
+complete downloadable summary. Shaded bands identify the canonical pandemic
+waves used throughout the supplementary analyses.
 
 ```{=html}
 <script src="assets/supplementary/supplementary_app.js"></script>

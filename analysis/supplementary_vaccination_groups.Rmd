@@ -1,0 +1,114 @@
+---
+title: "Supplementary Vaccination-Group Explorer"
+site: workflowr::wflow_site
+output:
+  workflowr::wflow_html:
+    toc: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{=html}
+<link rel="stylesheet" href="assets/supplementary/supplementary_vaccination_app.css">
+```
+
+This explorer extends Figure 4 and Figure 5 to every original age stratum with
+an available fitted result. Choose separate low- and high-vaccination
+thresholds, then add, remove, or reassign individual countries or states. The
+default grouping uses vaccination coverage as of July 1, 2021 (or the latest
+available European record on or before that date); the manuscript preset is
+also available for direct comparison.
+
+```{=html}
+<div id="supplementary-vaccination-groups" class="vax-app" data-vaccination-app data-root="assets/supplementary/vaccination_groups">
+  <div class="vax-controls" aria-label="Vaccination-group explorer filters">
+    <label>Figure
+      <select data-control="figure">
+        <option value="figure_04">Figure 4 — P-score</option>
+        <option value="figure_05">Figure 5 — female minus male</option>
+      </select>
+    </label>
+    <label>Region
+      <select data-control="region">
+        <option value="europe">Europe</option>
+        <option value="us">United States</option>
+      </select>
+    </label>
+    <label>Original age group
+      <select data-control="age"></select>
+    </label>
+    <label>Display window
+      <select data-control="window">
+        <option value="2020" selected>2020 onward</option>
+        <option value="full">Full available history</option>
+      </select>
+    </label>
+    <label>Low if coverage is below (%)
+      <input type="number" min="0" max="100" step="0.1" data-control="low-threshold" inputmode="decimal">
+    </label>
+    <label>High if coverage is above (%)
+      <input type="number" min="0" max="100" step="0.1" data-control="high-threshold" inputmode="decimal">
+    </label>
+  </div>
+
+  <div class="vax-command-bar">
+    <button type="button" class="btn btn-primary" data-action="apply-thresholds">Apply thresholds</button>
+    <button type="button" class="btn btn-default" data-action="manuscript-preset">Load manuscript preset</button>
+    <span class="vax-status" data-role="status" aria-live="polite">Loading frozen vaccination summaries…</span>
+  </div>
+
+  <div class="vax-meta" data-role="metadata"></div>
+
+  <div class="vax-chart-shell">
+    <svg data-role="chart" viewBox="0 0 920 500" role="img" aria-label="Vaccination-group trajectory"></svg>
+    <div class="vax-tooltip" data-role="tooltip" hidden></div>
+  </div>
+
+  <div class="vax-actions">
+    <button type="button" class="btn btn-default" data-action="download-curves">Download aggregated curves</button>
+    <button type="button" class="btn btn-default" data-action="download-membership">Download current membership</button>
+  </div>
+
+  <section class="vax-membership" aria-labelledby="vax-membership-heading">
+    <div class="vax-section-heading">
+      <div>
+        <h2 id="vax-membership-heading">Group membership</h2>
+        <p>Selections update the chart immediately. Choose Excluded to remove a location, or Low/High to add it to either group.</p>
+      </div>
+    </div>
+    <div class="vax-table-shell">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Country or state</th>
+            <th scope="col">Vaccinated (%)</th>
+            <th scope="col">Measurement date</th>
+            <th scope="col">Model status</th>
+            <th scope="col">Group</th>
+          </tr>
+        </thead>
+        <tbody data-role="membership-body"></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<noscript>This explorer requires JavaScript. Frozen geography-level summaries and membership tables remain available from the <a href="supplementary.html">supplementary landing page</a>.</noscript>
+```
+
+Both groups are aggregated date by date with inverse-variance fixed-effect
+weights, using dates shared by every selected location. Figure 4 shows the
+normal-approximation interval as a ribbon. Figure 5 shows the female-minus-male
+P-score difference with dashed interval bounds; European Figure 5 trajectories
+use the same centered 14-day box smoother as the manuscript figure. Locations
+without the required paired sex-stratified result are shown explicitly and
+cannot be assigned for that panel.
+
+All browser assets are summary-only. The frozen extension contains geography-
+level means and variances, not fitted models or posterior draw matrices.
+
+```{=html}
+<script src="assets/supplementary/supplementary_vaccination_app.js"></script>
+```

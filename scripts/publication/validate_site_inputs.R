@@ -60,6 +60,7 @@ validate_site_inputs <- function(project_root = ".") {
     "supplementary.Rmd",
     "supplementary_timeseries.Rmd",
     "supplementary_wave_maps.Rmd",
+    "supplementary_vaccination_groups.Rmd",
     "data_sources.Rmd",
     "reproduction.Rmd"
   )
@@ -81,30 +82,53 @@ validate_site_inputs <- function(project_root = ".") {
   supplementary_sources <- file.path(
     project_root,
     "analysis",
-    c("supplementary_app.js", "supplementary_app.css")
+    c(
+      "supplementary_app.js",
+      "supplementary_app.css",
+      "supplementary_vaccination_app.js",
+      "supplementary_vaccination_app.css"
+    )
   )
   if (any(!file.exists(supplementary_sources))) {
     stop("Supplementary interactive source assets are missing.")
   }
-  supplementary_root <- file.path(
-    project_root,
-    "output",
-    "supplementary",
-    "frozen_20260831"
+  supplementary_roots <- c(
+    core = file.path(
+      project_root,
+      "output",
+      "supplementary",
+      "frozen_20260831"
+    ),
+    vaccination_groups = file.path(
+      project_root,
+      "output",
+      "supplementary",
+      "vaccination_groups_20260901"
+    )
   )
-  supplementary_required <- file.path(
-    supplementary_root,
-    c("complete.flag", "manifest.csv", "browser/index.json")
+  supplementary_required <- c(
+    file.path(
+      supplementary_roots[["core"]],
+      c("complete.flag", "manifest.csv", "browser/index.json")
+    ),
+    file.path(
+      supplementary_roots[["vaccination_groups"]],
+      c(
+        "complete.flag",
+        "manifest.csv",
+        "browser/vaccination_groups/index.json"
+      )
+    )
   )
   if (any(!file.exists(supplementary_required))) {
-    stop("The completed frozen supplementary bundle is unavailable.")
+    stop("One or more completed frozen supplementary bundles are unavailable.")
   }
 
   invisible(list(
     pages = pages,
     records = records,
     artifact_paths = artifact_paths,
-    supplementary_root = supplementary_root,
+    supplementary_roots = supplementary_roots,
     supplementary_sources = supplementary_sources
   ))
 }

@@ -34,6 +34,8 @@ navbar:
           href: supplementary_timeseries.html
         - text: "Wave-map explorer"
           href: supplementary_wave_maps.html
+        - text: "Vaccination-group explorer"
+          href: supplementary_vaccination_groups.html
     - text: "Reproducibility"
       menu:
         - text: "Data sources"

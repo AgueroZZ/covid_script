@@ -32,6 +32,12 @@
     "85+"
   ];
   var SEX_ORDER = ["total", "female", "male"];
+  var WAVE_COLORS = {
+    initial: "#FF9999",
+    alpha: "#99CC99",
+    delta: "#9999FF",
+    omicron: "#FFFF66"
+  };
   var numberFormatter = new Intl.NumberFormat("en-US", {
     maximumFractionDigits: 1
   });
@@ -217,6 +223,58 @@
     });
   }
 
+  function filterDisplayedSeries(series, windowValue) {
+    var firstDate = windowValue === "2019" ? "2019-01-01" : null;
+    var indices = series.date.map(function (date, index) {
+      return !firstDate || date >= firstDate ? index : -1;
+    }).filter(function (index) {
+      return index >= 0;
+    });
+    var output = {};
+    Object.keys(series).forEach(function (key) {
+      output[key] = Array.isArray(series[key])
+        ? indices.map(function (index) { return series[key][index]; })
+        : series[key];
+    });
+    return output;
+  }
+
+  function renderWaveBands(svg, waves, minDate, maxDate, xForTime, margin, plotHeight) {
+    (waves || []).forEach(function (wave) {
+      var start = new Date(wave.start + "T00:00:00Z").getTime();
+      var end = new Date(wave.end_exclusive + "T00:00:00Z").getTime();
+      var visibleStart = Math.max(start, minDate);
+      var visibleEnd = Math.min(end, maxDate);
+      if (visibleStart >= visibleEnd) return;
+      var color = WAVE_COLORS[wave.wave] || "#cccccc";
+      svg.appendChild(svgElement("rect", {
+        x: xForTime(visibleStart),
+        y: margin.top,
+        width: Math.max(0, xForTime(visibleEnd) - xForTime(visibleStart)),
+        height: plotHeight,
+        fill: color,
+        "fill-opacity": 0.12,
+        class: "supp-wave-band"
+      }));
+      svg.appendChild(svgElement("line", {
+        x1: xForTime(visibleStart),
+        y1: margin.top,
+        x2: xForTime(visibleStart),
+        y2: margin.top + plotHeight,
+        stroke: color,
+        class: "supp-wave-boundary"
+      }));
+      var label = svgElement("text", {
+        x: (xForTime(visibleStart) + xForTime(visibleEnd)) / 2,
+        y: margin.top + 15,
+        "text-anchor": "middle",
+        class: "supp-wave-label"
+      });
+      label.textContent = wave.wave.charAt(0).toUpperCase() + wave.wave.slice(1);
+      svg.appendChild(label);
+    });
+  }
+
   function addTooltipLines(tooltip, heading, lines) {
     clear(tooltip);
     var title = document.createElement("strong");
@@ -229,7 +287,7 @@
     });
   }
 
-  function renderTimeChart(app, series, metric) {
+  function renderTimeChart(app, series, metric, waves) {
     var svg = query(app, '[data-role="chart"]');
     var tooltip = query(app, '[data-role="tooltip"]');
     clear(svg);
@@ -276,9 +334,15 @@
       return margin.left + (dates[index].getTime() - minDate) /
         Math.max(1, maxDate - minDate) * plotWidth;
     }
+    function xForTime(timestamp) {
+      return margin.left + (timestamp - minDate) /
+        Math.max(1, maxDate - minDate) * plotWidth;
+    }
     function yFor(value) {
       return margin.top + (yMax - value) / (yMax - yMin) * plotHeight;
     }
+
+    renderWaveBands(svg, waves, minDate, maxDate, xForTime, margin, plotHeight);
 
     var yTicks = 5;
     for (var tick = 0; tick <= yTicks; tick += 1) {
@@ -515,6 +579,7 @@
     var ageSelect = query(app, '[data-control="age"]');
     var sexSelect = query(app, '[data-control="sex"]');
     var metricSelect = query(app, '[data-control="metric"]');
+    var windowSelect = query(app, '[data-control="window"]');
     var downloadButton = query(app, '[data-action="download"]');
     var cache = new Map();
     var currentSeries = null;
@@ -618,9 +683,11 @@
         if (!currentSeries) {
           throw new Error("The selected cohort is absent from its geography shard.");
         }
-        renderTimeChart(app, currentSeries, metricSelect.value);
-        status.textContent = numberFormatter.format(currentSeries.date.length) +
-          " observed periods loaded from a summary-only geography shard.";
+        var displayedSeries = filterDisplayedSeries(currentSeries, windowSelect.value);
+        renderTimeChart(app, displayedSeries, metricSelect.value, index.waves);
+        status.textContent = numberFormatter.format(displayedSeries.date.length) +
+          " of " + numberFormatter.format(currentSeries.date.length) +
+          " observed periods shown; the complete summary remains available for download.";
         downloadButton.disabled = false;
       }
 
@@ -645,7 +712,23 @@
       });
       sexSelect.addEventListener("change", renderSelection);
       metricSelect.addEventListener("change", function () {
-        if (currentSeries) renderTimeChart(app, currentSeries, metricSelect.value);
+        if (currentSeries) {
+          renderTimeChart(
+            app,
+            filterDisplayedSeries(currentSeries, windowSelect.value),
+            metricSelect.value,
+            index.waves
+          );
+        }
+      });
+      windowSelect.addEventListener("change", function () {
+        if (currentSeries) {
+          var displayedSeries = filterDisplayedSeries(currentSeries, windowSelect.value);
+          renderTimeChart(app, displayedSeries, metricSelect.value, index.waves);
+          status.textContent = numberFormatter.format(displayedSeries.date.length) +
+            " of " + numberFormatter.format(currentSeries.date.length) +
+            " observed periods shown; the complete summary remains available for download.";
+        }
       });
       downloadButton.addEventListener("click", function () {
         if (!currentSeries) return;

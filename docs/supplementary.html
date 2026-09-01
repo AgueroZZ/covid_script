@@ -398,6 +398,9 @@ div.tocify {
     <li>
       <a href="supplementary_wave_maps.html">Wave-map explorer</a>
     </li>
+    <li>
+      <a href="supplementary_vaccination_groups.html">Vaccination-group explorer</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -603,15 +606,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree5370cb23bab06937df83d969962d65045598f993targetblank5370cb2a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree588e46300e2f21fee5afa6450edc704092dd2417targetblank588e463a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/AgueroZZ/covid_script/tree/5370cb23bab06937df83d969962d65045598f993" target="_blank">5370cb2</a>
+<a href="https://github.com/AgueroZZ/covid_script/tree/588e46300e2f21fee5afa6450edc704092dd2417" target="_blank">588e463</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree5370cb23bab06937df83d969962d65045598f993targetblank5370cb2a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree588e46300e2f21fee5afa6450edc704092dd2417targetblank588e463a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -621,7 +624,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/AgueroZZ/covid_script/tree/5370cb23bab06937df83d969962d65045598f993" target="_blank">5370cb2</a>.
+<a href="https://github.com/AgueroZZ/covid_script/tree/588e46300e2f21fee5afa6450edc704092dd2417" target="_blank">588e463</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -638,29 +641,44 @@ were generated:
 Ignored files:
     Ignored:    .DS_Store
     Ignored:    analysis/assets/
+    Ignored:    code/regions 2/
+    Ignored:    data/raw 2/
+    Ignored:    documentation/validation 2/
+    Ignored:    figures/manuscript 2/
     Ignored:    output/
     Ignored:    renv/library/
     Ignored:    renv/staging/
     Ignored:    scratch/
+    Ignored:    scripts/data_access 2/
+    Ignored:    scripts/model_fitting 2/
+    Ignored:    scripts/publication 2/
+    Ignored:    scripts/reporting 2/
+    Ignored:    scripts/submission 2/
+    Ignored:    scripts/supplementary 2/
+    Ignored:    scripts/validation 2/
+    Ignored:    tables/manuscript 2/
+    Ignored:    tests/testthat 2/
     Ignored:    tests/testthat/_snaps/
     Ignored:    tmp/
 
 Untracked files:
-    Untracked:  R/supplementary_bundle.R
-    Untracked:  analysis/supplementary_app.css
-    Untracked:  analysis/supplementary_app.js
-    Untracked:  analysis/supplementary_timeseries.Rmd
-    Untracked:  analysis/supplementary_wave_maps.Rmd
-    Untracked:  scripts/supplementary/
-    Untracked:  tests/testthat/test-supplementary-bundle.R
-    Untracked:  tests/testthat/test-supplementary-site.R
+    Untracked:  R/supplementary_vaccination_groups.R
+    Untracked:  analysis/supplementary_vaccination_app.css
+    Untracked:  analysis/supplementary_vaccination_app.js
+    Untracked:  analysis/supplementary_vaccination_groups.Rmd
+    Untracked:  scripts/supplementary/build_vaccination_groups.R
+    Untracked:  tests/testthat/test-supplementary-vaccination-groups.R
 
 Unstaged changes:
+    Modified:   R/vaccination.R
     Modified:   analysis/_site.yml
-    Modified:   analysis/index.Rmd
     Modified:   analysis/supplementary.Rmd
+    Modified:   analysis/supplementary_app.css
+    Modified:   analysis/supplementary_app.js
+    Modified:   analysis/supplementary_timeseries.Rmd
     Modified:   scripts/publication/build_site.R
     Modified:   scripts/publication/validate_site_inputs.R
+    Modified:   tests/testthat/test-supplementary-site.R
 
 </code></pre>
 <p>
@@ -705,6 +723,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/AgueroZZ/covid_script/blob/588e46300e2f21fee5afa6450edc704092dd2417/analysis/supplementary.Rmd" target="_blank">588e463</a>
+</td>
+<td>
+Ziang Zhang
+</td>
+<td>
+2026-08-31
+</td>
+<td>
+feat: publish interactive supplementary analyses
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/AgueroZZ/covid_script/588e46300e2f21fee5afa6450edc704092dd2417/docs/supplementary.html" target="_blank">588e463</a>
+</td>
+<td>
+Ziang Zhang
+</td>
+<td>
+2026-08-31
+</td>
+<td>
+feat: publish interactive supplementary analyses
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -834,11 +886,23 @@ wave, and posterior summary</td>
 <td align="left">Interactive geographic P-score or excess-death maps
 with exact values in an accessible table</td>
 </tr>
+<tr class="odd">
+<td align="left"><a
+href="supplementary_vaccination_groups.html">Vaccination-group
+trajectories</a></td>
+<td align="left">Figure 4 or 5, Europe or United States, original age
+group, two vaccination thresholds, and manual location membership</td>
+<td align="left">Recomputed low- and high-vaccination trajectories with
+manuscript presets, uncertainty intervals, and downloadable current
+membership</td>
+</tr>
 </tbody>
 </table>
-<p>The pages load one geography shard at a time. They therefore remain
-static GitHub Pages files rather than a server process, while still
-exposing the full registered stratification set.</p>
+<p>The pages load only the shard required by the current selection. They
+therefore remain static GitHub Pages files rather than a server process,
+while still exposing the full registered stratification set. The
+vaccination explorer adds approximately 25 MB of summary-only browser
+assets; fitted objects remain local.</p>
 </div>
 <div id="frozen-scope" class="section level2">
 <h2>Frozen scope</h2>
@@ -936,6 +1000,21 @@ href="assets/supplementary/downloads/observed_source_inventory.csv">Canonical
 observed-data source hashes</a></li>
 <li><a href="assets/supplementary/downloads/bundle_metadata.yml">Bundle
 metadata and input hashes</a></li>
+<li><a
+href="assets/supplementary/vaccination_groups/downloads/vaccination_membership.csv">Vaccination
+coverage for analysis geographies</a></li>
+<li><a
+href="assets/supplementary/vaccination_groups/downloads/manuscript_membership.csv">Figure
+4 and Figure 5 manuscript membership presets</a></li>
+<li><a
+href="assets/supplementary/vaccination_groups/downloads/geography_summaries.csv.gz">Vaccination
+explorer geography summaries (compressed CSV)</a></li>
+<li><a
+href="assets/supplementary/vaccination_groups/downloads/availability.csv">Vaccination
+explorer availability records</a></li>
+<li><a
+href="assets/supplementary/vaccination_groups/downloads/bundle_metadata.yml">Vaccination
+explorer metadata</a></li>
 </ul>
 <p>The public files contain summary statistics only. Posterior draw
 matrices and fitted model objects are not included.</p>
@@ -948,6 +1027,10 @@ model.</p>
 <pre class="r"><code>system2(
   &quot;Rscript&quot;,
   &quot;scripts/supplementary/build_bundle.R&quot;
+)
+system2(
+  &quot;Rscript&quot;,
+  &quot;scripts/supplementary/build_vaccination_groups.R&quot;
 )</code></pre>
 <br>
 <p>
