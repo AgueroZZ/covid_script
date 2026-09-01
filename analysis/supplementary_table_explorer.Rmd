@@ -1,0 +1,74 @@
+---
+title: "Supplementary Table Explorer"
+site: workflowr::wflow_site
+output:
+  workflowr::wflow_html:
+    toc: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{=html}
+<link rel="stylesheet" href="assets/supplementary/supplementary_table_app.css">
+```
+
+This explorer extends the Table 1 display contract to every registered
+geography and original age group. Each wave reports the posterior median
+P-score for male and female models in the manuscript format. Where paired sex
+models do not exist, the corresponding total-population result is displayed
+instead. Failed or unavailable components remain explicit and are never
+imputed.
+
+```{=html}
+<div id="supplementary-table-explorer" class="tablex-app" data-table-app data-root="assets/supplementary/table_explorer">
+  <div class="tablex-toolbar" aria-label="Supplementary table controls">
+    <label class="tablex-search">Search all columns
+      <input type="search" data-control="global-search" placeholder="Region, geography, age, wave value…" autocomplete="off">
+    </label>
+    <label>Rows per page
+      <select data-control="page-size">
+        <option value="10">10</option>
+        <option value="25" selected>25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </label>
+    <button type="button" class="btn btn-default" data-action="manuscript" aria-pressed="false">Show manuscript Table 1 rows</button>
+    <button type="button" class="btn btn-default" data-action="clear">Clear filters</button>
+    <button type="button" class="btn btn-primary" data-action="download">Download filtered CSV</button>
+  </div>
+
+  <div class="tablex-meta" data-role="metadata" aria-live="polite"></div>
+
+  <div class="tablex-table-shell" role="region" aria-label="Scrollable supplementary P-score table" tabindex="0">
+    <table class="tablex-table">
+      <caption class="sr-only">Wave-specific P-scores by region, geography, original age group, and available sex stratification</caption>
+      <thead data-role="table-head"></thead>
+      <tbody data-role="table-body"></tbody>
+    </table>
+  </div>
+
+  <div class="tablex-footer">
+    <span class="tablex-status" data-role="status" aria-live="polite">Loading frozen table summaries…</span>
+    <nav class="tablex-pagination" data-role="pagination" aria-label="Table pages"></nav>
+  </div>
+</div>
+
+<noscript>This explorer requires JavaScript. The complete expanded table remains available as a CSV from the <a href="supplementary.html">supplementary landing page</a>.</noscript>
+```
+
+Vaccination coverage and group membership use the same fixed mid-2021 inputs
+as manuscript Table 1. These fields are shown as `NA` for Canada, England and
+Wales, and Ireland because those analyses do not use the comparable Europe or
+United States vaccination snapshots. The manuscript-only control selects the
+26 published Table 1 rows; those rows are checked cell by cell against the
+tracked manuscript table whenever the frozen browser bundle is rebuilt.
+
+The table is summary-only. It contains no fitted model objects or posterior
+draw matrices.
+
+```{=html}
+<script src="assets/supplementary/supplementary_table_app.js"></script>
+```

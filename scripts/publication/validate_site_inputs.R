@@ -61,6 +61,7 @@ validate_site_inputs <- function(project_root = ".") {
     "supplementary_timeseries.Rmd",
     "supplementary_wave_maps.Rmd",
     "supplementary_vaccination_groups.Rmd",
+    "supplementary_table_explorer.Rmd",
     "data_sources.Rmd",
     "reproduction.Rmd"
   )
@@ -86,7 +87,9 @@ validate_site_inputs <- function(project_root = ".") {
       "supplementary_app.js",
       "supplementary_app.css",
       "supplementary_vaccination_app.js",
-      "supplementary_vaccination_app.css"
+      "supplementary_vaccination_app.css",
+      "supplementary_table_app.js",
+      "supplementary_table_app.css"
     )
   )
   if (any(!file.exists(supplementary_sources))) {
@@ -104,6 +107,12 @@ validate_site_inputs <- function(project_root = ".") {
       "output",
       "supplementary",
       "vaccination_groups_20260901"
+    ),
+    table_explorer = file.path(
+      project_root,
+      "output",
+      "supplementary",
+      "table_explorer_20260901"
     )
   )
   supplementary_required <- c(
@@ -117,6 +126,14 @@ validate_site_inputs <- function(project_root = ".") {
         "complete.flag",
         "manifest.csv",
         "browser/vaccination_groups/index.json"
+      )
+    ),
+    file.path(
+      supplementary_roots[["table_explorer"]],
+      c(
+        "complete.flag",
+        "manifest.csv",
+        "browser/table_explorer/index.json"
       )
     )
   )

@@ -1,0 +1,333 @@
+.tablex-app {
+  --tablex-border: #d9e2ec;
+  --tablex-header: #f0f4f8;
+  --tablex-subheader: #f8fafc;
+  --tablex-ink: #243b53;
+  --tablex-muted: #627d98;
+  --tablex-accent: #2f6fdd;
+  --tablex-focus: #0b69a3;
+  color: var(--tablex-ink);
+  margin: 1.5rem 0 2rem;
+}
+
+.tablex-toolbar {
+  align-items: end;
+  background: #f8fafc;
+  border: 1px solid var(--tablex-border);
+  border-radius: 8px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(240px, 2fr) minmax(120px, 0.7fr) repeat(3, auto);
+  padding: 14px;
+}
+
+.tablex-toolbar label {
+  color: var(--tablex-muted);
+  display: grid;
+  font-size: 12px;
+  font-weight: 600;
+  gap: 4px;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.tablex-toolbar input,
+.tablex-toolbar select {
+  background: #fff;
+  border: 1px solid #bcccdc;
+  border-radius: 4px;
+  color: var(--tablex-ink);
+  font-size: 14px;
+  height: 36px;
+  padding: 6px 9px;
+  width: 100%;
+}
+
+.tablex-toolbar .btn {
+  margin: 0;
+  min-height: 36px;
+  white-space: nowrap;
+}
+
+.tablex-toolbar [aria-pressed="true"] {
+  background: #e1edff;
+  border-color: var(--tablex-accent);
+  color: #174ea6;
+}
+
+.tablex-meta {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, minmax(130px, 1fr));
+  margin: 12px 0;
+}
+
+.tablex-meta-card {
+  background: #fff;
+  border: 1px solid var(--tablex-border);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.tablex-meta-label {
+  color: var(--tablex-muted);
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tablex-meta-value {
+  color: var(--tablex-ink);
+  display: block;
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+  line-height: 1.25;
+  margin-top: 2px;
+}
+
+.tablex-table-shell {
+  border: 1px solid var(--tablex-border);
+  border-radius: 6px;
+  max-height: 70vh;
+  overflow: auto;
+  overscroll-behavior: contain;
+  position: relative;
+  width: 100%;
+}
+
+.tablex-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  display: table;
+  font-size: 12px;
+  margin: 0;
+  min-width: 1960px;
+  overflow: visible;
+  width: 100%;
+}
+
+.tablex-table th,
+.tablex-table td {
+  background: #fff;
+  border-bottom: 1px solid #e6edf3;
+  border-right: 1px solid #edf2f7;
+  padding: 7px 9px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.tablex-table th:last-child,
+.tablex-table td:last-child {
+  border-right: 0;
+}
+
+.tablex-table thead th {
+  background: var(--tablex-header);
+  color: #334e68;
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.tablex-table thead tr.tablex-filter-row th {
+  background: var(--tablex-subheader);
+  padding: 6px;
+  top: 41px;
+  z-index: 2;
+}
+
+.tablex-sort-button {
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  gap: 5px;
+  justify-content: space-between;
+  min-height: 28px;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.tablex-sort-indicator {
+  color: var(--tablex-muted);
+  font-size: 10px;
+  min-width: 10px;
+}
+
+.tablex-column-filter {
+  background: #fff;
+  border: 1px solid #bcccdc;
+  border-radius: 3px;
+  color: var(--tablex-ink);
+  font-size: 12px;
+  height: 30px;
+  min-width: 95px;
+  padding: 4px 6px;
+  width: 100%;
+}
+
+.tablex-table tbody tr:nth-child(even) td {
+  background: #fbfdff;
+}
+
+.tablex-table tbody tr:hover td {
+  background: #eef5ff;
+}
+
+.tablex-table td.tablex-wave,
+.tablex-table td.tablex-number,
+.tablex-table td.tablex-date {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.tablex-table td.tablex-na {
+  color: #829ab1;
+  font-style: italic;
+}
+
+.tablex-table td[data-status="partial"] {
+  color: #8a4b08;
+  font-weight: 650;
+}
+
+.tablex-table td[data-status="unavailable"] {
+  color: #a61b1b;
+  font-weight: 650;
+}
+
+.tablex-empty td {
+  color: var(--tablex-muted);
+  padding: 28px 12px;
+  text-align: center;
+}
+
+.tablex-footer {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.tablex-status {
+  color: var(--tablex-muted);
+  font-size: 13px;
+}
+
+.tablex-pagination {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.tablex-page-button {
+  background: #fff;
+  border: 1px solid #bcccdc;
+  border-radius: 4px;
+  color: #334e68;
+  cursor: pointer;
+  font-size: 12px;
+  min-height: 32px;
+  min-width: 32px;
+  padding: 5px 8px;
+}
+
+.tablex-page-button[aria-current="page"] {
+  background: var(--tablex-accent);
+  border-color: var(--tablex-accent);
+  color: #fff;
+  font-weight: 700;
+}
+
+.tablex-page-button:disabled {
+  color: #9fb3c8;
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.tablex-page-gap {
+  color: var(--tablex-muted);
+  padding: 0 3px;
+}
+
+.tablex-app button:focus-visible,
+.tablex-app input:focus-visible,
+.tablex-app select:focus-visible,
+.tablex-table-shell:focus-visible {
+  box-shadow: 0 0 0 3px rgba(11, 105, 163, 0.25);
+  outline: 2px solid var(--tablex-focus);
+  outline-offset: 1px;
+}
+
+@media (max-width: 1100px) {
+  .tablex-toolbar {
+    grid-template-columns: minmax(220px, 2fr) minmax(120px, 1fr) repeat(2, auto);
+  }
+
+  .tablex-toolbar [data-action="download"] {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 720px) {
+  .tablex-toolbar {
+    align-items: stretch;
+    grid-template-columns: 1fr;
+  }
+
+  .tablex-toolbar [data-action="download"] {
+    grid-column: auto;
+  }
+
+  .tablex-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tablex-table-shell {
+    max-height: 64vh;
+  }
+
+  .tablex-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .tablex-pagination {
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+
+@media (max-width: 430px) {
+  .tablex-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .tablex-toolbar,
+  .tablex-pagination {
+    display: none;
+  }
+
+  .tablex-table-shell {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .tablex-table {
+    min-width: 0;
+  }
+}

@@ -21,10 +21,12 @@ failure.
 | [Time series and pointwise P-scores](supplementary_timeseries.html) | Analysis family, geography, age group, sex, and display metric | Observed mortality, expected mortality with a 95% posterior predictive interval, or the pointwise P-score curve |
 | [Wave-specific maps](supplementary_wave_maps.html) | Region, age group, sex, Initial/Alpha/Delta/Omicron wave, and posterior summary | Interactive geographic P-score or excess-death maps with exact values in an accessible table |
 | [Vaccination-group trajectories](supplementary_vaccination_groups.html) | P-score or female-minus-male P-score difference, Europe or United States, original age group, two vaccination thresholds, and manual location membership | Recomputed low- and high-vaccination trajectories with panel-specific coverage screening, manuscript presets, uncertainty intervals, and downloadable current membership |
+| [Expanded Table 1 explorer](supplementary_table_explorer.html) | Global search, every-column filters, sorting, page size, pagination, and manuscript-only rows | Wave-specific P-score summaries for all registered geographies and original age groups, with vaccination metadata where comparable |
 
-The pages load only the shard required by the current selection. They therefore
-remain static GitHub Pages files rather than a server process, while still
-exposing the full registered stratification set. The vaccination explorer adds
+The chart pages load only the shard required by the current selection, and the
+table page loads a compact sub-megabyte summary index. They therefore remain
+static GitHub Pages files rather than a server process, while still exposing
+the full registered stratification set. The vaccination explorer adds
 approximately 25 MB of summary-only browser assets; fitted objects remain local.
 
 ## Frozen scope
@@ -83,6 +85,9 @@ P-scores.
 - [Vaccination explorer geography summaries (compressed CSV)](assets/supplementary/vaccination_groups/downloads/geography_summaries.csv.gz)
 - [Vaccination explorer availability records](assets/supplementary/vaccination_groups/downloads/availability.csv)
 - [Vaccination explorer metadata](assets/supplementary/vaccination_groups/downloads/bundle_metadata.yml)
+- [Expanded Table 1 summary](assets/supplementary/table_explorer/downloads/expanded_table_01.csv)
+- [Manuscript Table 1 equivalence audit](assets/supplementary/table_explorer/downloads/manuscript_equivalence.csv)
+- [Table explorer metadata](assets/supplementary/table_explorer/downloads/bundle_metadata.yml)
 
 The public files contain summary statistics only. Posterior draw matrices and
 fitted model objects are not included.
@@ -100,5 +105,9 @@ system2(
 system2(
   "Rscript",
   "scripts/supplementary/build_vaccination_groups.R"
+)
+system2(
+  "Rscript",
+  "scripts/supplementary/build_table_explorer.R"
 )
 ```
