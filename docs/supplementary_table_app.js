@@ -2,6 +2,16 @@
   "use strict";
 
   var WAVE_COLUMNS = ["initial", "alpha", "delta", "omicron"];
+  var VIEW_CONFIG = {
+    sex: {
+      value: "Sex-stratified (M/F)",
+      label: "Sex-stratified (M/F)"
+    },
+    total: {
+      value: "Total population",
+      label: "Total population"
+    }
+  };
 
   function rootPath(app, path) {
     return app.dataset.root.replace(/\/$/, "") + "/" + path.replace(/^\//, "");
@@ -42,30 +52,55 @@
       .filter(function (token) { return token.length > 0; });
   }
 
+  function validateColumns(columns, label) {
+    if (!Array.isArray(columns) || columns.length === 0) {
+      throw new Error("The frozen table index has no " + label + " columns.");
+    }
+    var keys = columns.map(function (column) { return column.key; });
+    if (new Set(keys).size !== keys.length) {
+      throw new Error("The frozen table index has duplicated " + label + " columns.");
+    }
+    return keys;
+  }
+
   function validateIndex(index) {
-    if (!index || !Array.isArray(index.columns) || !Array.isArray(index.rows)) {
+    if (!index || !Array.isArray(index.rows)) {
       throw new Error("The frozen table index is incomplete.");
     }
-    var keys = index.columns.map(function (column) { return column.key; });
-    if (new Set(keys).size !== keys.length) {
-      throw new Error("The frozen table index has duplicated columns.");
-    }
-    var required = [
+    var visibleKeys = validateColumns(index.columns, "visible");
+    var downloadKeys = validateColumns(index.download_columns, "download");
+    var requiredVisible = [
       "region_set",
-      "geography",
+      "geography_display",
       "people_vaccinated_per_hundred",
       "estimand_age_group",
       "initial",
       "alpha",
       "delta",
-      "omicron",
-      "result_status",
-      "in_manuscript_table_1"
+      "omicron"
     ];
-    required.forEach(function (key) {
-      if (keys.indexOf(key) < 0) {
+    requiredVisible.forEach(function (key) {
+      if (visibleKeys.indexOf(key) < 0) {
         throw new Error("The frozen table index is missing " + key + ".");
       }
+    });
+    visibleKeys.forEach(function (key) {
+      if (downloadKeys.indexOf(key) < 0) {
+        throw new Error("The download contract is missing " + key + ".");
+      }
+    });
+    index.rows.forEach(function (row) {
+      var supported = Object.keys(VIEW_CONFIG).some(function (viewKey) {
+        return row.population_view === VIEW_CONFIG[viewKey].value;
+      });
+      if (!supported) {
+        throw new Error("The frozen table contains an unsupported population view.");
+      }
+      downloadKeys.forEach(function (key) {
+        if (!Object.prototype.hasOwnProperty.call(row, key)) {
+          throw new Error("A frozen table row is missing " + key + ".");
+        }
+      });
     });
     if (Number(index.row_count) !== index.rows.length) {
       throw new Error("The frozen table row count does not match its metadata.");
@@ -136,33 +171,53 @@
     window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
   }
 
+  function createViewState(pageSize) {
+    return {
+      columnFilters: {},
+      globalQuery: "",
+      sortKey: null,
+      sortDirection: "asc",
+      page: 1,
+      pageSize: pageSize
+    };
+  }
+
   function initializeTableExplorer(app) {
     var globalSearch = app.querySelector('[data-control="global-search"]');
     var pageSize = app.querySelector('[data-control="page-size"]');
-    var manuscriptButton = app.querySelector('[data-action="manuscript"]');
+    var viewButtons = Array.from(app.querySelectorAll("[data-view]"));
     var clearButton = app.querySelector('[data-action="clear"]');
     var downloadButton = app.querySelector('[data-action="download"]');
     var metadata = app.querySelector('[data-role="metadata"]');
     var tableHead = app.querySelector('[data-role="table-head"]');
     var tableBody = app.querySelector('[data-role="table-body"]');
     var tableShell = app.querySelector(".tablex-table-shell");
+    var tableCaption = app.querySelector(".tablex-table caption");
     var status = app.querySelector('[data-role="status"]');
     var pagination = app.querySelector('[data-role="pagination"]');
+    var initialPageSize = Number(pageSize.value) || 25;
 
     var state = {
       index: null,
       columns: [],
+      downloadColumns: [],
       rows: [],
       filteredRows: [],
-      columnFilters: {},
       filterInputs: {},
-      globalQuery: "",
-      manuscriptOnly: false,
-      sortKey: null,
-      sortDirection: "asc",
-      page: 1,
-      pageSize: Number(pageSize.value) || 25
+      activeView: "sex",
+      viewStates: {
+        sex: createViewState(initialPageSize),
+        total: createViewState(initialPageSize)
+      }
     };
+
+    function currentViewState() {
+      return state.viewStates[state.activeView];
+    }
+
+    function currentViewConfig() {
+      return VIEW_CONFIG[state.activeView];
+    }
 
     function columnByKey(key) {
       return state.columns.find(function (column) {
@@ -170,30 +225,49 @@
       });
     }
 
-    function updateManuscriptButton() {
-      manuscriptButton.setAttribute(
-        "aria-pressed",
-        state.manuscriptOnly ? "true" : "false"
-      );
-      manuscriptButton.textContent = state.manuscriptOnly
-        ? "Show all supplementary rows"
-        : "Show manuscript Table 1 rows";
+    function rowsInActiveView() {
+      var viewValue = currentViewConfig().value;
+      return state.rows.filter(function (row) {
+        return row.population_view === viewValue;
+      });
+    }
+
+    function updateViewControls() {
+      viewButtons.forEach(function (button) {
+        button.setAttribute(
+          "aria-pressed",
+          button.dataset.view === state.activeView ? "true" : "false"
+        );
+      });
+      tableCaption.textContent = currentViewConfig().label +
+        " wave-specific P-scores by region, geography, and original age group";
+    }
+
+    function syncControlsFromView() {
+      var viewState = currentViewState();
+      globalSearch.value = viewState.globalQuery;
+      pageSize.value = String(viewState.pageSize);
+      Object.keys(state.filterInputs).forEach(function (key) {
+        state.filterInputs[key].value = viewState.columnFilters[key] || "";
+      });
+      updateViewControls();
     }
 
     function updateSortIndicators() {
+      var viewState = currentViewState();
       state.columns.forEach(function (column) {
         var header = tableHead.querySelector(
           'th[data-column="' + column.key + '"]'
         );
         if (!header) return;
-        var active = state.sortKey === column.key;
+        var active = viewState.sortKey === column.key;
         header.setAttribute(
           "aria-sort",
-          active ? (state.sortDirection === "asc" ? "ascending" : "descending") : "none"
+          active ? (viewState.sortDirection === "asc" ? "ascending" : "descending") : "none"
         );
         var indicator = header.querySelector(".tablex-sort-indicator");
         indicator.textContent = active
-          ? (state.sortDirection === "asc" ? "▲" : "▼")
+          ? (viewState.sortDirection === "asc" ? "▲" : "▼")
           : "↕";
       });
     }
@@ -224,13 +298,14 @@
         sortButton.appendChild(label);
         sortButton.appendChild(indicator);
         sortButton.addEventListener("click", function () {
-          if (state.sortKey === column.key) {
-            state.sortDirection = state.sortDirection === "asc" ? "desc" : "asc";
+          var viewState = currentViewState();
+          if (viewState.sortKey === column.key) {
+            viewState.sortDirection = viewState.sortDirection === "asc" ? "desc" : "asc";
           } else {
-            state.sortKey = column.key;
-            state.sortDirection = "asc";
+            viewState.sortKey = column.key;
+            viewState.sortDirection = "asc";
           }
-          state.page = 1;
+          viewState.page = 1;
           renderData();
         });
         heading.appendChild(sortButton);
@@ -245,8 +320,9 @@
         filter.setAttribute("aria-label", "Filter " + column.label);
         filter.autocomplete = "off";
         filter.addEventListener("input", function () {
-          state.columnFilters[column.key] = filter.value;
-          state.page = 1;
+          var viewState = currentViewState();
+          viewState.columnFilters[column.key] = filter.value;
+          viewState.page = 1;
           renderData();
         });
         state.filterInputs[column.key] = filter;
@@ -258,14 +334,12 @@
     }
 
     function filterRows() {
-      var globalTokens = searchTokens(state.globalQuery);
-      var activeColumnFilters = Object.keys(state.columnFilters).filter(function (key) {
-        return searchTokens(state.columnFilters[key]).length > 0;
+      var viewState = currentViewState();
+      var globalTokens = searchTokens(viewState.globalQuery);
+      var activeColumnFilters = Object.keys(viewState.columnFilters).filter(function (key) {
+        return searchTokens(viewState.columnFilters[key]).length > 0;
       });
-      var filtered = state.rows.filter(function (row) {
-        if (state.manuscriptOnly && row.in_manuscript_table_1 !== "Yes") {
-          return false;
-        }
+      var filtered = rowsInActiveView().filter(function (row) {
         if (globalTokens.length > 0) {
           var combined = state.columns.map(function (column) {
             return searchableValue(row, column);
@@ -276,7 +350,7 @@
         }
         return activeColumnFilters.every(function (key) {
           var column = columnByKey(key);
-          var tokens = searchTokens(state.columnFilters[key]);
+          var tokens = searchTokens(viewState.columnFilters[key]);
           var value = searchableValue(row, column);
           return tokens.every(function (token) {
             return value.indexOf(token) >= 0;
@@ -284,8 +358,8 @@
         });
       });
 
-      if (state.sortKey) {
-        var sortColumn = columnByKey(state.sortKey);
+      if (viewState.sortKey) {
+        var sortColumn = columnByKey(viewState.sortKey);
         filtered = filtered.map(function (row, index) {
           return { row: row, originalIndex: index };
         }).sort(function (left, right) {
@@ -293,7 +367,7 @@
             left.row,
             right.row,
             sortColumn,
-            state.sortDirection
+            viewState.sortDirection
           );
           return comparison === 0
             ? left.originalIndex - right.originalIndex
@@ -303,19 +377,15 @@
       return filtered;
     }
 
-    function renderMetadata() {
-      var regionCount = Array.isArray(state.index.regions)
-        ? state.index.regions.filter(function (row) { return Number(row.rows) > 0; }).length
-        : 0;
+    function renderMetadata(viewRows) {
+      var geographyCount = new Set(state.filteredRows.map(function (row) {
+        return row.region_set + "\r" + row.geography;
+      })).size;
       var cards = [
-        ["Frozen rows", state.rows.length.toLocaleString()],
+        ["Table view", currentViewConfig().label],
+        ["Frozen rows", viewRows.length.toLocaleString()],
         ["Matching rows", state.filteredRows.length.toLocaleString()],
-        [
-          "Manuscript match",
-          String(state.index.manuscript_rows_exact) + "/" +
-            String(state.index.manuscript_row_count)
-        ],
-        ["Regions", regionCount.toLocaleString()]
+        ["Geographies", geographyCount.toLocaleString()]
       ];
       metadata.replaceChildren();
       cards.forEach(function (card) {
@@ -364,9 +434,6 @@
               cell.classList.add("tablex-na");
             }
           }
-          if (column.key === "result_status") {
-            cell.dataset.status = String(row.result_status || "unavailable");
-          }
           tableRow.appendChild(cell);
         });
         fragment.appendChild(tableRow);
@@ -383,7 +450,7 @@
       if (current) button.setAttribute("aria-current", "page");
       if (ariaLabel) button.setAttribute("aria-label", ariaLabel);
       button.addEventListener("click", function () {
-        state.page = target;
+        currentViewState().page = target;
         tableShell.scrollTop = 0;
         renderData();
       });
@@ -391,19 +458,20 @@
     }
 
     function renderPagination(pageCount) {
+      var viewState = currentViewState();
       pagination.replaceChildren();
       pagination.appendChild(createPageButton(
-        "First", 1, state.page === 1, false, "First page"
+        "First", 1, viewState.page === 1, false, "First page"
       ));
       pagination.appendChild(createPageButton(
         "Previous",
-        Math.max(1, state.page - 1),
-        state.page === 1,
+        Math.max(1, viewState.page - 1),
+        viewState.page === 1,
         false,
         "Previous page"
       ));
 
-      paginationItems(state.page, pageCount).forEach(function (item) {
+      paginationItems(viewState.page, pageCount).forEach(function (item) {
         if (item === "gap") {
           var gap = document.createElement("span");
           gap.className = "tablex-page-gap";
@@ -414,8 +482,8 @@
           pagination.appendChild(createPageButton(
             String(item),
             item,
-            item === state.page,
-            item === state.page,
+            item === viewState.page,
+            item === viewState.page,
             "Page " + item
           ));
         }
@@ -423,83 +491,94 @@
 
       pagination.appendChild(createPageButton(
         "Next",
-        Math.min(pageCount, state.page + 1),
-        state.page === pageCount,
+        Math.min(pageCount, viewState.page + 1),
+        viewState.page === pageCount,
         false,
         "Next page"
       ));
       pagination.appendChild(createPageButton(
-        "Last", pageCount, state.page === pageCount, false, "Last page"
+        "Last", pageCount, viewState.page === pageCount, false, "Last page"
       ));
     }
 
     function renderData() {
+      var viewState = currentViewState();
+      var viewRows = rowsInActiveView();
       state.filteredRows = filterRows();
       var pageCount = Math.max(
         1,
-        Math.ceil(state.filteredRows.length / state.pageSize)
+        Math.ceil(state.filteredRows.length / viewState.pageSize)
       );
-      state.page = Math.min(Math.max(1, state.page), pageCount);
-      var start = (state.page - 1) * state.pageSize;
-      var end = Math.min(start + state.pageSize, state.filteredRows.length);
+      viewState.page = Math.min(Math.max(1, viewState.page), pageCount);
+      var start = (viewState.page - 1) * viewState.pageSize;
+      var end = Math.min(start + viewState.pageSize, state.filteredRows.length);
       renderBody(state.filteredRows.slice(start, end));
       renderPagination(pageCount);
-      renderMetadata();
+      renderMetadata(viewRows);
       updateSortIndicators();
-      updateManuscriptButton();
+      updateViewControls();
 
       status.textContent = state.filteredRows.length === 0
-        ? "Showing 0 of 0 matching rows (" + state.rows.length + " frozen rows)."
+        ? "Showing 0 of 0 matching rows in the " + currentViewConfig().label +
+          " table (" + viewRows.length + " frozen rows in this table)."
         : "Showing " + (start + 1) + "–" + end + " of " +
-          state.filteredRows.length + " matching rows (" +
-          state.rows.length + " frozen rows).";
+          state.filteredRows.length + " matching rows in the " +
+          currentViewConfig().label + " table (" + viewRows.length +
+          " frozen rows in this table).";
       downloadButton.disabled = state.filteredRows.length === 0;
     }
 
     globalSearch.addEventListener("input", function () {
-      state.globalQuery = globalSearch.value;
-      state.page = 1;
+      var viewState = currentViewState();
+      viewState.globalQuery = globalSearch.value;
+      viewState.page = 1;
       renderData();
     });
 
     pageSize.addEventListener("change", function () {
-      state.pageSize = Number(pageSize.value) || 25;
-      state.page = 1;
+      var viewState = currentViewState();
+      viewState.pageSize = Number(pageSize.value) || 25;
+      viewState.page = 1;
       tableShell.scrollTop = 0;
       renderData();
     });
 
-    manuscriptButton.addEventListener("click", function () {
-      state.manuscriptOnly = !state.manuscriptOnly;
-      state.page = 1;
-      renderData();
+    viewButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var requestedView = button.dataset.view;
+        if (!VIEW_CONFIG[requestedView] || requestedView === state.activeView) return;
+        state.activeView = requestedView;
+        tableShell.scrollTop = 0;
+        syncControlsFromView();
+        renderData();
+      });
     });
 
     clearButton.addEventListener("click", function () {
-      state.globalQuery = "";
-      state.columnFilters = {};
-      state.manuscriptOnly = false;
-      state.page = 1;
-      globalSearch.value = "";
-      Object.keys(state.filterInputs).forEach(function (key) {
-        state.filterInputs[key].value = "";
-      });
+      var viewState = currentViewState();
+      viewState.globalQuery = "";
+      viewState.columnFilters = {};
+      viewState.page = 1;
+      syncControlsFromView();
       renderData();
     });
 
     downloadButton.addEventListener("click", function () {
       if (state.filteredRows.length === 0) return;
-      downloadCSV(state.columns, state.filteredRows);
+      downloadCSV(state.downloadColumns, state.filteredRows);
       status.textContent = "Prepared " + state.filteredRows.length +
-        " filtered rows for download.";
+        " filtered rows from the " + currentViewConfig().label +
+        " table for download.";
     });
 
     fetchJSON(rootPath(app, "index.json")).then(function (index) {
       validateIndex(index);
       state.index = index;
       state.columns = index.columns;
+      state.downloadColumns = index.download_columns;
       state.rows = index.rows;
       buildHeader();
+      syncControlsFromView();
       renderData();
     }).catch(function (error) {
       status.textContent = "Unable to load the supplementary table explorer.";

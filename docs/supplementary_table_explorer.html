@@ -530,15 +530,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree3f3cefd2d01ab7125a5cbea885f7849bcb81d1e3targetblank3f3cefda">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree29eddd739d24486e1aaa183a77a1af6dc37a239ctargetblank29eddd7a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/AgueroZZ/covid_script/tree/3f3cefd2d01ab7125a5cbea885f7849bcb81d1e3" target="_blank">3f3cefd</a>
+<a href="https://github.com/AgueroZZ/covid_script/tree/29eddd739d24486e1aaa183a77a1af6dc37a239c" target="_blank">29eddd7</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree3f3cefd2d01ab7125a5cbea885f7849bcb81d1e3targetblank3f3cefda"
+id="strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree29eddd739d24486e1aaa183a77a1af6dc37a239ctargetblank29eddd7a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -548,7 +548,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/AgueroZZ/covid_script/tree/3f3cefd2d01ab7125a5cbea885f7849bcb81d1e3" target="_blank">3f3cefd</a>.
+<a href="https://github.com/AgueroZZ/covid_script/tree/29eddd739d24486e1aaa183a77a1af6dc37a239c" target="_blank">29eddd7</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -582,6 +582,7 @@ Ignored files:
     Ignored:    scripts/validation 2/
     Ignored:    tables/manuscript 2/
     Ignored:    tests/testthat 2/
+    Ignored:    tests/testthat/_snaps/
     Ignored:    tmp/
 
 </code></pre>
@@ -633,6 +634,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/AgueroZZ/covid_script/blob/1c7efea6977965b1895f3a8a4b510e199ac52d44/analysis/supplementary_table_explorer.Rmd" target="_blank">1c7efea</a>
+</td>
+<td>
+Ziang Zhang
+</td>
+<td>
+2026-09-01
+</td>
+<td>
+Refine supplementary table explorer views
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/AgueroZZ/covid_script/ead8b95b4ce020a695220c63c328a6874fad01c4/docs/supplementary_table_explorer.html" target="_blank">ead8b95</a>
+</td>
+<td>
+Ziang Zhang
+</td>
+<td>
+2026-09-01
+</td>
+<td>
+build: publish supplementary table explorer
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/AgueroZZ/covid_script/blob/3f3cefd2d01ab7125a5cbea885f7849bcb81d1e3/analysis/supplementary_table_explorer.Rmd" target="_blank">3f3cefd</a>
 </td>
 <td>
@@ -653,13 +688,17 @@ feat: add interactive supplementary table explorer
 </div>
 </div>
 <link rel="stylesheet" href="assets/supplementary/supplementary_table_app.css">
-<p>This explorer extends the Table 1 display contract to every
-registered geography and original age group. Each wave reports the
-posterior median P-score for male and female models in the manuscript
-format. Where paired sex models do not exist, the corresponding
-total-population result is displayed instead. Failed or unavailable
-components remain explicit and are never imputed.</p>
+<p>This explorer extends the wave-specific P-score summaries to every
+registered geography and original age group. Use the first control to
+switch between paired male/female results and total-population results.
+The two tables keep independent searches, column filters, sorting, page
+sizes, and page positions. Failed or unavailable components remain
+explicit and are never imputed.</p>
 <div id="supplementary-table-explorer" class="tablex-app" data-table-app data-root="assets/supplementary/table_explorer">
+  <div class="tablex-view-switch" role="group" aria-label="Population table">
+    <button type="button" data-view="sex" aria-pressed="true">Sex-stratified (M/F)</button>
+    <button type="button" data-view="total" aria-pressed="false">Total population</button>
+  </div>
   <div class="tablex-toolbar" aria-label="Supplementary table controls">
     <label class="tablex-search">Search all columns
       <input type="search" data-control="global-search" placeholder="Region, geography, age, wave value…" autocomplete="off">
@@ -672,7 +711,6 @@ components remain explicit and are never imputed.</p>
         <option value="100">100</option>
       </select>
     </label>
-    <button type="button" class="btn btn-default" data-action="manuscript" aria-pressed="false">Show manuscript Table 1 rows</button>
     <button type="button" class="btn btn-default" data-action="clear">Clear filters</button>
     <button type="button" class="btn btn-primary" data-action="download">Download filtered CSV</button>
   </div>
@@ -681,7 +719,7 @@ components remain explicit and are never imputed.</p>
 
   <div class="tablex-table-shell" role="region" aria-label="Scrollable supplementary P-score table" tabindex="0">
     <table class="tablex-table">
-      <caption class="sr-only">Wave-specific P-scores by region, geography, original age group, and available sex stratification</caption>
+      <caption class="sr-only">Wave-specific P-scores by population view, region, geography, and original age group</caption>
       <thead data-role="table-head"></thead>
       <tbody data-role="table-body"></tbody>
     </table>
@@ -695,14 +733,16 @@ components remain explicit and are never imputed.</p>
 
 <noscript>This explorer requires JavaScript. The complete expanded table remains available as a CSV from the <a href="supplementary.html">supplementary landing page</a>.</noscript>
 <p>Vaccination coverage and group membership use the same fixed mid-2021
-inputs as manuscript Table 1. These fields are shown as <code>NA</code>
-for Canada, England and Wales, and Ireland because those analyses do not
-use the comparable Europe or United States vaccination snapshots. The
-manuscript-only control selects the 26 published Table 1 rows; those
-rows are checked cell by cell against the tracked manuscript table
-whenever the frozen browser bundle is rebuilt.</p>
-<p>The table is summary-only. It contains no fitted model objects or
-posterior draw matrices.</p>
+inputs as the manuscript analysis. These fields are shown as
+<code>NA</code> for Canada, England and Wales, and Ireland because those
+analyses do not use the comparable Europe or United States vaccination
+snapshots. Total-population analyses include the registered total models
+for locations such as Germany, Prince Edward Island, England and Wales,
+and Ireland.</p>
+<p>The reader-facing table is summary-only. It contains no fitted model
+objects, posterior draw matrices, or internal manuscript-equivalence
+fields. The latter remain part of the local frozen-bundle validation
+performed before publication.</p>
 <script src="assets/supplementary/supplementary_table_app.js"></script>
 <br>
 <p>

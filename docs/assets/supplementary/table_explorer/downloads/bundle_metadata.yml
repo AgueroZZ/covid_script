@@ -1,12 +1,17 @@
-schema_version: 1.0.0
+schema_version: 1.1.0
 frozen_on: '2026-09-01'
-created_at_utc: 2026-09-01 05:35:47 UTC
+created_at_utc: 2026-09-01 17:14:58 UTC
 model_refitting_performed: no
 public_bundle_contains_posterior_draws: no
 public_bundle_contains_fitted_models: no
 expanded_rows: 587
-manuscript_rows: 26
-manuscript_rows_exact: 26
+population_views:
+  population_view:
+  - Sex-stratified (M/F)
+  - Total population
+  rows:
+  - 368
+  - 219
 partial_rows: 3
 regions:
   region_set:
@@ -21,18 +26,3 @@ regions:
   - 40
   - 3
   - 4
-input_hashes:
-  frozen_wave_summary: cca1ca1398629d4fcccfeb35e62140fecc956a0c0827c57214bdb163392e6c49
-  europe_vaccination: 9dc215e70f0ac3ef9bab8d3878c8348f7275c0fa0c6d6d9b79e1a87a7c99e246
-  us_vaccination: 6b3a0ad81731f39c6d2d38f3137f85388f18b46ae41f06f8f210ec7052204ec5
-  manuscript_table_1: 46957ff53f6a533cdff9052eb813a83fc0649d3af46b8646e3d31b02364760e2
-  table_helper: c467e55f91ccc8475d3b09db0b4d71c81fb33af9d283e6d560bb2cdfad881fd9
-  builder: 125356d1fae7787d72c694308d870d09e054e6801c15d529040905e4c2f9d939
-session_info: "R version 4.5.1 (2025-06-13)\nPlatform: aarch64-apple-darwin20\nRunning
-  under: macOS Sequoia 15.6.1\n\nMatrix products: default\nBLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
-  \nLAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;
-  \ LAPACK version 3.12.1\n\nlocale:\n[1] C.UTF-8/C.UTF-8/C.UTF-8/C/C.UTF-8/C.UTF-8\n\ntime
-  zone: America/Chicago\ntzcode source: internal\n\nattached base packages:\n[1] stats
-  \    graphics  grDevices utils     datasets  methods   base     \n\nother attached
-  packages:\n[1] yaml_2.3.12    jsonlite_2.0.0 digest_0.6.39 \n\nloaded via a namespace
-  (and not attached):\n[1] compiler_4.5.1"
