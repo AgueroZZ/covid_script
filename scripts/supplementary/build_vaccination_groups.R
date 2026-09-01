@@ -532,6 +532,8 @@ on.exit({
 
 config <- read_analysis_config(file.path(project_root, "config", "analysis.yml"))
 waves <- wave_table(config)
+coverage_start <- as.Date("2020-01-01")
+minimum_coverage_fraction <- 0.95
 registry <- utils::read.csv(
   file.path(core_root, "registry.csv"),
   stringsAsFactors = FALSE
@@ -561,6 +563,17 @@ summaries <- summaries[order(
 ), ]
 rownames(summaries) <- NULL
 validate_vaccination_geography_summaries(summaries)
+coverage <- vaccination_panel_coverage(
+  summaries,
+  analysis_start = coverage_start,
+  minimum_fraction = minimum_coverage_fraction
+)
+coverage_keys <- c("figure", "region", "geography", "age_group")
+if (anyDuplicated(coverage[coverage_keys]) ||
+    any(!is.finite(coverage$coverage_fraction)) ||
+    any(coverage$coverage_fraction < 0 | coverage$coverage_fraction > 1)) {
+  stop("Vaccination explorer coverage records are invalid.")
+}
 
 availability <- dplyr::bind_rows(
   build_figure_04_availability(figure_04, membership),
@@ -631,13 +644,24 @@ for (index in seq_len(nrow(panel_keys))) {
     paste0(supplementary_slug(panel$age_group), ".json")
   )
   write_json(
-    vaccination_explorer_web_shard(selected),
+    vaccination_explorer_web_shard(
+      selected,
+      analysis_start = coverage_start,
+      minimum_fraction = minimum_coverage_fraction
+    ),
     file.path(browser_root, relative_path)
   )
   selected_availability <- availability[
     availability$figure == panel$figure &
       availability$region == panel$region &
       availability$age_group == panel$age_group,
+    ,
+    drop = FALSE
+  ]
+  selected_coverage <- coverage[
+    coverage$figure == panel$figure &
+      coverage$region == panel$region &
+      coverage$age_group == panel$age_group,
     ,
     drop = FALSE
   ]
@@ -649,6 +673,8 @@ for (index in seq_len(nrow(panel_keys))) {
     shard = relative_path,
     available_geographies = sum(selected_availability$status == "available"),
     unavailable_geographies = sum(selected_availability$status != "available"),
+    default_eligible_geographies = sum(selected_coverage$default_eligible),
+    limited_coverage_geographies = sum(!selected_coverage$default_eligible),
     stringsAsFactors = FALSE
   )
 }
@@ -687,6 +713,10 @@ write_csv_atomic(
   file.path(downloads_root, "availability.csv")
 )
 write_csv_atomic(
+  coverage,
+  file.path(downloads_root, "coverage.csv")
+)
+write_csv_atomic(
   manuscript_validation,
   file.path(downloads_root, "manuscript_equivalence.csv")
 )
@@ -700,7 +730,7 @@ write_csv_gz(
 )
 
 metadata <- list(
-  schema_version = "1.0.0",
+  schema_version = "1.1.0",
   frozen_on = "2026-09-01",
   created_at_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
   upstream_supplementary_freeze = "frozen_20260831",
@@ -715,6 +745,11 @@ metadata <- list(
   public_bundle_contains_posterior_draws = FALSE,
   vaccination_metric = config$vaccination$metric,
   vaccination_reference_date = as.character(config$vaccination$reference_date),
+  coverage_start = as.character(coverage_start),
+  minimum_coverage_fraction = minimum_coverage_fraction,
+  coverage_records = nrow(coverage),
+  default_eligible_records = sum(coverage$default_eligible),
+  limited_coverage_records = sum(!coverage$default_eligible),
   geography_summary_rows = nrow(summaries),
   analysis_geographies = nrow(membership),
   source_models_recorded = nrow(source_inventory),
@@ -729,7 +764,7 @@ metadata <- list(
 yaml::write_yaml(metadata, file.path(downloads_root, "bundle_metadata.yml"))
 
 index <- list(
-  schema_version = "1.0.0",
+  schema_version = "1.1.0",
   frozen_on = "2026-09-01",
   summary_only = TRUE,
   vaccination = list(
@@ -739,6 +774,11 @@ index <- list(
     europe_date_rule = config$vaccination$europe_date_rule
   ),
   thresholds = config$vaccination$classification_rules,
+  coverage = list(
+    start_date = as.character(coverage_start),
+    minimum_fraction = minimum_coverage_fraction,
+    default_rule = "usable_fraction_at_or_above_minimum"
+  ),
   waves = waves,
   smoothing = list(
     figure_05_europe = list(
@@ -766,6 +806,7 @@ index <- list(
     vaccination_membership = "downloads/vaccination_membership.csv",
     manuscript_membership = "downloads/manuscript_membership.csv",
     availability = "downloads/availability.csv",
+    coverage = "downloads/coverage.csv",
     geography_summaries = "downloads/geography_summaries.csv.gz",
     source_inventory = "downloads/source_inventory.csv",
     manuscript_equivalence = "downloads/manuscript_equivalence.csv",
@@ -781,6 +822,11 @@ saveRDS(
     summary_rows = nrow(summaries),
     panels = nrow(panels),
     unavailable = sum(availability$status != "available"),
+    coverage_start = coverage_start,
+    minimum_coverage_fraction = minimum_coverage_fraction,
+    coverage_records = nrow(coverage),
+    default_eligible_records = sum(coverage$default_eligible),
+    limited_coverage_records = sum(!coverage$default_eligible),
     manuscript_equivalence = manuscript_validation,
     posterior_draws_published = FALSE,
     fitted_models_published = FALSE
@@ -800,6 +846,8 @@ message(
   "Geography summary rows: ", nrow(summaries), "\n",
   "Panels: ", nrow(panels), "\n",
   "Unavailable geography-age panels: ", sum(availability$status != "available"), "\n",
+  "Default-eligible coverage records: ", sum(coverage$default_eligible), "\n",
+  "Limited-coverage records: ", sum(!coverage$default_eligible), "\n",
   "Maximum manuscript equivalence difference: ",
   format(max(manuscript_validation$max_abs_numeric_difference), scientific = TRUE)
 )

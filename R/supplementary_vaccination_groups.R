@@ -110,6 +110,75 @@ validate_vaccination_geography_summaries <- function(data) {
   invisible(data)
 }
 
+vaccination_panel_coverage <- function(
+  data,
+  analysis_start = as.Date("2020-01-01"),
+  minimum_fraction = 0.95
+) {
+  validate_vaccination_geography_summaries(data)
+  analysis_start <- as.Date(analysis_start)
+  if (length(analysis_start) != 1L || is.na(analysis_start)) {
+    stop("Vaccination coverage requires one valid analysis start date.")
+  }
+  if (length(minimum_fraction) != 1L ||
+      !is.finite(minimum_fraction) ||
+      minimum_fraction < 0 || minimum_fraction > 1) {
+    stop("Vaccination coverage minimum fraction must be between zero and one.")
+  }
+
+  data$date <- as.Date(data$date)
+  panel_columns <- c("figure", "region", "age_group", "frequency")
+  panels <- split(
+    data,
+    interaction(data[panel_columns], drop = TRUE, lex.order = TRUE)
+  )
+  rows <- lapply(panels, function(panel) {
+    expected_dates <- sort(unique(panel$date[panel$date >= analysis_start]))
+    if (length(expected_dates) == 0L) {
+      stop(
+        "A vaccination explorer panel has no observations on or after ",
+        analysis_start,
+        "."
+      )
+    }
+    geographies <- split(panel, panel$geography)
+    do.call(rbind, lapply(geographies, function(geography) {
+      usable <- geography$date >= analysis_start &
+        is.finite(geography$mean) &
+        is.finite(geography$variance) &
+        geography$variance > 0
+      usable_observations <- length(unique(geography$date[usable]))
+      expected_observations <- length(expected_dates)
+      missing_observations <- expected_observations - usable_observations
+      coverage_fraction <- usable_observations / expected_observations
+      data.frame(
+        figure = geography$figure[[1]],
+        region = geography$region[[1]],
+        geography = geography$geography[[1]],
+        geography_label = geography$geography_label[[1]],
+        age_group = geography$age_group[[1]],
+        frequency = geography$frequency[[1]],
+        coverage_start = analysis_start,
+        usable_observations = as.integer(usable_observations),
+        expected_observations = as.integer(expected_observations),
+        missing_observations = as.integer(missing_observations),
+        coverage_fraction = coverage_fraction,
+        default_eligible = coverage_fraction + sqrt(.Machine$double.eps) >=
+          minimum_fraction,
+        stringsAsFactors = FALSE
+      )
+    }))
+  })
+  output <- do.call(rbind, rows)
+  rownames(output) <- NULL
+  output[order(
+    output$figure,
+    output$region,
+    output$age_group,
+    output$geography_label
+  ), ]
+}
+
 aggregate_vaccination_group_summary <- function(data, membership) {
   required_data <- c("geography", "date", "mean", "variance")
   required_membership <- c("geography", "vaccination_group")
@@ -251,29 +320,49 @@ compare_vaccination_manuscript_summary <- function(
   )
 }
 
-vaccination_explorer_web_shard <- function(data) {
+vaccination_explorer_web_shard <- function(
+  data,
+  analysis_start = as.Date("2020-01-01"),
+  minimum_fraction = 0.95
+) {
   validate_vaccination_geography_summaries(data)
   identifiers <- unique(data[c("figure", "region", "age_group", "frequency")])
   if (nrow(identifiers) != 1L) {
     stop("A vaccination explorer shard must contain one figure-region-age panel.")
   }
+  coverage <- vaccination_panel_coverage(
+    data,
+    analysis_start = analysis_start,
+    minimum_fraction = minimum_fraction
+  )
   groups <- split(data, data$geography)
   series <- lapply(groups, function(group) {
     group <- group[order(as.Date(group$date)), , drop = FALSE]
+    coverage_row <- coverage[coverage$geography == group$geography[[1]], ]
+    if (nrow(coverage_row) != 1L) {
+      stop("A web-shard geography does not have exactly one coverage row.")
+    }
     list(
       geography = group$geography[[1]],
       geography_label = group$geography_label[[1]],
       date = format(as.Date(group$date), "%Y-%m-%d"),
       mean = group$mean,
-      variance = group$variance
+      variance = group$variance,
+      usable_observations = coverage_row$usable_observations[[1]],
+      expected_observations = coverage_row$expected_observations[[1]],
+      missing_observations = coverage_row$missing_observations[[1]],
+      coverage_fraction = coverage_row$coverage_fraction[[1]],
+      default_eligible = coverage_row$default_eligible[[1]]
     )
   })
   list(
-    schema_version = "1.0.0",
+    schema_version = "1.1.0",
     figure = identifiers$figure[[1]],
     region = identifiers$region[[1]],
     age_group = identifiers$age_group[[1]],
     frequency = identifiers$frequency[[1]],
+    coverage_start = format(as.Date(analysis_start), "%Y-%m-%d"),
+    minimum_coverage_fraction = minimum_fraction,
     series = unname(series)
   )
 }

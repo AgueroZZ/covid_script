@@ -14,20 +14,21 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 <link rel="stylesheet" href="assets/supplementary/supplementary_vaccination_app.css">
 ```
 
-This explorer extends Figure 4 and Figure 5 to every original age stratum with
-an available fitted result. Choose separate low- and high-vaccination
-thresholds, then add, remove, or reassign individual countries or states. The
-default grouping uses vaccination coverage as of July 1, 2021 (or the latest
-available European record on or before that date); the manuscript preset is
+This explorer extends the manuscript vaccination-group analyses to every
+original age stratum with an available fitted result. Choose separate low- and
+high-vaccination thresholds, then add, remove, or reassign individual countries
+or states. Automatic threshold assignments include locations with at least 95%
+usable panel-specific observations from 2020 onward. Locations below that
+coverage remain available for manual exploration, and the manuscript preset is
 also available for direct comparison.
 
 ```{=html}
 <div id="supplementary-vaccination-groups" class="vax-app" data-vaccination-app data-root="assets/supplementary/vaccination_groups">
   <div class="vax-controls" aria-label="Vaccination-group explorer filters">
-    <label>Figure
+    <label>Analysis
       <select data-control="figure">
-        <option value="figure_04">Figure 4 — P-score</option>
-        <option value="figure_05">Figure 5 — female minus male</option>
+        <option value="figure_04">P-score by vaccination group</option>
+        <option value="figure_05">Female-minus-male P-score difference</option>
       </select>
     </label>
     <label>Region
@@ -75,7 +76,7 @@ also available for direct comparison.
     <div class="vax-section-heading">
       <div>
         <h2 id="vax-membership-heading">Group membership</h2>
-        <p>Selections update the chart immediately. Choose Excluded to remove a location, or Low/High to add it to either group.</p>
+        <p>Selections update the chart immediately. Limited-coverage locations are excluded automatically but can still be assigned manually. Choose Excluded to remove a location, or Low/High to add it to either group.</p>
       </div>
     </div>
     <div class="vax-table-shell">
@@ -86,6 +87,9 @@ also available for direct comparison.
             <th scope="col">Vaccinated (%)</th>
             <th scope="col">Measurement date</th>
             <th scope="col">Model status</th>
+            <th scope="col">Usable / expected</th>
+            <th scope="col">Missing observations</th>
+            <th scope="col">Coverage (%)</th>
             <th scope="col">Group</th>
           </tr>
         </thead>
@@ -99,12 +103,12 @@ also available for direct comparison.
 ```
 
 Both groups are aggregated date by date with inverse-variance fixed-effect
-weights, using dates shared by every selected location. Figure 4 shows the
-normal-approximation interval as a ribbon. Figure 5 shows the female-minus-male
-P-score difference with dashed interval bounds; European Figure 5 trajectories
-use the same centered 14-day box smoother as the manuscript figure. Locations
-without the required paired sex-stratified result are shown explicitly and
-cannot be assigned for that panel.
+weights, using dates shared by every selected location. The P-score analysis
+shows its normal-approximation interval as a ribbon. The female-minus-male
+P-score difference uses dashed interval bounds; European sex-contrast
+trajectories use the same centered 14-day box smoother as the manuscript
+analysis. Locations without the required paired sex-stratified result are shown
+explicitly and cannot be assigned for that panel.
 
 All browser assets are summary-only. The frozen extension contains geography-
 level means and variances, not fitted models or posterior draw matrices.

@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "frozen_on": "2026-09-01",
   "summary_only": true,
   "vaccination": {
@@ -17,6 +17,11 @@
       "low_below": 41,
       "high_above": 53
     }
+  },
+  "coverage": {
+    "start_date": "2020-01-01",
+    "minimum_fraction": 0.95,
+    "default_rule": "usable_fraction_at_or_above_minimum"
   },
   "waves": [
     {
@@ -66,7 +71,9 @@
       "frequency": "weekly",
       "shard": "shards/figure_04/europe/20-39.json",
       "available_geographies": 33,
-      "unavailable_geographies": 0
+      "unavailable_geographies": 0,
+      "default_eligible_geographies": 26,
+      "limited_coverage_geographies": 7
     },
     {
       "figure": "figure_04",
@@ -75,7 +82,9 @@
       "frequency": "weekly",
       "shard": "shards/figure_04/europe/40-59.json",
       "available_geographies": 33,
-      "unavailable_geographies": 0
+      "unavailable_geographies": 0,
+      "default_eligible_geographies": 30,
+      "limited_coverage_geographies": 3
     },
     {
       "figure": "figure_04",
@@ -84,7 +93,9 @@
       "frequency": "weekly",
       "shard": "shards/figure_04/europe/60-79.json",
       "available_geographies": 33,
-      "unavailable_geographies": 0
+      "unavailable_geographies": 0,
+      "default_eligible_geographies": 30,
+      "limited_coverage_geographies": 3
     },
     {
       "figure": "figure_04",
@@ -93,7 +104,9 @@
       "frequency": "weekly",
       "shard": "shards/figure_04/europe/ge80.json",
       "available_geographies": 33,
-      "unavailable_geographies": 0
+      "unavailable_geographies": 0,
+      "default_eligible_geographies": 30,
+      "limited_coverage_geographies": 3
     },
     {
       "figure": "figure_04",
@@ -102,7 +115,9 @@
       "frequency": "monthly",
       "shard": "shards/figure_04/us/20-39.json",
       "available_geographies": 51,
-      "unavailable_geographies": 0
+      "unavailable_geographies": 0,
+      "default_eligible_geographies": 44,
+      "limited_coverage_geographies": 7
     },
     {
       "figure": "figure_04",
@@ -111,7 +126,9 @@
       "frequency": "monthly",
       "shard": "shards/figure_04/us/40-59.json",
       "available_geographies": 51,
-      "unavailable_geographies": 0
+      "unavailable_geographies": 0,
+      "default_eligible_geographies": 51,
+      "limited_coverage_geographies": 0
     },
     {
       "figure": "figure_04",
@@ -120,7 +137,9 @@
       "frequency": "monthly",
       "shard": "shards/figure_04/us/60-79.json",
       "available_geographies": 51,
-      "unavailable_geographies": 0
+      "unavailable_geographies": 0,
+      "default_eligible_geographies": 51,
+      "limited_coverage_geographies": 0
     },
     {
       "figure": "figure_04",
@@ -129,7 +148,9 @@
       "frequency": "monthly",
       "shard": "shards/figure_04/us/ge80.json",
       "available_geographies": 51,
-      "unavailable_geographies": 0
+      "unavailable_geographies": 0,
+      "default_eligible_geographies": 51,
+      "limited_coverage_geographies": 0
     },
     {
       "figure": "figure_05",
@@ -138,7 +159,9 @@
       "frequency": "weekly",
       "shard": "shards/figure_05/europe/20-39.json",
       "available_geographies": 32,
-      "unavailable_geographies": 1
+      "unavailable_geographies": 1,
+      "default_eligible_geographies": 29,
+      "limited_coverage_geographies": 3
     },
     {
       "figure": "figure_05",
@@ -147,7 +170,9 @@
       "frequency": "weekly",
       "shard": "shards/figure_05/europe/40-59.json",
       "available_geographies": 32,
-      "unavailable_geographies": 1
+      "unavailable_geographies": 1,
+      "default_eligible_geographies": 29,
+      "limited_coverage_geographies": 3
     },
     {
       "figure": "figure_05",
@@ -156,7 +181,9 @@
       "frequency": "weekly",
       "shard": "shards/figure_05/europe/60-79.json",
       "available_geographies": 32,
-      "unavailable_geographies": 1
+      "unavailable_geographies": 1,
+      "default_eligible_geographies": 29,
+      "limited_coverage_geographies": 3
     },
     {
       "figure": "figure_05",
@@ -165,7 +192,9 @@
       "frequency": "weekly",
       "shard": "shards/figure_05/europe/ge80.json",
       "available_geographies": 32,
-      "unavailable_geographies": 1
+      "unavailable_geographies": 1,
+      "default_eligible_geographies": 29,
+      "limited_coverage_geographies": 3
     },
     {
       "figure": "figure_05",
@@ -174,7 +203,9 @@
       "frequency": "monthly",
       "shard": "shards/figure_05/us/0-44.json",
       "available_geographies": 50,
-      "unavailable_geographies": 1
+      "unavailable_geographies": 1,
+      "default_eligible_geographies": 38,
+      "limited_coverage_geographies": 12
     },
     {
       "figure": "figure_05",
@@ -183,7 +214,9 @@
       "frequency": "monthly",
       "shard": "shards/figure_05/us/45-64.json",
       "available_geographies": 51,
-      "unavailable_geographies": 0
+      "unavailable_geographies": 0,
+      "default_eligible_geographies": 51,
+      "limited_coverage_geographies": 0
     },
     {
       "figure": "figure_05",
@@ -192,7 +225,9 @@
       "frequency": "monthly",
       "shard": "shards/figure_05/us/65-84.json",
       "available_geographies": 51,
-      "unavailable_geographies": 0
+      "unavailable_geographies": 0,
+      "default_eligible_geographies": 51,
+      "limited_coverage_geographies": 0
     },
     {
       "figure": "figure_05",
@@ -201,7 +236,9 @@
       "frequency": "monthly",
       "shard": "shards/figure_05/us/ge85.json",
       "available_geographies": 51,
-      "unavailable_geographies": 0
+      "unavailable_geographies": 0,
+      "default_eligible_geographies": 51,
+      "limited_coverage_geographies": 0
     }
   ],
   "membership": [
@@ -1255,6 +1292,7 @@
     "vaccination_membership": "downloads/vaccination_membership.csv",
     "manuscript_membership": "downloads/manuscript_membership.csv",
     "availability": "downloads/availability.csv",
+    "coverage": "downloads/coverage.csv",
     "geography_summaries": "downloads/geography_summaries.csv.gz",
     "source_inventory": "downloads/source_inventory.csv",
     "manuscript_equivalence": "downloads/manuscript_equivalence.csv",

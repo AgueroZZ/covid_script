@@ -84,6 +84,37 @@ test_that("explorer aggregation matches the reporting fixed-effect contract", {
   expect_equal(explorer$jurisdictions, reporting$jurisdictions)
 })
 
+test_that("panel coverage uses usable 2020-onward summary periods", {
+  dates <- as.Date(c(
+    "2020-01-31", "2020-02-29", "2020-03-31", "2020-04-30"
+  ))
+  input <- data.frame(
+    figure = "figure_05",
+    region = "us",
+    geography = rep(c("Complete", "Sparse"), each = length(dates)),
+    geography_label = rep(c("Complete", "Sparse"), each = length(dates)),
+    age_group = "0-44",
+    frequency = "monthly",
+    date = rep(dates, 2L),
+    mean = c(rep(0.1, 4L), 0.2, 0.2, NA_real_, 0.2),
+    variance = c(rep(0.01, 4L), 0.02, 0.02, NA_real_, 0.02),
+    stringsAsFactors = FALSE
+  )
+
+  coverage <- vaccination_panel_coverage(
+    input,
+    analysis_start = as.Date("2020-01-01"),
+    minimum_fraction = 0.95
+  )
+  coverage <- coverage[match(c("Complete", "Sparse"), coverage$geography), ]
+
+  expect_equal(coverage$usable_observations, c(4L, 3L))
+  expect_equal(coverage$expected_observations, c(4L, 4L))
+  expect_equal(coverage$missing_observations, c(0L, 1L))
+  expect_equal(coverage$coverage_fraction, c(1, 0.75))
+  expect_identical(coverage$default_eligible, c(TRUE, FALSE))
+})
+
 test_that("web shards contain summaries but no model objects or draws", {
   input <- data.frame(
     figure = "figure_04",
@@ -101,6 +132,11 @@ test_that("web shards contain summaries but no model objects or draws", {
   serialized <- jsonlite::toJSON(shard, auto_unbox = TRUE)
 
   expect_equal(length(shard$series), 1L)
+  expect_equal(shard$series[[1]]$usable_observations, 2L)
+  expect_equal(shard$series[[1]]$expected_observations, 2L)
+  expect_equal(shard$series[[1]]$missing_observations, 0L)
+  expect_equal(shard$series[[1]]$coverage_fraction, 1)
+  expect_true(shard$series[[1]]$default_eligible)
   expect_false(grepl("samples", serialized, fixed = TRUE))
   expect_false(grepl("model_path", serialized, fixed = TRUE))
   expect_false(grepl("/Users/", serialized, fixed = TRUE))

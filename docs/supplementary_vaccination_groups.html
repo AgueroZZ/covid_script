@@ -397,7 +397,7 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2026-08-31
+<strong>Last updated:</strong> 2026-09-01
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -435,10 +435,10 @@ changes </a>
 <div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R
-Markdown file created these results, you’ll want to first commit it to
-the Git repo. If you’re still working on the analysis, you can ignore
-this warning. When you’re finished, you can run
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
 <code>wflow_publish</code> to commit the R Markdown file and build the
 HTML.</p>
 </div>
@@ -531,15 +531,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree588e46300e2f21fee5afa6450edc704092dd2417targetblank588e463a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree755ef0aea526d6175a4e7b18de0b55333f3b7416targetblank755ef0aa">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/AgueroZZ/covid_script/tree/588e46300e2f21fee5afa6450edc704092dd2417" target="_blank">588e463</a>
+<a href="https://github.com/AgueroZZ/covid_script/tree/755ef0aea526d6175a4e7b18de0b55333f3b7416" target="_blank">755ef0a</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree588e46300e2f21fee5afa6450edc704092dd2417targetblank588e463a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomAgueroZZcovidscripttree755ef0aea526d6175a4e7b18de0b55333f3b7416targetblank755ef0aa"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -549,7 +549,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/AgueroZZ/covid_script/tree/588e46300e2f21fee5afa6450edc704092dd2417" target="_blank">588e463</a>.
+<a href="https://github.com/AgueroZZ/covid_script/tree/755ef0aea526d6175a4e7b18de0b55333f3b7416" target="_blank">755ef0a</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -586,24 +586,15 @@ Ignored files:
     Ignored:    tests/testthat/_snaps/
     Ignored:    tmp/
 
-Untracked files:
-    Untracked:  R/supplementary_vaccination_groups.R
-    Untracked:  analysis/supplementary_vaccination_app.css
-    Untracked:  analysis/supplementary_vaccination_app.js
-    Untracked:  analysis/supplementary_vaccination_groups.Rmd
-    Untracked:  scripts/supplementary/build_vaccination_groups.R
-    Untracked:  tests/testthat/test-supplementary-vaccination-groups.R
-
 Unstaged changes:
-    Modified:   R/vaccination.R
-    Modified:   analysis/_site.yml
+    Modified:   R/supplementary_vaccination_groups.R
     Modified:   analysis/supplementary.Rmd
-    Modified:   analysis/supplementary_app.css
-    Modified:   analysis/supplementary_app.js
-    Modified:   analysis/supplementary_timeseries.Rmd
-    Modified:   scripts/publication/build_site.R
-    Modified:   scripts/publication/validate_site_inputs.R
+    Modified:   analysis/supplementary_vaccination_app.css
+    Modified:   analysis/supplementary_vaccination_app.js
+    Modified:   analysis/supplementary_vaccination_groups.Rmd
+    Modified:   scripts/supplementary/build_vaccination_groups.R
     Modified:   tests/testthat/test-supplementary-site.R
+    Modified:   tests/testthat/test-supplementary-vaccination-groups.R
 
 </code></pre>
 <p>
@@ -619,27 +610,92 @@ have uncommitted changes.
 </div>
 <div id="versions" class="tab-pane fade">
 <p>
-There are no past versions. Publish this analysis with
-<code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were
+made to the R Markdown
+(<code>analysis/supplementary_vaccination_groups.Rmd</code>) and HTML
+(<code>docs/supplementary_vaccination_groups.html</code>) files. If
+you’ve configured a remote Git repository (see
+<code>?wflow_git_remote</code>), click on the hyperlinks in the table
+below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/AgueroZZ/covid_script/blob/755ef0aea526d6175a4e7b18de0b55333f3b7416/analysis/supplementary_vaccination_groups.Rmd" target="_blank">755ef0a</a>
+</td>
+<td>
+Ziang Zhang
+</td>
+<td>
+2026-08-31
+</td>
+<td>
+feat: expand supplementary interactive explorers
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/AgueroZZ/covid_script/755ef0aea526d6175a4e7b18de0b55333f3b7416/docs/supplementary_vaccination_groups.html" target="_blank">755ef0a</a>
+</td>
+<td>
+Ziang Zhang
+</td>
+<td>
+2026-08-31
+</td>
+<td>
+feat: expand supplementary interactive explorers
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
 </div>
 <link rel="stylesheet" href="assets/supplementary/supplementary_vaccination_app.css">
-<p>This explorer extends Figure 4 and Figure 5 to every original age
-stratum with an available fitted result. Choose separate low- and
-high-vaccination thresholds, then add, remove, or reassign individual
-countries or states. The default grouping uses vaccination coverage as
-of July 1, 2021 (or the latest available European record on or before
-that date); the manuscript preset is also available for direct
-comparison.</p>
+<p>This explorer extends the manuscript vaccination-group analyses to
+every original age stratum with an available fitted result. Choose
+separate low- and high-vaccination thresholds, then add, remove, or
+reassign individual countries or states. Automatic threshold assignments
+include locations with at least 95% usable panel-specific observations
+from 2020 onward. Locations below that coverage remain available for
+manual exploration, and the manuscript preset is also available for
+direct comparison.</p>
 <div id="supplementary-vaccination-groups" class="vax-app" data-vaccination-app data-root="assets/supplementary/vaccination_groups">
   <div class="vax-controls" aria-label="Vaccination-group explorer filters">
-    <label>Figure
+    <label>Analysis
       <select data-control="figure">
-        <option value="figure_04">Figure 4 — P-score</option>
-        <option value="figure_05">Figure 5 — female minus male</option>
+        <option value="figure_04">P-score by vaccination group</option>
+        <option value="figure_05">Female-minus-male P-score difference</option>
       </select>
     </label>
     <label>Region
@@ -687,7 +743,7 @@ comparison.</p>
     <div class="vax-section-heading">
       <div>
         <h2 id="vax-membership-heading">Group membership</h2>
-        <p>Selections update the chart immediately. Choose Excluded to remove a location, or Low/High to add it to either group.</p>
+        <p>Selections update the chart immediately. Limited-coverage locations are excluded automatically but can still be assigned manually. Choose Excluded to remove a location, or Low/High to add it to either group.</p>
       </div>
     </div>
     <div class="vax-table-shell">
@@ -698,6 +754,9 @@ comparison.</p>
             <th scope="col">Vaccinated (%)</th>
             <th scope="col">Measurement date</th>
             <th scope="col">Model status</th>
+            <th scope="col">Usable / expected</th>
+            <th scope="col">Missing observations</th>
+            <th scope="col">Coverage (%)</th>
             <th scope="col">Group</th>
           </tr>
         </thead>
@@ -709,13 +768,13 @@ comparison.</p>
 
 <noscript>This explorer requires JavaScript. Frozen geography-level summaries and membership tables remain available from the <a href="supplementary.html">supplementary landing page</a>.</noscript>
 <p>Both groups are aggregated date by date with inverse-variance
-fixed-effect weights, using dates shared by every selected location.
-Figure 4 shows the normal-approximation interval as a ribbon. Figure 5
-shows the female-minus-male P-score difference with dashed interval
-bounds; European Figure 5 trajectories use the same centered 14-day box
-smoother as the manuscript figure. Locations without the required paired
-sex-stratified result are shown explicitly and cannot be assigned for
-that panel.</p>
+fixed-effect weights, using dates shared by every selected location. The
+P-score analysis shows its normal-approximation interval as a ribbon.
+The female-minus-male P-score difference uses dashed interval bounds;
+European sex-contrast trajectories use the same centered 14-day box
+smoother as the manuscript analysis. Locations without the required
+paired sex-stratified result are shown explicitly and cannot be assigned
+for that panel.</p>
 <p>All browser assets are summary-only. The frozen extension contains
 geography- level means and variances, not fitted models or posterior
 draw matrices.</p>
@@ -752,10 +811,10 @@ loaded via a namespace (and not attached):
 [13] rprojroot_2.1.1 git2r_0.36.2    htmltools_0.5.9 httpuv_1.6.16  
 [17] sass_0.4.10     rmarkdown_2.30  evaluate_1.0.5  jquerylib_0.1.4
 [21] tibble_3.3.0    fastmap_1.2.0   yaml_2.3.12     lifecycle_1.0.5
-[25] stringr_1.6.0   compiler_4.5.1  fs_1.6.6        Rcpp_1.1.1-1.1 
-[29] pkgconfig_2.0.3 later_1.4.4     digest_0.6.39   R6_2.6.1       
-[33] pillar_1.11.1   magrittr_2.0.5  bslib_0.9.0     tools_4.5.1    
-[37] cachem_1.1.0   </code></pre>
+[25] whisker_0.4.1   stringr_1.6.0   compiler_4.5.1  fs_1.6.6       
+[29] Rcpp_1.1.1-1.1  pkgconfig_2.0.3 later_1.4.4     digest_0.6.39  
+[33] R6_2.6.1        pillar_1.11.1   magrittr_2.0.5  bslib_0.9.0    
+[37] tools_4.5.1     cachem_1.1.0   </code></pre>
 </div>
 </div>
 </div>

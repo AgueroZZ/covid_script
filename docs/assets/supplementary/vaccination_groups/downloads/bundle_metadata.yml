@@ -1,6 +1,6 @@
-schema_version: 1.0.0
+schema_version: 1.1.0
 frozen_on: '2026-09-01'
-created_at_utc: 2026-09-01 03:14:38 UTC
+created_at_utc: 2026-09-01 05:09:00 UTC
 upstream_supplementary_freeze: frozen_20260831
 upstream_complete_flag_sha256: 37a40f08d8548dba289b9b0bb35bcf63b359f6d37ee86044ebc6b6da080b9ec1
 model_refitting_performed: no
@@ -8,6 +8,11 @@ public_bundle_contains_fitted_models: no
 public_bundle_contains_posterior_draws: no
 vaccination_metric: people_vaccinated_per_hundred
 vaccination_reference_date: '2021-07-01'
+coverage_start: '2020-01-01'
+minimum_coverage_fraction: 0.95
+coverage_records: 667
+default_eligible_records: 620
+limited_coverage_records: 47
 geography_summary_rows: 397817
 analysis_geographies: 84
 source_models_recorded: 998

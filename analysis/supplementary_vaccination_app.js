@@ -70,10 +70,6 @@
     return "excluded";
   }
 
-  function assignmentKey(figure, region) {
-    return figure + "::" + region;
-  }
-
   function panelKey(figure, region, ageGroup) {
     return figure + "::" + region + "::" + ageGroup;
   }
@@ -566,12 +562,13 @@
     });
   }
 
-  function renderMetadata(container, counts, methodLabel) {
+  function renderMetadata(container, counts, methodLabel, coverageLabel) {
     clear(container);
     [
       { label: "Low group", value: counts.low + " available", group: "low" },
       { label: "Excluded", value: counts.excluded + " available" },
       { label: "High group", value: counts.high + " available", group: "high" },
+      { label: "Automatic coverage", value: coverageLabel },
       { label: "Aggregation", value: methodLabel }
     ].forEach(function (card) {
       var wrapper = document.createElement("div");
@@ -617,7 +614,7 @@
     }
 
     function currentContextKey() {
-      return assignmentKey(figureSelect.value, regionSelect.value);
+      return panelKey(figureSelect.value, regionSelect.value, ageSelect.value);
     }
 
     function currentAssignments() {
@@ -628,6 +625,14 @@
       return new Set((shard ? shard.series : []).map(function (series) {
         return series.geography;
       }));
+    }
+
+    function seriesByGeography() {
+      var output = {};
+      (shard ? shard.series : []).forEach(function (series) {
+        output[series.geography] = series;
+      });
+      return output;
     }
 
     function configuredThresholds() {
@@ -658,16 +663,22 @@
         status.textContent = "Low threshold must be smaller than the high threshold, within 0–100%.";
         return false;
       }
+      if (!shard) return false;
+      var panelSeries = seriesByGeography();
       var assignments = {};
       regionalMembership().forEach(function (row) {
-        assignments[row.geography] = thresholdGroup(
+        var automaticGroup = thresholdGroup(
           row.people_vaccinated_per_hundred,
           thresholds.low,
           thresholds.high
         );
+        var series = panelSeries[row.geography];
+        assignments[row.geography] = series && series.default_eligible ?
+          automaticGroup : "excluded";
       });
       assignmentsByContext[currentContextKey()] = assignments;
-      assignmentMode[currentContextKey()] = "vaccination thresholds";
+      assignmentMode[currentContextKey()] =
+        "vaccination thresholds + coverage rule";
       if (renderAfter && shard) renderDashboard();
       return true;
     }
@@ -716,6 +727,7 @@
     function renderMembershipTable() {
       clear(membershipBody);
       var available = availableSet();
+      var panelSeries = seriesByGeography();
       var assignments = currentAssignments();
       var rows = regionalMembership().slice().sort(function (left, right) {
         return Number(right.people_vaccinated_per_hundred) -
@@ -723,6 +735,7 @@
       });
       rows.forEach(function (row) {
         var isAvailable = available.has(row.geography);
+        var seriesRecord = panelSeries[row.geography];
         var unavailableRecord = index.unavailable.find(function (candidate) {
           return candidate.figure === figureSelect.value &&
             candidate.region === regionSelect.value &&
@@ -730,6 +743,9 @@
             candidate.geography === row.geography;
         });
         var tr = document.createElement("tr");
+        if (seriesRecord && !seriesRecord.default_eligible) {
+          tr.className = "vax-limited-coverage";
+        }
         var location = document.createElement("td");
         location.textContent = row.geography_label;
         var rate = document.createElement("td");
@@ -742,6 +758,25 @@
           "vax-model-available" : "vax-model-unavailable";
         if (unavailableRecord && unavailableRecord.reason) {
           modelStatus.title = unavailableRecord.reason;
+        } else if (seriesRecord && !seriesRecord.default_eligible) {
+          modelStatus.title =
+            "Available for manual use; excluded from automatic groups because " +
+            "usable coverage is below the default threshold.";
+        }
+        var usable = document.createElement("td");
+        usable.textContent = seriesRecord ?
+          seriesRecord.usable_observations + " / " +
+            seriesRecord.expected_observations : "Not available";
+        var missing = document.createElement("td");
+        missing.textContent = seriesRecord ?
+          String(seriesRecord.missing_observations) : "Not available";
+        var coverage = document.createElement("td");
+        coverage.textContent = seriesRecord && finite(seriesRecord.coverage_fraction) ?
+          (Number(seriesRecord.coverage_fraction) * 100).toFixed(1) :
+          "Not available";
+        if (seriesRecord && !seriesRecord.default_eligible) {
+          coverage.className = "vax-coverage-limited";
+          coverage.title = "Below the automatic 95% coverage threshold";
         }
         var groupCell = document.createElement("td");
         var select = document.createElement("select");
@@ -768,6 +803,9 @@
         tr.appendChild(rate);
         tr.appendChild(date);
         tr.appendChild(modelStatus);
+        tr.appendChild(usable);
+        tr.appendChild(missing);
+        tr.appendChild(coverage);
         tr.appendChild(groupCell);
         membershipBody.appendChild(tr);
       });
@@ -794,7 +832,13 @@
       if (figureSelect.value === "figure_05" && regionSelect.value === "europe") {
         methodLabel += " + 14-day smoothing";
       }
-      renderMetadata(metadata, counts, methodLabel);
+      var minimumCoveragePercent = Number(index.coverage.minimum_fraction) * 100;
+      var coverageLabel = "≥" + minimumCoveragePercent.toFixed(0) +
+        "% since " + index.coverage.start_date.slice(0, 4);
+      var limitedCoverageCount = shard.series.filter(function (series) {
+        return !series.default_eligible;
+      }).length;
+      renderMetadata(metadata, counts, methodLabel, coverageLabel);
       renderMembershipTable();
       renderChart(
         app,
@@ -805,9 +849,11 @@
       );
       var unavailableCount = regionalMembership().length - available.size;
       status.textContent = counts.low + " low, " + counts.high + " high, " +
-        counts.excluded + " excluded; " + unavailableCount +
+        counts.excluded + " excluded; " + limitedCoverageCount +
+        " below the automatic coverage threshold; " + unavailableCount +
         " unavailable for this panel. Membership source: " +
-        (assignmentMode[currentContextKey()] || "vaccination thresholds") + ".";
+        (assignmentMode[currentContextKey()] ||
+          "vaccination thresholds + coverage rule") + ".";
       curvesButton.disabled = groupedRows.high.length + groupedRows.low.length === 0;
       membershipButton.disabled = false;
     }
@@ -815,7 +861,7 @@
     async function loadPanel() {
       var panel = currentPanel();
       if (!panel) throw new Error("No frozen panel matches this selection.");
-      status.textContent = "Loading " + figureSelect.value.replace("_", " ") +
+      status.textContent = "Loading " + index.figures[panel.figure].label +
         " / " + regionSelect.value + " / " + ageSelect.value + " summaries…";
       var key = panelKey(panel.figure, panel.region, panel.age_group);
       if (!cache.has(key)) {
@@ -864,10 +910,12 @@
 
     function downloadMembership() {
       var available = availableSet();
+      var panelSeries = seriesByGeography();
       var assignments = currentAssignments();
       var thresholds = readThresholds() || { low: "", high: "" };
       var rows = regionalMembership().map(function (row) {
         var isAvailable = available.has(row.geography);
+        var seriesRecord = panelSeries[row.geography];
         return {
           figure: figureSelect.value,
           region: regionSelect.value,
@@ -877,6 +925,16 @@
           measurement_date: row.measurement_date,
           people_vaccinated_per_hundred: row.people_vaccinated_per_hundred,
           model_available: isAvailable,
+          usable_observations: seriesRecord ?
+            seriesRecord.usable_observations : "",
+          expected_observations: seriesRecord ?
+            seriesRecord.expected_observations : "",
+          missing_observations: seriesRecord ?
+            seriesRecord.missing_observations : "",
+          coverage_fraction: seriesRecord ?
+            seriesRecord.coverage_fraction : "",
+          default_eligible: seriesRecord ?
+            seriesRecord.default_eligible : false,
           selected_group: isAvailable ? assignments[row.geography] : "excluded",
           membership_source: assignmentMode[currentContextKey()],
           low_threshold: thresholds.low,
@@ -890,6 +948,8 @@
         [
           "figure", "region", "age_group", "geography", "geography_label",
           "measurement_date", "people_vaccinated_per_hundred", "model_available",
+          "usable_observations", "expected_observations", "missing_observations",
+          "coverage_fraction", "default_eligible",
           "selected_group", "membership_source", "low_threshold", "high_threshold"
         ]
       );
@@ -899,7 +959,6 @@
       index = loadedIndex;
       resetThresholdInputs();
       populateAges("60-79");
-      applyThresholds(false);
       return loadPanel();
     }).catch(function (error) {
       renderNoData(query(app, '[data-role="chart"]'), "Unable to load vaccination summaries.");
@@ -913,13 +972,11 @@
     figureSelect.addEventListener("change", function () {
       populateAges();
       resetThresholdInputs();
-      applyThresholds(false);
       loadPanel().catch(function (error) { status.textContent = error.message; });
     });
     regionSelect.addEventListener("change", function () {
       populateAges();
       resetThresholdInputs();
-      applyThresholds(false);
       loadPanel().catch(function (error) { status.textContent = error.message; });
     });
     ageSelect.addEventListener("change", function () {

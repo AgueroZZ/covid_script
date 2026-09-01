@@ -1,0 +1,668 @@
+"figure","region","geography","geography_label","age_group","frequency","coverage_start","usable_observations","expected_observations","missing_observations","coverage_fraction","default_eligible"
+"figure_04","europe","AM","Armenia","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","AT","Austria","20-39","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_04","europe","BE","Belgium","20-39","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_04","europe","BG","Bulgaria","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","HR","Croatia","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","CY","Cyprus","20-39","weekly",2020-01-01,200,227,27,0.881057268722467,FALSE
+"figure_04","europe","CZ","Czechia","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","DK","Denmark","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","EE","Estonia","20-39","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","FI","Finland","20-39","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_04","europe","FR","France","20-39","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_04","europe","DE","Germany","20-39","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","EL","Greece","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","HU","Hungary","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","IS","Iceland","20-39","weekly",2020-01-01,161,227,66,0.709251101321586,FALSE
+"figure_04","europe","IT","Italy","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","LV","Latvia","20-39","weekly",2020-01-01,226,227,1,0.995594713656388,TRUE
+"figure_04","europe","LI","Liechtenstein","20-39","weekly",2020-01-01,9,227,218,0.039647577092511,FALSE
+"figure_04","europe","LT","Lithuania","20-39","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","LU","Luxembourg","20-39","weekly",2020-01-01,152,227,75,0.669603524229075,FALSE
+"figure_04","europe","MT","Malta","20-39","weekly",2020-01-01,149,227,78,0.656387665198238,FALSE
+"figure_04","europe","ME","Montenegro","20-39","weekly",2020-01-01,190,227,37,0.837004405286344,FALSE
+"figure_04","europe","NL","Netherlands","20-39","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","NO","Norway","20-39","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_04","europe","PL","Poland","20-39","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_04","europe","PT","Portugal","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","RO","Romania","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","RS","Serbia","20-39","weekly",2020-01-01,204,227,23,0.898678414096916,FALSE
+"figure_04","europe","SK","Slovakia","20-39","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","SI","Slovenia","20-39","weekly",2020-01-01,220,227,7,0.969162995594714,TRUE
+"figure_04","europe","ES","Spain","20-39","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_04","europe","SE","Sweden","20-39","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_04","europe","CH","Switzerland","20-39","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_04","europe","AM","Armenia","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","AT","Austria","40-59","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_04","europe","BE","Belgium","40-59","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_04","europe","BG","Bulgaria","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","HR","Croatia","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","CY","Cyprus","40-59","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_04","europe","CZ","Czechia","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","DK","Denmark","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","EE","Estonia","40-59","weekly",2020-01-01,227,227,0,1,TRUE
+"figure_04","europe","FI","Finland","40-59","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_04","europe","FR","France","40-59","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_04","europe","DE","Germany","40-59","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","EL","Greece","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","HU","Hungary","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","IS","Iceland","40-59","weekly",2020-01-01,216,227,11,0.951541850220264,TRUE
+"figure_04","europe","IT","Italy","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","LV","Latvia","40-59","weekly",2020-01-01,226,227,1,0.995594713656388,TRUE
+"figure_04","europe","LI","Liechtenstein","40-59","weekly",2020-01-01,61,227,166,0.268722466960352,FALSE
+"figure_04","europe","LT","Lithuania","40-59","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","LU","Luxembourg","40-59","weekly",2020-01-01,220,227,7,0.969162995594714,TRUE
+"figure_04","europe","MT","Malta","40-59","weekly",2020-01-01,226,227,1,0.995594713656388,TRUE
+"figure_04","europe","ME","Montenegro","40-59","weekly",2020-01-01,204,227,23,0.898678414096916,FALSE
+"figure_04","europe","NL","Netherlands","40-59","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","NO","Norway","40-59","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_04","europe","PL","Poland","40-59","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_04","europe","PT","Portugal","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","RO","Romania","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","RS","Serbia","40-59","weekly",2020-01-01,204,227,23,0.898678414096916,FALSE
+"figure_04","europe","SK","Slovakia","40-59","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","SI","Slovenia","40-59","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_04","europe","ES","Spain","40-59","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_04","europe","SE","Sweden","40-59","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_04","europe","CH","Switzerland","40-59","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_04","europe","AM","Armenia","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","AT","Austria","60-79","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_04","europe","BE","Belgium","60-79","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_04","europe","BG","Bulgaria","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","HR","Croatia","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","CY","Cyprus","60-79","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_04","europe","CZ","Czechia","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","DK","Denmark","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","EE","Estonia","60-79","weekly",2020-01-01,227,227,0,1,TRUE
+"figure_04","europe","FI","Finland","60-79","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_04","europe","FR","France","60-79","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_04","europe","DE","Germany","60-79","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","EL","Greece","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","HU","Hungary","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","IS","Iceland","60-79","weekly",2020-01-01,220,227,7,0.969162995594714,TRUE
+"figure_04","europe","IT","Italy","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","LV","Latvia","60-79","weekly",2020-01-01,226,227,1,0.995594713656388,TRUE
+"figure_04","europe","LI","Liechtenstein","60-79","weekly",2020-01-01,149,227,78,0.656387665198238,FALSE
+"figure_04","europe","LT","Lithuania","60-79","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","LU","Luxembourg","60-79","weekly",2020-01-01,220,227,7,0.969162995594714,TRUE
+"figure_04","europe","MT","Malta","60-79","weekly",2020-01-01,226,227,1,0.995594713656388,TRUE
+"figure_04","europe","ME","Montenegro","60-79","weekly",2020-01-01,204,227,23,0.898678414096916,FALSE
+"figure_04","europe","NL","Netherlands","60-79","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","NO","Norway","60-79","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_04","europe","PL","Poland","60-79","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_04","europe","PT","Portugal","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","RO","Romania","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","RS","Serbia","60-79","weekly",2020-01-01,204,227,23,0.898678414096916,FALSE
+"figure_04","europe","SK","Slovakia","60-79","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","SI","Slovenia","60-79","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_04","europe","ES","Spain","60-79","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_04","europe","SE","Sweden","60-79","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_04","europe","CH","Switzerland","60-79","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_04","europe","AM","Armenia","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","AT","Austria","GE80","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_04","europe","BE","Belgium","GE80","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_04","europe","BG","Bulgaria","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","HR","Croatia","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","CY","Cyprus","GE80","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_04","europe","CZ","Czechia","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","DK","Denmark","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","EE","Estonia","GE80","weekly",2020-01-01,227,227,0,1,TRUE
+"figure_04","europe","FI","Finland","GE80","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_04","europe","FR","France","GE80","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_04","europe","DE","Germany","GE80","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","EL","Greece","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","HU","Hungary","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","IS","Iceland","GE80","weekly",2020-01-01,220,227,7,0.969162995594714,TRUE
+"figure_04","europe","IT","Italy","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","LV","Latvia","GE80","weekly",2020-01-01,226,227,1,0.995594713656388,TRUE
+"figure_04","europe","LI","Liechtenstein","GE80","weekly",2020-01-01,160,227,67,0.704845814977974,FALSE
+"figure_04","europe","LT","Lithuania","GE80","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","LU","Luxembourg","GE80","weekly",2020-01-01,220,227,7,0.969162995594714,TRUE
+"figure_04","europe","MT","Malta","GE80","weekly",2020-01-01,226,227,1,0.995594713656388,TRUE
+"figure_04","europe","ME","Montenegro","GE80","weekly",2020-01-01,204,227,23,0.898678414096916,FALSE
+"figure_04","europe","NL","Netherlands","GE80","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","NO","Norway","GE80","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_04","europe","PL","Poland","GE80","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_04","europe","PT","Portugal","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","RO","Romania","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_04","europe","RS","Serbia","GE80","weekly",2020-01-01,204,227,23,0.898678414096916,FALSE
+"figure_04","europe","SK","Slovakia","GE80","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_04","europe","SI","Slovenia","GE80","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_04","europe","ES","Spain","GE80","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_04","europe","SE","Sweden","GE80","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_04","europe","CH","Switzerland","GE80","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_04","us","Alabama","Alabama","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Alaska","Alaska","20-39","monthly",2020-01-01,42,44,2,0.954545454545455,TRUE
+"figure_04","us","Arizona","Arizona","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Arkansas","Arkansas","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","California","California","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Colorado","Colorado","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Connecticut","Connecticut","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Delaware","Delaware","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","District of Columbia","District of Columbia","20-39","monthly",2020-01-01,38,44,6,0.863636363636364,FALSE
+"figure_04","us","Florida","Florida","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Georgia","Georgia","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Hawaii","Hawaii","20-39","monthly",2020-01-01,41,44,3,0.931818181818182,FALSE
+"figure_04","us","Idaho","Idaho","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Illinois","Illinois","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Indiana","Indiana","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Iowa","Iowa","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Kansas","Kansas","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Kentucky","Kentucky","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Louisiana","Louisiana","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Maine","Maine","20-39","monthly",2020-01-01,43,44,1,0.977272727272727,TRUE
+"figure_04","us","Maryland","Maryland","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Massachusetts","Massachusetts","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Michigan","Michigan","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Minnesota","Minnesota","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Mississippi","Mississippi","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Missouri","Missouri","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Montana","Montana","20-39","monthly",2020-01-01,43,44,1,0.977272727272727,TRUE
+"figure_04","us","Nebraska","Nebraska","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Nevada","Nevada","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","New Hampshire","New Hampshire","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","New Jersey","New Jersey","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","New Mexico","New Mexico","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","New York","New York","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","North Carolina","North Carolina","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","North Dakota","North Dakota","20-39","monthly",2020-01-01,36,44,8,0.818181818181818,FALSE
+"figure_04","us","Ohio","Ohio","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Oklahoma","Oklahoma","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Oregon","Oregon","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Pennsylvania","Pennsylvania","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Rhode Island","Rhode Island","20-39","monthly",2020-01-01,37,44,7,0.840909090909091,FALSE
+"figure_04","us","South Carolina","South Carolina","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","South Dakota","South Dakota","20-39","monthly",2020-01-01,40,44,4,0.909090909090909,FALSE
+"figure_04","us","Tennessee","Tennessee","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Texas","Texas","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Utah","Utah","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Vermont","Vermont","20-39","monthly",2020-01-01,16,44,28,0.363636363636364,FALSE
+"figure_04","us","Virginia","Virginia","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Washington","Washington","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","West Virginia","West Virginia","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Wisconsin","Wisconsin","20-39","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Wyoming","Wyoming","20-39","monthly",2020-01-01,20,44,24,0.454545454545455,FALSE
+"figure_04","us","Alabama","Alabama","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Alaska","Alaska","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Arizona","Arizona","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Arkansas","Arkansas","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","California","California","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Colorado","Colorado","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Connecticut","Connecticut","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Delaware","Delaware","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","District of Columbia","District of Columbia","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Florida","Florida","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Georgia","Georgia","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Hawaii","Hawaii","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Idaho","Idaho","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Illinois","Illinois","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Indiana","Indiana","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Iowa","Iowa","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Kansas","Kansas","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Kentucky","Kentucky","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Louisiana","Louisiana","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Maine","Maine","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Maryland","Maryland","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Massachusetts","Massachusetts","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Michigan","Michigan","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Minnesota","Minnesota","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Mississippi","Mississippi","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Missouri","Missouri","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Montana","Montana","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Nebraska","Nebraska","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Nevada","Nevada","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","New Hampshire","New Hampshire","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","New Jersey","New Jersey","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","New Mexico","New Mexico","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","New York","New York","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","North Carolina","North Carolina","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","North Dakota","North Dakota","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Ohio","Ohio","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Oklahoma","Oklahoma","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Oregon","Oregon","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Pennsylvania","Pennsylvania","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Rhode Island","Rhode Island","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","South Carolina","South Carolina","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","South Dakota","South Dakota","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Tennessee","Tennessee","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Texas","Texas","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Utah","Utah","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Vermont","Vermont","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Virginia","Virginia","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Washington","Washington","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","West Virginia","West Virginia","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Wisconsin","Wisconsin","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Wyoming","Wyoming","40-59","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Alabama","Alabama","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Alaska","Alaska","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Arizona","Arizona","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Arkansas","Arkansas","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","California","California","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Colorado","Colorado","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Connecticut","Connecticut","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Delaware","Delaware","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","District of Columbia","District of Columbia","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Florida","Florida","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Georgia","Georgia","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Hawaii","Hawaii","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Idaho","Idaho","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Illinois","Illinois","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Indiana","Indiana","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Iowa","Iowa","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Kansas","Kansas","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Kentucky","Kentucky","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Louisiana","Louisiana","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Maine","Maine","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Maryland","Maryland","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Massachusetts","Massachusetts","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Michigan","Michigan","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Minnesota","Minnesota","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Mississippi","Mississippi","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Missouri","Missouri","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Montana","Montana","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Nebraska","Nebraska","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Nevada","Nevada","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","New Hampshire","New Hampshire","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","New Jersey","New Jersey","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","New Mexico","New Mexico","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","New York","New York","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","North Carolina","North Carolina","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","North Dakota","North Dakota","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Ohio","Ohio","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Oklahoma","Oklahoma","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Oregon","Oregon","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Pennsylvania","Pennsylvania","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Rhode Island","Rhode Island","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","South Carolina","South Carolina","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","South Dakota","South Dakota","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Tennessee","Tennessee","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Texas","Texas","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Utah","Utah","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Vermont","Vermont","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Virginia","Virginia","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Washington","Washington","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","West Virginia","West Virginia","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Wisconsin","Wisconsin","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Wyoming","Wyoming","60-79","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Alabama","Alabama","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Alaska","Alaska","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Arizona","Arizona","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Arkansas","Arkansas","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","California","California","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Colorado","Colorado","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Connecticut","Connecticut","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Delaware","Delaware","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","District of Columbia","District of Columbia","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Florida","Florida","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Georgia","Georgia","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Hawaii","Hawaii","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Idaho","Idaho","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Illinois","Illinois","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Indiana","Indiana","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Iowa","Iowa","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Kansas","Kansas","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Kentucky","Kentucky","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Louisiana","Louisiana","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Maine","Maine","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Maryland","Maryland","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Massachusetts","Massachusetts","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Michigan","Michigan","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Minnesota","Minnesota","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Mississippi","Mississippi","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Missouri","Missouri","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Montana","Montana","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Nebraska","Nebraska","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Nevada","Nevada","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","New Hampshire","New Hampshire","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","New Jersey","New Jersey","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","New Mexico","New Mexico","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","New York","New York","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","North Carolina","North Carolina","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","North Dakota","North Dakota","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Ohio","Ohio","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Oklahoma","Oklahoma","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Oregon","Oregon","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Pennsylvania","Pennsylvania","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Rhode Island","Rhode Island","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","South Carolina","South Carolina","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","South Dakota","South Dakota","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Tennessee","Tennessee","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Texas","Texas","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Utah","Utah","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Vermont","Vermont","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Virginia","Virginia","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Washington","Washington","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","West Virginia","West Virginia","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Wisconsin","Wisconsin","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_04","us","Wyoming","Wyoming","GE80","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","europe","AM","Armenia","20-39","weekly",2020-01-01,216,227,11,0.951541850220264,TRUE
+"figure_05","europe","AT","Austria","20-39","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_05","europe","BE","Belgium","20-39","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_05","europe","BG","Bulgaria","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","HR","Croatia","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","CY","Cyprus","20-39","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_05","europe","CZ","Czechia","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","DK","Denmark","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","EE","Estonia","20-39","weekly",2020-01-01,227,227,0,1,TRUE
+"figure_05","europe","FI","Finland","20-39","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_05","europe","FR","France","20-39","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_05","europe","EL","Greece","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","HU","Hungary","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","IS","Iceland","20-39","weekly",2020-01-01,220,227,7,0.969162995594714,TRUE
+"figure_05","europe","IT","Italy","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","LV","Latvia","20-39","weekly",2020-01-01,226,227,1,0.995594713656388,TRUE
+"figure_05","europe","LI","Liechtenstein","20-39","weekly",2020-01-01,170,227,57,0.748898678414097,FALSE
+"figure_05","europe","LT","Lithuania","20-39","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_05","europe","LU","Luxembourg","20-39","weekly",2020-01-01,220,227,7,0.969162995594714,TRUE
+"figure_05","europe","MT","Malta","20-39","weekly",2020-01-01,226,227,1,0.995594713656388,TRUE
+"figure_05","europe","ME","Montenegro","20-39","weekly",2020-01-01,204,227,23,0.898678414096916,FALSE
+"figure_05","europe","NL","Netherlands","20-39","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_05","europe","NO","Norway","20-39","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_05","europe","PL","Poland","20-39","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_05","europe","PT","Portugal","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","RO","Romania","20-39","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","RS","Serbia","20-39","weekly",2020-01-01,204,227,23,0.898678414096916,FALSE
+"figure_05","europe","SK","Slovakia","20-39","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_05","europe","SI","Slovenia","20-39","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_05","europe","ES","Spain","20-39","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_05","europe","SE","Sweden","20-39","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_05","europe","CH","Switzerland","20-39","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_05","europe","AM","Armenia","40-59","weekly",2020-01-01,220,227,7,0.969162995594714,TRUE
+"figure_05","europe","AT","Austria","40-59","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_05","europe","BE","Belgium","40-59","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_05","europe","BG","Bulgaria","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","HR","Croatia","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","CY","Cyprus","40-59","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_05","europe","CZ","Czechia","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","DK","Denmark","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","EE","Estonia","40-59","weekly",2020-01-01,227,227,0,1,TRUE
+"figure_05","europe","FI","Finland","40-59","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_05","europe","FR","France","40-59","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_05","europe","EL","Greece","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","HU","Hungary","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","IS","Iceland","40-59","weekly",2020-01-01,220,227,7,0.969162995594714,TRUE
+"figure_05","europe","IT","Italy","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","LV","Latvia","40-59","weekly",2020-01-01,226,227,1,0.995594713656388,TRUE
+"figure_05","europe","LI","Liechtenstein","40-59","weekly",2020-01-01,170,227,57,0.748898678414097,FALSE
+"figure_05","europe","LT","Lithuania","40-59","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_05","europe","LU","Luxembourg","40-59","weekly",2020-01-01,220,227,7,0.969162995594714,TRUE
+"figure_05","europe","MT","Malta","40-59","weekly",2020-01-01,226,227,1,0.995594713656388,TRUE
+"figure_05","europe","ME","Montenegro","40-59","weekly",2020-01-01,204,227,23,0.898678414096916,FALSE
+"figure_05","europe","NL","Netherlands","40-59","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_05","europe","NO","Norway","40-59","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_05","europe","PL","Poland","40-59","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_05","europe","PT","Portugal","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","RO","Romania","40-59","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","RS","Serbia","40-59","weekly",2020-01-01,204,227,23,0.898678414096916,FALSE
+"figure_05","europe","SK","Slovakia","40-59","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_05","europe","SI","Slovenia","40-59","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_05","europe","ES","Spain","40-59","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_05","europe","SE","Sweden","40-59","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_05","europe","CH","Switzerland","40-59","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_05","europe","AM","Armenia","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","AT","Austria","60-79","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_05","europe","BE","Belgium","60-79","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_05","europe","BG","Bulgaria","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","HR","Croatia","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","CY","Cyprus","60-79","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_05","europe","CZ","Czechia","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","DK","Denmark","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","EE","Estonia","60-79","weekly",2020-01-01,227,227,0,1,TRUE
+"figure_05","europe","FI","Finland","60-79","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_05","europe","FR","France","60-79","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_05","europe","EL","Greece","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","HU","Hungary","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","IS","Iceland","60-79","weekly",2020-01-01,220,227,7,0.969162995594714,TRUE
+"figure_05","europe","IT","Italy","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","LV","Latvia","60-79","weekly",2020-01-01,226,227,1,0.995594713656388,TRUE
+"figure_05","europe","LI","Liechtenstein","60-79","weekly",2020-01-01,170,227,57,0.748898678414097,FALSE
+"figure_05","europe","LT","Lithuania","60-79","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_05","europe","LU","Luxembourg","60-79","weekly",2020-01-01,220,227,7,0.969162995594714,TRUE
+"figure_05","europe","MT","Malta","60-79","weekly",2020-01-01,226,227,1,0.995594713656388,TRUE
+"figure_05","europe","ME","Montenegro","60-79","weekly",2020-01-01,204,227,23,0.898678414096916,FALSE
+"figure_05","europe","NL","Netherlands","60-79","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_05","europe","NO","Norway","60-79","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_05","europe","PL","Poland","60-79","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_05","europe","PT","Portugal","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","RO","Romania","60-79","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","RS","Serbia","60-79","weekly",2020-01-01,204,227,23,0.898678414096916,FALSE
+"figure_05","europe","SK","Slovakia","60-79","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_05","europe","SI","Slovenia","60-79","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_05","europe","ES","Spain","60-79","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_05","europe","SE","Sweden","60-79","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_05","europe","CH","Switzerland","60-79","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_05","europe","AM","Armenia","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","AT","Austria","GE80","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_05","europe","BE","Belgium","GE80","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_05","europe","BG","Bulgaria","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","HR","Croatia","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","CY","Cyprus","GE80","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_05","europe","CZ","Czechia","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","DK","Denmark","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","EE","Estonia","GE80","weekly",2020-01-01,227,227,0,1,TRUE
+"figure_05","europe","FI","Finland","GE80","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_05","europe","FR","France","GE80","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_05","europe","EL","Greece","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","HU","Hungary","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","IS","Iceland","GE80","weekly",2020-01-01,220,227,7,0.969162995594714,TRUE
+"figure_05","europe","IT","Italy","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","LV","Latvia","GE80","weekly",2020-01-01,226,227,1,0.995594713656388,TRUE
+"figure_05","europe","LI","Liechtenstein","GE80","weekly",2020-01-01,170,227,57,0.748898678414097,FALSE
+"figure_05","europe","LT","Lithuania","GE80","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_05","europe","LU","Luxembourg","GE80","weekly",2020-01-01,220,227,7,0.969162995594714,TRUE
+"figure_05","europe","MT","Malta","GE80","weekly",2020-01-01,226,227,1,0.995594713656388,TRUE
+"figure_05","europe","ME","Montenegro","GE80","weekly",2020-01-01,204,227,23,0.898678414096916,FALSE
+"figure_05","europe","NL","Netherlands","GE80","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_05","europe","NO","Norway","GE80","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_05","europe","PL","Poland","GE80","weekly",2020-01-01,223,227,4,0.982378854625551,TRUE
+"figure_05","europe","PT","Portugal","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","RO","Romania","GE80","weekly",2020-01-01,221,227,6,0.973568281938326,TRUE
+"figure_05","europe","RS","Serbia","GE80","weekly",2020-01-01,204,227,23,0.898678414096916,FALSE
+"figure_05","europe","SK","Slovakia","GE80","weekly",2020-01-01,225,227,2,0.991189427312775,TRUE
+"figure_05","europe","SI","Slovenia","GE80","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_05","europe","ES","Spain","GE80","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_05","europe","SE","Sweden","GE80","weekly",2020-01-01,224,227,3,0.986784140969163,TRUE
+"figure_05","europe","CH","Switzerland","GE80","weekly",2020-01-01,222,227,5,0.977973568281938,TRUE
+"figure_05","us","Alabama","Alabama","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Alaska","Alaska","0-44","monthly",2020-01-01,28,44,16,0.636363636363636,FALSE
+"figure_05","us","Arizona","Arizona","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Arkansas","Arkansas","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","California","California","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Colorado","Colorado","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Connecticut","Connecticut","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Delaware","Delaware","0-44","monthly",2020-01-01,29,44,15,0.659090909090909,FALSE
+"figure_05","us","District of Columbia","District of Columbia","0-44","monthly",2020-01-01,6,44,38,0.136363636363636,FALSE
+"figure_05","us","Florida","Florida","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Georgia","Georgia","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Hawaii","Hawaii","0-44","monthly",2020-01-01,17,44,27,0.386363636363636,FALSE
+"figure_05","us","Idaho","Idaho","0-44","monthly",2020-01-01,42,44,2,0.954545454545455,TRUE
+"figure_05","us","Illinois","Illinois","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Indiana","Indiana","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Iowa","Iowa","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Kansas","Kansas","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Kentucky","Kentucky","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Louisiana","Louisiana","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Maine","Maine","0-44","monthly",2020-01-01,39,44,5,0.886363636363636,FALSE
+"figure_05","us","Maryland","Maryland","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Massachusetts","Massachusetts","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Michigan","Michigan","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Minnesota","Minnesota","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Mississippi","Mississippi","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Missouri","Missouri","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Montana","Montana","0-44","monthly",2020-01-01,34,44,10,0.772727272727273,FALSE
+"figure_05","us","Nebraska","Nebraska","0-44","monthly",2020-01-01,37,44,7,0.840909090909091,FALSE
+"figure_05","us","Nevada","Nevada","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","New Hampshire","New Hampshire","0-44","monthly",2020-01-01,27,44,17,0.613636363636364,FALSE
+"figure_05","us","New Jersey","New Jersey","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","New Mexico","New Mexico","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","New York","New York","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","North Carolina","North Carolina","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","North Dakota","North Dakota","0-44","monthly",2020-01-01,0,44,44,0,FALSE
+"figure_05","us","Ohio","Ohio","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Oklahoma","Oklahoma","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Oregon","Oregon","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Pennsylvania","Pennsylvania","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Rhode Island","Rhode Island","0-44","monthly",2020-01-01,11,44,33,0.25,FALSE
+"figure_05","us","South Carolina","South Carolina","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","South Dakota","South Dakota","0-44","monthly",2020-01-01,18,44,26,0.409090909090909,FALSE
+"figure_05","us","Tennessee","Tennessee","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Texas","Texas","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Utah","Utah","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Virginia","Virginia","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Washington","Washington","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","West Virginia","West Virginia","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Wisconsin","Wisconsin","0-44","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Wyoming","Wyoming","0-44","monthly",2020-01-01,0,44,44,0,FALSE
+"figure_05","us","Alabama","Alabama","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Alaska","Alaska","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Arizona","Arizona","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Arkansas","Arkansas","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","California","California","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Colorado","Colorado","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Connecticut","Connecticut","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Delaware","Delaware","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","District of Columbia","District of Columbia","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Florida","Florida","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Georgia","Georgia","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Hawaii","Hawaii","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Idaho","Idaho","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Illinois","Illinois","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Indiana","Indiana","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Iowa","Iowa","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Kansas","Kansas","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Kentucky","Kentucky","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Louisiana","Louisiana","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Maine","Maine","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Maryland","Maryland","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Massachusetts","Massachusetts","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Michigan","Michigan","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Minnesota","Minnesota","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Mississippi","Mississippi","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Missouri","Missouri","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Montana","Montana","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Nebraska","Nebraska","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Nevada","Nevada","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","New Hampshire","New Hampshire","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","New Jersey","New Jersey","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","New Mexico","New Mexico","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","New York","New York","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","North Carolina","North Carolina","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","North Dakota","North Dakota","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Ohio","Ohio","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Oklahoma","Oklahoma","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Oregon","Oregon","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Pennsylvania","Pennsylvania","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Rhode Island","Rhode Island","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","South Carolina","South Carolina","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","South Dakota","South Dakota","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Tennessee","Tennessee","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Texas","Texas","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Utah","Utah","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Vermont","Vermont","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Virginia","Virginia","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Washington","Washington","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","West Virginia","West Virginia","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Wisconsin","Wisconsin","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Wyoming","Wyoming","45-64","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Alabama","Alabama","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Alaska","Alaska","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Arizona","Arizona","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Arkansas","Arkansas","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","California","California","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Colorado","Colorado","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Connecticut","Connecticut","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Delaware","Delaware","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","District of Columbia","District of Columbia","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Florida","Florida","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Georgia","Georgia","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Hawaii","Hawaii","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Idaho","Idaho","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Illinois","Illinois","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Indiana","Indiana","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Iowa","Iowa","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Kansas","Kansas","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Kentucky","Kentucky","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Louisiana","Louisiana","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Maine","Maine","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Maryland","Maryland","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Massachusetts","Massachusetts","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Michigan","Michigan","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Minnesota","Minnesota","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Mississippi","Mississippi","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Missouri","Missouri","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Montana","Montana","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Nebraska","Nebraska","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Nevada","Nevada","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","New Hampshire","New Hampshire","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","New Jersey","New Jersey","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","New Mexico","New Mexico","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","New York","New York","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","North Carolina","North Carolina","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","North Dakota","North Dakota","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Ohio","Ohio","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Oklahoma","Oklahoma","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Oregon","Oregon","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Pennsylvania","Pennsylvania","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Rhode Island","Rhode Island","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","South Carolina","South Carolina","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","South Dakota","South Dakota","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Tennessee","Tennessee","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Texas","Texas","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Utah","Utah","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Vermont","Vermont","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Virginia","Virginia","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Washington","Washington","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","West Virginia","West Virginia","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Wisconsin","Wisconsin","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Wyoming","Wyoming","65-84","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Alabama","Alabama","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Alaska","Alaska","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Arizona","Arizona","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Arkansas","Arkansas","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","California","California","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Colorado","Colorado","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Connecticut","Connecticut","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Delaware","Delaware","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","District of Columbia","District of Columbia","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Florida","Florida","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Georgia","Georgia","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Hawaii","Hawaii","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Idaho","Idaho","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Illinois","Illinois","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Indiana","Indiana","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Iowa","Iowa","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Kansas","Kansas","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Kentucky","Kentucky","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Louisiana","Louisiana","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Maine","Maine","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Maryland","Maryland","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Massachusetts","Massachusetts","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Michigan","Michigan","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Minnesota","Minnesota","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Mississippi","Mississippi","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Missouri","Missouri","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Montana","Montana","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Nebraska","Nebraska","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Nevada","Nevada","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","New Hampshire","New Hampshire","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","New Jersey","New Jersey","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","New Mexico","New Mexico","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","New York","New York","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","North Carolina","North Carolina","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","North Dakota","North Dakota","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Ohio","Ohio","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Oklahoma","Oklahoma","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Oregon","Oregon","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Pennsylvania","Pennsylvania","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Rhode Island","Rhode Island","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","South Carolina","South Carolina","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","South Dakota","South Dakota","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Tennessee","Tennessee","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Texas","Texas","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Utah","Utah","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Vermont","Vermont","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Virginia","Virginia","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Washington","Washington","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","West Virginia","West Virginia","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Wisconsin","Wisconsin","GE85","monthly",2020-01-01,44,44,0,1,TRUE
+"figure_05","us","Wyoming","Wyoming","GE85","monthly",2020-01-01,44,44,0,1,TRUE

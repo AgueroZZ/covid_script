@@ -20,7 +20,7 @@ failure.
 |:--|:--|:--|
 | [Time series and pointwise P-scores](supplementary_timeseries.html) | Analysis family, geography, age group, sex, and display metric | Observed mortality, expected mortality with a 95% posterior predictive interval, or the pointwise P-score curve |
 | [Wave-specific maps](supplementary_wave_maps.html) | Region, age group, sex, Initial/Alpha/Delta/Omicron wave, and posterior summary | Interactive geographic P-score or excess-death maps with exact values in an accessible table |
-| [Vaccination-group trajectories](supplementary_vaccination_groups.html) | Figure 4 or 5, Europe or United States, original age group, two vaccination thresholds, and manual location membership | Recomputed low- and high-vaccination trajectories with manuscript presets, uncertainty intervals, and downloadable current membership |
+| [Vaccination-group trajectories](supplementary_vaccination_groups.html) | P-score or female-minus-male P-score difference, Europe or United States, original age group, two vaccination thresholds, and manual location membership | Recomputed low- and high-vaccination trajectories with panel-specific coverage screening, manuscript presets, uncertainty intervals, and downloadable current membership |
 
 The pages load only the shard required by the current selection. They therefore
 remain static GitHub Pages files rather than a server process, while still
@@ -78,7 +78,8 @@ P-scores.
 - [Canonical observed-data source hashes](assets/supplementary/downloads/observed_source_inventory.csv)
 - [Bundle metadata and input hashes](assets/supplementary/downloads/bundle_metadata.yml)
 - [Vaccination coverage for analysis geographies](assets/supplementary/vaccination_groups/downloads/vaccination_membership.csv)
-- [Figure 4 and Figure 5 manuscript membership presets](assets/supplementary/vaccination_groups/downloads/manuscript_membership.csv)
+- [Manuscript membership presets for vaccination-group analyses](assets/supplementary/vaccination_groups/downloads/manuscript_membership.csv)
+- [Panel-specific usable-observation coverage](assets/supplementary/vaccination_groups/downloads/coverage.csv)
 - [Vaccination explorer geography summaries (compressed CSV)](assets/supplementary/vaccination_groups/downloads/geography_summaries.csv.gz)
 - [Vaccination explorer availability records](assets/supplementary/vaccination_groups/downloads/availability.csv)
 - [Vaccination explorer metadata](assets/supplementary/vaccination_groups/downloads/bundle_metadata.yml)

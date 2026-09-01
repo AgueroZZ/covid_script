@@ -67,8 +67,16 @@ test_that("vaccination explorer exposes thresholds and manual membership", {
     here::here("analysis", "supplementary_vaccination_groups.Rmd"),
     warn = FALSE
   ), collapse = "\n")
+  landing <- paste(readLines(
+    here::here("analysis", "supplementary.Rmd"),
+    warn = FALSE
+  ), collapse = "\n")
   javascript <- paste(readLines(
     here::here("analysis", "supplementary_vaccination_app.js"),
+    warn = FALSE
+  ), collapse = "\n")
+  builder <- paste(readLines(
+    here::here("scripts", "supplementary", "build_vaccination_groups.R"),
     warn = FALSE
   ), collapse = "\n")
 
@@ -81,5 +89,16 @@ test_that("vaccination explorer exposes thresholds and manual membership", {
   expect_match(javascript, "aggregateFixedEffect", fixed = TRUE)
   expect_match(javascript, "contributing_jurisdictions", fixed = TRUE)
   expect_match(javascript, "renderMembershipTable", fixed = TRUE)
+  expect_match(javascript, "default_eligible", fixed = TRUE)
+  expect_match(javascript, "usable_observations", fixed = TRUE)
+  expect_match(javascript, "missing_observations", fixed = TRUE)
+  expect_match(javascript, "coverage_fraction", fixed = TRUE)
+  expect_match(javascript, "panelKey(figureSelect.value", fixed = TRUE)
+  expect_match(builder, "minimum_coverage_fraction <- 0.95", fixed = TRUE)
+  expect_match(builder, 'coverage = "downloads/coverage.csv"', fixed = TRUE)
+  expect_match(rmd, "Usable / expected", fixed = TRUE)
+  expect_match(rmd, "Missing observations", fixed = TRUE)
+  expect_match(rmd, "Coverage (%)", fixed = TRUE)
+  expect_false(grepl("Figure 4|Figure 5", paste(rmd, landing)))
   expect_false(grepl("https://cdn", paste(rmd, javascript), fixed = TRUE))
 })
