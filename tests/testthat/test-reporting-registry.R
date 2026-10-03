@@ -36,8 +36,12 @@ test_that("submission output registry covers the authoritative document", {
     panels$display_label[
       panels$output_id == "figure_04" & panels$panel_id %in% c("a", "b")
     ],
-    c("Ages 40-79, EU", "Ages 40-79, US")
+    c("Ages 40-79, Europe", "Ages 40-79, US")
   )
+  public_trajectory_panels <- panels[
+    panels$output_id %in% c("figure_04", "figure_05"),
+  ]
+  expect_false(any(grepl("\\bEU\\b", public_trajectory_panels$display_label)))
   expect_true(all(
     panels$scientific_status[
       panels$output_id == "figure_04" & panels$panel_id %in% c("a", "b")

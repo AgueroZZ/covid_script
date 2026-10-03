@@ -135,7 +135,7 @@ registries:
     path: config/reporting_panels.csv
     format: csv
     expected_rows: 23
-    sha256: 80ca3e421a617a99b68e64b76240b47560e0d90529663a863f63e8cb99e79a78
+    sha256: 5494049fba109e017264f829426b8dc7b7b725861077d0bb1bbd38ff90c1d697
   - id: reporting_outputs
     path: config/reporting_outputs.csv
     format: csv
